@@ -15,7 +15,7 @@
 		3DF24FC524ACFB9C003B3187 /* RankingTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FC424ACFB9C003B3187 /* RankingTab.storyboard */; };
 		3DF24FC724ACFC13003B3187 /* RecordTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FC624ACFC13003B3187 /* RecordTab.storyboard */; };
 		3DF24FC924ACFC21003B3187 /* MyPageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FC824ACFC21003B3187 /* MyPageTab.storyboard */; };
-		3DF24FCB24AD0238003B3187 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCA24AD0238003B3187 /* Login.storyboard */; };
+		3DF24FCB24AD0238003B3187 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCA24AD0238003B3187 /* Sign.storyboard */; };
 		3DF24FCD24AD0437003B3187 /* RunningTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 		3DF24FC424ACFB9C003B3187 /* RankingTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RankingTab.storyboard; sourceTree = "<group>"; };
 		3DF24FC624ACFC13003B3187 /* RecordTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecordTab.storyboard; sourceTree = "<group>"; };
 		3DF24FC824ACFC21003B3187 /* MyPageTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageTab.storyboard; sourceTree = "<group>"; };
-		3DF24FCA24AD0238003B3187 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		3DF24FCA24AD0238003B3187 /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunningTab.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,7 +107,7 @@
 			children = (
 				3DF24FAD24ACB36D003B3187 /* LaunchScreen.storyboard */,
 				3DF24FC224ACFB29003B3187 /* OnBoarding.storyboard */,
-				3DF24FCA24AD0238003B3187 /* Login.storyboard */,
+				3DF24FCA24AD0238003B3187 /* Sign.storyboard */,
 				3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */,
 				3DF24FC424ACFB9C003B3187 /* RankingTab.storyboard */,
 				3DF24FC624ACFC13003B3187 /* RecordTab.storyboard */,
@@ -212,7 +212,7 @@
 				3DF24FAF24ACB36D003B3187 /* LaunchScreen.storyboard in Resources */,
 				3DF24FAC24ACB36D003B3187 /* Assets.xcassets in Resources */,
 				3DF24FCD24AD0437003B3187 /* RunningTab.storyboard in Resources */,
-				3DF24FCB24AD0238003B3187 /* Login.storyboard in Resources */,
+				3DF24FCB24AD0238003B3187 /* Sign.storyboard in Resources */,
 				3DF24FC724ACFC13003B3187 /* RecordTab.storyboard in Resources */,
 				3DF24FC924ACFC21003B3187 /* MyPageTab.storyboard in Resources */,
 				3DF24FC324ACFB29003B3187 /* OnBoarding.storyboard in Resources */,
