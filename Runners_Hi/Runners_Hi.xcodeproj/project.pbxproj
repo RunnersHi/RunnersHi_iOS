@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DA2EA1524B09E8A0091F12F /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1224B09E850091F12F /* NanumSquareBold.ttf */; };
+		3DA2EA1624B09E8C0091F12F /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1324B09E860091F12F /* NanumSquareExtraBold.ttf */; };
+		3DA2EA1724B09E8E0091F12F /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1124B09E850091F12F /* NanumSquareLight.ttf */; };
+		3DA2EA1824B09E900091F12F /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1424B09E860091F12F /* NanumSquareRegular.ttf */; };
 		3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA224ACB36B003B3187 /* AppDelegate.swift */; };
 		3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA424ACB36B003B3187 /* SceneDelegate.swift */; };
 		3DF24FAC24ACB36D003B3187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FAB24ACB36D003B3187 /* Assets.xcassets */; };
@@ -20,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3DA2EA1124B09E850091F12F /* NanumSquareLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareLight.ttf; sourceTree = "<group>"; };
+		3DA2EA1224B09E850091F12F /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
+		3DA2EA1324B09E860091F12F /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
+		3DA2EA1424B09E860091F12F /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
 		3DF24F9F24ACB36B003B3187 /* Runners_Hi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runners_Hi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF24FA224ACB36B003B3187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DF24FA424ACB36B003B3187 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +82,10 @@
 		3DF24FB624ACF31C003B3187 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3DA2EA1224B09E850091F12F /* NanumSquareBold.ttf */,
+				3DA2EA1324B09E860091F12F /* NanumSquareExtraBold.ttf */,
+				3DA2EA1124B09E850091F12F /* NanumSquareLight.ttf */,
+				3DA2EA1424B09E860091F12F /* NanumSquareRegular.ttf */,
 				3DF24FAB24ACB36D003B3187 /* Assets.xcassets */,
 				3DF24FBA24ACF354003B3187 /* StoryBorads */,
 			);
@@ -210,10 +222,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF24FAF24ACB36D003B3187 /* LaunchScreen.storyboard in Resources */,
+				3DA2EA1524B09E8A0091F12F /* NanumSquareBold.ttf in Resources */,
+				3DA2EA1724B09E8E0091F12F /* NanumSquareLight.ttf in Resources */,
 				3DF24FAC24ACB36D003B3187 /* Assets.xcassets in Resources */,
 				3DF24FCD24AD0437003B3187 /* RunningTab.storyboard in Resources */,
 				3DF24FCB24AD0238003B3187 /* Sign.storyboard in Resources */,
+				3DA2EA1624B09E8C0091F12F /* NanumSquareExtraBold.ttf in Resources */,
 				3DF24FC724ACFC13003B3187 /* RecordTab.storyboard in Resources */,
+				3DA2EA1824B09E900091F12F /* NanumSquareRegular.ttf in Resources */,
 				3DF24FC924ACFC21003B3187 /* MyPageTab.storyboard in Resources */,
 				3DF24FC324ACFB29003B3187 /* OnBoarding.storyboard in Resources */,
 				3DF24FC524ACFB9C003B3187 /* RankingTab.storyboard in Resources */,
