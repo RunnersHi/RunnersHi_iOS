@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hw7-Rj-K3m">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,20 +7,99 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MainVC-->
+        <!--Item-->
         <scene sceneID="CZX-4j-TPq">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K5X-9y-Lfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Hw7-Rj-K3m" customClass="MainVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fSZ-Oq-tOf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doc.text.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DM6-LQ-wCm">
+                                <rect key="frame" x="163" y="52" width="88" height="88.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DM6-LQ-wCm" secondAttribute="height" multiplier="1:1" id="BkQ-l6-Pez"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HnY-Ub-u93">
+                                <rect key="frame" x="19" y="156.5" width="376" height="733"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CMY-hH-gFg">
+                                        <rect key="frame" x="117.5" y="32" width="141.5" height="61.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상쾌한 오전," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTP-4d-059">
+                                                <rect key="frame" x="29" y="0.0" width="83" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신의 러닝상대를" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nup-4j-VZk">
+                                                <rect key="frame" x="9.5" y="20.5" width="122.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="찾아 함께 뛰어보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yO-ML-raC">
+                                                <rect key="frame" x="0.0" y="41" width="141.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="plP-Vg-dnt">
+                                        <rect key="frame" x="26.5" y="141.5" width="323" height="272"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="plP-Vg-dnt" secondAttribute="height" multiplier="293:246" id="Blt-uI-aef"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGs-Lh-mXX">
+                                        <rect key="frame" x="18.5" y="445" width="339" height="88"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="MGs-Lh-mXX" secondAttribute="height" multiplier="307:80" id="Fm1-0G-Aiz"/>
+                                        </constraints>
+                                        <state key="normal" title="Label"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="plP-Vg-dnt" firstAttribute="centerX" secondItem="HnY-Ub-u93" secondAttribute="centerX" id="21N-ih-fa2"/>
+                                    <constraint firstItem="CMY-hH-gFg" firstAttribute="centerX" secondItem="HnY-Ub-u93" secondAttribute="centerX" id="ZXo-3r-ls5"/>
+                                    <constraint firstItem="MGs-Lh-mXX" firstAttribute="centerX" secondItem="HnY-Ub-u93" secondAttribute="centerX" id="ZcU-0a-SYA"/>
+                                    <constraint firstItem="CMY-hH-gFg" firstAttribute="top" secondItem="HnY-Ub-u93" secondAttribute="top" constant="32" id="b2L-8l-ypz"/>
+                                    <constraint firstAttribute="width" secondItem="HnY-Ub-u93" secondAttribute="height" multiplier="341:664" id="oWC-Bp-zL8"/>
+                                    <constraint firstItem="plP-Vg-dnt" firstAttribute="top" secondItem="CMY-hH-gFg" secondAttribute="bottom" constant="49" id="wIB-he-lbD"/>
+                                    <constraint firstItem="MGs-Lh-mXX" firstAttribute="top" secondItem="plP-Vg-dnt" secondAttribute="bottom" constant="31" id="yIx-bg-Q28"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HnY-Ub-u93" firstAttribute="top" secondItem="DM6-LQ-wCm" secondAttribute="bottom" constant="16" id="8H4-Nk-7ck"/>
+                            <constraint firstItem="MGs-Lh-mXX" firstAttribute="width" secondItem="DA6-i9-Zps" secondAttribute="width" multiplier="307/375" id="ChS-XN-HZE"/>
+                            <constraint firstItem="plP-Vg-dnt" firstAttribute="width" secondItem="DA6-i9-Zps" secondAttribute="width" multiplier="293/375" id="Hnf-9U-hYV"/>
+                            <constraint firstItem="DM6-LQ-wCm" firstAttribute="centerX" secondItem="fSZ-Oq-tOf" secondAttribute="centerX" id="KKm-D1-2qr"/>
+                            <constraint firstItem="DM6-LQ-wCm" firstAttribute="top" secondItem="DA6-i9-Zps" secondAttribute="top" constant="8" id="Olm-UC-sgS"/>
+                            <constraint firstItem="DM6-LQ-wCm" firstAttribute="width" secondItem="DA6-i9-Zps" secondAttribute="width" multiplier="80/375" id="bim-AV-60p"/>
+                            <constraint firstItem="HnY-Ub-u93" firstAttribute="centerX" secondItem="fSZ-Oq-tOf" secondAttribute="centerX" id="hlE-ok-qIZ"/>
+                            <constraint firstItem="HnY-Ub-u93" firstAttribute="width" secondItem="DA6-i9-Zps" secondAttribute="width" multiplier="341/375" id="xMl-ma-F1t"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DA6-i9-Zps"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="square.and.arrow.down" catalog="system" id="SKt-kw-ldm"/>
+                    <connections>
+                        <outlet property="logoImg" destination="DM6-LQ-wCm" id="yNq-My-5bd"/>
+                        <outlet property="runBtn" destination="MGs-Lh-mXX" id="K0R-8k-keD"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K5X-9y-Lfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-354" y="-209"/>
+            <point key="canvasLocation" x="1465.217391304348" y="-209.59821428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="doc.text.fill" catalog="system" width="115" height="128"/>
+        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+    </resources>
 </document>
