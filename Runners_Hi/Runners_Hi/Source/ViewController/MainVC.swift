@@ -11,7 +11,11 @@ import UIKit
 class MainVC: UIViewController {
     
     @IBOutlet weak var logoImg: UIImageView!
-    @IBOutlet weak var runBtn: UIButton!
+    @IBOutlet weak var runButton: UIButton!
+    @IBAction func runButtonDidTap(_ sender: Any) {
+        //버튼 클릭시 기능 구현
+        
+    }
     
     
     override func viewDidLoad() {
@@ -22,7 +26,7 @@ class MainVC: UIViewController {
     func mainBasicLayout() {
         //logoImg.image = UIImage()
         //runBtn.backgroundColor = UIColor()
-        runBtn.setTitle("RUN NOW", for: .normal)
+        runButton.setTitle("RUN NOW", for: .normal)
     }
     
 

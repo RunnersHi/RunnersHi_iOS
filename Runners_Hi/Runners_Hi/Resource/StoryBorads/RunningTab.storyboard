@@ -60,6 +60,9 @@
                                             <constraint firstAttribute="width" secondItem="MGs-Lh-mXX" secondAttribute="height" multiplier="307:80" id="Fm1-0G-Aiz"/>
                                         </constraints>
                                         <state key="normal" title="Label"/>
+                                        <connections>
+                                            <action selector="runButtonDidTap:" destination="Hw7-Rj-K3m" eventType="touchUpInside" id="Dzb-wg-gXW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -90,7 +93,7 @@
                     <tabBarItem key="tabBarItem" title="Item" image="square.and.arrow.down" catalog="system" id="SKt-kw-ldm"/>
                     <connections>
                         <outlet property="logoImg" destination="DM6-LQ-wCm" id="yNq-My-5bd"/>
-                        <outlet property="runBtn" destination="MGs-Lh-mXX" id="K0R-8k-keD"/>
+                        <outlet property="runButton" destination="MGs-Lh-mXX" id="K0R-8k-keD"/>
                     </connections>
                 </viewController>
             </objects>
