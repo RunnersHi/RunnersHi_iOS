@@ -10,8 +10,7 @@
         <!--Item-->
         <scene sceneID="CZX-4j-TPq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K5X-9y-Lfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="MainVC" id="Hw7-Rj-K3m" customClass="MainVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hw7-Rj-K3m" customClass="MainVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fSZ-Oq-tOf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,8 +96,9 @@
                         <outlet property="secondView" destination="HnY-Ub-u93" id="jWI-wM-0qO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K5X-9y-Lfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1465.217391304348" y="-209.59821428571428"/>
+            <point key="canvasLocation" x="1659" y="-230"/>
         </scene>
     </scenes>
     <resources>

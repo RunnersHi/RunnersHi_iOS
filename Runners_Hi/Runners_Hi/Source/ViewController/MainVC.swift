@@ -9,6 +9,7 @@
 import UIKit
 
 class MainVC: UIViewController {
+    static let identifier: String = "MainVC"
     
     @IBOutlet weak var logoImg: UIImageView!
     @IBOutlet weak var secondView: UIView!

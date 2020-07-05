@@ -20,9 +20,10 @@ class TabbarVC: UITabBarController {
     func setTabBar() {
         let runningTabStoryboard = UIStoryboard.init(name: "RunningTab", bundle: nil)
         
-        guard let firstTab = runningTabStoryboard.instantiateViewController(identifier: "MainVC") as MainVC else {
+        guard let firstTab = runningTabStoryboard.instantiateViewController(identifier: "MainVC") as? MainVC else {
             return
         }
+
         
     }
 
