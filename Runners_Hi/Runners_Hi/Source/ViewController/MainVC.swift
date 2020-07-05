@@ -25,8 +25,9 @@ class MainVC: UIViewController {
     
     func mainBasicLayout() {
         //logoImg.image = UIImage()
-        //runBtn.backgroundColor = UIColor()
+        runButton.backgroundColor = UIColor.lightishBlue
         runButton.setTitle("RUN NOW", for: .normal)
+        runButton.setTitleColor(.white, for: .normal)
     }
     
 
