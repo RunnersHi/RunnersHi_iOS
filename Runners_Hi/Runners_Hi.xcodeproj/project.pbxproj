@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		3DA2EA1624B09E8C0091F12F /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1324B09E860091F12F /* NanumSquareExtraBold.ttf */; };
 		3DA2EA1724B09E8E0091F12F /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1124B09E850091F12F /* NanumSquareLight.ttf */; };
 		3DA2EA1824B09E900091F12F /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1424B09E860091F12F /* NanumSquareRegular.ttf */; };
+		3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1924B1E7FF0091F12F /* MainVC.swift */; };
 		3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA224ACB36B003B3187 /* AppDelegate.swift */; };
 		3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA424ACB36B003B3187 /* SceneDelegate.swift */; };
 		3DF24FAC24ACB36D003B3187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FAB24ACB36D003B3187 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		3DA2EA1224B09E850091F12F /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
 		3DA2EA1324B09E860091F12F /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
 		3DA2EA1424B09E860091F12F /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
+		3DA2EA1924B1E7FF0091F12F /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		3DF24F9F24ACB36B003B3187 /* Runners_Hi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runners_Hi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF24FA224ACB36B003B3187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DF24FA424ACB36B003B3187 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		3DF24FBB24ACF367003B3187 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3DA2EA1924B1E7FF0091F12F /* MainVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -176,7 +179,6 @@
 				7CB21B683D0B3C00355D85BA /* Pods-Runners_Hi.debug.xcconfig */,
 				A10E15E2F556AA99591BED3B /* Pods-Runners_Hi.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -313,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */,
+				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
