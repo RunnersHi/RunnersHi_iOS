@@ -11,6 +11,7 @@ import UIKit
 class MainVC: UIViewController {
     
     @IBOutlet weak var logoImg: UIImageView!
+    @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var runButton: UIButton!
     @IBAction func runButtonDidTap(_ sender: Any) {
         //버튼 클릭시 기능 구현
@@ -25,9 +26,14 @@ class MainVC: UIViewController {
     
     func mainBasicLayout() {
         //logoImg.image = UIImage()
+        self.view.backgroundColor = UIColor.grapefruit
+        secondView.backgroundColor = UIColor.white
+        secondView.layer.cornerRadius = 20
         runButton.backgroundColor = UIColor.lightishBlue
         runButton.setTitle("RUN NOW", for: .normal)
         runButton.setTitleColor(.white, for: .normal)
+        runButton.layer.cornerRadius = 12
+        //runButton.titleLabel?.font = UIFont(name: "GillSans-BoldItalic", size: 30)
     }
     
 

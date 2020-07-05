@@ -4,10 +4,10 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>NanumSquareRegular</string>
-		<string>NanumSquareLight</string>
-		<string>NanumSquareExtraBold</string>
-		<string>NanumSquareBold</string>
+		<string>NanumSquareRegular.ttf</string>
+		<string>NanumSquareLight.ttf</string>
+		<string>NanumSquareExtraBold.ttf</string>
+		<string>NanumSquareBold.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

@@ -59,13 +59,13 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="MGs-Lh-mXX" secondAttribute="height" multiplier="307:80" id="Fm1-0G-Aiz"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Label"/>
                                         <connections>
                                             <action selector="runButtonDidTap:" destination="Hw7-Rj-K3m" eventType="touchUpInside" id="Dzb-wg-gXW"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="plP-Vg-dnt" firstAttribute="centerX" secondItem="HnY-Ub-u93" secondAttribute="centerX" id="21N-ih-fa2"/>
                                     <constraint firstItem="CMY-hH-gFg" firstAttribute="centerX" secondItem="HnY-Ub-u93" secondAttribute="centerX" id="ZXo-3r-ls5"/>
@@ -94,6 +94,7 @@
                     <connections>
                         <outlet property="logoImg" destination="DM6-LQ-wCm" id="yNq-My-5bd"/>
                         <outlet property="runButton" destination="MGs-Lh-mXX" id="K0R-8k-keD"/>
+                        <outlet property="secondView" destination="HnY-Ub-u93" id="jWI-wM-0qO"/>
                     </connections>
                 </viewController>
             </objects>
