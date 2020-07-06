@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "iconBluemanBasichair.png",
+      "filename" : "btnBack.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "iconBluemanBasichair@2x.png",
+      "filename" : "btnBack@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "iconBluemanBasichair@3x.png",
+      "filename" : "btnBack@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
