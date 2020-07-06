@@ -25,36 +25,36 @@
                                 <rect key="frame" x="19" y="156.5" width="376" height="733"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CMY-hH-gFg">
-                                        <rect key="frame" x="117.5" y="32" width="141.5" height="61.5"/>
+                                        <rect key="frame" x="105.5" y="32" width="165" height="72"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상쾌한 오전," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTP-4d-059">
-                                                <rect key="frame" x="29" y="0.0" width="83" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="34.5" y="0.0" width="96.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신의 러닝상대를" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nup-4j-VZk">
-                                                <rect key="frame" x="9.5" y="20.5" width="122.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="11" y="24" width="143" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="찾아 함께 뛰어보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yO-ML-raC">
-                                                <rect key="frame" x="0.0" y="41" width="141.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="48" width="165" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="plP-Vg-dnt">
-                                        <rect key="frame" x="26.5" y="141.5" width="323" height="272"/>
+                                        <rect key="frame" x="45" y="139" width="286" height="241"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="plP-Vg-dnt" secondAttribute="height" multiplier="293:246" id="Blt-uI-aef"/>
+                                            <constraint firstAttribute="width" secondItem="plP-Vg-dnt" secondAttribute="height" multiplier="259:218" id="Blt-uI-aef"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGs-Lh-mXX">
-                                        <rect key="frame" x="18.5" y="445" width="339" height="88"/>
+                                        <rect key="frame" x="18.5" y="416.5" width="339" height="88.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="MGs-Lh-mXX" secondAttribute="height" multiplier="307:80" id="Fm1-0G-Aiz"/>
                                         </constraints>
@@ -71,8 +71,8 @@
                                     <constraint firstItem="MGs-Lh-mXX" firstAttribute="centerX" secondItem="HnY-Ub-u93" secondAttribute="centerX" id="ZcU-0a-SYA"/>
                                     <constraint firstItem="CMY-hH-gFg" firstAttribute="top" secondItem="HnY-Ub-u93" secondAttribute="top" constant="32" id="b2L-8l-ypz"/>
                                     <constraint firstAttribute="width" secondItem="HnY-Ub-u93" secondAttribute="height" multiplier="341:664" id="oWC-Bp-zL8"/>
-                                    <constraint firstItem="plP-Vg-dnt" firstAttribute="top" secondItem="CMY-hH-gFg" secondAttribute="bottom" constant="49" id="wIB-he-lbD"/>
-                                    <constraint firstItem="MGs-Lh-mXX" firstAttribute="top" secondItem="plP-Vg-dnt" secondAttribute="bottom" constant="31" id="yIx-bg-Q28"/>
+                                    <constraint firstItem="plP-Vg-dnt" firstAttribute="top" secondItem="CMY-hH-gFg" secondAttribute="bottom" constant="36" id="wIB-he-lbD"/>
+                                    <constraint firstItem="MGs-Lh-mXX" firstAttribute="top" secondItem="plP-Vg-dnt" secondAttribute="bottom" constant="36" id="yIx-bg-Q28"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -80,7 +80,7 @@
                         <constraints>
                             <constraint firstItem="HnY-Ub-u93" firstAttribute="top" secondItem="DM6-LQ-wCm" secondAttribute="bottom" constant="16" id="8H4-Nk-7ck"/>
                             <constraint firstItem="MGs-Lh-mXX" firstAttribute="width" secondItem="DA6-i9-Zps" secondAttribute="width" multiplier="307/375" id="ChS-XN-HZE"/>
-                            <constraint firstItem="plP-Vg-dnt" firstAttribute="width" secondItem="DA6-i9-Zps" secondAttribute="width" multiplier="293/375" id="Hnf-9U-hYV"/>
+                            <constraint firstItem="plP-Vg-dnt" firstAttribute="width" secondItem="DA6-i9-Zps" secondAttribute="width" multiplier="259/375" id="Hnf-9U-hYV"/>
                             <constraint firstItem="DM6-LQ-wCm" firstAttribute="centerX" secondItem="fSZ-Oq-tOf" secondAttribute="centerX" id="KKm-D1-2qr"/>
                             <constraint firstItem="DM6-LQ-wCm" firstAttribute="top" secondItem="DA6-i9-Zps" secondAttribute="top" constant="8" id="Olm-UC-sgS"/>
                             <constraint firstItem="DM6-LQ-wCm" firstAttribute="width" secondItem="DA6-i9-Zps" secondAttribute="width" multiplier="80/375" id="bim-AV-60p"/>
