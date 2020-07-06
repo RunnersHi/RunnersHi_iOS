@@ -24,8 +24,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HnY-Ub-u93">
                                 <rect key="frame" x="19" y="156.5" width="376" height="733"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CMY-hH-gFg">
-                                        <rect key="frame" x="105.5" y="32" width="165" height="72"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="CMY-hH-gFg">
+                                        <rect key="frame" x="105.5" y="32" width="165" height="84"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상쾌한 오전," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTP-4d-059">
                                                 <rect key="frame" x="34.5" y="0.0" width="96.5" height="24"/>
@@ -34,13 +34,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신의 러닝상대를" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nup-4j-VZk">
-                                                <rect key="frame" x="11" y="24" width="143" height="24"/>
+                                                <rect key="frame" x="11" y="30" width="143" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="찾아 함께 뛰어보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yO-ML-raC">
-                                                <rect key="frame" x="0.0" y="48" width="165" height="24"/>
+                                                <rect key="frame" x="0.0" y="60" width="165" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -48,13 +48,13 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="plP-Vg-dnt">
-                                        <rect key="frame" x="45" y="139" width="286" height="241"/>
+                                        <rect key="frame" x="45" y="151" width="286" height="241"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="plP-Vg-dnt" secondAttribute="height" multiplier="259:218" id="Blt-uI-aef"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGs-Lh-mXX">
-                                        <rect key="frame" x="18.5" y="416.5" width="339" height="88.5"/>
+                                        <rect key="frame" x="18.5" y="428.5" width="339" height="88.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="MGs-Lh-mXX" secondAttribute="height" multiplier="307:80" id="Fm1-0G-Aiz"/>
                                         </constraints>
@@ -92,13 +92,16 @@
                     <tabBarItem key="tabBarItem" title="Item" image="square.and.arrow.down" catalog="system" id="SKt-kw-ldm"/>
                     <connections>
                         <outlet property="logoImg" destination="DM6-LQ-wCm" id="yNq-My-5bd"/>
+                        <outlet property="mentLabel1" destination="aTP-4d-059" id="m0F-OM-heQ"/>
+                        <outlet property="mentLabel2" destination="nup-4j-VZk" id="30V-7a-q0R"/>
+                        <outlet property="mentLabel3" destination="2yO-ML-raC" id="Ned-RO-C3E"/>
                         <outlet property="runButton" destination="MGs-Lh-mXX" id="K0R-8k-keD"/>
                         <outlet property="secondView" destination="HnY-Ub-u93" id="jWI-wM-0qO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5X-9y-Lfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1659" y="-230"/>
+            <point key="canvasLocation" x="1957" y="-319"/>
         </scene>
     </scenes>
     <resources>
