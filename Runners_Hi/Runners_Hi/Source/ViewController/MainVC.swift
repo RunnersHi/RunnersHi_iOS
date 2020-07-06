@@ -34,7 +34,6 @@ class MainVC: UIViewController {
         runButton.setTitle("RUN NOW", for: .normal)
         runButton.setTitleColor(.white, for: .normal)
         runButton.layer.cornerRadius = 12
-        //runButton.titleLabel?.font = UIFont(name: "GillSans-BoldItalic", size: 30)
     }
     
 
