@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3BD8ECE5AC41CD44ED87794D /* Pods_Runners_Hi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */; };
+		3D34A59624B3AC9B0040E0B4 /* MainPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D34A59524B3AC9B0040E0B4 /* MainPopUpVC.swift */; };
 		3D8AD89524B32695006B5648 /* RankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89424B32695006B5648 /* RankVC.swift */; };
 		3D8AD89724B326A6006B5648 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89624B326A6006B5648 /* RecordVC.swift */; };
 		3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89824B326BD006B5648 /* MyPageVC.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runners_Hi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D34A59524B3AC9B0040E0B4 /* MainPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPopUpVC.swift; sourceTree = "<group>"; };
 		3D8AD89424B32695006B5648 /* RankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankVC.swift; sourceTree = "<group>"; };
 		3D8AD89624B326A6006B5648 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		3D8AD89824B326BD006B5648 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				3D8AD89424B32695006B5648 /* RankVC.swift */,
 				3D8AD89624B326A6006B5648 /* RecordVC.swift */,
 				3D8AD89824B326BD006B5648 /* MyPageVC.swift */,
+				3D34A59524B3AC9B0040E0B4 /* MainPopUpVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				3D8AD89524B32695006B5648 /* RankVC.swift in Sources */,
 				3DA2EA2224B24DD20091F12F /* TabbarVC.swift in Sources */,
 				3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */,
+				3D34A59624B3AC9B0040E0B4 /* MainPopUpVC.swift in Sources */,
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,
 				3DA2EA1C24B205210091F12F /* UIColor+Extension.swift in Sources */,
 			);

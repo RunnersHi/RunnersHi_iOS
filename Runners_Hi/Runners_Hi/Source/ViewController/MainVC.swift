@@ -21,6 +21,12 @@ class MainVC: UIViewController {
     
     @IBAction func runButtonDidTap(_ sender: Any) {
         //버튼 클릭시 기능 구현
+        guard let receiveViewController = self.storyboard?.instantiateViewController(identifier: "MainPopUpVC") as? MainPopUpVC else {return}
+        
+        receiveViewController.modalPresentationStyle = .overFullScreen
+        receiveViewController.modalTransitionStyle = .crossDissolve
+        present(receiveViewController, animated: true, completion: nil)
+
         
     }
     
