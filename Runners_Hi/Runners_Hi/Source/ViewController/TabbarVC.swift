@@ -23,7 +23,12 @@ class TabbarVC: UITabBarController {
         guard let firstTab = runningTabStoryboard.instantiateViewController(identifier: "MainVC") as? MainVC else {
             return
         }
-
+        firstTab.tabBarItem.image = UIImage(named: "iconHomeUnsel")?.withRenderingMode(.alwaysOriginal)
+        firstTab.tabBarItem.selectedImage = UIImage(named: "iconHomeSelect")?.withRenderingMode(.alwaysOriginal)
+        
+        let recordTabStoryboard = UIStoryboard.init(name: "RecordTab", bundle: .nil)
+        
+        guard let secondTab = recordTabStoryboard.instantiateViewController(identifier: )
         
     }
 

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3BD8ECE5AC41CD44ED87794D /* Pods_Runners_Hi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */; };
+		3D8AD89524B32695006B5648 /* RankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89424B32695006B5648 /* RankVC.swift */; };
+		3D8AD89724B326A6006B5648 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89624B326A6006B5648 /* RecordVC.swift */; };
+		3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89824B326BD006B5648 /* MyPageVC.swift */; };
 		3DA2EA1524B09E8A0091F12F /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1224B09E850091F12F /* NanumSquareBold.ttf */; };
 		3DA2EA1624B09E8C0091F12F /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1324B09E860091F12F /* NanumSquareExtraBold.ttf */; };
 		3DA2EA1724B09E8E0091F12F /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1124B09E850091F12F /* NanumSquareLight.ttf */; };
@@ -30,6 +33,9 @@
 
 /* Begin PBXFileReference section */
 		2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runners_Hi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D8AD89424B32695006B5648 /* RankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankVC.swift; sourceTree = "<group>"; };
+		3D8AD89624B326A6006B5648 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
+		3D8AD89824B326BD006B5648 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		3DA2EA1124B09E850091F12F /* NanumSquareLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareLight.ttf; sourceTree = "<group>"; };
 		3DA2EA1224B09E850091F12F /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
 		3DA2EA1324B09E860091F12F /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
@@ -149,6 +155,9 @@
 			children = (
 				3DA2EA1924B1E7FF0091F12F /* MainVC.swift */,
 				3DA2EA2124B24DD20091F12F /* TabbarVC.swift */,
+				3D8AD89424B32695006B5648 /* RankVC.swift */,
+				3D8AD89624B326A6006B5648 /* RecordVC.swift */,
+				3D8AD89824B326BD006B5648 /* MyPageVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -325,8 +334,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */,
+				3D8AD89724B326A6006B5648 /* RecordVC.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
+				3D8AD89524B32695006B5648 /* RankVC.swift in Sources */,
 				3DA2EA2224B24DD20091F12F /* TabbarVC.swift in Sources */,
+				3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */,
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,
 				3DA2EA1C24B205210091F12F /* UIColor+Extension.swift in Sources */,
 			);
