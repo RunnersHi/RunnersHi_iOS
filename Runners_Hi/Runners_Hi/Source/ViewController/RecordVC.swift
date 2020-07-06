@@ -9,6 +9,7 @@
 import UIKit
 
 class RecordVC: UIViewController {
+    static let identifier: String = "RecordVC"
 
     override func viewDidLoad() {
         super.viewDidLoad()

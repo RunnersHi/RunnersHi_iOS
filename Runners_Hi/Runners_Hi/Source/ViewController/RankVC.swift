@@ -9,6 +9,7 @@
 import UIKit
 
 class RankVC: UIViewController {
+    static let identifier: String = "RankVC"
 
     override func viewDidLoad() {
         super.viewDidLoad()

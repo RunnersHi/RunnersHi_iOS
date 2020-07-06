@@ -9,6 +9,7 @@
 import UIKit
 
 class MyPageVC: UIViewController {
+    static let identifier: String = "MyPageVC"
 
     override func viewDidLoad() {
         super.viewDidLoad()
