@@ -179,7 +179,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHw-bD-0nT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="418"/>
                                 <connections>
-                                    <action selector="ButtonDidTap:" destination="0GT-gM-v5g" eventType="touchUpInside" id="FZe-BC-MSf"/>
+                                    <action selector="backButtonDidTap:" destination="0GT-gM-v5g" eventType="touchUpInside" id="FZe-BC-MSf"/>
                                 </connections>
                             </button>
                         </subviews>

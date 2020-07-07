@@ -10,13 +10,12 @@ import UIKit
 
 class MainPopUpVC: UIViewController {
     static let identifier: String = "MainPopUpVC"
-
-    @IBAction func ButtonDidTap(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    
+    @IBAction func battleButtonDidTap(_ sender: Any) {
     }
+    
     @IBOutlet weak var battleLabel: UILabel!
     @IBOutlet weak var selfBattleLabel: UILabel!
-    
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var firstEnterImage: UIImageView!
     @IBOutlet weak var secondEnterImage: UIImageView!
