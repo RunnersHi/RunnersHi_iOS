@@ -23,7 +23,7 @@ class TabbarVC: UITabBarController {
         //첫번째탭
         let runningTabStoryboard = UIStoryboard.init(name: "RunningTab", bundle: nil)
         
-        guard let firstTab = runningTabStoryboard.instantiateViewController(identifier: "MainVC") as? MainVC else {
+        guard let firstTab = runningTabStoryboard.instantiateViewController(identifier: "MainNC") as? MainNC else {
             return
         }
         firstTab.tabBarItem.title = nil
