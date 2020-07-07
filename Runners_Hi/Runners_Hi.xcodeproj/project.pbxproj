@@ -37,9 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0683DBBC24B365890038E317 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpVC.swift; path = ../../../../../../login_practice/login_practice/SignUpVC.swift; sourceTree = "<group>"; };
-		0683DBBF24B3ACFC0038E317 /* GenderSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenderSelectCell.swift; path = ../../../../../../login_practice/login_practice/GenderSelectCell.swift; sourceTree = "<group>"; };
-		0683DBC424B3BC190038E317 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Gender.swift; path = ../../../../../../login_practice/login_practice/Gender.swift; sourceTree = "<group>"; };
+		0683DBBC24B365890038E317 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		0683DBBF24B3ACFC0038E317 /* GenderSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectCell.swift; sourceTree = "<group>"; };
+		0683DBC424B3BC190038E317 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runners_Hi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D34A59524B3AC9B0040E0B4 /* MainPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPopUpVC.swift; sourceTree = "<group>"; };
 		3D8AD89424B32695006B5648 /* RankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankVC.swift; sourceTree = "<group>"; };
