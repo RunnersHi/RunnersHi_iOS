@@ -12,7 +12,7 @@ class MainPopUpVC: UIViewController {
     static let identifier: String = "MainPopUpVC"
 
     @IBAction func ButtonDidTap(_ sender: Any) {
-        //self.presentingViewController?.dismiss(animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var battleLabel: UILabel!
     @IBOutlet weak var selfBattleLabel: UILabel!

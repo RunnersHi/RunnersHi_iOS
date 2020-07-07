@@ -25,7 +25,7 @@ class MainVC: UIViewController {
         
         receiveViewController.modalPresentationStyle = .overCurrentContext
         receiveViewController.modalTransitionStyle = .crossDissolve
-        present(receiveViewController, animated: true, completion: nil)
+        self.present(receiveViewController, animated: true, completion: nil)
 
         
     }
