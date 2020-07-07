@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>건강앱에 접근할 수 있습니다3</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>이를 허용하면 운동 기록을 동기화할 수 있습니다.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>이를 허용하면 운동 기록을 동기화할 수 있습니다.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NanumSquareRegular.ttf</string>

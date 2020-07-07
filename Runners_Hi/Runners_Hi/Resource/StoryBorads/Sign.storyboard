@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sign UpVC-->
+        <!--View Controller-->
         <scene sceneID="PpZ-8a-BIk">
             <objects>
-                <viewController restorationIdentifier="SignUpVC" storyboardIdentifier="SignUpVC" id="NVD-Bv-qU7" customClass="SignUpVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SignUpVC" storyboardIdentifier="SignUpVC" id="NVD-Bv-qU7" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ob-Io-ktd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1006"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -340,9 +340,6 @@
                         <viewLayoutGuide key="safeArea" id="VqR-zR-UwK"/>
                     </view>
                     <size key="freeformSize" width="375" height="1006"/>
-                    <connections>
-                        <outlet property="genderbuttonCollectionView" destination="aKc-2g-2ZC" id="dFf-qW-vle"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2oF-vv-xnP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -118,6 +118,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3p-Kw-GHn">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="battleButtonDidTap:" destination="0GT-gM-v5g" eventType="touchUpInside" id="iXs-Ys-QHZ"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graylineHomeactivity2" translatesAutoresizingMaskIntoConstraints="NO" id="g3k-NB-QH9">
                                         <rect key="frame" x="30" y="93" width="315" height="1"/>
@@ -179,7 +182,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHw-bD-0nT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="418"/>
                                 <connections>
-                                    <action selector="battleButtonDidTap:" destination="0GT-gM-v5g" eventType="touchUpInside" id="3cc-tK-zIo"/>
+                                    <action selector="backButtonDidTap:" destination="0GT-gM-v5g" eventType="touchUpInside" id="3cc-tK-zIo"/>
                                 </connections>
                             </button>
                         </subviews>

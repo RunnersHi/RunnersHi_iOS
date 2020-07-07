@@ -22,6 +22,8 @@
 		3DA2EA1E24B24D0D0091F12F /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1D24B24D0D0091F12F /* Tab.storyboard */; };
 		3DA2EA2224B24DD20091F12F /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2EA2124B24DD20091F12F /* TabbarVC.swift */; };
 		3DCE6FF724B476FF00D29DBC /* MainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE6FF624B476FF00D29DBC /* MainNC.swift */; };
+		3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE6FF824B4E59500D29DBC /* HealthKitSetupAssistant.swift */; };
+		3DCE6FFC24B4E61C00D29DBC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */; };
 		3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA224ACB36B003B3187 /* AppDelegate.swift */; };
 		3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA424ACB36B003B3187 /* SceneDelegate.swift */; };
 		3DF24FAC24ACB36D003B3187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FAB24ACB36D003B3187 /* Assets.xcassets */; };
@@ -35,8 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0683DBBC24B365890038E317 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
-		0683DBBF24B3ACFC0038E317 /* GenderSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectCell.swift; sourceTree = "<group>"; };
 		0683DBC424B3BC190038E317 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runners_Hi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D34A59524B3AC9B0040E0B4 /* MainPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPopUpVC.swift; sourceTree = "<group>"; };
@@ -52,6 +52,9 @@
 		3DA2EA1D24B24D0D0091F12F /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
 		3DA2EA2124B24DD20091F12F /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
 		3DCE6FF624B476FF00D29DBC /* MainNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainNC.swift; path = Runners_Hi/Source/View/MainNC.swift; sourceTree = SOURCE_ROOT; };
+		3DCE6FF824B4E59500D29DBC /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
+		3DCE6FFA24B4E61C00D29DBC /* Runners_Hi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runners_Hi.entitlements; sourceTree = "<group>"; };
+		3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		3DF24F9F24ACB36B003B3187 /* Runners_Hi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runners_Hi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF24FA224ACB36B003B3187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DF24FA424ACB36B003B3187 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BD8ECE5AC41CD44ED87794D /* Pods_Runners_Hi.framework in Frameworks */,
+				3DCE6FFC24B4E61C00D29DBC /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +105,7 @@
 		3DF24FA124ACB36B003B3187 /* Runners_Hi */ = {
 			isa = PBXGroup;
 			children = (
+				3DCE6FFA24B4E61C00D29DBC /* Runners_Hi.entitlements */,
 				3DF24FB824ACF331003B3187 /* Supporting File */,
 				3DF24FB724ACF325003B3187 /* Source */,
 				3DF24FB624ACF31C003B3187 /* Resource */,
@@ -174,6 +179,7 @@
 		3DF24FBC24ACF372003B3187 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				3DCE6FF824B4E59500D29DBC /* HealthKitSetupAssistant.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 		B3858775300EB56E36DA1FD7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */,
 				2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */,
 			);
 			name = Frameworks;
@@ -353,6 +360,7 @@
 				3DA2EA2224B24DD20091F12F /* TabbarVC.swift in Sources */,
 				3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */,
 				3D34A59624B3AC9B0040E0B4 /* MainPopUpVC.swift in Sources */,
+				3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */,
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,
 				3DA2EA1C24B205210091F12F /* UIColor+Extension.swift in Sources */,
 			);
@@ -491,6 +499,7 @@
 			baseConfigurationReference = 7CB21B683D0B3C00355D85BA /* Pods-Runners_Hi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Runners_Hi/Runners_Hi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DUQE66MABG;
 				INFOPLIST_FILE = "Runners_Hi/Supporting File/Info.plist";
@@ -510,6 +519,7 @@
 			baseConfigurationReference = A10E15E2F556AA99591BED3B /* Pods-Runners_Hi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Runners_Hi/Runners_Hi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DUQE66MABG;
 				INFOPLIST_FILE = "Runners_Hi/Supporting File/Info.plist";

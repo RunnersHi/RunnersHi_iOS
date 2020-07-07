@@ -11,10 +11,16 @@ import UIKit
 class MainPopUpVC: UIViewController {
     static let identifier: String = "MainPopUpVC"
     
-    @IBAction func battleButtonDidTap(_ sender: Any) {
+    @IBAction func backButtonDidTap(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
         
     }
+    
+    @IBAction func battleButtonDidTap(_ sender: Any) {
+        authorizeHealthKit()
+        
+    }
+    
     
     @IBOutlet weak var battleLabel: UILabel!
     @IBOutlet weak var selfBattleLabel: UILabel!
@@ -41,6 +47,27 @@ class MainPopUpVC: UIViewController {
         secondEnterImage.image = UIImage(named: "iconEnter")
         battleButton.setTitle(nil, for: .normal)
         selfBattleButton.setTitle(nil, for: .normal)
+    }
+    
+    private func authorizeHealthKit() {
+      
+      HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
+        
+        guard authorized else {
+          
+          let baseMessage = "HealthKit Authorization Failed"
+          
+          if let error = error {
+            print("\(baseMessage). Reason: \(error.localizedDescription)")
+          } else {
+            print(baseMessage)
+          }
+          
+          return
+        }
+        print("HealthKit Successfully Authorized.")
+        
+      }
     }
 
 }
