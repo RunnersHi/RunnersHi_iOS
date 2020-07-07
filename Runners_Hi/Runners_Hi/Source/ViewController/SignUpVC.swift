@@ -2,7 +2,7 @@
 //  SignUpVC.swift
 //  Runners_Hi
 //
-//  Created by 최영재 on 2020/07/06.
+//  Created by 최영재 on 2020/07/08.
 //  Copyright © 2020 김민희. All rights reserved.
 //
 
@@ -11,8 +11,8 @@ import UIKit
 class SignUpVC: UIViewController, UITextFieldDelegate {
     static let identifier: String = "SignUpVC"
 
-    @IBOutlet weak var genderbuttonCollectionView: UICollectionView!
-    
+@IBOutlet weak var genderbuttonCollectionView: UICollectionView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setGenderList()
@@ -64,5 +64,3 @@ extension SignUpVC: UICollectionViewDelegate {
     }
     
     }
-
-
