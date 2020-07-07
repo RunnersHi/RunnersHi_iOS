@@ -38,7 +38,7 @@ class MainVC: UIViewController {
     
     func mainBasicLayout() {
         //logoImg.image = UIImage()
-        self.view.backgroundColor = UIColor.grapefruit
+        self.view.backgroundColor = UIColor.salmon
         secondView.backgroundColor = UIColor.white
         secondView.layer.cornerRadius = 20
         runButton.backgroundColor = UIColor.lightishBlue
