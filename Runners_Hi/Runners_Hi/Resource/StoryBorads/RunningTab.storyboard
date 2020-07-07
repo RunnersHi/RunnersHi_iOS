@@ -186,7 +186,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VHw-bD-0nT" firstAttribute="top" secondItem="HHb-wR-qCt" secondAttribute="top" id="2NK-KP-aqF"/>
                             <constraint firstItem="VHw-bD-0nT" firstAttribute="leading" secondItem="HHb-wR-qCt" secondAttribute="leading" id="Gxu-fu-Uwq"/>
@@ -213,6 +212,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2wn-3C-jtO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3716" y="-319.79010494752629"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ecV-hq-6po">
+            <objects>
+                <viewController id="V6k-JX-VSs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="erc-Z4-uWy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="bIH-WJ-S29"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07o-3i-2Dc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4450" y="-312"/>
         </scene>
         <!--Item-->
         <scene sceneID="sG4-y0-HeB">

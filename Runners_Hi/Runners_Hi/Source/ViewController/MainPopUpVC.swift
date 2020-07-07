@@ -22,6 +22,7 @@ class MainPopUpVC: UIViewController {
     }
     
     
+    
     @IBOutlet weak var battleLabel: UILabel!
     @IBOutlet weak var selfBattleLabel: UILabel!
     @IBOutlet weak var popUpView: UIView!
@@ -65,6 +66,7 @@ class MainPopUpVC: UIViewController {
           
           return
         }
+        print("하이")
         print("HealthKit Successfully Authorized.")
         
       }
