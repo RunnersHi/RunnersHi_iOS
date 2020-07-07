@@ -23,7 +23,7 @@ class MainVC: UIViewController {
         //버튼 클릭시 기능 구현
         guard let receiveViewController = self.storyboard?.instantiateViewController(identifier: "MainPopUpVC") as? MainPopUpVC else {return}
         
-        receiveViewController.modalPresentationStyle = .overFullScreen
+        receiveViewController.modalPresentationStyle = .overCurrentContext
         receiveViewController.modalTransitionStyle = .crossDissolve
         present(receiveViewController, animated: true, completion: nil)
 
