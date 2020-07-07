@@ -12,6 +12,8 @@ class MainPopUpVC: UIViewController {
     static let identifier: String = "MainPopUpVC"
     
     @IBAction func battleButtonDidTap(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBOutlet weak var battleLabel: UILabel!
