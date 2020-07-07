@@ -49,6 +49,10 @@ class MainVC: UIViewController {
         mentLabel2.font = UIFont(name: "NanumSquareB", size: 20)
         mentLabel3.font = UIFont(name: "NanumSquareB", size: 20)
         runButton.titleLabel?.font = UIFont(name: "AvenirNext-BoldItalic", size: 30)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
 
