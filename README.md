@@ -60,6 +60,7 @@
 |닉네임 중복검사 |  | 서버 통신을 통해 구현 목표|
 |조건버튼 중복선택X |  |CollectionView 통해 isSelected 사용 예정|
 |자동로그인| ||
+<img width="361" alt="영재" src="https://user-images.githubusercontent.com/51286963/86928997-479a1680-c170-11ea-8c8f-28fb271ca8af.png">
 
 #### Running Tab - 홈화면
 > 담당 김민희 <br>
