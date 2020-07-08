@@ -26,6 +26,8 @@
 		3DCE6FF724B476FF00D29DBC /* MainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE6FF624B476FF00D29DBC /* MainNC.swift */; };
 		3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE6FF824B4E59500D29DBC /* HealthKitSetupAssistant.swift */; };
 		3DCE6FFC24B4E61C00D29DBC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */; };
+		3DEED91024B57D82002D31A9 /* PopUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEED90F24B57D82002D31A9 /* PopUpCell.swift */; };
+		3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEED91124B57E00002D31A9 /* BattleInformation.swift */; };
 		3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA224ACB36B003B3187 /* AppDelegate.swift */; };
 		3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA424ACB36B003B3187 /* SceneDelegate.swift */; };
 		3DF24FAC24ACB36D003B3187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FAB24ACB36D003B3187 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		3DCE6FF824B4E59500D29DBC /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
 		3DCE6FFA24B4E61C00D29DBC /* Runners_Hi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runners_Hi.entitlements; sourceTree = "<group>"; };
 		3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		3DEED90F24B57D82002D31A9 /* PopUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCell.swift; sourceTree = "<group>"; };
+		3DEED91124B57E00002D31A9 /* BattleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleInformation.swift; sourceTree = "<group>"; };
 		3DF24F9F24ACB36B003B3187 /* Runners_Hi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runners_Hi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF24FA224ACB36B003B3187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DF24FA424ACB36B003B3187 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				06F40ABA24B4FF89001E04FB /* GenderSelectCell.swift */,
+				3DEED90F24B57D82002D31A9 /* PopUpCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				0683DBC424B3BC190038E317 /* Gender.swift */,
+				3DEED91124B57E00002D31A9 /* BattleInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				0683DBC524B3BC190038E317 /* Gender.swift in Sources */,
 				3D8AD89724B326A6006B5648 /* RecordVC.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
+				3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */,
 				3DCE6FF724B476FF00D29DBC /* MainNC.swift in Sources */,
 				3D8AD89524B32695006B5648 /* RankVC.swift in Sources */,
 				3DA2EA2224B24DD20091F12F /* TabbarVC.swift in Sources */,
@@ -378,6 +385,7 @@
 				06F40ABB24B4FF89001E04FB /* GenderSelectCell.swift in Sources */,
 				06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */,
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,
+				3DEED91024B57D82002D31A9 /* PopUpCell.swift in Sources */,
 				3DA2EA1C24B205210091F12F /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
