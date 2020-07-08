@@ -62,12 +62,14 @@ class MainVC: UIViewController {
         mentLabel3.font = UIFont(name: "NanumSquareB", size: 20)
         runButton.titleLabel?.font = UIFont(name: "AvenirNext-BoldItalic", size: 30)
         popUpTableView.layer.cornerRadius = 20
+        //self.tabBarController?.tabBar.isHidden = false
         
+        //self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
        //구분선 제거
-        // popUpTableView.separatorStyle = .none
+        //popUpTableView.separatorStyle = .none
         popUpTableView.isHidden = true
     }
     private func authorizeHealthKit() {
@@ -86,7 +88,6 @@ class MainVC: UIViewController {
           
           return
         }
-        print("하이")
         print("HealthKit Successfully Authorized.")
         
       }
@@ -120,6 +121,9 @@ extension MainVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath == [0,0] {
             authorizeHealthKit()
+            guard let PopUpPush = self.storyboard?.instantiateViewController(identifier:"MatchingGoalVC") as? MatchingGoalVC else {return}
+            PopUpPush.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(PopUpPush, animated: true)
         } else {
             authorizeHealthKit()
         }
