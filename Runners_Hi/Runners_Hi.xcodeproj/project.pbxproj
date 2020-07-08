@@ -28,6 +28,7 @@
 		3DCE6FFC24B4E61C00D29DBC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */; };
 		3DEED91024B57D82002D31A9 /* PopUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEED90F24B57D82002D31A9 /* PopUpCell.swift */; };
 		3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEED91124B57E00002D31A9 /* BattleInformation.swift */; };
+		3DEED91424B5AD20002D31A9 /* MatchingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEED91324B5AD20002D31A9 /* MatchingGoalVC.swift */; };
 		3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA224ACB36B003B3187 /* AppDelegate.swift */; };
 		3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA424ACB36B003B3187 /* SceneDelegate.swift */; };
 		3DF24FAC24ACB36D003B3187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FAB24ACB36D003B3187 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		3DEED90F24B57D82002D31A9 /* PopUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCell.swift; sourceTree = "<group>"; };
 		3DEED91124B57E00002D31A9 /* BattleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleInformation.swift; sourceTree = "<group>"; };
+		3DEED91324B5AD20002D31A9 /* MatchingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingGoalVC.swift; sourceTree = "<group>"; };
 		3DF24F9F24ACB36B003B3187 /* Runners_Hi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runners_Hi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF24FA224ACB36B003B3187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DF24FA424ACB36B003B3187 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				3D8AD89824B326BD006B5648 /* MyPageVC.swift */,
 				3D34A59524B3AC9B0040E0B4 /* MainPopUpVC.swift */,
 				06F40AB724B4FF13001E04FB /* SignUpVC.swift */,
+				3DEED91324B5AD20002D31A9 /* MatchingGoalVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				3DA2EA2224B24DD20091F12F /* TabbarVC.swift in Sources */,
 				3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */,
 				3D34A59624B3AC9B0040E0B4 /* MainPopUpVC.swift in Sources */,
+				3DEED91424B5AD20002D31A9 /* MatchingGoalVC.swift in Sources */,
 				3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */,
 				06F40ABB24B4FF89001E04FB /* GenderSelectCell.swift in Sources */,
 				06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */,

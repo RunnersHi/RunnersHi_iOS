@@ -62,6 +62,27 @@ class MainVC: UIViewController {
         // popUpTableView.separatorStyle = .none
         popUpTableView.isHidden = true
     }
+    private func authorizeHealthKit() {
+      
+      HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
+        
+        guard authorized else {
+          
+          let baseMessage = "HealthKit Authorization Failed"
+          
+          if let error = error {
+            print("\(baseMessage). Reason: \(error.localizedDescription)")
+          } else {
+            print(baseMessage)
+          }
+          
+          return
+        }
+        print("하이")
+        print("HealthKit Successfully Authorized.")
+        
+      }
+    }
     
 
 }
@@ -84,6 +105,13 @@ extension MainVC: UITableViewDataSource {
 extension MainVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath == [0,0] {
+            authorizeHealthKit()
+        } else {
+            authorizeHealthKit()
+        }
     }
     
 }
