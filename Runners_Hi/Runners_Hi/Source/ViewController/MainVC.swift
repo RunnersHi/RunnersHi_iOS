@@ -10,6 +10,7 @@ import UIKit
 
 class MainVC: UIViewController {
     static let identifier: String = "MainVC"
+    let blackView = UIView()
     
     
     @IBOutlet weak var popUpTableView: UITableView!
@@ -20,10 +21,17 @@ class MainVC: UIViewController {
     @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var runButton: UIButton!
     
-    @IBAction func runButtonDidTap(_ sender: Any) {        popUpTableView.isHidden = false
+    @IBAction func runButtonDidTap(_ sender: Any) {
+       // view.addSubview(blackView)
+        //blackView.backgroundColor = UIColor(red: 0 / 255.0, green: 0 / 255.0, blue: 0 / 255.0, alpha: 1.0)
+        //blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
+        popUpTableView.isHidden = false
+        }
         
         
-    }
+        
+    
+    
     private var battleInformation: [BattleInformation] = []
     
     override func viewDidLoad() {
@@ -82,6 +90,9 @@ class MainVC: UIViewController {
         print("HealthKit Successfully Authorized.")
         
       }
+    }
+    @objc func handleDismiss() {
+        popUpTableView.isHidden = true
     }
     
 

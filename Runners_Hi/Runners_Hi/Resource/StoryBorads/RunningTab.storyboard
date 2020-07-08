@@ -206,6 +206,7 @@
                     </view>
                     <connections>
                         <outlet property="goalCollectionView" destination="zPA-Wa-x6H" id="i9y-qM-i34"/>
+                        <outlet property="questionLabel" destination="zWI-Bp-TN2" id="Alm-m6-WIV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJa-fd-vVM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
