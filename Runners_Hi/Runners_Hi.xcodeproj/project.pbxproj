@@ -10,6 +10,10 @@
 		0683DBC524B3BC190038E317 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683DBC424B3BC190038E317 /* Gender.swift */; };
 		06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AB724B4FF13001E04FB /* SignUpVC.swift */; };
 		06F40ABB24B4FF89001E04FB /* GenderSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40ABA24B4FF89001E04FB /* GenderSelectCell.swift */; };
+		06F40ABF24B5F785001E04FB /* LevelSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40ABE24B5F785001E04FB /* LevelSelectCell.swift */; };
+		06F40AC124B5F7CF001E04FB /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AC024B5F7CF001E04FB /* Level.swift */; };
+		06F40AC324B6353E001E04FB /* OpenSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AC224B6353E001E04FB /* OpenSelectCell.swift */; };
+		06F40AC524B636A8001E04FB /* Open.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AC424B636A8001E04FB /* Open.swift */; };
 		3BD8ECE5AC41CD44ED87794D /* Pods_Runners_Hi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */; };
 		3D34A59624B3AC9B0040E0B4 /* MainPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D34A59524B3AC9B0040E0B4 /* MainPopUpVC.swift */; };
 		3D8AD89524B32695006B5648 /* RankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89424B32695006B5648 /* RankVC.swift */; };
@@ -42,6 +46,10 @@
 		0683DBC424B3BC190038E317 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		06F40AB724B4FF13001E04FB /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		06F40ABA24B4FF89001E04FB /* GenderSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectCell.swift; sourceTree = "<group>"; };
+		06F40ABE24B5F785001E04FB /* LevelSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectCell.swift; sourceTree = "<group>"; };
+		06F40AC024B5F7CF001E04FB /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		06F40AC224B6353E001E04FB /* OpenSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSelectCell.swift; sourceTree = "<group>"; };
+		06F40AC424B636A8001E04FB /* Open.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Open.swift; sourceTree = "<group>"; };
 		2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runners_Hi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D34A59524B3AC9B0040E0B4 /* MainPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPopUpVC.swift; sourceTree = "<group>"; };
 		3D8AD89424B32695006B5648 /* RankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankVC.swift; sourceTree = "<group>"; };
@@ -92,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				06F40ABA24B4FF89001E04FB /* GenderSelectCell.swift */,
+				06F40ABE24B5F785001E04FB /* LevelSelectCell.swift */,
+				06F40AC224B6353E001E04FB /* OpenSelectCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -202,6 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				0683DBC424B3BC190038E317 /* Gender.swift */,
+				06F40AC024B5F7CF001E04FB /* Level.swift */,
+				06F40AC424B636A8001E04FB /* Open.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -370,14 +382,18 @@
 				3D8AD89724B326A6006B5648 /* RecordVC.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
 				3DCE6FF724B476FF00D29DBC /* MainNC.swift in Sources */,
+				06F40AC524B636A8001E04FB /* Open.swift in Sources */,
 				3D8AD89524B32695006B5648 /* RankVC.swift in Sources */,
+				06F40ABF24B5F785001E04FB /* LevelSelectCell.swift in Sources */,
 				3DA2EA2224B24DD20091F12F /* TabbarVC.swift in Sources */,
 				3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */,
 				3D34A59624B3AC9B0040E0B4 /* MainPopUpVC.swift in Sources */,
+				06F40AC324B6353E001E04FB /* OpenSelectCell.swift in Sources */,
 				3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */,
 				06F40ABB24B4FF89001E04FB /* GenderSelectCell.swift in Sources */,
 				06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */,
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,
+				06F40AC124B5F7CF001E04FB /* Level.swift in Sources */,
 				3DA2EA1C24B205210091F12F /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

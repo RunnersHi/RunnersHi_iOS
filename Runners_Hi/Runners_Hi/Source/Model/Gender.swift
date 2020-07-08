@@ -9,9 +9,9 @@
 import Foundation
 
 struct Gender{
-    var buttonName: String?
+    var genderbuttonName: String?
     
-    init(buttonName: String){
-        self.buttonName = buttonName
+    init(genderbuttonName: String){
+        self.genderbuttonName = genderbuttonName
     }
 }

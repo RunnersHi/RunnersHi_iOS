@@ -13,7 +13,7 @@ class GenderSelectCell: UICollectionViewCell {
     static let identifier : String = "GenderSelectCell"
 @IBOutlet weak var genderButton: UIButton!
     
-    func set(_ buttonName : Gender){
-        genderButton.setTitle(buttonName.buttonName, for: .normal)
+    func set(_ genderbuttonName : Gender){
+        genderButton.setTitle(genderbuttonName.genderbuttonName, for: .normal)
     }
 }
