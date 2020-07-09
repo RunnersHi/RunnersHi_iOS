@@ -22,6 +22,7 @@
 		3DA2EA1C24B205210091F12F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1B24B205210091F12F /* UIColor+Extension.swift */; };
 		3DA2EA1E24B24D0D0091F12F /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1D24B24D0D0091F12F /* Tab.storyboard */; };
 		3DA2EA2224B24DD20091F12F /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2EA2124B24DD20091F12F /* TabbarVC.swift */; };
+		3DCAF89D24B6F0BD009B3AE5 /* MatchingGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAF89C24B6F0BD009B3AE5 /* MatchingGenderVC.swift */; };
 		3DCDF01724B5FE13003F47CE /* MatchingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCDF01624B5FE13003F47CE /* MatchingGoalVC.swift */; };
 		3DCDF01924B607BF003F47CE /* GoalInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCDF01824B607BF003F47CE /* GoalInformation.swift */; };
 		3DCDF01B24B60A0B003F47CE /* GoalSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCDF01A24B60A0B003F47CE /* GoalSelectCell.swift */; };
@@ -58,6 +59,7 @@
 		3DA2EA1B24B205210091F12F /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3DA2EA1D24B24D0D0091F12F /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
 		3DA2EA2124B24DD20091F12F /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
+		3DCAF89C24B6F0BD009B3AE5 /* MatchingGenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingGenderVC.swift; sourceTree = "<group>"; };
 		3DCDF01624B5FE13003F47CE /* MatchingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingGoalVC.swift; sourceTree = "<group>"; };
 		3DCDF01824B607BF003F47CE /* GoalInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalInformation.swift; sourceTree = "<group>"; };
 		3DCDF01A24B60A0B003F47CE /* GoalSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSelectCell.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				3D8AD89824B326BD006B5648 /* MyPageVC.swift */,
 				06F40AB724B4FF13001E04FB /* SignUpVC.swift */,
 				3DCDF01624B5FE13003F47CE /* MatchingGoalVC.swift */,
+				3DCAF89C24B6F0BD009B3AE5 /* MatchingGenderVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */,
 				3DCDF01724B5FE13003F47CE /* MatchingGoalVC.swift in Sources */,
 				3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */,
+				3DCAF89D24B6F0BD009B3AE5 /* MatchingGenderVC.swift in Sources */,
 				06F40ABB24B4FF89001E04FB /* GenderSelectCell.swift in Sources */,
 				06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */,
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,

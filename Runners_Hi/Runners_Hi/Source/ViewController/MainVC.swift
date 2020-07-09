@@ -38,7 +38,7 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         popUpTableView.delegate = self
         popUpTableView.dataSource = self
-        mainBasicLayout()
+        basicAutoLayout()
         setbattleInformation()
     }
     private func setbattleInformation() {
@@ -48,7 +48,7 @@ class MainVC: UIViewController {
         battleInformation = [date1,date2]
     }
     
-    func mainBasicLayout() {
+    private func basicAutoLayout() {
         //logoImg.image = UIImage()
         self.view.backgroundColor = UIColor.salmon
         secondView.backgroundColor = UIColor.white
