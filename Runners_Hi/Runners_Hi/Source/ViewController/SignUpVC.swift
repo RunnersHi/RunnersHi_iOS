@@ -58,7 +58,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
     private var levelList : [Level] = []
     private var openList : [Open] = []
     
-    func setButtonList(){
+    func setButtonList() {
         let Gender1 = Gender(genderbuttonName: "남성")
         let Gender2 = Gender(genderbuttonName: "여성")
         
@@ -116,18 +116,23 @@ extension SignUpVC: UICollectionViewDelegateFlowLayout {
          
          //        return CGSize(width: 152, height: 48)
          */
-        if collectionView == genderbuttonCollectionView{
-            return CGSize(width: 152, height: 48)}
-        else if collectionView == levelbuttonCollectionView{
-            return CGSize(width : 97, height:48)}
-        else {return CGSize(width: 152, height: 48)}
+        if collectionView == genderbuttonCollectionView {
+            return CGSize(width: 152, height: 48)
+        }
+        else if collectionView == levelbuttonCollectionView {
+            return CGSize(width : 97, height:48)
+        }
+        else {
+            return CGSize(width: 152, height: 48)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        if collectionView == genderbuttonCollectionView{
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)}
-        else if collectionView == levelbuttonCollectionView{
+        if collectionView == genderbuttonCollectionView {
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
+        else if collectionView == levelbuttonCollectionView {
             return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         }
         else {
@@ -137,9 +142,10 @@ extension SignUpVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat{
         
-        if collectionView == genderbuttonCollectionView{
-            return 11}
-        else if collectionView == levelbuttonCollectionView{
+        if collectionView == genderbuttonCollectionView {
+            return 11
+        }
+        else if collectionView == levelbuttonCollectionView {
             return 12
         }
         else {
@@ -149,20 +155,22 @@ extension SignUpVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat{
         
-        if collectionView == genderbuttonCollectionView{
-            return 0}
-        else if collectionView == levelbuttonCollectionView{
+        if collectionView == genderbuttonCollectionView {
+            return 0
+        }
+        else if collectionView == levelbuttonCollectionView {
             return 0
         }
         else {
-            return 0}
+            return 0
+        }
     }
     
     
 }
 
 extension SignUpVC {
-    private func setLabel(){
+    private func setLabel() {
         self.idLabel.text = "아이디"
         idLabel.font = UIFont(name:"NanumSquareR", size:14.0)
         
@@ -183,7 +191,7 @@ extension SignUpVC {
         
         self.levelDetailLabel.text = "러닝레벨이 무엇인가요?"
         levelDetailLabel.font = UIFont(name:"NanumSquareR", size:12.0)
-        levelDetailLabel.textColor = UIColor(red:130/255, green:130/255, blue:130/255, alpha: 1.0)
+        levelDetailLabel.textColor = UIColor.brownGrey
         
         let levelDetailLabelStyle = NSMutableAttributedString(string: levelDetailLabel.text!)
         
@@ -198,7 +206,7 @@ extension SignUpVC {
         
         self.openDetailLabel.text = "‘공개’를 선택해야 러너 랭킹 산정에 포함될 수 있어요."
         openDetailLabel.font = UIFont(name:"NanumSquareR", size:12.0)
-        openDetailLabel.textColor = UIColor(red:130/255, green:130/255, blue:130/255, alpha: 1.0)
+        openDetailLabel.textColor = UIColor.brownGrey
         //label에 있는 Text를 NSMutableAttributedString으로 만들어준다.
         let openDetailLabelStyle = NSMutableAttributedString(string: openDetailLabel.text!)
         
@@ -207,23 +215,23 @@ extension SignUpVC {
         openDetailLabel.attributedText = openDetailLabelStyle
     }
     
-    private func setbutton(){
+    private func setbutton() {
         idCheckButton.setTitle("중복확인", for: .normal)
         self.idCheckButton.layer.cornerRadius = 8
-        self.idCheckButton.backgroundColor = UIColor(red:56/255, green:104/255 ,blue:255/255, alpha:1.0)
+        self.idCheckButton.backgroundColor = UIColor.lightishBlue
         idCheckButton.setTitleColor(.white, for: .normal)
         idCheckButton.titleLabel?.font = UIFont(name: "NanumSquareB", size:12)
         
         
         nickCheckButton.setTitle("중복확인", for: .normal)
         self.nickCheckButton.layer.cornerRadius = 8
-        self.nickCheckButton.backgroundColor = UIColor(red:56/255, green:104/255 ,blue:255/255, alpha:1.0)
+        self.nickCheckButton.backgroundColor = UIColor.lightishBlue
         nickCheckButton.setTitleColor(.white, for: .normal)
         nickCheckButton.titleLabel?.font = UIFont(name: "NanumSquareB", size:12)
         
         signUpButton.setTitle("가입하기", for: .normal)
         self.signUpButton.layer.cornerRadius = 8
-        self.signUpButton.backgroundColor = UIColor(red:56/255, green:104/255 ,blue:255/255, alpha:1.0)
+        self.signUpButton.backgroundColor = UIColor.lightishBlue
         signUpButton.setTitleColor(.white, for: .normal)
         signUpButton.titleLabel?.font = UIFont(name: "NanumSquareB", size:16)
         

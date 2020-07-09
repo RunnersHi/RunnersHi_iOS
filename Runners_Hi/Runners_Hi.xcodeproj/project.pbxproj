@@ -25,13 +25,13 @@
 		3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1924B1E7FF0091F12F /* MainVC.swift */; };
 		3DA2EA1C24B205210091F12F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1B24B205210091F12F /* UIColor+Extension.swift */; };
 		3DA2EA1E24B24D0D0091F12F /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1D24B24D0D0091F12F /* Tab.storyboard */; };
-		3DA2EA2224B24DD20091F12F /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2EA2124B24DD20091F12F /* TabbarVC.swift */; };
+		3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2EA2124B24DD20091F12F /* TabBarController.swift */; };
 		3DCAF89D24B6F0BD009B3AE5 /* MatchingGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAF89C24B6F0BD009B3AE5 /* MatchingGenderVC.swift */; };
 		3DCAF89F24B7065D009B3AE5 /* BattleGenderSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAF89E24B7065D009B3AE5 /* BattleGenderSelectCell.swift */; };
 		3DCDF01724B5FE13003F47CE /* MatchingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCDF01624B5FE13003F47CE /* MatchingGoalVC.swift */; };
 		3DCDF01924B607BF003F47CE /* GoalInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCDF01824B607BF003F47CE /* GoalInformation.swift */; };
 		3DCDF01B24B60A0B003F47CE /* BattleGoalSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCDF01A24B60A0B003F47CE /* BattleGoalSelectCell.swift */; };
-		3DCE6FF724B476FF00D29DBC /* MainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE6FF624B476FF00D29DBC /* MainNC.swift */; };
+		3DCE6FF724B476FF00D29DBC /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE6FF624B476FF00D29DBC /* MainNavigationController.swift */; };
 		3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE6FF824B4E59500D29DBC /* HealthKitSetupAssistant.swift */; };
 		3DCE6FFC24B4E61C00D29DBC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */; };
 		3DEED91024B57D82002D31A9 /* PopUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEED90F24B57D82002D31A9 /* PopUpCell.swift */; };
@@ -67,13 +67,13 @@
 		3DA2EA1924B1E7FF0091F12F /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		3DA2EA1B24B205210091F12F /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3DA2EA1D24B24D0D0091F12F /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
-		3DA2EA2124B24DD20091F12F /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
+		3DA2EA2124B24DD20091F12F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3DCAF89C24B6F0BD009B3AE5 /* MatchingGenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingGenderVC.swift; sourceTree = "<group>"; };
 		3DCAF89E24B7065D009B3AE5 /* BattleGenderSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleGenderSelectCell.swift; sourceTree = "<group>"; };
 		3DCDF01624B5FE13003F47CE /* MatchingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingGoalVC.swift; sourceTree = "<group>"; };
 		3DCDF01824B607BF003F47CE /* GoalInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalInformation.swift; sourceTree = "<group>"; };
 		3DCDF01A24B60A0B003F47CE /* BattleGoalSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleGoalSelectCell.swift; sourceTree = "<group>"; };
-		3DCE6FF624B476FF00D29DBC /* MainNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainNC.swift; path = Runners_Hi/Source/View/MainNC.swift; sourceTree = SOURCE_ROOT; };
+		3DCE6FF624B476FF00D29DBC /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainNavigationController.swift; path = Runners_Hi/Source/View/MainNavigationController.swift; sourceTree = SOURCE_ROOT; };
 		3DCE6FF824B4E59500D29DBC /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
 		3DCE6FFA24B4E61C00D29DBC /* Runners_Hi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runners_Hi.entitlements; sourceTree = "<group>"; };
 		3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -205,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				3DA2EA1924B1E7FF0091F12F /* MainVC.swift */,
-				3DA2EA2124B24DD20091F12F /* TabbarVC.swift */,
 				3D8AD89424B32695006B5648 /* RankVC.swift */,
 				3D8AD89624B326A6006B5648 /* RecordVC.swift */,
 				3D8AD89824B326BD006B5648 /* MyPageVC.swift */,
@@ -247,7 +246,8 @@
 		3DF24FC024ACF477003B3187 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3DCE6FF624B476FF00D29DBC /* MainNC.swift */,
+				3DCE6FF624B476FF00D29DBC /* MainNavigationController.swift */,
+				3DA2EA2124B24DD20091F12F /* TabBarController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -402,14 +402,13 @@
 				3DCDF01B24B60A0B003F47CE /* BattleGoalSelectCell.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
 				3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */,
-				3DCE6FF724B476FF00D29DBC /* MainNC.swift in Sources */,
+				3DCE6FF724B476FF00D29DBC /* MainNavigationController.swift in Sources */,
 				06F40AC524B636A8001E04FB /* Open.swift in Sources */,
 				3DCAF89F24B7065D009B3AE5 /* BattleGenderSelectCell.swift in Sources */,
 				3D8AD89524B32695006B5648 /* RankVC.swift in Sources */,
 				06F40ABF24B5F785001E04FB /* LevelSelectCell.swift in Sources */,
-				3DA2EA2224B24DD20091F12F /* TabbarVC.swift in Sources */,
+				3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */,
 				3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */,
-				3D34A59624B3AC9B0040E0B4 /* MainPopUpVC.swift in Sources */,
 				06F40AC324B6353E001E04FB /* OpenSelectCell.swift in Sources */,
 				3DCDF01724B5FE13003F47CE /* MatchingGoalVC.swift in Sources */,
 				3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */,

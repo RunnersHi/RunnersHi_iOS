@@ -328,7 +328,7 @@
         <!--Item-->
         <scene sceneID="sG4-y0-HeB">
             <objects>
-                <navigationController restorationIdentifier="MainNC" storyboardIdentifier="MainNC" automaticallyAdjustsScrollViewInsets="NO" id="IVq-Fp-6iv" customClass="MainNC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="MainNC" storyboardIdentifier="MainNC" automaticallyAdjustsScrollViewInsets="NO" id="IVq-Fp-6iv" customClass="MainNavigationController" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="square.and.arrow.down" catalog="system" id="SKt-kw-ldm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Iwd-t5-Dj6">

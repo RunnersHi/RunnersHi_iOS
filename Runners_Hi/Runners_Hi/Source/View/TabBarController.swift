@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabbarVC: UITabBarController {
+class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class TabbarVC: UITabBarController {
         //첫번째탭
         let runningTabStoryboard = UIStoryboard.init(name: "RunningTab", bundle: nil)
         
-        guard let firstTab = runningTabStoryboard.instantiateViewController(identifier: "MainNC") as? MainNC else {
+        guard let firstTab = runningTabStoryboard.instantiateViewController(identifier: "MainNC") as? MainNavigationController else {
             return
         }
         firstTab.tabBarItem.title = nil

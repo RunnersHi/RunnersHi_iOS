@@ -15,7 +15,7 @@ class OpenSelectCell: UICollectionViewCell {
     func set(_ openbuttonName : Open){
         openButton.setTitle(openbuttonName.openbuttonName, for : .normal)
         self.openButton.layer.cornerRadius = 8
-        self.openButton.backgroundColor = UIColor(red:101/255, green:101/255 ,blue:101/255, alpha:1.0)
+        self.openButton.backgroundColor = UIColor.brownishGrey
         openButton.setTitleColor(.white, for: .normal)
         openButton.titleLabel?.font = UIFont(name: "NanumSquareB", size:14)
         
