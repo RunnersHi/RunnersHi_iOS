@@ -30,6 +30,7 @@ class BattleGoalSelectCell: UICollectionViewCell {
         goalLabel.font = UIFont(name: "NanumSquare", size: 16)
         goalLabel.backgroundColor = UIColor.unselectedbuttongray
         //goalLabel.layer.borderWidth = 3
-        goalLabel.layer.cornerRadius = 40
+        goalLabel.layer.cornerRadius = 8
+        goalLabel.layer.masksToBounds = true
     }
 }
