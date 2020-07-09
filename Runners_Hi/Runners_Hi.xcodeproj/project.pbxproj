@@ -28,6 +28,7 @@
 		3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2EA2124B24DD20091F12F /* TabBarController.swift */; };
 		3DCAF89D24B6F0BD009B3AE5 /* MatchingGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAF89C24B6F0BD009B3AE5 /* MatchingGenderVC.swift */; };
 		3DCAF89F24B7065D009B3AE5 /* BattleGenderSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAF89E24B7065D009B3AE5 /* BattleGenderSelectCell.swift */; };
+		3DCAF8A124B79A33009B3AE5 /* FindRunnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAF8A024B79A33009B3AE5 /* FindRunnerVC.swift */; };
 		3DCDF01724B5FE13003F47CE /* MatchingGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCDF01624B5FE13003F47CE /* MatchingGoalVC.swift */; };
 		3DCDF01924B607BF003F47CE /* GoalInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCDF01824B607BF003F47CE /* GoalInformation.swift */; };
 		3DCDF01B24B60A0B003F47CE /* BattleGoalSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCDF01A24B60A0B003F47CE /* BattleGoalSelectCell.swift */; };
@@ -70,6 +71,7 @@
 		3DA2EA2124B24DD20091F12F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3DCAF89C24B6F0BD009B3AE5 /* MatchingGenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingGenderVC.swift; sourceTree = "<group>"; };
 		3DCAF89E24B7065D009B3AE5 /* BattleGenderSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleGenderSelectCell.swift; sourceTree = "<group>"; };
+		3DCAF8A024B79A33009B3AE5 /* FindRunnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindRunnerVC.swift; sourceTree = "<group>"; };
 		3DCDF01624B5FE13003F47CE /* MatchingGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingGoalVC.swift; sourceTree = "<group>"; };
 		3DCDF01824B607BF003F47CE /* GoalInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalInformation.swift; sourceTree = "<group>"; };
 		3DCDF01A24B60A0B003F47CE /* BattleGoalSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleGoalSelectCell.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				06F40AB724B4FF13001E04FB /* SignUpVC.swift */,
 				3DCDF01624B5FE13003F47CE /* MatchingGoalVC.swift */,
 				3DCAF89C24B6F0BD009B3AE5 /* MatchingGenderVC.swift */,
+				3DCAF8A024B79A33009B3AE5 /* FindRunnerVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */,
 				0683DBC524B3BC190038E317 /* Gender.swift in Sources */,
 				3DCDF01924B607BF003F47CE /* GoalInformation.swift in Sources */,
+				3DCAF8A124B79A33009B3AE5 /* FindRunnerVC.swift in Sources */,
 				3D8AD89724B326A6006B5648 /* RecordVC.swift in Sources */,
 				3DCDF01B24B60A0B003F47CE /* BattleGoalSelectCell.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,

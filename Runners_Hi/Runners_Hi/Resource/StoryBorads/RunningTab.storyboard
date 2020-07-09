@@ -301,6 +301,9 @@
                                     <constraint firstAttribute="width" constant="275" id="pCM-2F-TQB"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="startButtonDidTap:" destination="rPP-SN-GLO" eventType="touchUpInside" id="0Og-4h-QUg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -324,6 +327,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xa-7H-WNP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4613.6000000000004" y="-341.37931034482762"/>
+        </scene>
+        <!--Find RunnerVC-->
+        <scene sceneID="7oc-fr-ZtR">
+            <objects>
+                <viewController storyboardIdentifier="FindRunnerVC" id="qXV-6e-7a5" customClass="FindRunnerVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZgD-vz-g07">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OXX-0X-srh">
+                                <rect key="frame" x="141.5" y="158" width="92" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OXX-0X-srh" secondAttribute="height" multiplier="1:1" id="u93-wE-Wro"/>
+                                </constraints>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZIj-Ph-tw9">
+                                <rect key="frame" x="74" y="298" width="227" height="6"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZIj-Ph-tw9" secondAttribute="height" multiplier="227:6" id="4EU-52-4On"/>
+                                </constraints>
+                            </progressView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="같은 레벨의 러너를 5분 안에 찾아서 알림을 드릴께요 러닝 전 준비운동을 해 주세요!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sYM-lt-U3q">
+                                <rect key="frame" x="12.5" y="368" width="350" height="74"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="74" id="E4q-Wd-9eU"/>
+                                    <constraint firstAttribute="width" constant="350" id="aMh-Pi-gJa"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eg-ZA-Vav">
+                                <rect key="frame" x="50" y="528" width="275" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="DVp-Pn-HoE"/>
+                                    <constraint firstAttribute="height" constant="48" id="uEj-iS-PnX"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3eg-ZA-Vav" firstAttribute="top" secondItem="sYM-lt-U3q" secondAttribute="bottom" constant="86" id="6xz-Cz-EjW"/>
+                            <constraint firstItem="ZIj-Ph-tw9" firstAttribute="width" secondItem="k2U-BV-SGG" secondAttribute="width" multiplier="227/375" id="7Zt-fY-fJ7"/>
+                            <constraint firstItem="OXX-0X-srh" firstAttribute="width" secondItem="k2U-BV-SGG" secondAttribute="width" multiplier="92/375" id="9DI-4Q-Hmt"/>
+                            <constraint firstItem="OXX-0X-srh" firstAttribute="top" secondItem="k2U-BV-SGG" secondAttribute="top" constant="158" id="9c6-9V-qom"/>
+                            <constraint firstItem="ZIj-Ph-tw9" firstAttribute="top" secondItem="OXX-0X-srh" secondAttribute="bottom" constant="48" id="IjI-FT-2rR"/>
+                            <constraint firstItem="3eg-ZA-Vav" firstAttribute="centerX" secondItem="ZgD-vz-g07" secondAttribute="centerX" id="MLd-87-9tj"/>
+                            <constraint firstItem="ZIj-Ph-tw9" firstAttribute="centerX" secondItem="ZgD-vz-g07" secondAttribute="centerX" id="cSx-g6-awv"/>
+                            <constraint firstItem="sYM-lt-U3q" firstAttribute="top" secondItem="ZIj-Ph-tw9" secondAttribute="bottom" constant="64" id="glI-wP-KRa"/>
+                            <constraint firstItem="sYM-lt-U3q" firstAttribute="centerX" secondItem="ZgD-vz-g07" secondAttribute="centerX" id="iOm-vK-Kgr"/>
+                            <constraint firstItem="OXX-0X-srh" firstAttribute="centerX" secondItem="ZgD-vz-g07" secondAttribute="centerX" id="rF5-6w-CV7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="k2U-BV-SGG"/>
+                    </view>
+                    <connections>
+                        <outlet property="logoImage" destination="OXX-0X-srh" id="eGz-TO-7sS"/>
+                        <outlet property="mentStopButton" destination="3eg-ZA-Vav" id="ws3-eM-hVY"/>
+                        <outlet property="mentTextView" destination="sYM-lt-U3q" id="tUd-5O-epr"/>
+                        <outlet property="mentTextViewHeight" destination="E4q-Wd-9eU" id="Nkb-3q-5qc"/>
+                        <outlet property="timeProgressBar" destination="ZIj-Ph-tw9" id="lIw-ZW-nfF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cOW-py-cd7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5400.8000000000002" y="-366.56671664167919"/>
         </scene>
         <!--Item-->
         <scene sceneID="sG4-y0-HeB">

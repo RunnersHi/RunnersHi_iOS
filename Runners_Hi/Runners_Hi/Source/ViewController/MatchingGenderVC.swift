@@ -17,11 +17,15 @@ class MatchingGenderVC: UIViewController {
     @IBOutlet weak var genderCollectionView: UICollectionView!
     @IBOutlet weak var startButton: UIButton!
     
+    @IBAction func startButtonDidTap(_ sender: UIButton) {
+        guard let StartButtonPush = self.storyboard?.instantiateViewController(identifier:"FindRunnerVC") as? FindRunnerVC else {return}
+         self.navigationController?.pushViewController(StartButtonPush, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         basicAutoLayout()
         setGenderList()
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the vi0;ew.
     }
     
     
