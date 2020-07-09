@@ -241,7 +241,7 @@
         <!--Matching GenderVC-->
         <scene sceneID="8II-80-6Gf">
             <objects>
-                <viewController id="rPP-SN-GLO" customClass="MatchingGenderVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MatchingGenderVC" id="rPP-SN-GLO" customClass="MatchingGenderVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4LS-MX-OQy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -253,49 +253,60 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VJi-9u-T2B">
-                                <rect key="frame" x="0.0" y="183" width="375" height="335"/>
+                                <rect key="frame" x="0.0" y="183" width="375" height="160"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="250" constant="335" id="aLN-ve-gd5"/>
+                                    <constraint firstAttribute="height" priority="250" constant="160" id="aLN-ve-gd5"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YFC-um-ATM">
-                                    <size key="itemSize" width="375" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YFC-um-ATM">
+                                    <size key="itemSize" width="375" height="71"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BattleGenderSelectCell" id="KYl-IA-aKF" customClass="BattleGenderSelectCell" customModule="Runners_Hi" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YYO-fM-zWM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVJ-tJ-tuT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="HVJ-tJ-tuT" firstAttribute="top" secondItem="YYO-fM-zWM" secondAttribute="top" id="P63-lQ-I6p"/>
-                                                <constraint firstAttribute="trailing" secondItem="HVJ-tJ-tuT" secondAttribute="trailing" id="VVk-3A-6sb"/>
-                                                <constraint firstItem="HVJ-tJ-tuT" firstAttribute="leading" secondItem="YYO-fM-zWM" secondAttribute="leading" id="eEY-Sq-Lt4"/>
-                                                <constraint firstAttribute="bottom" secondItem="HVJ-tJ-tuT" secondAttribute="bottom" id="gP8-p1-RWU"/>
+                                                <constraint firstItem="HVJ-tJ-tuT" firstAttribute="centerX" secondItem="YYO-fM-zWM" secondAttribute="centerX" id="8H2-Jb-6vV"/>
+                                                <constraint firstItem="HVJ-tJ-tuT" firstAttribute="top" secondItem="YYO-fM-zWM" secondAttribute="top" id="Fla-Bv-R5u"/>
+                                                <constraint firstItem="HVJ-tJ-tuT" firstAttribute="leading" secondItem="YYO-fM-zWM" secondAttribute="leading" id="cBm-VC-Zne"/>
+                                                <constraint firstAttribute="trailing" secondItem="HVJ-tJ-tuT" secondAttribute="trailing" id="fjj-qi-bJo"/>
+                                                <constraint firstAttribute="bottom" secondItem="HVJ-tJ-tuT" secondAttribute="bottom" id="mBF-k3-oAl"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="375" height="128"/>
+                                        <size key="customSize" width="375" height="71"/>
                                         <connections>
                                             <outlet property="genderLabel" destination="HVJ-tJ-tuT" id="t7u-8E-08t"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEA-CD-o40">
+                                <rect key="frame" x="50" y="440" width="275" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="XPx-hX-aqz"/>
+                                    <constraint firstAttribute="width" constant="275" id="pCM-2F-TQB"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="zEA-CD-o40" firstAttribute="centerX" secondItem="4LS-MX-OQy" secondAttribute="centerX" id="2BI-v4-pqF"/>
+                            <constraint firstItem="zEA-CD-o40" firstAttribute="top" secondItem="VJi-9u-T2B" secondAttribute="bottom" constant="97" id="Jb3-RV-3sk"/>
                             <constraint firstItem="VJi-9u-T2B" firstAttribute="top" secondItem="qft-m5-ZqV" secondAttribute="bottom" constant="104" id="KQh-BR-GOS"/>
                             <constraint firstItem="qft-m5-ZqV" firstAttribute="centerX" secondItem="4LS-MX-OQy" secondAttribute="centerX" id="Mvz-Vy-pZb"/>
                             <constraint firstItem="qft-m5-ZqV" firstAttribute="top" secondItem="U4X-mH-IbD" secondAttribute="top" constant="58" id="Wek-t7-qK4"/>
@@ -307,6 +318,7 @@
                     <connections>
                         <outlet property="genderCollectionView" destination="VJi-9u-T2B" id="WG4-HV-eEq"/>
                         <outlet property="questionLabel" destination="qft-m5-ZqV" id="yMc-hW-lYu"/>
+                        <outlet property="startButton" destination="zEA-CD-o40" id="zof-X3-17h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xa-7H-WNP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

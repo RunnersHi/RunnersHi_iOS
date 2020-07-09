@@ -12,8 +12,15 @@ class BattleGenderSelectCell: UICollectionViewCell {
     static let identifier: String = "BattleGenderSelectCell"
     
     @IBOutlet weak var genderLabel: UILabel!
-
-    func setGenderInformation(_ setGenderInformation: Gender) {
+    
+    override var isSelected: Bool {
+        willSet {
+            genderLabel.backgroundColor = newValue ? UIColor.salmon : UIColor.unselectedbuttongray
+            genderLabel.textColor = newValue ? UIColor.white : UIColor.black
+        }
+    }
+    
+    func setGenderInformation(_ setGenderInformation: Gender){
         genderLabel.text = setGenderInformation.buttonName
     }
     

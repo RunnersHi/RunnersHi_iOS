@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MatchingGoalVC: UIViewController {
     private var goalInformation: [GoalInformation] = []
 
@@ -15,8 +16,13 @@ class MatchingGoalVC: UIViewController {
     @IBOutlet weak var goalCollectionView: UICollectionView!
         
     @IBOutlet weak var nextButton: UIButton!
-
+    var test = ""
     @IBAction func nextButtonDidTap(_ sender: UIButton) {
+        guard let NextButtonPush = self.storyboard?.instantiateViewController(identifier:"MatchingGenderVC") as? MatchingGenderVC else {return}
+      //  NextButtonPush.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(NextButtonPush, animated: true)
+        NextButtonPush.giveGoal = self.test
+        
         
     }
     override func viewDidLoad() {
@@ -37,6 +43,7 @@ class MatchingGoalVC: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationController?.navigationBar.topItem?.title = ""
         nextButton.backgroundColor = UIColor.unselectedbuttongray
+        nextButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
         nextButton.setTitleColor(.black, for: .normal)
         nextButton.setTitle("NEXT",for: .normal)
     }
@@ -82,7 +89,10 @@ extension MatchingGoalVC: UICollectionViewDelegateFlowLayout {
         nextButton.isEnabled = true
         nextButton.backgroundColor = UIColor.lightishBlue
         nextButton.setTitleColor(.white, for: .normal)
-        
+        let cells = collectionView.cellForItem(at: indexPath) as? BattleGoalSelectCell
+        guard let giveGoal = cells?.goalLabel.text else {return}
+        test = giveGoal
     }
+
     
 }
