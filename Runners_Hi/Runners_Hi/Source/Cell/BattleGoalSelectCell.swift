@@ -8,8 +8,8 @@
 
 import UIKit
 
-class GoalSelectCell: UICollectionViewCell {
-    static let identifier: String = "GoalSelectCell"
+class BattleGoalSelectCell: UICollectionViewCell {
+    static let identifier: String = "BattleGoalSelectCell"
     
     @IBOutlet weak var goalLabel: UILabel!
 

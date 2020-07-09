@@ -13,9 +13,7 @@ class MatchingGoalVC: UIViewController {
 
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var goalCollectionView: UICollectionView!
-    
-    @IBOutlet weak var collectionHeight: NSLayoutConstraint!
-    
+        
     @IBOutlet weak var nextButton: UIButton!
 
     @IBAction func nextButtonDidTap(_ sender: UIButton) {
@@ -38,7 +36,6 @@ class MatchingGoalVC: UIViewController {
         goalCollectionView.backgroundColor = UIColor.backgroundgray
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationController?.navigationBar.topItem?.title = ""
-        //collectionHeight.constant = (self.view.frame.height * 48/667 * 4)+24
         nextButton.backgroundColor = UIColor.unselectedbuttongray
         nextButton.setTitleColor(.black, for: .normal)
         nextButton.setTitle("NEXT",for: .normal)
@@ -59,7 +56,7 @@ extension MatchingGoalVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let GoalSelectCell = collectionView.dequeueReusableCell(withReuseIdentifier: GoalSelectCell.identifier, for: indexPath) as? GoalSelectCell else { return UICollectionViewCell() }
+        guard let GoalSelectCell = collectionView.dequeueReusableCell(withReuseIdentifier: BattleGoalSelectCell.identifier, for: indexPath) as? BattleGoalSelectCell else { return UICollectionViewCell() }
         GoalSelectCell.setGoalInformation(goalInformation[indexPath.row])
         
         return GoalSelectCell

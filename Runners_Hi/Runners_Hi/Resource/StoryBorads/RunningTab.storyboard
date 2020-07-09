@@ -175,7 +175,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GoalSelectCell" id="IEH-IR-Riw" customClass="GoalSelectCell" customModule="Runners_Hi" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BattleGoalSelectCell" id="IEH-IR-Riw" customClass="BattleGoalSelectCell" customModule="Runners_Hi" customModuleProvider="target">
                                         <rect key="frame" x="4.5" y="0.0" width="366" height="108"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Fd4-CL-2c7">
@@ -229,7 +229,6 @@
                         <viewLayoutGuide key="safeArea" id="thk-8P-ZAM"/>
                     </view>
                     <connections>
-                        <outlet property="collectionHeight" destination="1YF-Qz-zpD" id="4XW-it-Syh"/>
                         <outlet property="goalCollectionView" destination="zPA-Wa-x6H" id="WWz-Gz-x8a"/>
                         <outlet property="nextButton" destination="yE0-Vp-Zrm" id="8o0-WU-Yn5"/>
                         <outlet property="questionLabel" destination="zWI-Bp-TN2" id="U2f-Lw-NOC"/>
@@ -266,23 +265,31 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KYl-IA-aKF">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BattleGenderSelectCell" id="KYl-IA-aKF" customClass="BattleGenderSelectCell" customModule="Runners_Hi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YYO-fM-zWM">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVJ-tJ-tuT">
-                                                    <rect key="frame" x="21" y="54" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVJ-tJ-tuT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HVJ-tJ-tuT" firstAttribute="top" secondItem="YYO-fM-zWM" secondAttribute="top" id="P63-lQ-I6p"/>
+                                                <constraint firstAttribute="trailing" secondItem="HVJ-tJ-tuT" secondAttribute="trailing" id="VVk-3A-6sb"/>
+                                                <constraint firstItem="HVJ-tJ-tuT" firstAttribute="leading" secondItem="YYO-fM-zWM" secondAttribute="leading" id="eEY-Sq-Lt4"/>
+                                                <constraint firstAttribute="bottom" secondItem="HVJ-tJ-tuT" secondAttribute="bottom" id="gP8-p1-RWU"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="375" height="128"/>
+                                        <connections>
+                                            <outlet property="genderLabel" destination="HVJ-tJ-tuT" id="t7u-8E-08t"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -297,6 +304,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U4X-mH-IbD"/>
                     </view>
+                    <connections>
+                        <outlet property="genderCollectionView" destination="VJi-9u-T2B" id="WG4-HV-eEq"/>
+                        <outlet property="questionLabel" destination="qft-m5-ZqV" id="yMc-hW-lYu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xa-7H-WNP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
