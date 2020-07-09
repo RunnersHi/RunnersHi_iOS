@@ -17,8 +17,8 @@
 
 ------------
 ### A. Setting
-- [ Coding Convention ](CodingConvention.md)<br>
-- [ Foldering ](Foldering.md)<br>
+- [ Coding Convention ](./README/CodingConvention.md)<br>
+- [ Foldering ](./README/Foldering.md)<br>
 
 ------------
 ### B-1. 개발 환경 및 라이브러리
