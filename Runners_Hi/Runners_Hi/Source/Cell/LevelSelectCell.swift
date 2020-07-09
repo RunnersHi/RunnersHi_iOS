@@ -15,5 +15,9 @@ class LevelSelectCell: UICollectionViewCell {
     
     func set(_ levelbuttonName : Level){
         levelButton.setTitle(levelbuttonName.levelbuttonName, for: .normal)
+        self.levelButton.layer.cornerRadius = 8
+        self.levelButton.backgroundColor = UIColor(red:101/255, green:101/255 ,blue:101/255, alpha:1.0)
+        levelButton.setTitleColor(.white, for: .normal)
+        levelButton.titleLabel?.font = UIFont(name: "NanumSquareB", size:14)
     }
 }

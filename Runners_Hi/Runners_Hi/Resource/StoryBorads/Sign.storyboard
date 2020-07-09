@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1020"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QX3-Qr-iRy">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1020"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1031.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconDefaultpeople" translatesAutoresizingMaskIntoConstraints="NO" id="pDF-Z5-m6p">
                                                 <rect key="frame" x="147.5" y="49" width="80" height="80"/>
@@ -163,7 +163,7 @@
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HU5-7t-51e">
                                                                     <rect key="frame" x="0.0" y="0.0" width="176" height="43"/>
-                                                                    <color key="backgroundColor" red="0.20784313730000001" green="0.7725490196" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="Button"/>
                                                                 </button>
                                                             </subviews>
@@ -194,10 +194,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KRX-Qb-3fi">
-                                                <rect key="frame" x="30" y="697.5" width="315" height="40.5"/>
+                                                <rect key="frame" x="30" y="697.5" width="315" height="52"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40.5" id="JtZ-El-5w6"/>
+                                                    <constraint firstAttribute="height" constant="52" id="JtZ-El-5w6"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Soa-3X-4jR">
                                                     <size key="itemSize" width="160" height="41"/>
@@ -214,7 +214,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afO-Qq-JAd">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="49"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="41"/>
                                                                     <color key="backgroundColor" red="0.20784313730000001" green="0.7725490196" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <state key="normal" title="Button"/>
                                                                 </button>
@@ -224,7 +224,6 @@
                                                                 <constraint firstItem="afO-Qq-JAd" firstAttribute="top" secondItem="B4o-AS-zhb" secondAttribute="top" id="TYC-eE-iMa"/>
                                                                 <constraint firstAttribute="bottom" secondItem="afO-Qq-JAd" secondAttribute="bottom" id="kQl-VJ-86q"/>
                                                                 <constraint firstItem="afO-Qq-JAd" firstAttribute="leading" secondItem="B4o-AS-zhb" secondAttribute="leading" id="v83-Vo-y0n"/>
-                                                                <constraint firstItem="afO-Qq-JAd" firstAttribute="height" secondItem="B4o-AS-zhb" secondAttribute="height" multiplier="1.19512" id="wkY-d1-qcj"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="160" height="41"/>
@@ -235,19 +234,19 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMg-Lk-FOg">
-                                                <rect key="frame" x="30" y="758" width="42" height="20.5"/>
+                                                <rect key="frame" x="30" y="769.5" width="42" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmO-bg-02W">
-                                                <rect key="frame" x="30" y="784.5" width="42" height="20.5"/>
+                                                <rect key="frame" x="30" y="796" width="42" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5mT-oM-1Hc">
-                                                <rect key="frame" x="30" y="813" width="315" height="48"/>
+                                                <rect key="frame" x="30" y="824.5" width="315" height="48"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="efR-Sp-ypd"/>
@@ -287,7 +286,7 @@
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rg3-jw-x3J">
-                                                <rect key="frame" x="50" y="932" width="275" height="48"/>
+                                                <rect key="frame" x="50" y="943.5" width="275" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Rg3-jw-x3J" secondAttribute="height" multiplier="275:48" id="ouk-Pj-ygg"/>
                                                 </constraints>
@@ -377,9 +376,25 @@
                     </view>
                     <size key="freeformSize" width="375" height="1020"/>
                     <connections>
+                        <outlet property="genderLabel" destination="0Lj-d4-gA1" id="mtV-qM-Z5W"/>
                         <outlet property="genderbuttonCollectionView" destination="aKc-2g-2ZC" id="5j7-Ok-I9p"/>
+                        <outlet property="idCheckButton" destination="Bsd-gm-uvV" id="DEc-NB-8d1"/>
+                        <outlet property="idCheckLabel" destination="mJz-eK-MXE" id="KX5-Zy-a4h"/>
+                        <outlet property="idLabel" destination="WOT-EN-9fY" id="ipq-R1-QyY"/>
+                        <outlet property="levelDetailLabel" destination="KXx-yH-lvY" id="h7n-tL-JRN"/>
+                        <outlet property="levelLabel" destination="l7j-Yd-sBV" id="kiU-TH-oJV"/>
                         <outlet property="levelbuttonCollectionView" destination="KRX-Qb-3fi" id="noi-EB-xQL"/>
+                        <outlet property="nickCheckButton" destination="Z9H-Ys-2b9" id="Bf5-0y-pE2"/>
+                        <outlet property="nickCheckLabel" destination="ON3-fw-zFc" id="WZY-lV-wHr"/>
+                        <outlet property="nickLabel" destination="eah-Px-jrg" id="xpX-yh-scj"/>
+                        <outlet property="openDetailLabel" destination="XmO-bg-02W" id="13g-qP-te6"/>
+                        <outlet property="openLabel" destination="sMg-Lk-FOg" id="ws3-f9-aRw"/>
                         <outlet property="openbuttonCollectionView" destination="5mT-oM-1Hc" id="k2M-EG-cC2"/>
+                        <outlet property="pwCheckLabel" destination="kjR-fF-RJx" id="cyF-TW-mMt"/>
+                        <outlet property="pwLabel" destination="CCc-4S-cN1" id="c8z-jr-0UQ"/>
+                        <outlet property="pwReCheckLabel" destination="Ed0-SK-Aek" id="7tZ-ld-qnN"/>
+                        <outlet property="pwReLabel" destination="P6V-Z8-d2t" id="N7S-Hj-HKH"/>
+                        <outlet property="signUpButton" destination="Rg3-jw-x3J" id="ahi-dU-cSw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2oF-vv-xnP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

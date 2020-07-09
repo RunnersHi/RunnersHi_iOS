@@ -15,6 +15,25 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
     @IBOutlet weak var levelbuttonCollectionView: UICollectionView!
     @IBOutlet weak var openbuttonCollectionView: UICollectionView!
     
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var idCheckLabel: UILabel!
+    @IBOutlet weak var nickLabel: UILabel!
+    @IBOutlet weak var nickCheckLabel: UILabel!
+    @IBOutlet weak var pwLabel: UILabel!
+    @IBOutlet weak var pwCheckLabel: UILabel!
+    @IBOutlet weak var pwReLabel: UILabel!
+    @IBOutlet weak var pwReCheckLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var levelDetailLabel: UILabel!
+    @IBOutlet weak var openLabel: UILabel!
+    @IBOutlet weak var openDetailLabel: UILabel!
+    
+    
+    @IBOutlet weak var idCheckButton: UIButton!
+    @IBOutlet weak var nickCheckButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonList()
@@ -30,7 +49,8 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
         openbuttonCollectionView.dataSource = self
         self.openbuttonCollectionView.isScrollEnabled = false
         
-        
+        setLabel()
+        setbutton()
     }
     
     
@@ -139,5 +159,79 @@ extension SignUpVC: UICollectionViewDelegateFlowLayout {
     }
     
     
+}
+
+extension SignUpVC {
+    private func setLabel(){
+        self.idLabel.text = "아이디"
+        idLabel.font = UIFont(name:"NanumSquareR", size:14.0)
+        
+        self.nickLabel.text = "닉네임"
+        nickLabel.font = UIFont(name:"NanumSquareR", size:14.0)
+        
+        self.pwLabel.text = "비밀번호"
+        pwLabel.font = UIFont(name:"NanumSquareR", size:14.0)
+        
+        self.pwReLabel.text = "비밀번호 확인"
+        pwReLabel.font = UIFont(name:"NanumSquareR", size:14.0)
+        
+        self.genderLabel.text = "당신의 성별은?"
+        genderLabel.font = UIFont(name:"NanumSquareR", size:14.0)
+        
+        self.levelLabel.text = "본인이 생각하는 나의 러닝 레벨은?"
+        levelLabel.font = UIFont(name:"NanumSquareR", size:14.0)
+        
+        self.levelDetailLabel.text = "러닝레벨이 무엇인가요?"
+        levelDetailLabel.font = UIFont(name:"NanumSquareR", size:12.0)
+        levelDetailLabel.textColor = UIColor(red:130/255, green:130/255, blue:130/255, alpha: 1.0)
+        
+        let levelDetailLabelStyle = NSMutableAttributedString(string: levelDetailLabel.text!)
+        
+        levelDetailLabelStyle.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: (levelDetailLabel.text! as NSString).range(of:"러닝레벨이 무엇인가요?"))
+        
+        levelDetailLabel.attributedText = levelDetailLabelStyle
+        
+        
+        self.openLabel.text = "프로필 / 러닝 기록 설정"
+        openLabel.font = UIFont(name:"NanumSquareR", size:14.0)
+        
+        
+        self.openDetailLabel.text = "‘공개’를 선택해야 러너 랭킹 산정에 포함될 수 있어요."
+        openDetailLabel.font = UIFont(name:"NanumSquareR", size:12.0)
+        openDetailLabel.textColor = UIColor(red:130/255, green:130/255, blue:130/255, alpha: 1.0)
+        //label에 있는 Text를 NSMutableAttributedString으로 만들어준다.
+        let openDetailLabelStyle = NSMutableAttributedString(string: openDetailLabel.text!)
+        
+        openDetailLabelStyle.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: (openDetailLabel.text! as NSString).range(of:"‘공개’를 선택해야 러너 랭킹 산정에 포함될 수 있어요."))
+        
+        openDetailLabel.attributedText = openDetailLabelStyle
+    }
+    
+    private func setbutton(){
+        idCheckButton.setTitle("중복확인", for: .normal)
+        self.idCheckButton.layer.cornerRadius = 8
+        self.idCheckButton.backgroundColor = UIColor(red:56/255, green:104/255 ,blue:255/255, alpha:1.0)
+        idCheckButton.setTitleColor(.white, for: .normal)
+        idCheckButton.titleLabel?.font = UIFont(name: "NanumSquareB", size:12)
+        
+        
+        nickCheckButton.setTitle("중복확인", for: .normal)
+        self.nickCheckButton.layer.cornerRadius = 8
+        self.nickCheckButton.backgroundColor = UIColor(red:56/255, green:104/255 ,blue:255/255, alpha:1.0)
+        nickCheckButton.setTitleColor(.white, for: .normal)
+        nickCheckButton.titleLabel?.font = UIFont(name: "NanumSquareB", size:12)
+        
+        signUpButton.setTitle("가입하기", for: .normal)
+        self.signUpButton.layer.cornerRadius = 8
+        self.signUpButton.backgroundColor = UIColor(red:56/255, green:104/255 ,blue:255/255, alpha:1.0)
+        signUpButton.setTitleColor(.white, for: .normal)
+        signUpButton.titleLabel?.font = UIFont(name: "NanumSquareB", size:16)
+        
+        
+    }
+    
+//    private func setTextField(){
+//        
+//    }
 }
 
