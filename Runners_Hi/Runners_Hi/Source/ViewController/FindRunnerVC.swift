@@ -8,8 +8,8 @@
 
 import UIKit
 import SocketIO
-let managers = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
-let socket = managers.defaultSocket
+//let managers = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
+//let socket = managers.defaultSocket
 
 class FindRunnerVC: UIViewController {
 
@@ -27,7 +27,8 @@ class FindRunnerVC: UIViewController {
     override func viewDidLoad() {
         //SocketIOManager.shared.establishConnection()
         //SocketIOManager.shared.establishConnection()
-        socket.connect()
+        SocketIOManager.shared.establishConnection()
+        //socket.connect()
         super.viewDidLoad()
         basicAutoLayout()
         // Do any additional setup after loading the view.
