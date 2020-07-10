@@ -29,6 +29,7 @@
 		3DC2840E24B8047B0063439D /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2840D24B8047B0063439D /* SocketIOManager.swift */; };
 		3DC2841024B828330063439D /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2840F24B828330063439D /* APIConstants.swift */; };
 		3DC2841224B829130063439D /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2841124B829130063439D /* NetworkResult.swift */; };
+		3DC2841424B83AF10063439D /* OpponentProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2841324B83AF10063439D /* OpponentProfileVC.swift */; };
 		3DCAF89D24B6F0BD009B3AE5 /* MatchingGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAF89C24B6F0BD009B3AE5 /* MatchingGenderVC.swift */; };
 		3DCAF89F24B7065D009B3AE5 /* BattleGenderSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAF89E24B7065D009B3AE5 /* BattleGenderSelectCell.swift */; };
 		3DCAF8A124B79A33009B3AE5 /* FindRunnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAF8A024B79A33009B3AE5 /* FindRunnerVC.swift */; };
@@ -75,6 +76,7 @@
 		3DC2840D24B8047B0063439D /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		3DC2840F24B828330063439D /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		3DC2841124B829130063439D /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		3DC2841324B83AF10063439D /* OpponentProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentProfileVC.swift; sourceTree = "<group>"; };
 		3DCAF89C24B6F0BD009B3AE5 /* MatchingGenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingGenderVC.swift; sourceTree = "<group>"; };
 		3DCAF89E24B7065D009B3AE5 /* BattleGenderSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleGenderSelectCell.swift; sourceTree = "<group>"; };
 		3DCAF8A024B79A33009B3AE5 /* FindRunnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindRunnerVC.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				3DCDF01624B5FE13003F47CE /* MatchingGoalVC.swift */,
 				3DCAF89C24B6F0BD009B3AE5 /* MatchingGenderVC.swift */,
 				3DCAF8A024B79A33009B3AE5 /* FindRunnerVC.swift */,
+				3DC2841324B83AF10063439D /* OpponentProfileVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				3DCDF01B24B60A0B003F47CE /* BattleGoalSelectCell.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
 				3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */,
+				3DC2841424B83AF10063439D /* OpponentProfileVC.swift in Sources */,
 				3DCE6FF724B476FF00D29DBC /* MainNavigationController.swift in Sources */,
 				06F40AC524B636A8001E04FB /* Open.swift in Sources */,
 				3DCAF89F24B7065D009B3AE5 /* BattleGenderSelectCell.swift in Sources */,
