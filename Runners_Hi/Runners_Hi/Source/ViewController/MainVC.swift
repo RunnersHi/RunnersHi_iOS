@@ -36,8 +36,6 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        popUpTableView.delegate = self
-        popUpTableView.dataSource = self
         basicAutoLayout()
         setbattleInformation()
     }
@@ -49,8 +47,8 @@ class MainVC: UIViewController {
     }
     
     private func basicAutoLayout() {
-        //logoImg.image = UIImage()
-        self.view.backgroundColor = UIColor.salmon
+        logoImg.image = UIImage(named: "homeLogo")
+        self.view.backgroundColor = UIColor.backgroundgray
         secondView.backgroundColor = UIColor.white
         secondView.layer.cornerRadius = 20
         runButton.backgroundColor = UIColor.lightishBlue
@@ -71,6 +69,9 @@ class MainVC: UIViewController {
        //구분선 제거
         //popUpTableView.separatorStyle = .none
         popUpTableView.isHidden = true
+        
+        popUpTableView.delegate = self
+        popUpTableView.dataSource = self
     }
     private func authorizeHealthKit() {
       

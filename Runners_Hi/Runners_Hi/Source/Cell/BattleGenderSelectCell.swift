@@ -25,10 +25,13 @@ class BattleGenderSelectCell: UICollectionViewCell {
     }
     
     override func awakeFromNib() {
+        // 라벨 text 가운데 정렬
         genderLabel.textAlignment = .center
         genderLabel.font = UIFont(name: "NanumSquare", size: 16)
         genderLabel.backgroundColor = UIColor.unselectedbuttongray
-        genderLabel.layer.cornerRadius = 40
+        //Label 둥글게
+        genderLabel.layer.cornerRadius = 8
+        genderLabel.layer.masksToBounds = true
         
     }
     
