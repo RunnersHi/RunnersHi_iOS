@@ -16,12 +16,11 @@ class MatchingGoalVC: UIViewController {
     @IBOutlet weak var goalCollectionView: UICollectionView!
         
     @IBOutlet weak var nextButton: UIButton!
-    var test = ""
+    var giveGoalText = 0
     @IBAction func nextButtonDidTap(_ sender: UIButton) {
         guard let NextButtonPush = self.storyboard?.instantiateViewController(identifier:"MatchingGenderVC") as? MatchingGenderVC else {return}
-      //  NextButtonPush.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(NextButtonPush, animated: true)
-        NextButtonPush.giveGoal = self.test
+        NextButtonPush.takeGoal = self.giveGoalText
         
         
     }
@@ -46,6 +45,8 @@ class MatchingGoalVC: UIViewController {
         nextButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
         nextButton.setTitleColor(.black, for: .normal)
         nextButton.setTitle("NEXT",for: .normal)
+        nextButton.layer.cornerRadius = 8
+   
     }
     private func setGoalList() {
         let goal1 = GoalInformation(goal: "30min")
@@ -89,9 +90,15 @@ extension MatchingGoalVC: UICollectionViewDelegateFlowLayout {
         nextButton.isEnabled = true
         nextButton.backgroundColor = UIColor.lightishBlue
         nextButton.setTitleColor(.white, for: .normal)
-        let cells = collectionView.cellForItem(at: indexPath) as? BattleGoalSelectCell
-        guard let giveGoal = cells?.goalLabel.text else {return}
-        test = giveGoal
+        if indexPath == [0, 0] {
+            giveGoalText = 1800
+        } else if indexPath == [0, 1] {
+            giveGoalText = 2700
+        } else if indexPath == [0, 2] {
+            giveGoalText = 3600
+        } else {
+            giveGoalText = 5400
+        }
     }
 
     

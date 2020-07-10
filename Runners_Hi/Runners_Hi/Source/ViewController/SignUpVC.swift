@@ -29,6 +29,11 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
     @IBOutlet weak var openLabel: UILabel!
     @IBOutlet weak var openDetailLabel: UILabel!
     
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var nickTextField: UITextField!
+    @IBOutlet weak var pwTextField: UITextField!
+    @IBOutlet weak var pwReTextField: UITextField!
+    
     
     @IBOutlet weak var idCheckButton: UIButton!
     @IBOutlet weak var nickCheckButton: UIButton!
@@ -51,6 +56,9 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
         
         setLabel()
         setbutton()
+        setTextField()
+        loginCheck()
+        
     }
     
     
@@ -59,21 +67,148 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
     private var openList : [Open] = []
     
     func setButtonList() {
-        let Gender1 = Gender(genderbuttonName: "남성")
-        let Gender2 = Gender(genderbuttonName: "여성")
+        let Gender1 = Gender(genderActionLabelName: "남성")
+        let Gender2 = Gender(genderActionLabelName: "여성")
         
-        let Level1 = Level(levelbuttonName: "초급")
-        let Level2 = Level(levelbuttonName : "중급")
-        let Level3 = Level(levelbuttonName: "고급")
+        let Level1 = Level(levelActionLabelName: "초급")
+        let Level2 = Level(levelActionLabelName : "중급")
+        let Level3 = Level(levelActionLabelName: "고급")
         
-        let Open1 = Open(openbuttonName : "공개")
-        let Open2 = Open(openbuttonName : "비공개")
+        let Open1 = Open(openActionLabelName : "공개")
+        let Open2 = Open(openActionLabelName : "비공개")
         
         genderList = [Gender1, Gender2]
         levelList = [Level1, Level2, Level3]
         openList = [Open1, Open2]
     }
-}
+    
+    func isValidId(id: String?) -> Bool {
+        guard id != nil else { return false }
+        //받아오는 id값이 비어있으면 안되겠쥬?
+        let regEx = "[A-Za-z0-9]{4,15}"
+        // 4~15자 영어,숫자 제한 정규표현식
+        let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
+        //NSPredicate는 검색 조건을 텍스트로 입력하여 검색할 수 있게하는거라구 한다..SQL문이라
+        // 너무 자세하게하면 어렵다구한다..
+        // %@는 하나의 객체로 치환해주는 역할을 함.
+        return pred.evaluate(with: id)
+        // id 값이 pred의 값과 일치하는지 않하는지 여부를 판단해줌
+        // 결과값이 true false로 나옴
+    }
+    
+    func isValidNick(nick: String?) -> Bool {
+        guard nick != nil else { return false }
+        let regEx = "[ㄱ-ㅎㅏ-ㅣ가-힣A-Za-z0-9]{2,6}"
+        let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
+        return pred.evaluate(with: nick)
+    }
+    
+    func isValidPw(pw: String?) -> Bool {
+        guard pw != nil else { return false }
+        let regEx = "[A-Za-z0-9!_@$%^&+=]{8,16}"
+        let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
+        return pred.evaluate(with: pw)
+        //_-^
+    }
+    
+    
+    @objc private func idTextChecked(_ TextLabel: UILabel) {
+        
+        if ( isValidId(id: idTextField.text)) {
+            idCheckLabel.text = "중복확인이 필요합니다."
+            idCheckLabel.alpha = 1
+            idCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
+            idCheckLabel.textColor = UIColor.grapefruit
+            
+        }
+        else
+        {
+            idCheckLabel.text = "4-15자 영/숫자를 사용하세요."
+            idCheckLabel.alpha = 1
+            idCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
+            idCheckLabel.textColor = UIColor.grapefruit
+            idTextField.layer.borderColor = UIColor.grapefruit.cgColor
+            idTextField.layer.borderWidth = 1
+            idTextField.layer.masksToBounds = true
+            idTextField.layer.cornerRadius = 8.0
+        }
+    }
+    
+    @objc private func nickTextChecked(_ TextLabel: UILabel) {
+        if ( isValidNick(nick: nickTextField.text)){
+            nickCheckLabel.text = "중복확인이 필요합니다."
+            nickCheckLabel.alpha = 1
+            nickCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
+            nickTextField.layer.borderColor = UIColor.grapefruit.cgColor
+        }
+        else
+        {
+            nickCheckLabel.text = "2-6자 한/영/숫자를 사용하세요."
+            nickCheckLabel.alpha = 1
+            nickCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
+            nickCheckLabel.textColor = UIColor.grapefruit
+            nickTextField.layer.borderColor = UIColor.grapefruit.cgColor
+            nickTextField.layer.borderWidth = 1
+            nickTextField.layer.masksToBounds = true
+            nickTextField.layer.cornerRadius = 8.0
+        }
+    }
+    
+    @objc private func pwTextChecked(_ TextLabel: UILabel) {
+        if ( isValidPw(pw: pwTextField.text)){
+            pwCheckLabel.text = "사용가능한 비밀번호입니다."
+            pwCheckLabel.alpha = 1
+            pwCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
+            pwCheckLabel.textColor = UIColor.lightishBlue
+            
+            pwTextField.layer.borderColor = UIColor.veryLightPink.cgColor
+            pwTextField.layer.borderWidth = 1
+            pwTextField.layer.masksToBounds = true
+            pwTextField.layer.cornerRadius = 8.0
+            
+            pwReTextField.isEnabled = true
+            
+        }
+        else
+        {
+            pwCheckLabel.text = "8-16자 영문 대/소문자,숫자,특수문자를 사용하세요."
+            pwCheckLabel.alpha = 1
+            pwCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
+            pwCheckLabel.textColor = UIColor.grapefruit
+            pwTextField.layer.borderColor = UIColor.grapefruit.cgColor
+            pwTextField.layer.borderWidth = 1
+            pwTextField.layer.masksToBounds = true
+            pwTextField.layer.cornerRadius = 8.0
+            pwReTextField.isEnabled = false
+
+        }
+    }
+    
+    @objc private func pwReTextChecked(_ TextLabel: UILabel) {
+        if(pwTextField.text == pwReTextField.text) {
+            pwReCheckLabel.text = "비밀번호가 일치합니다"
+             pwReCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
+            pwReCheckLabel.textColor = UIColor.lightishBlue
+            
+            pwReTextField.layer.borderColor = UIColor.veryLightPink.cgColor
+            pwReTextField.layer.borderWidth = 1
+            pwReTextField.layer.masksToBounds = true
+            pwReTextField.layer.cornerRadius = 8.0
+        }
+        else{
+            pwReCheckLabel.text = "설정하신 비밀번호와 다릅니다"
+            pwReCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
+            pwReCheckLabel.textColor = UIColor.grapefruit
+            pwReTextField.layer.borderColor = UIColor.grapefruit.cgColor
+            pwReTextField.layer.borderWidth = 1
+            pwReTextField.layer.masksToBounds = true
+            pwReTextField.layer.cornerRadius = 8.0
+            
+        }
+        
+       }
+    
+}//class end
 
 
 
@@ -174,14 +309,22 @@ extension SignUpVC {
         self.idLabel.text = "아이디"
         idLabel.font = UIFont(name:"NanumSquareR", size:14.0)
         
+        self.idCheckLabel.text = " "
+        
         self.nickLabel.text = "닉네임"
         nickLabel.font = UIFont(name:"NanumSquareR", size:14.0)
+        
+        self.nickCheckLabel.text = " "
         
         self.pwLabel.text = "비밀번호"
         pwLabel.font = UIFont(name:"NanumSquareR", size:14.0)
         
+        self.pwCheckLabel.text = " "
+        
         self.pwReLabel.text = "비밀번호 확인"
         pwReLabel.font = UIFont(name:"NanumSquareR", size:14.0)
+        
+        self.pwReCheckLabel.text = " "
         
         self.genderLabel.text = "당신의 성별은?"
         genderLabel.font = UIFont(name:"NanumSquareR", size:14.0)
@@ -238,8 +381,39 @@ extension SignUpVC {
         
     }
     
-//    private func setTextField(){
-//        
-//    }
+    private func setTextField() {
+        idTextField.layer.cornerRadius = 8.0
+        idTextField.layer.borderWidth = 1.0
+        idTextField.layer.borderColor = UIColor.veryLightPink.cgColor
+        idTextField.layer.masksToBounds = true
+        
+        nickTextField.layer.cornerRadius = 8.0
+        nickTextField.layer.borderWidth = 1.0
+        nickTextField.layer.borderColor = UIColor.veryLightPink.cgColor
+        nickTextField.layer.masksToBounds = true
+        
+        pwTextField.layer.cornerRadius = 8.0
+        pwTextField.layer.borderWidth = 1.0
+        pwTextField.layer.borderColor = UIColor.veryLightPink.cgColor
+        pwTextField.layer.masksToBounds = true
+        pwTextField.isSecureTextEntry = true
+
+        
+        pwReTextField.layer.cornerRadius = 8.0
+        pwReTextField.layer.borderWidth = 1.0
+        pwReTextField.layer.borderColor = UIColor.veryLightPink.cgColor
+        pwReTextField.layer.masksToBounds = true
+        pwReTextField.isSecureTextEntry = true
+
+        
+        
+    }
+    
+    private func loginCheck() {
+        idTextField.addTarget(self, action: #selector(idTextChecked(_:)), for: .editingChanged)
+        nickTextField.addTarget(self, action: #selector(nickTextChecked(_:)), for: .editingChanged)
+        pwTextField.addTarget(self, action: #selector(pwTextChecked(_:)), for: .editingChanged)
+        pwReTextField.addTarget(self, action: #selector(pwReTextChecked(_:)), for: .editingChanged)
+    }
 }
 

@@ -161,22 +161,23 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="176" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HU5-7t-51e">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9g-e1-RNe">
                                                                     <rect key="frame" x="0.0" y="0.0" width="176" height="43"/>
-                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <state key="normal" title="Button"/>
-                                                                </button>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="HU5-7t-51e" firstAttribute="top" secondItem="fhs-Jr-uVZ" secondAttribute="top" id="AcK-DF-Bb1"/>
-                                                                <constraint firstAttribute="trailing" secondItem="HU5-7t-51e" secondAttribute="trailing" id="aBX-mP-3je"/>
-                                                                <constraint firstAttribute="bottom" secondItem="HU5-7t-51e" secondAttribute="bottom" id="nFY-7S-F0b"/>
-                                                                <constraint firstItem="HU5-7t-51e" firstAttribute="leading" secondItem="fhs-Jr-uVZ" secondAttribute="leading" id="zfM-iQ-74f"/>
+                                                                <constraint firstAttribute="trailing" secondItem="P9g-e1-RNe" secondAttribute="trailing" id="1vs-xO-2LF"/>
+                                                                <constraint firstItem="P9g-e1-RNe" firstAttribute="top" secondItem="fhs-Jr-uVZ" secondAttribute="top" id="Pur-MW-EiL"/>
+                                                                <constraint firstAttribute="bottom" secondItem="P9g-e1-RNe" secondAttribute="bottom" id="ZQ1-lR-olE"/>
+                                                                <constraint firstItem="P9g-e1-RNe" firstAttribute="leading" secondItem="fhs-Jr-uVZ" secondAttribute="leading" id="fSl-Up-cN5"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="176" height="43"/>
                                                         <connections>
-                                                            <outlet property="genderButton" destination="HU5-7t-51e" id="qh3-pm-Ara"/>
+                                                            <outlet property="genderActionLabel" destination="P9g-e1-RNe" id="bnA-1x-wbe"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -213,22 +214,23 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="160" height="41"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afO-Qq-JAd">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6l-MO-UMT">
                                                                     <rect key="frame" x="0.0" y="0.0" width="160" height="41"/>
-                                                                    <color key="backgroundColor" red="0.20784313730000001" green="0.7725490196" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <state key="normal" title="Button"/>
-                                                                </button>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="afO-Qq-JAd" secondAttribute="trailing" id="MI3-hm-SDs"/>
-                                                                <constraint firstItem="afO-Qq-JAd" firstAttribute="top" secondItem="B4o-AS-zhb" secondAttribute="top" id="TYC-eE-iMa"/>
-                                                                <constraint firstAttribute="bottom" secondItem="afO-Qq-JAd" secondAttribute="bottom" id="kQl-VJ-86q"/>
-                                                                <constraint firstItem="afO-Qq-JAd" firstAttribute="leading" secondItem="B4o-AS-zhb" secondAttribute="leading" id="v83-Vo-y0n"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Z6l-MO-UMT" secondAttribute="trailing" id="30d-Ui-rvF"/>
+                                                                <constraint firstItem="Z6l-MO-UMT" firstAttribute="leading" secondItem="B4o-AS-zhb" secondAttribute="leading" id="Ebz-ER-6Rl"/>
+                                                                <constraint firstItem="Z6l-MO-UMT" firstAttribute="top" secondItem="B4o-AS-zhb" secondAttribute="top" id="Xt2-PH-hVZ"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Z6l-MO-UMT" secondAttribute="bottom" id="pbH-y2-NrM"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="160" height="41"/>
                                                         <connections>
-                                                            <outlet property="levelButton" destination="afO-Qq-JAd" id="7FY-f1-58V"/>
+                                                            <outlet property="levelActionLabel" destination="Z6l-MO-UMT" id="poE-5m-1sa"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -265,22 +267,23 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="50"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKQ-iS-Q2r">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C81-6v-vYv">
                                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="50"/>
-                                                                    <color key="backgroundColor" red="0.20784313730000001" green="0.7725490196" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <state key="normal" title="Button"/>
-                                                                </button>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="AKQ-iS-Q2r" secondAttribute="bottom" id="VAk-B9-K2a"/>
-                                                                <constraint firstItem="AKQ-iS-Q2r" firstAttribute="top" secondItem="7TL-6h-Q9T" secondAttribute="top" id="frT-uJ-u9I"/>
-                                                                <constraint firstAttribute="trailing" secondItem="AKQ-iS-Q2r" secondAttribute="trailing" id="onu-dB-Fz1"/>
-                                                                <constraint firstItem="AKQ-iS-Q2r" firstAttribute="leading" secondItem="7TL-6h-Q9T" secondAttribute="leading" id="uZB-H8-zhG"/>
+                                                                <constraint firstItem="C81-6v-vYv" firstAttribute="top" secondItem="7TL-6h-Q9T" secondAttribute="top" id="8rg-uT-8ez"/>
+                                                                <constraint firstAttribute="trailing" secondItem="C81-6v-vYv" secondAttribute="trailing" id="Pws-SO-IZe"/>
+                                                                <constraint firstAttribute="bottom" secondItem="C81-6v-vYv" secondAttribute="bottom" id="lp1-gW-pZD"/>
+                                                                <constraint firstItem="C81-6v-vYv" firstAttribute="leading" secondItem="7TL-6h-Q9T" secondAttribute="leading" id="o9h-NY-pQE"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="128" height="50"/>
                                                         <connections>
-                                                            <outlet property="openButton" destination="AKQ-iS-Q2r" id="ixz-JV-QpM"/>
+                                                            <outlet property="openActionLabel" destination="C81-6v-vYv" id="apC-bc-nJQ"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -381,12 +384,14 @@
                         <outlet property="idCheckButton" destination="Bsd-gm-uvV" id="DEc-NB-8d1"/>
                         <outlet property="idCheckLabel" destination="mJz-eK-MXE" id="KX5-Zy-a4h"/>
                         <outlet property="idLabel" destination="WOT-EN-9fY" id="ipq-R1-QyY"/>
+                        <outlet property="idTextField" destination="mqQ-fx-oF0" id="YrF-qf-49t"/>
                         <outlet property="levelDetailLabel" destination="KXx-yH-lvY" id="h7n-tL-JRN"/>
                         <outlet property="levelLabel" destination="l7j-Yd-sBV" id="kiU-TH-oJV"/>
                         <outlet property="levelbuttonCollectionView" destination="KRX-Qb-3fi" id="noi-EB-xQL"/>
                         <outlet property="nickCheckButton" destination="Z9H-Ys-2b9" id="Bf5-0y-pE2"/>
                         <outlet property="nickCheckLabel" destination="ON3-fw-zFc" id="WZY-lV-wHr"/>
                         <outlet property="nickLabel" destination="eah-Px-jrg" id="xpX-yh-scj"/>
+                        <outlet property="nickTextField" destination="tDk-QT-7k3" id="KP3-Nh-IST"/>
                         <outlet property="openDetailLabel" destination="XmO-bg-02W" id="13g-qP-te6"/>
                         <outlet property="openLabel" destination="sMg-Lk-FOg" id="ws3-f9-aRw"/>
                         <outlet property="openbuttonCollectionView" destination="5mT-oM-1Hc" id="k2M-EG-cC2"/>
@@ -394,6 +399,8 @@
                         <outlet property="pwLabel" destination="CCc-4S-cN1" id="c8z-jr-0UQ"/>
                         <outlet property="pwReCheckLabel" destination="Ed0-SK-Aek" id="7tZ-ld-qnN"/>
                         <outlet property="pwReLabel" destination="P6V-Z8-d2t" id="N7S-Hj-HKH"/>
+                        <outlet property="pwReTextField" destination="cqM-QP-fJK" id="Qy8-gU-1yt"/>
+                        <outlet property="pwTextField" destination="P40-J4-G7H" id="pxl-r0-Ibd"/>
                         <outlet property="signUpButton" destination="Rg3-jw-x3J" id="ahi-dU-cSw"/>
                     </connections>
                 </viewController>

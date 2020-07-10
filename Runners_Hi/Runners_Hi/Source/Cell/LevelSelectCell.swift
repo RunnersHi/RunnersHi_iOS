@@ -11,13 +11,23 @@ import UIKit
 
 class LevelSelectCell: UICollectionViewCell {
     static let identifier : String = "LevelSelectCell"
-    @IBOutlet weak var levelButton: UIButton!
+
+    @IBOutlet weak var levelActionLabel: UILabel!
+
     
-    func set(_ levelbuttonName : Level){
-        levelButton.setTitle(levelbuttonName.levelbuttonName, for: .normal)
-        self.levelButton.layer.cornerRadius = 8
-        self.levelButton.backgroundColor = UIColor.brownishGrey
-        levelButton.setTitleColor(.white, for: .normal)
-        levelButton.titleLabel?.font = UIFont(name: "NanumSquareB", size:14)
-    }
+  func set(_ levelActionLabelName : Level){
+      levelActionLabel.text = levelActionLabelName.levelActionLabelName
+      levelActionLabel.textColor = UIColor.white
+      self.levelActionLabel.backgroundColor = UIColor.brownishGrey
+      self.levelActionLabel.layer.cornerRadius = 8
+      self.levelActionLabel.layer.masksToBounds = true
+    levelActionLabel.font = UIFont(name:"NanumSquareB", size:14.0)
+  }
+  
+  override var isSelected: Bool {
+      willSet {
+          self.levelActionLabel.backgroundColor = newValue ? UIColor.lightishBlue : UIColor.brownishGrey
+          
+      }
+  }
 }
