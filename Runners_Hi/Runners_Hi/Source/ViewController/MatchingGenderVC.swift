@@ -20,6 +20,8 @@ class MatchingGenderVC: UIViewController {
     @IBAction func startButtonDidTap(_ sender: UIButton) {
         guard let StartButtonPush = self.storyboard?.instantiateViewController(identifier:"FindRunnerVC") as? FindRunnerVC else {return}
          self.navigationController?.pushViewController(StartButtonPush, animated: true)
+        StartButtonPush.lastGender = giveGenderText
+        StartButtonPush.lastGoal = takeGoal
     }
     override func viewDidLoad() {
         super.viewDidLoad()

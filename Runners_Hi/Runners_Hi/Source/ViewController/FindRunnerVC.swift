@@ -15,7 +15,8 @@ class FindRunnerVC: UIViewController {
 
     let maxTime: Float = 300.0
     var moveTime: Float = 0.0
-    
+    var lastGoal: Int = 0
+    var lastGender: Int = 0
     
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var timeProgressBar: UIProgressView!
@@ -25,11 +26,9 @@ class FindRunnerVC: UIViewController {
     @IBOutlet weak var mentTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var mentStopButton: UIButton!
     override func viewDidLoad() {
-        //SocketIOManager.shared.establishConnection()
-        //SocketIOManager.shared.establishConnection()
-        SocketIOManager.shared.establishConnection()
-        //socket.connect()
+        // 소켓 통신 연결 시작
         super.viewDidLoad()
+        startSocket()
         basicAutoLayout()
         // Do any additional setup after loading the view.
     }
@@ -53,6 +52,12 @@ class FindRunnerVC: UIViewController {
         mentStopButton.setTitleColor(.white, for: .normal)
         mentStopButton.backgroundColor = UIColor.lightishBlue
         mentStopButton.layer.cornerRadius = 8
+    }
+    private func startSocket() {
+        // 소켓 연결
+        SocketIOManager.shared.establishConnection()
+        // 이벤트 송신
+        //SocketIOManager.shared.sendMessage(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3QiLCJwYXNzd29yZCI6InRlc3QiLCJ0b2tlbiI6InRva2VuIiwiaWF0IjoxNTk0Mjk4Nzc0LCJleHAiOjE1OTQzMzQ3NzR9.iTbn8pV-DJ5xZC9oqXaArHi5tMq6uT7ECUuKOwTYrLU", time: lastGoal, wantGender: lastGender, left_time: 300)
     }
     @objc func updateProgressbar() {
         moveTime = moveTime + 1.0
