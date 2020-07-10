@@ -42,9 +42,9 @@ class MatchingGenderVC: UIViewController {
         startButton.setTitle("START", for: .normal)
     }
     private func setGenderList() {
-        let gender1 = Gender(genderbuttonName: "남")
-        let gender2 = Gender(genderbuttonName: "여")
-        let gender3 = Gender(genderbuttonName: "상관없어요")
+        let gender1 = Gender(genderActionLabelName: "남")
+        let gender2 = Gender(genderActionLabelName: "여")
+        let gender3 = Gender(genderActionLabelName: "상관없어요")
         
         genderInformation = [gender1,gender2,gender3]
     }

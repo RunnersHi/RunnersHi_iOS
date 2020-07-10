@@ -10,15 +10,21 @@ import UIKit
 
 class OpenSelectCell: UICollectionViewCell {
     static let identifier : String = "OpenSelectCell"
-    @IBOutlet weak var openButton: UIButton!
-    
-    func set(_ openbuttonName : Open){
-        openButton.setTitle(openbuttonName.openbuttonName, for : .normal)
-        self.openButton.layer.cornerRadius = 8
-        self.openButton.backgroundColor = UIColor.brownishGrey
-        openButton.setTitleColor(.white, for: .normal)
-        openButton.titleLabel?.font = UIFont(name: "NanumSquareB", size:14)
-        
+    @IBOutlet weak var openActionLabel: UILabel!
+
+    func set(_ openActionLabelName : Open){
+        openActionLabel.text = openActionLabelName.openActionLabelName
+        openActionLabel.textColor = UIColor.white
+        self.openActionLabel.backgroundColor = UIColor.brownishGrey
+        self.openActionLabel.layer.cornerRadius = 8
+        self.openActionLabel.layer.masksToBounds = true
+        openActionLabel.font = UIFont(name:"NanumSquareB", size:14.0)
     }
     
+    override var isSelected: Bool {
+        willSet {
+            self.openActionLabel.backgroundColor = newValue ? UIColor.lightishBlue : UIColor.brownishGrey
+            
+        }
+    }
 }

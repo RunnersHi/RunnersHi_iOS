@@ -21,7 +21,7 @@ class BattleGenderSelectCell: UICollectionViewCell {
     }
     
     func setGenderInformation(_ setGenderInformation: Gender){
-        genderLabel.text = setGenderInformation.genderbuttonName
+        genderLabel.text = setGenderInformation.genderActionLabelName
     }
     
     override func awakeFromNib() {

@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Gender{
-    var genderbuttonName: String?
+struct Gender {
+    var genderActionLabelName: String
     
-    init(genderbuttonName: String){
-        self.genderbuttonName = genderbuttonName
+    init(genderActionLabelName: String){
+        self.genderActionLabelName = genderActionLabelName
     }
 }

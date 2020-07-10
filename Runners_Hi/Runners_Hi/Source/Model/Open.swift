@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Open{
-    var openbuttonName : String?
+struct Open {
+    var openActionLabelName: String
     
-    init(openbuttonName : String){
-        self.openbuttonName = openbuttonName
+    init(openActionLabelName: String){
+        self.openActionLabelName = openActionLabelName
     }
 }

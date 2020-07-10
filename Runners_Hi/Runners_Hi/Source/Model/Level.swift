@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Level{
-    var levelbuttonName : String?
+struct Level {
+    var levelActionLabelName: String
     
-    init(levelbuttonName : String) {
-        self.levelbuttonName = levelbuttonName
+    init(levelActionLabelName: String) {
+        self.levelActionLabelName = levelActionLabelName
     }
 }
