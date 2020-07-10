@@ -39,6 +39,74 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
     @IBOutlet weak var nickCheckButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+    @IBAction func idCheck(_ sender: Any) {
+        guard let inputID = idTextField.text else {return}
+        
+        DuplicateService.shared.duplicate(check_name: inputID, flag: 1) { networkResult in switch networkResult {
+        case .success(let success):
+            guard let success = success as? Bool else {return}
+            if success {
+                self.idCheckLabel.text = "사용 가능한 아이디 입니다."
+                self.idCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
+                self.idCheckLabel.textColor = UIColor.lightishBlue
+                self.idTextField.layer.cornerRadius = 8.0
+                self.idTextField.layer.borderWidth = 1.0
+                self.idTextField.layer.borderColor = UIColor.veryLightPink.cgColor
+                self.idTextField.layer.masksToBounds = true
+            }
+            else{
+                self.idCheckLabel.text = "중복된 아이디 입니다."
+            }
+            
+        case .requestErr: print("")
+        self.idCheckLabel.text = "중복된 아이디 입니다."
+            //            guard let success = success as? Bool else {return}
+            //            if (success == false){
+            //                self.idCheckLabel.text = "중복된 아이디 입니다."}
+            
+        case .pathErr: print("path")
+        case .serverErr: print("serverErr")
+        case .networkFail: print("networkFail")
+            
+            }
+        }
+    }
+    
+    @IBAction func nickCheck(_ sender: Any) {
+        guard let inputNick = nickTextField.text else {return}
+        
+        DuplicateService.shared.duplicate(check_name: inputNick, flag: 2) { networkResult in switch networkResult {
+        case .success(let success):
+            guard let success = success as? Bool else {return}
+            if success {
+                self.nickCheckLabel.text = "사용 가능한 아이디 입니다."
+                self.nickCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
+                self.nickCheckLabel.textColor = UIColor.lightishBlue
+                self.nickTextField.layer.cornerRadius = 8.0
+                self.nickTextField.layer.borderWidth = 1.0
+                self.nickTextField.layer.borderColor = UIColor.veryLightPink.cgColor
+                self.nickTextField.layer.masksToBounds = true
+            }
+            else{
+                self.nickCheckLabel.text = "중복된 아이디 입니다."
+            }
+            
+        case .requestErr: print("")
+        self.nickCheckLabel.text = "중복된 아이디 입니다."
+            //            guard let success = success as? Bool else {return}
+            //            if (success == false){
+            //                self.idCheckLabel.text = "중복된 아이디 입니다."}
+            
+        case .pathErr: print("path")
+        case .serverErr: print("serverErr")
+        case .networkFail: print("networkFail")
+            
+            }
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonList()
@@ -119,7 +187,11 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
             idCheckLabel.alpha = 1
             idCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
             idCheckLabel.textColor = UIColor.grapefruit
-            
+            idTextField.layer.borderColor = UIColor.grapefruit.cgColor
+            idTextField.layer.borderWidth = 1
+            idTextField.layer.masksToBounds = true
+            idTextField.layer.cornerRadius = 8.0
+            self.idCheckButton.isEnabled = true
         }
         else
         {
@@ -131,6 +203,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
             idTextField.layer.borderWidth = 1
             idTextField.layer.masksToBounds = true
             idTextField.layer.cornerRadius = 8.0
+            self.idCheckButton.isEnabled = false
         }
     }
     
@@ -140,6 +213,12 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
             nickCheckLabel.alpha = 1
             nickCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
             nickTextField.layer.borderColor = UIColor.grapefruit.cgColor
+            nickCheckLabel.textColor = UIColor.grapefruit
+            nickTextField.layer.borderColor = UIColor.grapefruit.cgColor
+            nickTextField.layer.borderWidth = 1
+            nickTextField.layer.masksToBounds = true
+            nickTextField.layer.cornerRadius = 8.0
+            self.nickCheckButton.isEnabled = true
         }
         else
         {
@@ -151,6 +230,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
             nickTextField.layer.borderWidth = 1
             nickTextField.layer.masksToBounds = true
             nickTextField.layer.cornerRadius = 8.0
+            self.nickCheckButton.isEnabled = false
         }
     }
     
@@ -180,14 +260,14 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
             pwTextField.layer.masksToBounds = true
             pwTextField.layer.cornerRadius = 8.0
             pwReTextField.isEnabled = false
-
+            
         }
     }
     
     @objc private func pwReTextChecked(_ TextLabel: UILabel) {
         if(pwTextField.text == pwReTextField.text) {
             pwReCheckLabel.text = "비밀번호가 일치합니다"
-             pwReCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
+            pwReCheckLabel.font = UIFont(name: "NanumSquareR", size: 12.0)
             pwReCheckLabel.textColor = UIColor.lightishBlue
             
             pwReTextField.layer.borderColor = UIColor.veryLightPink.cgColor
@@ -206,7 +286,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
             
         }
         
-       }
+    }
     
 }//class end
 
@@ -351,11 +431,7 @@ extension SignUpVC {
         openDetailLabel.font = UIFont(name:"NanumSquareR", size:12.0)
         openDetailLabel.textColor = UIColor.brownGrey
         //label에 있는 Text를 NSMutableAttributedString으로 만들어준다.
-        let openDetailLabelStyle = NSMutableAttributedString(string: openDetailLabel.text!)
-        
-        openDetailLabelStyle.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: (openDetailLabel.text! as NSString).range(of:"‘공개’를 선택해야 러너 랭킹 산정에 포함될 수 있어요."))
-        
-        openDetailLabel.attributedText = openDetailLabelStyle
+    
     }
     
     private func setbutton() {
@@ -397,14 +473,14 @@ extension SignUpVC {
         pwTextField.layer.borderColor = UIColor.veryLightPink.cgColor
         pwTextField.layer.masksToBounds = true
         pwTextField.isSecureTextEntry = true
-
+        
         
         pwReTextField.layer.cornerRadius = 8.0
         pwReTextField.layer.borderWidth = 1.0
         pwReTextField.layer.borderColor = UIColor.veryLightPink.cgColor
         pwReTextField.layer.masksToBounds = true
         pwReTextField.isSecureTextEntry = true
-
+        
         
         
     }
