@@ -27,7 +27,7 @@ class FindRunnerVC: UIViewController {
     override func viewDidLoad() {
         // 소켓 통신 연결 시작
         super.viewDidLoad()
-        //startSocket()
+        startSocket()
         basicAutoLayout()
         // Do any additional setup after loading the view.
     }
@@ -57,7 +57,7 @@ class FindRunnerVC: UIViewController {
         SocketIOManager.shared.establishConnection()
         //SocketIOManager.socke
         // 이벤트 송신
-        //SocketIOManager.shared.sendMessage(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3QiLCJwYXNzd29yZCI6InRlc3QiLCJ0b2tlbiI6InRva2VuIiwiaWF0IjoxNTk0Mjk4Nzc0LCJleHAiOjE1OTQzMzQ3NzR9.iTbn8pV-DJ5xZC9oqXaArHi5tMq6uT7ECUuKOwTYrLU", time: lastGoal, wantGender: lastGender, left_time: 300)
+        SocketIOManager.shared.sendMessage(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3QiLCJwYXNzd29yZCI6InRlc3QiLCJ0b2tlbiI6InRva2VuIiwiaWF0IjoxNTk0Mjk4Nzc0LCJleHAiOjE1OTQzMzQ3NzR9.iTbn8pV-DJ5xZC9oqXaArHi5tMq6uT7ECUuKOwTYrLU", time: lastGoal, wantGender: lastGender, left_time: 300)
     }
     @objc func updateProgressbar() {
         moveTime = moveTime + 1.0

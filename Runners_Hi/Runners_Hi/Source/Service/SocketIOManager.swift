@@ -12,7 +12,8 @@ import SocketIO
 class SocketIOManager: NSObject {
     
     static let shared = SocketIOManager()
-    var manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
+    
+    var manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000/matching")!, config: [.log(true), .compress])
     //    override init() {
 //        super.init()
 //        socket = self.manager.socket(forNamespace: "")
@@ -29,7 +30,8 @@ class SocketIOManager: NSObject {
        //socket.disconnect()
     }
     func sendMessage(token: String, time: Int, wantGender: Int, left_time: Int) {
-       /// socket.emit("joinRoom",["token": token,"time": time,"wantGender": wantGender,"left_time": left_time])
+        let socket = manager.defaultSocket
+        socket.emit("joinRoom",["token": token,"time": time,"wantGender": wantGender,"left_time": left_time])
     }
 }
 
