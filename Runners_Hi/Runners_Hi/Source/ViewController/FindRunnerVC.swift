@@ -64,7 +64,7 @@ class FindRunnerVC: UIViewController {
         
         // 서버 : 시작해도 좋다는 응답 -> 클라 : 내 정보와 내가 원하는 상대의 조건을 보내줌
         socket.on("start", callback: { (data, ack) in
-            socket.emit("joinRoom","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0MSIsInBhc3N3b3JkIjoidGVzdHRlc3QxIiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDQ3MTQ5MiwiZXhwIjoxNTk0NTA3NDkyfQ.T2AkzNjQwnGm7SuzJkSkbMjeSRFmtHM2sJwL_lim-ps",self.lastGoal,self.lastGender,self.leftTime)
+            socket.emit("joinRoom","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0MiIsInBhc3N3b3JkIjoidGVzdHRlc3QyIiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDQ4MDYxOCwiZXhwIjoxNTk0NTE2NjE4fQ.6NSH9gWDVdg-TmzF9pbfQDYUhCnDKfi_X4kRVDFGG8A",self.lastGoal,self.lastGender,self.leftTime)
         })
         
         // 내가 원하는 조건의 상대를 찾지 못해서
