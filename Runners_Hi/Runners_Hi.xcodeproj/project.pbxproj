@@ -18,6 +18,8 @@
 		06F40AC924B85093001E04FB /* DuplicateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AC824B85093001E04FB /* DuplicateData.swift */; };
 		06F40ACB24B8565D001E04FB /* DuplicateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40ACA24B8565D001E04FB /* DuplicateService.swift */; };
 		06F40ACF24B88C73001E04FB /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40ACE24B88C73001E04FB /* SignInVC.swift */; };
+		06F40AD124B96BA1001E04FB /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AD024B96BA1001E04FB /* LoginData.swift */; };
+		06F40AD324B96C9F001E04FB /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AD224B96C9F001E04FB /* LoginService.swift */; };
 		3BD8ECE5AC41CD44ED87794D /* Pods_Runners_Hi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */; };
 		3D05E25424B8B6E500EACA87 /* count.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D05E25224B8B6E400EACA87 /* count.json */; };
 		3D05E25524B8B6E500EACA87 /* run.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D05E25324B8B6E500EACA87 /* run.json */; };
@@ -71,6 +73,8 @@
 		06F40AC824B85093001E04FB /* DuplicateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateData.swift; sourceTree = "<group>"; };
 		06F40ACA24B8565D001E04FB /* DuplicateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateService.swift; sourceTree = "<group>"; };
 		06F40ACE24B88C73001E04FB /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		06F40AD024B96BA1001E04FB /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		06F40AD224B96C9F001E04FB /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runners_Hi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D05E25224B8B6E400EACA87 /* count.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = count.json; sourceTree = "<group>"; };
 		3D05E25324B8B6E500EACA87 /* run.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = run.json; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 				3DC2840F24B828330063439D /* APIConstants.swift */,
 				3DC2841124B829130063439D /* NetworkResult.swift */,
 				06F40ACA24B8565D001E04FB /* DuplicateService.swift */,
+				06F40AD224B96C9F001E04FB /* LoginService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				3DCDF01824B607BF003F47CE /* GoalInformation.swift */,
 				06F40AC624B848EA001E04FB /* SignupData.swift */,
 				06F40AC824B85093001E04FB /* DuplicateData.swift */,
+				06F40AD024B96BA1001E04FB /* LoginData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 				06F40ACB24B8565D001E04FB /* DuplicateService.swift in Sources */,
 				06F40ABF24B5F785001E04FB /* LevelSelectCell.swift in Sources */,
 				3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */,
+				06F40AD124B96BA1001E04FB /* LoginData.swift in Sources */,
 				3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */,
 				06F40AC324B6353E001E04FB /* OpenSelectCell.swift in Sources */,
 				3DCDF01724B5FE13003F47CE /* MatchingGoalVC.swift in Sources */,
@@ -464,6 +471,7 @@
 				3DCAF89D24B6F0BD009B3AE5 /* MatchingGenderVC.swift in Sources */,
 				06F40ABB24B4FF89001E04FB /* GenderSelectCell.swift in Sources */,
 				06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */,
+				06F40AD324B96C9F001E04FB /* LoginService.swift in Sources */,
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,
 				3DC2840E24B8047B0063439D /* SocketIOManager.swift in Sources */,
 				3DC2841024B828330063439D /* APIConstants.swift in Sources */,

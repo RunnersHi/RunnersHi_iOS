@@ -11,10 +11,19 @@ import UIKit
 class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate {
     static let identifier: String = "SignUpVC"
     
+    var giveGenderText = 0
+    var giveLevelText = 0
+    var giveOpen = false
+    
+    var giveGenderCheck = false
+    var giveLevelCheck = false
+    var giveOpenCheck = false
+    
     @IBOutlet weak var genderbuttonCollectionView: UICollectionView!
     @IBOutlet weak var levelbuttonCollectionView: UICollectionView!
     @IBOutlet weak var openbuttonCollectionView: UICollectionView!
     
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var idCheckLabel: UILabel!
     @IBOutlet weak var nickLabel: UILabel!
@@ -54,12 +63,12 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
                 self.idTextField.layer.borderColor = UIColor.veryLightPink.cgColor
                 self.idTextField.layer.masksToBounds = true
             }
-            else{
+            else {
                 self.idCheckLabel.text = "중복된 아이디 입니다."
             }
             
         case .requestErr: print("")
-        self.idCheckLabel.text = "중복된 아이디 입니다."
+            //        self.idCheckLabel.text = "중복된 아이디 입니다."
             //            guard let success = success as? Bool else {return}
             //            if (success == false){
             //                self.idCheckLabel.text = "중복된 아이디 입니다."}
@@ -381,11 +390,41 @@ extension SignUpVC: UICollectionViewDelegateFlowLayout {
         }
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cells = collectionView.cellForItem(at: indexPath) as? GenderSelectCell
+        if indexPath == [0, 0] {
+            giveGenderText = 1
+            giveGenderCheck = true
+        } else {
+            giveGenderText = 2
+            giveGenderCheck = true
+        }
+        let cells2 = collectionView.cellForItem(at: indexPath) as? LevelSelectCell
+        if indexPath == [0, 0] {
+            giveLevelText = 1
+            giveLevelCheck = true
+        } else if indexPath == [0, 1] {
+            giveLevelText = 2
+            giveLevelCheck = true
+            
+        } else {
+            giveLevelText = 3
+            giveLevelCheck = true
+        }
+        let cells3 = collectionView.cellForItem(at: indexPath) as? OpenSelectCell
+        if indexPath == [0, 0] {
+            giveOpen = true
+            giveOpenCheck = true
+        } else {
+            giveOpen = false
+            giveOpenCheck = true
+        }
+    }
 }
-
 extension SignUpVC {
     private func setLabel() {
+        profileImage.image=UIImage(named: "iconDefaultpeople")
+        
         self.idLabel.text = "아이디"
         idLabel.font = UIFont(name:"NanumSquareR", size:14.0)
         
@@ -431,7 +470,7 @@ extension SignUpVC {
         openDetailLabel.font = UIFont(name:"NanumSquareR", size:12.0)
         openDetailLabel.textColor = UIColor.brownGrey
         //label에 있는 Text를 NSMutableAttributedString으로 만들어준다.
-    
+        
     }
     
     private func setbutton() {
@@ -462,17 +501,20 @@ extension SignUpVC {
         idTextField.layer.borderWidth = 1.0
         idTextField.layer.borderColor = UIColor.veryLightPink.cgColor
         idTextField.layer.masksToBounds = true
+        idTextField.addLeftPadding()
         
         nickTextField.layer.cornerRadius = 8.0
         nickTextField.layer.borderWidth = 1.0
         nickTextField.layer.borderColor = UIColor.veryLightPink.cgColor
         nickTextField.layer.masksToBounds = true
+        nickTextField.addLeftPadding()
         
         pwTextField.layer.cornerRadius = 8.0
         pwTextField.layer.borderWidth = 1.0
         pwTextField.layer.borderColor = UIColor.veryLightPink.cgColor
         pwTextField.layer.masksToBounds = true
         pwTextField.isSecureTextEntry = true
+        pwTextField.addLeftPadding()
         
         
         pwReTextField.layer.cornerRadius = 8.0
@@ -480,6 +522,7 @@ extension SignUpVC {
         pwReTextField.layer.borderColor = UIColor.veryLightPink.cgColor
         pwReTextField.layer.masksToBounds = true
         pwReTextField.isSecureTextEntry = true
+        pwReTextField.addLeftPadding()
         
         
         
@@ -491,5 +534,6 @@ extension SignUpVC {
         pwTextField.addTarget(self, action: #selector(pwTextChecked(_:)), for: .editingChanged)
         pwReTextField.addTarget(self, action: #selector(pwReTextChecked(_:)), for: .editingChanged)
     }
+    
 }
 
