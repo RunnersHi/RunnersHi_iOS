@@ -8,15 +8,18 @@
 
 import UIKit
 import SocketIO
-//let managers = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
-//let socket = managers.defaultSocket
+
 
 class FindRunnerVC: UIViewController {
 
     let maxTime: Float = 300.0
     var moveTime: Float = 0.0
     var lastGoal: Int = 0
-    var lastGender: Int = 0 
+    var lastGender: Int = 0
+    var leftTime: Int = 300
+    static let shared = SocketIOManager()
+    var manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
+    
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var timeProgressBar: UIProgressView!
 
@@ -54,10 +57,22 @@ class FindRunnerVC: UIViewController {
     }
     private func startSocket() {
         // 소켓 연결
-        SocketIOManager.shared.establishConnection()
-        //SocketIOManager.socke
-        // 이벤트 송신
-        SocketIOManager.shared.sendMessage(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3QiLCJwYXNzd29yZCI6InRlc3QiLCJ0b2tlbiI6InRva2VuIiwiaWF0IjoxNTk0Mjk4Nzc0LCJleHAiOjE1OTQzMzQ3NzR9.iTbn8pV-DJ5xZC9oqXaArHi5tMq6uT7ECUuKOwTYrLU", time: lastGoal, wantGender: lastGender, left_time: 300)
+        //SocketIOManager.shared.establishConnection()
+        let socket = manager.socket(forNamespace: "/matching")
+        socket.connect()
+        socket.on("start", callback: { (data, ack) in
+            socket.emit("joinRoom",["eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3QiLCJwYXNzd29yZCI6InRlc3QiLCJ0b2tlbiI6InRva2VuIiwiaWF0IjoxNTk0Mjk4Nzc0LCJleHAiOjE1OTQzMzQ3NzR9.iTbn8pV-DJ5xZC9oqXaArHi5tMq6uT7ECUuKOwTYrLU",self.lastGoal,self.lastGender,self.leftTime])
+        })
+        socket.on("roomCreated", callback: { (data, ack) in
+            var roomName = data
+            print(roomName)
+            
+        })
+        socket.on("startCount", callback: { (data, ack) in
+            print(data)
+            
+        })
+        
     }
     @objc func updateProgressbar() {
         moveTime = moveTime + 1.0
