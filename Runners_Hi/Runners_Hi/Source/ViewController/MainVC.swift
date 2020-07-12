@@ -10,7 +10,7 @@ import UIKit
 
 class MainVC: UIViewController {
     static let identifier: String = "MainVC"
-    let blackView = UIView()
+    var blackView = UIView()
     
     
     @IBOutlet weak var popUpTableView: UITableView!
@@ -21,14 +21,38 @@ class MainVC: UIViewController {
     @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var runButton: UIButton!
     
+    private var isToggle: Bool = false
+    
     @IBAction func runButtonDidTap(_ sender: Any) {
-       // view.addSubview(blackView)
-        //blackView.backgroundColor = UIColor(red: 0 / 255.0, green: 0 / 255.0, blue: 0 / 255.0, alpha: 1.0)
-        //blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
-        popUpTableView.isHidden = false
+        if isToggle {
+            print("하")
+            UIView.animate(withDuration: 0.3) {
+                self.popUpTableView.transform = CGAffineTransform(translationX: 0, y: self.popUpTableView.frame.height-40)
+            }
+        } else {
+            print("이")
+            //hidesBottomBarWhenPushed = true
+            //self.hidesBottomBarWhenPushed = true
+            //self.tabBarController?.tabBar.layer.zPosition = -1
+           // blackView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+           // blackView.frame = self.view.frame
+            //blackView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+           // self.tabBarController?.tabBar.frame.height
+           // self.view.frame.height
+            //self.view.window?.addSubview(blackView)
+           // self.view.addSubview(blackView)
+            UIView.animate(withDuration: 0.3) {
+                self.popUpTableView.transform = .identity
+            //원래 자리로 돌아오기
+            }
         }
+        isToggle = isToggle ? false : true
+    
+    }
         
-        
+//    func onClickBlackView() {
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(blackView))
+//    }
         
     
     
@@ -38,6 +62,8 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         basicAutoLayout()
         setbattleInformation()
+        
+        popUpTableView.transform = CGAffineTransform(translationX: 0, y: popUpTableView.frame.height)
     }
     private func setbattleInformation() {
         let date1 = BattleInformation(ment: "다른 러너와 경쟁하기")
@@ -68,8 +94,6 @@ class MainVC: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
        //구분선 제거
         //popUpTableView.separatorStyle = .none
-        popUpTableView.isHidden = true
-        
         popUpTableView.delegate = self
         popUpTableView.dataSource = self
     }

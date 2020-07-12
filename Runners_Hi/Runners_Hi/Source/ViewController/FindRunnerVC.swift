@@ -17,7 +17,7 @@ class FindRunnerVC: UIViewController {
     var lastGoal: Int = 0
     var lastGender: Int = 0
     var leftTime: Int = 300
-    var room: Int = 0
+    var room: String = ""
     static let shared = SocketIOManager()
     var manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
     
@@ -65,13 +65,13 @@ class FindRunnerVC: UIViewController {
         
         // 서버 : 시작해도 좋다는 응답 -> 클라 : 내 정보와 내가 원하는 상대의 조건을 보내줌
         socket.on("start", callback: { (data, ack) in
-            socket.emit("joinRoom","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NSIsInBhc3N3b3JkIjoidGVzdHRlc3Q1IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDUzNDQ5MSwiZXhwIjoxNTk0NTcwNDkxfQ.9dFvOODhCnpWjcDkobtOdFj1bNw_mz4vgquWO_JQgt0",self.lastGoal,self.lastGender,self.leftTime)
+            socket.emit("joinRoom","토큰자리",self.lastGoal,self.lastGender,self.leftTime)
         })
         
         // 내가 원하는 조건의 상대를 찾지 못해서
         // 서버 : 새로운 방을 만들어서 나를 넣어줌 -> 클라 : 시간 카운트를 하라는걸 알려줌
         socket.on("roomCreated", callback: { (data, ack) in
-            socket.emit("startCount",data)
+            socket.emit("startCount",data[0] as! SocketData)
         })
         // 클라 : 남은 시간을 나에게 보내줌
         socket.on("timeLeft", callback: {(data, ack) in
@@ -89,15 +89,22 @@ class FindRunnerVC: UIViewController {
             socket.emit("endCount",data[0] as! SocketData)
         })
         socket.on("roomFull", callback: { (data, ack) in
-            print("안녕",type(of: data[0]))
-            self.room = Int((data[0] as! NSString).intValue)
+            self.room = ((data[0] as! NSString) as String)
             socket.emit("opponentInfo",data[0] as! SocketData)
         })
         socket.on("opponentInfo", callback: { (data, ack) in
+            UserDefaults.standard.set(data[1] , forKey: "opponentNick")
+            UserDefaults.standard.set(data[2], forKey: "opponentLevel")
+            UserDefaults.standard.set(data[3], forKey: "opponentWin")
+            UserDefaults.standard.set(data[4], forKey: "opponentLose")
+            UserDefaults.standard.set(data[5], forKey: "opponentImg")
             socket.emit("readyToRun",self.room)
+            
         })
         socket.on("letsRun", callback: { (data, ack) in
             print("이제 뛰자")
+            guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"CountdownVC") as? CountdownVC else {return}
+            self.navigationController?.pushViewController(LetsRun, animated: true)
         })
         socket.on("opponentNotReady", callback: { (data, ack) in
             print("조금만기다려")

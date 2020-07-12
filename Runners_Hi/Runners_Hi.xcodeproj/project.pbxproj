@@ -28,6 +28,7 @@
 		3D8AD89524B32695006B5648 /* RankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89424B32695006B5648 /* RankVC.swift */; };
 		3D8AD89724B326A6006B5648 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89624B326A6006B5648 /* RecordVC.swift */; };
 		3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89824B326BD006B5648 /* MyPageVC.swift */; };
+		3D8AF1FD24BB740800754BAB /* CountdownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AF1FC24BB740800754BAB /* CountdownVC.swift */; };
 		3DA2EA1524B09E8A0091F12F /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1224B09E850091F12F /* NanumSquareBold.ttf */; };
 		3DA2EA1624B09E8C0091F12F /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1324B09E860091F12F /* NanumSquareExtraBold.ttf */; };
 		3DA2EA1724B09E8E0091F12F /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1124B09E850091F12F /* NanumSquareLight.ttf */; };
@@ -86,6 +87,7 @@
 		3D8AD89424B32695006B5648 /* RankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankVC.swift; sourceTree = "<group>"; };
 		3D8AD89624B326A6006B5648 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		3D8AD89824B326BD006B5648 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		3D8AF1FC24BB740800754BAB /* CountdownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownVC.swift; sourceTree = "<group>"; };
 		3DA2EA1124B09E850091F12F /* NanumSquareLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareLight.ttf; sourceTree = "<group>"; };
 		3DA2EA1224B09E850091F12F /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
 		3DA2EA1324B09E860091F12F /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
@@ -156,8 +158,6 @@
 		3D05E25124B8B6D100EACA87 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				3D05E25224B8B6E400EACA87 /* count.json */,
-				3D05E25324B8B6E500EACA87 /* run.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -259,6 +259,9 @@
 				06F40AD424BAB444001E04FB /* ProfilePopUpVC.swift */,
 				3DC11A9A24B9CD5500127718 /* RunActivityVC.swift */,
 				06F40ADA24BB038F001E04FB /* RunningLevelPopUpVC.swift */,
+				3D8AF1FC24BB740800754BAB /* CountdownVC.swift */,
+				3D05E25224B8B6E400EACA87 /* count.json */,
+				3D05E25324B8B6E500EACA87 /* run.json */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				06F40ACB24B8565D001E04FB /* DuplicateService.swift in Sources */,
 				06F40ABF24B5F785001E04FB /* LevelSelectCell.swift in Sources */,
 				3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */,
+				3D8AF1FD24BB740800754BAB /* CountdownVC.swift in Sources */,
 				06F40AD124B96BA1001E04FB /* LoginData.swift in Sources */,
 				3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */,
 				06F40AC324B6353E001E04FB /* OpenSelectCell.swift in Sources */,

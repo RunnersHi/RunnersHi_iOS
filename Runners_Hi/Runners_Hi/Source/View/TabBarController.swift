@@ -27,8 +27,8 @@ class TabBarController: UITabBarController {
             return
         }
         firstTab.tabBarItem.title = nil
-        firstTab.tabBarItem.image = UIImage(named: "iconHomeUnsel")?.withRenderingMode(.alwaysOriginal)
-        firstTab.tabBarItem.selectedImage = UIImage(named: "iconHomeSelect")?.withRenderingMode(.alwaysOriginal)
+        firstTab.tabBarItem.image = UIImage(named: "icon8HomeUnsel")?.withRenderingMode(.alwaysOriginal)
+        firstTab.tabBarItem.selectedImage = UIImage(named: "icon8HomeSelect")?.withRenderingMode(.alwaysOriginal)
         
         //두번째탭
         let recordTabStoryboard = UIStoryboard.init(name: "RecordTab", bundle: nil)
@@ -36,8 +36,8 @@ class TabBarController: UITabBarController {
         guard let secondTab = recordTabStoryboard.instantiateViewController(identifier: "RecordVC") as? RecordVC else {
             return
         }
-        secondTab.tabBarItem.image = UIImage(named: "iconRecordUnsel")?.withRenderingMode(.alwaysOriginal)
-        secondTab.tabBarItem.selectedImage = UIImage(named: "iconRecordSelect")?.withRenderingMode(.alwaysOriginal)
+        secondTab.tabBarItem.image = UIImage(named: "icon8RecordUnsel")?.withRenderingMode(.alwaysOriginal)
+        secondTab.tabBarItem.selectedImage = UIImage(named: "icon8RecordSelect")?.withRenderingMode(.alwaysOriginal)
         
         //세번째탭
         let rankTabStoryboard = UIStoryboard.init(name: "RankingTab", bundle: nil)
@@ -46,8 +46,8 @@ class TabBarController: UITabBarController {
             return
         }
         
-        thirdTab.tabBarItem.image = UIImage(named: "iconRankingUnsel")?.withRenderingMode(.alwaysOriginal)
-        thirdTab.tabBarItem.selectedImage = UIImage(named: "iconRankingSelect")?.withRenderingMode(.alwaysOriginal)
+        thirdTab.tabBarItem.image = UIImage(named: "icon8RankingUnsel")?.withRenderingMode(.alwaysOriginal)
+        thirdTab.tabBarItem.selectedImage = UIImage(named: "icon8RankingSelect")?.withRenderingMode(.alwaysOriginal)
         
         //네번째 탭
         let mypageTabStoryboard = UIStoryboard.init(name: "MyPageTab", bundle: nil)
@@ -56,8 +56,8 @@ class TabBarController: UITabBarController {
             return
         }
         
-        fourthTab.tabBarItem.image = UIImage(named: "iconProfileUnsel")?.withRenderingMode(.alwaysOriginal)
-        fourthTab.tabBarItem.selectedImage = UIImage(named: "iconProfileSelect")?.withRenderingMode(.alwaysOriginal)
+        fourthTab.tabBarItem.image = UIImage(named: "icon8ProfileUnsel")?.withRenderingMode(.alwaysOriginal)
+        fourthTab.tabBarItem.selectedImage = UIImage(named: "icon8ProfileSelect")?.withRenderingMode(.alwaysOriginal)
         
         let tabs = [firstTab,secondTab,thirdTab,fourthTab]
         
