@@ -48,6 +48,21 @@ extension OpponentProfileVC {
         countLabel.font = UIFont(name: "NanumSquareB", size: 16)
         
         battleRunnerLevelLabel.font = UIFont(name: "NanumSquareB", size: 16)
+        guard let inputLevel = UserDefaults.standard.object(forKey: "opponentLevel") else {return}
+        guard let inputNick = UserDefaults.standard.object(forKey: "opponentNick") else {return}
+        guard let inputWin = UserDefaults.standard.object(forKey: "opponentWin") else {return}
+        guard let inputLose = UserDefaults.standard.object(forKey: "opponentLose") else {return}
+        
+        if inputLevel as! Int == 1 {
+            battleRunnerLevelLabel.text = "초급"
+        } else if inputLevel as! Int == 2 {
+            battleRunnerLevelLabel.text = "중급"
+        } else {
+            battleRunnerLevelLabel.text = "고급"
+        }
+        
+        battleRunnerIDLabel.text = inputNick as? String
+        battleRunnerScoreLabel.text = (inputWin as! String) + "승" + (inputLose as! String) + "패"
         
         battleRunnerScoreLabel.font = UIFont(name: "NanumSquareB", size: 16)
     }

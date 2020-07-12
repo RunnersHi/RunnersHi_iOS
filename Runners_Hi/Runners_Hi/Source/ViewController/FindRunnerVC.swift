@@ -65,7 +65,7 @@ class FindRunnerVC: UIViewController {
         
         // 서버 : 시작해도 좋다는 응답 -> 클라 : 내 정보와 내가 원하는 상대의 조건을 보내줌
         socket.on("start", callback: { (data, ack) in
-            socket.emit("joinRoom","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NSIsInBhc3N3b3JkIjoidGVzdHRlc3Q1IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDUzNDQ5MSwiZXhwIjoxNTk0NTcwNDkxfQ.9dFvOODhCnpWjcDkobtOdFj1bNw_mz4vgquWO_JQgt0",self.lastGoal,self.lastGender,self.leftTime)
+            socket.emit("joinRoom","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NSIsInBhc3N3b3JkIjoidGVzdHRlc3Q1IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDU3Mjc1MCwiZXhwIjoxNTk0NjA4NzUwfQ.DUP6jOcCEKDzKIXm9QknGPbPoHctHhJgT2ok_OGVVf4",self.lastGoal,self.lastGender,self.leftTime)
         })
         
         // 내가 원하는 조건의 상대를 찾지 못해서
@@ -93,9 +93,8 @@ class FindRunnerVC: UIViewController {
             socket.emit("opponentInfo",data[0] as! SocketData)
         })
         socket.on("opponentInfo", callback: { (data, ack) in
-            UserDefaults.standard.set(data[0] , forKey: "opponentNick")
-            UserDefaults.standard.set(data[1], forKey: "opponentLevel")
-            UserDefaults.standard.set(data[2], forKey: "opponentGender")
+            UserDefaults.standard.set(data[1] , forKey: "opponentNick")
+            UserDefaults.standard.set(data[2], forKey: "opponentLevel")
             UserDefaults.standard.set(data[3], forKey: "opponentWin")
             UserDefaults.standard.set(data[4], forKey: "opponentLose")
             UserDefaults.standard.set(data[5], forKey: "opponentImg")
@@ -104,6 +103,8 @@ class FindRunnerVC: UIViewController {
         })
         socket.on("letsRun", callback: { (data, ack) in
             print("이제 뛰자")
+            guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"CountdownVC") as? CountdownVC else {return}
+            self.navigationController?.pushViewController(LetsRun, animated: true)
         })
         socket.on("opponentNotReady", callback: { (data, ack) in
             print("조금만기다려")
