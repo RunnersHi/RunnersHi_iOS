@@ -36,6 +36,7 @@ class FindRunnerVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     private func basicAutoLayout() {
+       // mentStopButton.
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor.backgroundgray
         logoImage.image = UIImage(named: "matchLogo")
@@ -84,12 +85,13 @@ class FindRunnerVC: UIViewController {
         })
         
         socket.on("matched", callback: { (data, ack) in
-            socket.emit("endCount",data)
+            
+            socket.emit("endCount",data[0] as! SocketData)
         })
         socket.on("roomFull", callback: { (data, ack) in
-            self.room = data[0] as! Int
-            print("안녕민희얌",self.room)
-            socket.emit("opponentInfo",data)
+            print("안녕",type(of: data[0]))
+            self.room = Int((data[0] as! NSString).intValue)
+            socket.emit("opponentInfo",data[0] as! SocketData)
         })
         socket.on("opponentInfo", callback: { (data, ack) in
             socket.emit("readyToRun",self.room)
@@ -99,6 +101,10 @@ class FindRunnerVC: UIViewController {
         })
         socket.on("opponentNotReady", callback: { (data, ack) in
             print("조금만기다려")
+        })
+
+        socket.on("error", callback: { (data, ack) in
+            print("저는 바보입니다...ㅠㅠ")
         })
     }
     
