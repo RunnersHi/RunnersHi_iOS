@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import HealthKit
 
 class RunActivityVC: UIViewController {
     
+    
+    let healthStore = HKHealthStore()
     var moveTime: Float = 0.0
     var maxTime: Float = 0.0
     
@@ -48,13 +51,39 @@ class RunActivityVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getTodaysSteps { stepCount in
+            print(stepCount)
+        }
         setView()
         setLabel()
         // Do any additional setup after loading the view.
+        
     }
-    
+     
+    private func getTodaysSteps(completion: @escaping (Double) -> Void) {
+        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
+        let now = Date()
+        let startOfDay = Calendar.current.startOfDay(for: now)
+       // Calendar.current.startOfDay(for: )
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
+        
+        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, _ in
+                guard let result = result, let sum = result.sumQuantity() else {
+                    completion(0.0)
+                    return
+                }
+                
+                print(sum)
+                completion(sum.doubleValue(for: HKUnit.count()))
+            }
+        healthStore.execute(query)
+        
+            
+            
+        }
+    }
 
-}
+
 
 extension RunActivityVC {
     func setLabel() {

@@ -93,7 +93,14 @@ class FindRunnerVC: UIViewController {
             socket.emit("opponentInfo",data[0] as! SocketData)
         })
         socket.on("opponentInfo", callback: { (data, ack) in
+            UserDefaults.standard.set(data[0] , forKey: "opponentNick")
+            UserDefaults.standard.set(data[1], forKey: "opponentLevel")
+            UserDefaults.standard.set(data[2], forKey: "opponentGender")
+            UserDefaults.standard.set(data[3], forKey: "opponentWin")
+            UserDefaults.standard.set(data[4], forKey: "opponentLose")
+            UserDefaults.standard.set(data[5], forKey: "opponentImg")
             socket.emit("readyToRun",self.room)
+            
         })
         socket.on("letsRun", callback: { (data, ack) in
             print("이제 뛰자")
