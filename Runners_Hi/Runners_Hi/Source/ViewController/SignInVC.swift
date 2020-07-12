@@ -10,6 +10,9 @@ import UIKit
 
 class SignInVC: UIViewController {
     
+    var afterRegisterId: String?
+    var afterRegisterPw: String?
+    
     @IBOutlet weak var loginLogo: UIImageView!
     @IBOutlet weak var idLoginTextField: UITextField!
     @IBOutlet weak var pwLoginTextField: UITextField!
@@ -88,6 +91,11 @@ class SignInVC: UIViewController {
         loginTextFieldSet()
         loginLayoutset()
         
+        loginActionButton(autoLogin())
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+          self.view.endEditing(true)
     }
     
     
@@ -152,6 +160,14 @@ extension SignInVC {
         loginCheckLabel.font = UIFont(name:"NanumSquareR", size:12.0)
         loginCheckLabel.textColor = UIColor.grapefruit
         
+    }
+    
+    private func autoLogin() {
+        guard let afterRegisterId = self.afterRegisterId else { return }
+        guard let afterRegisterPw = self.afterRegisterPw else { return }
+        
+        idLoginTextField.text = afterRegisterId
+        pwLoginTextField.text = afterRegisterPw
     }
     
 }

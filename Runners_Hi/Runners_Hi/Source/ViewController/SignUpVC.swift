@@ -11,6 +11,7 @@ import UIKit
 class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate {
     static let identifier: String = "SignUpVC"
     
+    var giveProfileFlag: Int = 0
     var giveGenderValue = 0
     var giveLevelValue = 0
     var giveOpenValue = false
@@ -39,7 +40,6 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
     @IBOutlet weak var pwReCheckLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
-    @IBOutlet weak var levelDetailLabel: UILabel!
     @IBOutlet weak var openLabel: UILabel!
     @IBOutlet weak var openDetailLabel: UILabel!
     
@@ -49,6 +49,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
     @IBOutlet weak var pwReTextField: UITextField!
     
     
+    @IBOutlet weak var levelDetailButton: UIButton!
     @IBOutlet weak var idCheckButton: UIButton!
     @IBOutlet weak var nickCheckButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
@@ -74,11 +75,6 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
             }
             
         case .requestErr: print("")
-            //        self.idCheckLabel.text = "중복된 아이디 입니다."
-            //            guard let success = success as? Bool else {return}
-            //            if (success == false){
-            //                self.idCheckLabel.text = "중복된 아이디 입니다."}
-            
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
         case .networkFail: print("networkFail")
@@ -109,10 +105,6 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
             
         case .requestErr: print("")
         self.nickCheckLabel.text = "중복된 아이디 입니다."
-            //            guard let success = success as? Bool else {return}
-            //            if (success == false){
-            //                self.idCheckLabel.text = "중복된 아이디 입니다."}
-            
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
         case .networkFail: print("networkFail")
@@ -121,15 +113,103 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
         }
     }
     
-    @IBAction func signUpActionButton(_ sender: Any) {
-       
+    @IBAction func profileSelectPopUp(_ sender: Any) {
+        let storyBoard = UIStoryboard.init(name: "Sign", bundle: nil)
+          let popupVC = storyBoard.instantiateViewController(withIdentifier: "ProfilePopUpVC")
+          popupVC.modalPresentationStyle = .overCurrentContext
+          present(popupVC, animated: true, completion: nil)
     }
     
     
+    @IBAction func signUpActionButton(_ sender: Any) {
+        let tabStoryBoard = UIStoryboard.init(name: "Tab", bundle: nil)
+        
+        guard let inputId = idTextField.text else { return }
+        guard let inputPw = pwTextField.text else { return }
+        guard let inputNick = nickTextField.text else { return }
+        guard let inputGender: Int = giveGenderValue else { return }
+        guard let inputLevel: Int = giveLevelValue else { return }
+        guard let inputOpen: Bool = giveOpenValue else { return }
+        guard let inputImgFlag: Int = giveProfileFlag else { return }
+        
+        SignUpService.shared.signup(id: inputId, password: inputPw, nickname: inputNick, gender: inputGender, level: inputLevel, log_visibility: inputOpen, image: inputImgFlag) { networkResult in switch networkResult {
+        case .success(let success):
+            guard let success = success as? Bool else {return}
+            if success {
+                guard let receiveViewController = self.storyboard?.instantiateViewController(identifier: "SignInVC") as? SignInVC else { return }
+                receiveViewController.afterRegisterId = inputId
+                receiveViewController.afterRegisterPw = inputPw
+                
+
+                receiveViewController.modalPresentationStyle = .fullScreen
+                self.present(receiveViewController, animated: true, completion: nil)
+//                self.dismiss(animated: true, completion: nil)
+//                self.show(receiveViewController, sender: self)
+                //이동
+                
+//                guard let tabbarController = tabStoryBoard.instantiateViewController(identifier:
+//                    "TabBarController") as? UITabBarController else { return }
+//                tabbarController.modalPresentationStyle = .fullScreen
+//                self.present(tabbarController, animated: true, completion: nil)
+                
+            }
+            
+        case .requestErr: print("requestErr")
+        case .pathErr: print("path")
+        case .serverErr: print("serverErr")
+        case .networkFail: print("networkFail")
+            
+            }
+        }
+        
+
+        
+        
+    }
+    
+    
+    private func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changeProfileImageFlag(_:)), name: .sendPopUpFlag, object: nil)
+    }
+    
+    @objc
+    func changeProfileImageFlag(_ notification: NSNotification) {
+        guard let flag = notification.userInfo?["flag"] as? Int else { return }
+        giveProfileFlag = flag
+        if (giveProfileFlag==1){
+            profileImage.image=UIImage(named: "iconRedmanShorthair")
+        }
+        else if (giveProfileFlag == 2){
+            profileImage.image=UIImage(named: "iconBluemanShorthair")
+        }
+        else if (giveProfileFlag == 3){
+            profileImage.image=UIImage(named: "iconRedmanBasichair")
+        }
+        else if (giveProfileFlag == 4){
+            profileImage.image=UIImage(named: "iconBluemanPermhair")
+        }
+        else if (giveProfileFlag == 5){
+            profileImage.image=UIImage(named: "iconRedwomenPonytail")
+        }
+        else if (giveProfileFlag == 6){
+            profileImage.image=UIImage(named: "iconBluewomenPonytail")
+        }
+        else if (giveProfileFlag == 7){
+            profileImage.image=UIImage(named: "iconRedwomenShortmhair")
+        }
+        else if (giveProfileFlag == 8){
+            profileImage.image=UIImage(named: "iconBluewomenPermhair")
+        }
+        else if (giveProfileFlag == 9){
+            profileImage.image=UIImage(named: "iconRedwomenBunhair")
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonList()
+        addObserver()
         genderbuttonCollectionView.delegate = self
         genderbuttonCollectionView.dataSource = self
         self.genderbuttonCollectionView.isScrollEnabled = false
@@ -149,6 +229,13 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
         
         setProfile()
     }
+    override func  viewWillAppear(_ animated: Bool) {
+        //guard let giveProfileFlag = self.giveProfileFlag else { return }
+        print(self.giveProfileFlag)
+        
+    }
+    
+    
     
     
     private var genderList : [Gender] = []
@@ -225,6 +312,14 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
             idTextField.layer.masksToBounds = true
             idTextField.layer.cornerRadius = 8.0
             self.idCheckButton.isEnabled = false
+            if  giveProfileFlag==1{
+                print("1")}
+            else if giveProfileFlag==2{
+                print("2")
+            }
+            else {
+                print("왜 안넘어와")
+            }
         }
     }
     
@@ -399,143 +494,52 @@ extension SignUpVC: UICollectionViewDelegateFlowLayout {
             return 0
         }
     }
-
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         signUpCondition()
         let cells = collectionView.cellForItem(at: indexPath) as? GenderSelectCell
-              if cells?.genderActionLabel.text == "남성" {
-                  giveGenderValue = 1
-                
-              }
-              else if cells?.genderActionLabel.text == "여성"{
-                  giveGenderValue = 2
-
-              }
-
-
-              let cells2 = collectionView.cellForItem(at: indexPath) as? LevelSelectCell
-                      if cells2?.levelActionLabel.text == "초급" {
-                          giveLevelValue = 1
-
-                          
-                      }
-                      else if cells2?.levelActionLabel.text == "중급" {
-                          giveLevelValue = 2
-
-                      }
-                      else if cells2?.levelActionLabel.text == "고급" {
-                       giveLevelValue = 3
-
-                   }
-              
-              let cells3 = collectionView.cellForItem(at: indexPath) as? OpenSelectCell
-              if cells3?.openActionLabel.text == "공개" {
-                  giveOpenValue = true
-                  giveOpenCheck = true
-
-              }
-              else if cells3?.openActionLabel.text == "비공개"{
-                  giveOpenValue = false
-                  giveOpenCheck = true
-
-
-              }
+        if cells?.genderActionLabel.text == "남성" {
+            giveGenderValue = 1
+            
+        }
+        else if cells?.genderActionLabel.text == "여성"{
+            giveGenderValue = 2
+            
+        }
+        
+        
+        let cells2 = collectionView.cellForItem(at: indexPath) as? LevelSelectCell
+        if cells2?.levelActionLabel.text == "초급" {
+            giveLevelValue = 1
+            
+            
+        }
+        else if cells2?.levelActionLabel.text == "중급" {
+            giveLevelValue = 2
+            
+        }
+        else if cells2?.levelActionLabel.text == "고급" {
+            giveLevelValue = 3
+            
+        }
+        
+        let cells3 = collectionView.cellForItem(at: indexPath) as? OpenSelectCell
+        if cells3?.openActionLabel.text == "공개" {
+            giveOpenValue = true
+            giveOpenCheck = true
+            
+        }
+        else if cells3?.openActionLabel.text == "비공개"{
+            giveOpenValue = false
+            giveOpenCheck = true
+            
+            
+        }
         signUpCondition()
         
-
+        
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let cells = collectionView.cellForItem(at: indexPath) as? GenderSelectCell
-//        if cells?.genderActionLabel.text == "남성" {
-//            print("최")
-//            giveGenderValue = 1
-//        }
-//        else {
-//            print("영")
-//            giveGenderValue = 2
-//        }
-//
-//
-//        let cells2 = collectionView.cellForItem(at: indexPath) as? LevelSelectCell
-//                if cells2?.levelActionLabel.text == "초급" {
-//                    print("재")
-//                    giveLevelValue = 1
-//
-//                }
-//                else if cells2?.levelActionLabel.text == "중급" {
-//                    print("버")
-//                    giveLevelValue = 2
-//                }
-//                else {
-//                    print("디")
-//                 giveLevelValue = 3
-//             }
-//
-//        let cells3 = collectionView.cellForItem(at: indexPath) as? OpenSelectCell
-//        if cells3?.openActionLabel.text == "공개" {
-//            giveOpenValue = true
-//            giveOpenCheck = true
-//        }
-//        else {
-//            giveOpenValue = false
-//            giveOpenCheck = true
-//
-//        }
-//
-//    }
-    
-    
-    
-    
-    
-    
-    //print("ddd",cellGender)
-    //       // let cells = collectionView.cellForItem(at: indexPath) as? GenderSelectCell
-    //        print(indexPath)
-    //        if indexPath == [0, 0] {
-    //            giveGenderText = 1
-    //            giveGenderCheck = true
-    //        } else {
-    //            giveGenderText = 2
-    //            giveGenderCheck = true
-    //        }
-    //
-    //       // let cells2 = collectionView.cellForItem(at: indexPath) as? LevelSelectCell
-    //        if indexPath == [1, 0] {
-    //            giveLevelText = 1
-    //            giveLevelCheck = true
-    //
-    //        } else if indexPath == [1, 1] {
-    //            giveLevelText = 2
-    //            giveLevelCheck = true
-    //
-    //        } else {
-    //            giveLevelText = 3
-    //            giveLevelCheck = true
-    //        }
-    //
-    //        //let cells3 = collectionView.cellForItem(at: indexPath) as? OpenSelectCell
-    //        if indexPath == [2, 0] {
-    //            giveOpen = true
-    //            giveOpenCheck = true
-    //        } else {
-    //            giveOpen = false
-    //            giveOpenCheck = true
-    //        }
-    //
-    //        if (giveGenderCheck && giveLevelCheck && giveOpenCheck) {
-    //                   self.signUpButton.backgroundColor = UIColor.lightishBlue
-    //                         signUpButton.setTitleColor(.white, for: .normal)
-    //                   signUpButton.isEnabled = true
-    //               }
-    //               else {
-    //                   self.signUpButton.backgroundColor = UIColor.brownishGrey
-    //                   signUpButton.setTitleColor(.white, for: .normal)
-    //                   signUpButton.isEnabled = false
-    //               }
-    
     
 }
 
@@ -575,16 +579,6 @@ extension SignUpVC {
         self.levelLabel.text = "본인이 생각하는 나의 러닝 레벨은?"
         levelLabel.font = UIFont(name:"NanumSquareR", size:14.0)
         
-        self.levelDetailLabel.text = "러닝레벨이 무엇인가요?"
-        levelDetailLabel.font = UIFont(name:"NanumSquareR", size:12.0)
-        levelDetailLabel.textColor = UIColor.brownGrey
-        
-        let levelDetailLabelStyle = NSMutableAttributedString(string: levelDetailLabel.text!)
-        
-        levelDetailLabelStyle.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: (levelDetailLabel.text! as NSString).range(of:"러닝레벨이 무엇인가요?"))
-        
-        levelDetailLabel.attributedText = levelDetailLabelStyle
-        
         
         self.openLabel.text = "프로필 / 러닝 기록 설정"
         openLabel.font = UIFont(name:"NanumSquareR", size:14.0)
@@ -599,7 +593,7 @@ extension SignUpVC {
     private func setProfile() {
         
         profileImage.image=UIImage(named: "iconDefaultpeople")
-             profileChangeButtonImage.image=UIImage(named:"iconPencil")
+        profileChangeButtonImage.image=UIImage(named:"iconPencil")
         profileChangeButton.setTitle("", for: .normal)
         
     }
@@ -624,10 +618,29 @@ extension SignUpVC {
         self.signUpButton.backgroundColor = UIColor.brownishGrey
         signUpButton.setTitleColor(.white, for: .normal)
         signUpButton.titleLabel?.font = UIFont(name: "NanumSquareB", size:16)
-                signUpButton.isEnabled = false
+        signUpButton.isEnabled = false
         
         
         
+        let attributes: [NSAttributedString.Key : Any] = [
+        NSAttributedString.Key.underlineStyle: 1,
+        NSAttributedString.Key.font: UIFont(name: "NanumSquareR", size:12),
+        NSAttributedString.Key.foregroundColor: UIColor.brownGrey
+        ]
+
+        let attributedString = NSMutableAttributedString(string: "러닝레벨이 무엇인가요?", attributes: attributes)
+        levelDetailButton.setAttributedTitle(NSAttributedString(attributedString: attributedString), for: .normal)
+        
+//        let titleString = NSMutableAttributedString(string: "러닝레벨이 무엇인가요?")
+//        titleString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: "러닝레벨이 무엇인가요?" )
+//        levelDetailButton.setAttributedTitle(titleString, for: .normal)
+        
+        
+        //        let levelDetailLabelStyle = NSMutableAttributedString(string: levelDetailLabel.text!)
+        //
+        //        levelDetailLabelStyle.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: (levelDetailLabel.text! as NSString).range(of:"러닝레벨이 무엇인가요?"))
+        //
+        //        levelDetailLabel.attributedText = levelDetailLabelStyle
         
     }
     
@@ -688,13 +701,13 @@ extension SignUpVC {
     private func signUpCondition() {
         
         if (giveGenderValue != 0) && (giveLevelValue != 0) && (giveOpenCheck == true) && idCheckValue && nickCheckValue {
-              
-                print("회원가입 check2", "giveGenderValue",giveGenderValue,"giveLevelValue",giveLevelValue)
-                signUpButton.isEnabled=true
-                print("giveGenderValue",giveGenderValue, "giveLevelValue",giveLevelValue )
-                self.signUpButton.backgroundColor = UIColor.lightishBlue
-            }
-        
+            
+            print("회원가입 check2", "giveGenderValue",giveGenderValue,"giveLevelValue",giveLevelValue)
+            signUpButton.isEnabled=true
+            print("giveGenderValue",giveGenderValue, "giveLevelValue",giveLevelValue )
+            self.signUpButton.backgroundColor = UIColor.lightishBlue
+        }
+            
         else{
             print("으악")
         }
@@ -704,6 +717,6 @@ extension SignUpVC {
         // print("ddd",cellGender)
         
     }
-
-
+    
+    
 }
