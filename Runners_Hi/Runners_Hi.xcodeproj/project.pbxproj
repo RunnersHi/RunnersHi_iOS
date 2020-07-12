@@ -20,6 +20,7 @@
 		06F40ACF24B88C73001E04FB /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40ACE24B88C73001E04FB /* SignInVC.swift */; };
 		06F40AD124B96BA1001E04FB /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AD024B96BA1001E04FB /* LoginData.swift */; };
 		06F40AD324B96C9F001E04FB /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AD224B96C9F001E04FB /* LoginService.swift */; };
+		06F40AD524BAB445001E04FB /* ProfilePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AD424BAB444001E04FB /* ProfilePopUpVC.swift */; };
 		3BD8ECE5AC41CD44ED87794D /* Pods_Runners_Hi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */; };
 		3D05E25424B8B6E500EACA87 /* count.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D05E25224B8B6E400EACA87 /* count.json */; };
 		3D05E25524B8B6E500EACA87 /* run.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D05E25324B8B6E500EACA87 /* run.json */; };
@@ -75,6 +76,7 @@
 		06F40ACE24B88C73001E04FB /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		06F40AD024B96BA1001E04FB /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		06F40AD224B96C9F001E04FB /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		06F40AD424BAB444001E04FB /* ProfilePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePopUpVC.swift; sourceTree = "<group>"; };
 		2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runners_Hi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D05E25224B8B6E400EACA87 /* count.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = count.json; sourceTree = "<group>"; };
 		3D05E25324B8B6E500EACA87 /* run.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = run.json; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				3DCAF8A024B79A33009B3AE5 /* FindRunnerVC.swift */,
 				06F40ACE24B88C73001E04FB /* SignInVC.swift */,
 				3DC2841324B83AF10063439D /* OpponentProfileVC.swift */,
+				06F40AD424BAB444001E04FB /* ProfilePopUpVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */,
+				06F40AD524BAB445001E04FB /* ProfilePopUpVC.swift in Sources */,
 				0683DBC524B3BC190038E317 /* Gender.swift in Sources */,
 				06F40AC724B848EA001E04FB /* SignupData.swift in Sources */,
 				06F40AC924B85093001E04FB /* DuplicateData.swift in Sources */,

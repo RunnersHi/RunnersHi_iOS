@@ -11,7 +11,6 @@ import UIKit
 
 class LevelSelectCell: UICollectionViewCell {
     static let identifier : String = "LevelSelectCell"
-
     @IBOutlet weak var levelActionLabel: UILabel!
 
     
