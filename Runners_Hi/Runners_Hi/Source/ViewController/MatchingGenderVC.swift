@@ -32,6 +32,7 @@ class MatchingGenderVC: UIViewController {
     
     
     private func basicAutoLayout() {
+     //startButton.layer.
         genderCollectionView.delegate = self
         genderCollectionView.dataSource = self
         startButton.isEnabled = false

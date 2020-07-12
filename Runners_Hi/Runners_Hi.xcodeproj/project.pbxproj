@@ -35,6 +35,7 @@
 		3DA2EA1C24B205210091F12F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1B24B205210091F12F /* UIColor+Extension.swift */; };
 		3DA2EA1E24B24D0D0091F12F /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2EA1D24B24D0D0091F12F /* Tab.storyboard */; };
 		3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2EA2124B24DD20091F12F /* TabBarController.swift */; };
+		3DC11A9B24B9CD5500127718 /* RunActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC11A9A24B9CD5500127718 /* RunActivityVC.swift */; };
 		3DC2840E24B8047B0063439D /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2840D24B8047B0063439D /* SocketIOManager.swift */; };
 		3DC2841024B828330063439D /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2840F24B828330063439D /* APIConstants.swift */; };
 		3DC2841224B829130063439D /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2841124B829130063439D /* NetworkResult.swift */; };
@@ -91,6 +92,7 @@
 		3DA2EA1B24B205210091F12F /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3DA2EA1D24B24D0D0091F12F /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
 		3DA2EA2124B24DD20091F12F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3DC11A9A24B9CD5500127718 /* RunActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunActivityVC.swift; sourceTree = "<group>"; };
 		3DC2840D24B8047B0063439D /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		3DC2840F24B828330063439D /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		3DC2841124B829130063439D /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				06F40ACE24B88C73001E04FB /* SignInVC.swift */,
 				3DC2841324B83AF10063439D /* OpponentProfileVC.swift */,
 				06F40AD424BAB444001E04FB /* ProfilePopUpVC.swift */,
+				3DC11A9A24B9CD5500127718 /* RunActivityVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				3DC2841024B828330063439D /* APIConstants.swift in Sources */,
 				3DEED91024B57D82002D31A9 /* PopUpCell.swift in Sources */,
 				06F40AC124B5F7CF001E04FB /* Level.swift in Sources */,
+				3DC11A9B24B9CD5500127718 /* RunActivityVC.swift in Sources */,
 				3DA2EA1C24B205210091F12F /* UIColor+Extension.swift in Sources */,
 				3DC2841224B829130063439D /* NetworkResult.swift in Sources */,
 			);

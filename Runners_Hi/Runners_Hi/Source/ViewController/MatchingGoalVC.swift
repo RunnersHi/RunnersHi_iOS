@@ -41,7 +41,7 @@ class MatchingGoalVC: UIViewController {
         goalCollectionView.backgroundColor = UIColor.backgroundgray
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationController?.navigationBar.topItem?.title = ""
-        nextButton.backgroundColor = UIColor.unselectedbuttongray
+        nextButton.backgroundColor = UIColor.veryLightPink
         nextButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
         nextButton.setTitleColor(.black, for: .normal)
         nextButton.setTitle("NEXT",for: .normal)

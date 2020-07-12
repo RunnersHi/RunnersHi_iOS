@@ -8,15 +8,19 @@
 
 import UIKit
 import SocketIO
-//let managers = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
-//let socket = managers.defaultSocket
+
 
 class FindRunnerVC: UIViewController {
 
     let maxTime: Float = 300.0
     var moveTime: Float = 0.0
     var lastGoal: Int = 0
-    var lastGender: Int = 0 
+    var lastGender: Int = 0
+    var leftTime: Int = 300
+    var room: Int = 0
+    static let shared = SocketIOManager()
+    var manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
+    
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var timeProgressBar: UIProgressView!
 
@@ -27,11 +31,12 @@ class FindRunnerVC: UIViewController {
     override func viewDidLoad() {
         // 소켓 통신 연결 시작
         super.viewDidLoad()
-        //startSocket()
+        startSocket()
         basicAutoLayout()
         // Do any additional setup after loading the view.
     }
     private func basicAutoLayout() {
+       // mentStopButton.
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor.backgroundgray
         logoImage.image = UIImage(named: "matchLogo")
@@ -52,23 +57,66 @@ class FindRunnerVC: UIViewController {
         mentStopButton.backgroundColor = UIColor.lightishBlue
         mentStopButton.layer.cornerRadius = 8
     }
+    
     private func startSocket() {
         // 소켓 연결
-        SocketIOManager.shared.establishConnection()
-        //SocketIOManager.socke
-        // 이벤트 송신
-        //SocketIOManager.shared.sendMessage(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3QiLCJwYXNzd29yZCI6InRlc3QiLCJ0b2tlbiI6InRva2VuIiwiaWF0IjoxNTk0Mjk4Nzc0LCJleHAiOjE1OTQzMzQ3NzR9.iTbn8pV-DJ5xZC9oqXaArHi5tMq6uT7ECUuKOwTYrLU", time: lastGoal, wantGender: lastGender, left_time: 300)
+        let socket = manager.socket(forNamespace: "/matching")
+        socket.connect()
+        
+        // 서버 : 시작해도 좋다는 응답 -> 클라 : 내 정보와 내가 원하는 상대의 조건을 보내줌
+        socket.on("start", callback: { (data, ack) in
+            socket.emit("joinRoom","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0MiIsInBhc3N3b3JkIjoidGVzdHRlc3QyIiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDQ4MDYxOCwiZXhwIjoxNTk0NTE2NjE4fQ.6NSH9gWDVdg-TmzF9pbfQDYUhCnDKfi_X4kRVDFGG8A",self.lastGoal,self.lastGender,self.leftTime)
+        })
+        
+        // 내가 원하는 조건의 상대를 찾지 못해서
+        // 서버 : 새로운 방을 만들어서 나를 넣어줌 -> 클라 : 시간 카운트를 하라는걸 알려줌
+        socket.on("roomCreated", callback: { (data, ack) in
+            socket.emit("startCount",data)
+        })
+        // 클라 : 남은 시간을 나에게 보내줌
+        socket.on("timeLeft", callback: {(data, ack) in
+            self.leftTime = data[0] as! Int
+        })
+        // 매칭 시간이 다 지났지만, 매칭 상대를 찾지 못했을때
+        // 서버 : 시간이 다 됐다고 알려줌 -> 클라 : 소켓 통신 끊기
+        socket.on("timeOver", callback: { (data, ack) in
+            print("끊어")
+            socket.disconnect()
+        })
+        
+        socket.on("matched", callback: { (data, ack) in
+            
+            socket.emit("endCount",data[0] as! SocketData)
+        })
+        socket.on("roomFull", callback: { (data, ack) in
+            print("안녕",type(of: data[0]))
+            self.room = Int((data[0] as! NSString).intValue)
+            socket.emit("opponentInfo",data[0] as! SocketData)
+        })
+        socket.on("opponentInfo", callback: { (data, ack) in
+            socket.emit("readyToRun",self.room)
+        })
+        socket.on("letsRun", callback: { (data, ack) in
+            print("이제 뛰자")
+        })
+        socket.on("opponentNotReady", callback: { (data, ack) in
+            print("조금만기다려")
+        })
+
+        socket.on("error", callback: { (data, ack) in
+            print("저는 바보입니다...ㅠㅠ")
+        })
     }
+    
     @objc func updateProgressbar() {
         moveTime = moveTime + 1.0
         timeProgressBar.progress = moveTime/maxTime
         if moveTime < maxTime {
-            perform(#selector(updateProgressbar), with: nil, afterDelay: 3.0)
+            perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
         } else {
             print("끝")
             moveTime = 0.0
         }
     }
-    
 
 }
