@@ -92,13 +92,13 @@ extension MatchingGoalVC: UICollectionViewDelegateFlowLayout {
         nextButton.setTitleColor(.white, for: .normal)
         if indexPath == [0, 0] {
             //분 단위로 전달
-            giveGoalText = 30
+            giveGoalText = 1800
         } else if indexPath == [0, 1] {
-            giveGoalText = 45
+            giveGoalText = 2700
         } else if indexPath == [0, 2] {
-            giveGoalText = 60
+            giveGoalText = 3600
         } else {
-            giveGoalText = 90
+            giveGoalText = 5400
         }
     }
 

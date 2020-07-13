@@ -533,7 +533,7 @@
         <!--Run ActivityVC-->
         <scene sceneID="ffs-bA-T69">
             <objects>
-                <viewController id="h4D-69-37P" customClass="RunActivityVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RunActivityVC" id="h4D-69-37P" customClass="RunActivityVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="83V-M2-ZWN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

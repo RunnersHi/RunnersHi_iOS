@@ -50,7 +50,7 @@ class CountdownVC: UIViewController {
         animationView.play()
         view.addSubview(animationView)
         animationView.play { finished in
-            guard let receiveViewController = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
+            guard let receiveViewController = self.storyboard?.instantiateViewController(identifier:"RunActivityVC") as? RunActivityVC else {return}
             self.navigationController?.pushViewController(receiveViewController, animated: true)
         }
 

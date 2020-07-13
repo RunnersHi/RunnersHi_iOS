@@ -108,7 +108,7 @@ class FindRunnerVC: UIViewController {
         })
         socket.on("letsRun", callback: { (data, ack) in
             print("이제 뛰자")
-            guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"CountdownVC") as? CountdownVC else {return}
+            guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
             self.navigationController?.pushViewController(LetsRun, animated: true)
         })
         socket.on("opponentNotReady", callback: { (data, ack) in
