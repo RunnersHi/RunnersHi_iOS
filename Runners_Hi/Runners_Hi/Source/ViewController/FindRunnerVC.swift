@@ -62,10 +62,10 @@ class FindRunnerVC: UIViewController {
         // 소켓 연결
         let socket = manager.socket(forNamespace: "/matching")
         socket.connect()
-        
+        let myToken : String = (UserDefaults.standard.object(forKey: "token") as? String) ?? ""
         // 서버 : 시작해도 좋다는 응답 -> 클라 : 내 정보와 내가 원하는 상대의 조건을 보내줌
         socket.on("start", callback: { (data, ack) in
-            socket.emit("joinRoom","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NCIsInBhc3N3b3JkIjoidGVzdHRlc3Q0IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDYxOTQwMSwiZXhwIjoxNTk0NjU1NDAxfQ.ut4JvUSs5ZmALMkZsOi4p2gYccIf3kIYOSlNr4N5Kc0",self.lastGoal,self.lastGender,self.leftTime)
+            socket.emit("joinRoom",myToken,self.lastGoal,self.lastGender,self.leftTime)
         })
         
         // 내가 원하는 조건의 상대를 찾지 못해서
