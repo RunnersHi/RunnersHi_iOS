@@ -4,11 +4,13 @@ PODS:
   - Socket.IO-Client-Swift (15.2.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
+  - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
   - lottie-ios
   - Socket.IO-Client-Swift (~> 15.2.0)
+  - XLPagerTabStrip (~> 9.0)
 
 SPEC REPOS:
   trunk:
@@ -16,13 +18,15 @@ SPEC REPOS:
     - lottie-ios
     - Socket.IO-Client-Swift
     - Starscream
+    - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
+  XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: a6e653cdc85726b6478a203614331839c739f182
+PODFILE CHECKSUM: dbb1de44786baec066dd2d9517c53fe759ba4a7b
 
 COCOAPODS: 1.9.3
