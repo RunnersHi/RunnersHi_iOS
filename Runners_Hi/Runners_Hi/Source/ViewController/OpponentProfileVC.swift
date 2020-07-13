@@ -22,7 +22,8 @@ class OpponentProfileVC: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel! // 전적
     @IBOutlet weak var battleRunnerScoreLabel: UILabel! // 상대 러너 전적
     @IBOutlet weak var countLabel: UILabel!
-    
+    var levelStruct = ["초급","중급","고급"]
+    var profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
@@ -50,23 +51,21 @@ extension OpponentProfileVC {
         
         battleRunnerIDLabel.font = UIFont(name: "NanumSquareB", size: 16)
         battleRunnerLevelLabel.font = UIFont(name: "NanumSquareB", size: 16)
+        battleRunnerScoreLabel.font = UIFont(name: "NanumSquareB", size: 16)
         
         let inputLevel = UserDefaults.standard.object(forKey: "opponentLevel") ?? 0
         let inputNick = UserDefaults.standard.object(forKey: "opponentNick") ?? " "
         let inputWin = UserDefaults.standard.object(forKey: "opponentWin") ?? 0
         let inputLose = UserDefaults.standard.object(forKey: "opponentLose") ?? 0
-//
-        if inputLevel as? Int == 1 {
-            battleRunnerLevelLabel.text = "초급"
-        } else if inputLevel as? Int == 2 {
-            battleRunnerLevelLabel.text = "중급"
-        } else {
-            battleRunnerLevelLabel.text = "고급"
-        }
+        let inputImage = UserDefaults.standard.object(forKey: "inputopponentImg") ?? 0
+
+        battleRunnerLevelLabel.text = levelStruct[inputLevel as? Int ?? 0]
+        
         battleRunnerIDLabel.text = inputNick as? String
+        
         battleRunnerScoreLabel.text = "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
-//        
-        battleRunnerScoreLabel.font = UIFont(name: "NanumSquareB", size: 16)
+        
+        battleRunnerImage.image = UIImage(named: profileImageStruct[inputImage as? Int ?? 0])
     }
     
     func setView() {
