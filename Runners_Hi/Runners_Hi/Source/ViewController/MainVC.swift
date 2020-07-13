@@ -32,18 +32,21 @@ class MainVC: UIViewController {
             self.popUpTableView.transform = .identity
             self.onClickBlackView()
         }
-        self.view.bringSubviewToFront(popUpTableView)
+
+       self.view.bringSubviewToFront(popUpTableView)
     
     }
-        
+    
     func onClickBlackView() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onGesture))
+
         blackView.addGestureRecognizer(tapGesture)
     }
     
     @objc func onGesture() {
         UIView.animate(withDuration: 0.3) {
             self.popUpTableView.transform = CGAffineTransform(translationX: 0, y: self.popUpTableView.frame.height)
+            //self.setTabBarVisible(visible: true, animated: true)
             self.blackView.removeFromSuperview()
         }
     }

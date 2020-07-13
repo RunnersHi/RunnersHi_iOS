@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5X-9y-Lfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2895.1999999999998" y="-319.79010494752629"/>
+            <point key="canvasLocation" x="2553" y="91"/>
         </scene>
         <!--Matching GoalVC-->
         <scene sceneID="WJ4-Iq-lfd">
@@ -842,7 +842,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYT-ya-YMi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1956" y="-319.79010494752629"/>
+            <point key="canvasLocation" x="1814" y="78"/>
         </scene>
     </scenes>
     <resources>
