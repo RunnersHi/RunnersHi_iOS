@@ -229,6 +229,11 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
         
         setProfile()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+             self.view.endEditing(true)
+       }
+       
     override func  viewWillAppear(_ animated: Bool) {
         //guard let giveProfileFlag = self.giveProfileFlag else { return }
         print(self.giveProfileFlag)
