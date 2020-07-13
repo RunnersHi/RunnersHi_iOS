@@ -65,16 +65,18 @@ class FindRunnerVC: UIViewController {
         
         // 서버 : 시작해도 좋다는 응답 -> 클라 : 내 정보와 내가 원하는 상대의 조건을 보내줌
         socket.on("start", callback: { (data, ack) in
-            socket.emit("joinRoom","토큰자리",self.lastGoal,self.lastGender,self.leftTime)
+            socket.emit("joinRoom","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3R0ZXN0NCIsInBhc3N3b3JkIjoidGVzdHRlc3Q0IiwidG9rZW4iOiJ0b2tlbiIsImlhdCI6MTU5NDYxOTQwMSwiZXhwIjoxNTk0NjU1NDAxfQ.ut4JvUSs5ZmALMkZsOi4p2gYccIf3kIYOSlNr4N5Kc0",self.lastGoal,self.lastGender,self.leftTime)
         })
         
         // 내가 원하는 조건의 상대를 찾지 못해서
         // 서버 : 새로운 방을 만들어서 나를 넣어줌 -> 클라 : 시간 카운트를 하라는걸 알려줌
         socket.on("roomCreated", callback: { (data, ack) in
+            // 여기서 data[0]은 생성된 방 이름 (String)
             socket.emit("startCount",data[0] as! SocketData)
         })
         // 클라 : 남은 시간을 나에게 보내줌
         socket.on("timeLeft", callback: {(data, ack) in
+            // 남은 시간은 Int 타입으로 넘겨줌
             self.leftTime = data[0] as! Int
         })
         // 매칭 시간이 다 지났지만, 매칭 상대를 찾지 못했을때
@@ -84,10 +86,13 @@ class FindRunnerVC: UIViewController {
             socket.disconnect()
         })
         
+        // 대기 중 상대를 찾았을때
         socket.on("matched", callback: { (data, ack) in
-            
+            // 여기서 data[0]은 내가 속한 방 이름 (String)
             socket.emit("endCount",data[0] as! SocketData)
+            // matched에서 받은 속한 방 이름과 함게 보내줌
         })
+        // 방이 다 찼을때
         socket.on("roomFull", callback: { (data, ack) in
             self.room = ((data[0] as! NSString) as String)
             socket.emit("opponentInfo",data[0] as! SocketData)

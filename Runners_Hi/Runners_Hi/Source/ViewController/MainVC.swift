@@ -21,38 +21,32 @@ class MainVC: UIViewController {
     @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var runButton: UIButton!
     
-    private var isToggle: Bool = false
+   // private var isToggle: Bool = false
     
     @IBAction func runButtonDidTap(_ sender: Any) {
-        if isToggle {
-            print("하")
-            UIView.animate(withDuration: 0.3) {
-                self.popUpTableView.transform = CGAffineTransform(translationX: 0, y: self.popUpTableView.frame.height-40)
-            }
-        } else {
-            print("이")
-            //hidesBottomBarWhenPushed = true
-            //self.hidesBottomBarWhenPushed = true
-            //self.tabBarController?.tabBar.layer.zPosition = -1
-           // blackView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-           // blackView.frame = self.view.frame
-            //blackView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-           // self.tabBarController?.tabBar.frame.height
-           // self.view.frame.height
-            //self.view.window?.addSubview(blackView)
-           // self.view.addSubview(blackView)
-            UIView.animate(withDuration: 0.3) {
-                self.popUpTableView.transform = .identity
-            //원래 자리로 돌아오기
-            }
+        blackView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        blackView.frame = self.view.frame
+        self.view.addSubview(blackView)
+        //self.view.bringSubviewToFront(blackView)
+        UIView.animate(withDuration: 0.3) {
+            self.popUpTableView.transform = .identity
+            self.onClickBlackView()
         }
-        isToggle = isToggle ? false : true
+        self.view.bringSubviewToFront(popUpTableView)
     
     }
         
-//    func onClickBlackView() {
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(blackView))
-//    }
+    func onClickBlackView() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onGesture))
+        blackView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func onGesture() {
+        UIView.animate(withDuration: 0.3) {
+            self.popUpTableView.transform = CGAffineTransform(translationX: 0, y: self.popUpTableView.frame.height)
+            self.blackView.removeFromSuperview()
+        }
+    }
         
     
     
