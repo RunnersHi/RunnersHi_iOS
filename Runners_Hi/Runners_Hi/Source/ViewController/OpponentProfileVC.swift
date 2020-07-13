@@ -22,12 +22,14 @@ class OpponentProfileVC: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel! // 전적
     @IBOutlet weak var battleRunnerScoreLabel: UILabel! // 상대 러너 전적
     @IBOutlet weak var countLabel: UILabel!
-    
+    var levelStruct = ["초급","중급","고급"]
+    var profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
         setLabel()
-        // Do any additional setup after loading the view.
+        perform(#selector(sleepTime), with: nil, afterDelay: 3.0)
+        
     }
 
 }
@@ -47,24 +49,23 @@ extension OpponentProfileVC {
         countLabel.text = "곧 카운트 다운이 시작됩니다"
         countLabel.font = UIFont(name: "NanumSquareB", size: 16)
         
+        battleRunnerIDLabel.font = UIFont(name: "NanumSquareB", size: 16)
         battleRunnerLevelLabel.font = UIFont(name: "NanumSquareB", size: 16)
-        guard let inputLevel = UserDefaults.standard.object(forKey: "opponentLevel") else {return}
-        guard let inputNick = UserDefaults.standard.object(forKey: "opponentNick") else {return}
-        guard let inputWin = UserDefaults.standard.object(forKey: "opponentWin") else {return}
-        guard let inputLose = UserDefaults.standard.object(forKey: "opponentLose") else {return}
+        battleRunnerScoreLabel.font = UIFont(name: "NanumSquareB", size: 16)
         
-        if inputLevel as! Int == 1 {
-            battleRunnerLevelLabel.text = "초급"
-        } else if inputLevel as! Int == 2 {
-            battleRunnerLevelLabel.text = "중급"
-        } else {
-            battleRunnerLevelLabel.text = "고급"
-        }
+        let inputLevel = UserDefaults.standard.object(forKey: "opponentLevel") ?? 0
+        let inputNick = UserDefaults.standard.object(forKey: "opponentNick") ?? " "
+        let inputWin = UserDefaults.standard.object(forKey: "opponentWin") ?? 0
+        let inputLose = UserDefaults.standard.object(forKey: "opponentLose") ?? 0
+        let inputImage = UserDefaults.standard.object(forKey: "inputopponentImg") ?? 0
+
+        battleRunnerLevelLabel.text = levelStruct[inputLevel as? Int ?? 0]
         
         battleRunnerIDLabel.text = inputNick as? String
-        battleRunnerScoreLabel.text = (inputWin as! String) + "승" + (inputLose as! String) + "패"
         
-        battleRunnerScoreLabel.font = UIFont(name: "NanumSquareB", size: 16)
+        battleRunnerScoreLabel.text = "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
+        
+        battleRunnerImage.image = UIImage(named: profileImageStruct[inputImage as? Int ?? 0])
     }
     
     func setView() {
@@ -74,5 +75,9 @@ extension OpponentProfileVC {
         scoreView.backgroundColor = UIColor.backgroundgray
         boxImage.image = UIImage(named: "whiteboxMatchsucactivityShadow")
         
+    }
+    @objc func sleepTime() {
+        guard let receiveViewController = self.storyboard?.instantiateViewController(identifier:"CountdownVC") as? CountdownVC else {return}
+        self.navigationController?.pushViewController(receiveViewController, animated: true)
     }
 }

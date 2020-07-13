@@ -91,6 +91,7 @@ extension MatchingGoalVC: UICollectionViewDelegateFlowLayout {
         nextButton.backgroundColor = UIColor.lightishBlue
         nextButton.setTitleColor(.white, for: .normal)
         if indexPath == [0, 0] {
+            //분 단위로 전달
             giveGoalText = 1800
         } else if indexPath == [0, 1] {
             giveGoalText = 2700

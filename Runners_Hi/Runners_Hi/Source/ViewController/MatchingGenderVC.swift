@@ -11,7 +11,7 @@ import UIKit
 class MatchingGenderVC: UIViewController {
     private var genderInformation: [Gender] = []
     
-    var takeGoal = 0 //앞에서 받아온 목표 시간(초 integer) and 서버에게 넘겨줄 목표시간
+    var takeGoal = 0 //앞에서 받아온 목표 시간(부 integer) and 서버에게 넘겨줄 목표시간
     var giveGenderText = 0 // 서버에게 넘겨줄 원하는 상대 러너의 성별
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var genderCollectionView: UICollectionView!

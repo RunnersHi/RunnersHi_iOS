@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5X-9y-Lfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2895.1999999999998" y="-319.79010494752629"/>
+            <point key="canvasLocation" x="2553" y="91"/>
         </scene>
         <!--Matching GoalVC-->
         <scene sceneID="WJ4-Iq-lfd">
@@ -533,7 +533,7 @@
         <!--Run ActivityVC-->
         <scene sceneID="ffs-bA-T69">
             <objects>
-                <viewController id="h4D-69-37P" customClass="RunActivityVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RunActivityVC" id="h4D-69-37P" customClass="RunActivityVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="83V-M2-ZWN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -842,7 +842,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYT-ya-YMi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1956" y="-319.79010494752629"/>
+            <point key="canvasLocation" x="1814" y="78"/>
         </scene>
     </scenes>
     <resources>
