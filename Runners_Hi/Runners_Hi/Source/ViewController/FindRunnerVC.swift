@@ -13,6 +13,7 @@ import SocketIO
 class FindRunnerVC: UIViewController {
 
     let maxTime: Float = 300.0
+    
     var moveTime: Float = 0.0
     var lastGoal: Int = 0
     var lastGender: Int = 0
@@ -99,6 +100,13 @@ class FindRunnerVC: UIViewController {
         })
         socket.on("opponentInfo", callback: { (data, ack) in
             UserDefaults.standard.set(data[1] , forKey: "opponentNick")
+            print("또르륵1",data[1],type(of: data[1]))
+            let encoder = JSONEncoder()
+            let yourNick = NickName(nick: data[1] as! String)
+            let jsonData = try? encoder.encode(yourNick)
+            if let jsonData = jsonData, let jsonString = String(data: jsonData, encoding: .utf8){
+                print("또르륵2",jsonString,type(of: jsonString))
+            }
             UserDefaults.standard.set(data[2], forKey: "opponentLevel")
             UserDefaults.standard.set(data[3], forKey: "opponentWin")
             UserDefaults.standard.set(data[4], forKey: "opponentLose")
@@ -119,7 +127,9 @@ class FindRunnerVC: UIViewController {
             print("저는 바보입니다...ㅠㅠ")
         })
     }
-    
+    struct NickName : Codable {
+        var nick : String
+    }
     @objc func updateProgressbar() {
         moveTime = moveTime + 1.0
         timeProgressBar.progress = moveTime/maxTime

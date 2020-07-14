@@ -15,6 +15,8 @@ class RunActivityVC: UIViewController {
     let healthStore = HKHealthStore()
     var moveTime: Float = 0.0
     var maxTime: Float = 0.0
+    var levelStruct = ["초급","중급","고급"]
+    var profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
     
     @IBOutlet weak var lockButton: UIButton!
     @IBOutlet weak var backBoxImage: UIImageView!
@@ -51,36 +53,37 @@ class RunActivityVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getTodaysSteps { stepCount in
-            print(stepCount)
-        }
+//        getTodaysSteps { stepCount in
+//            print(stepCount)
+//        }
         setView()
         setLabel()
-        // Do any additional setup after loading the view.
+        setOpponentProfile()
+//        perform(#selector(getTodaysSteps(step), with: nil, afterDelay: 1.0)
+        perform(#selector(getdistanceRunning), with: nil, afterDelay: 1.0)
+        
+//        let healthKitTypes: Set = [ // access step count
+//            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)! ]
+//       // HKQuantityTypeIdentifier.activeEnergyBurned
+//        healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (_, _) in print("authorized???") }
+//        healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (bool, error) in
+//            if let e = error {
+//                print("oops something went wrong during authorisation \(e.localizedDescription)")
+//
+//            } else {
+//                print("User has completed the authorization flow")
+//                self.getTodaysSteps(completion: { (step) in
+//                    print("step",step)
+//
+//                })
+//
+//            }
+//
+//        }
+
         
     }
      
-    private func getTodaysSteps(completion: @escaping (Double) -> Void) {
-        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
-        let now = Date()
-        let startOfDay = Calendar.current.startOfDay(for: now)
-       // Calendar.current.startOfDay(for: )
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
-        
-        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, _ in
-                guard let result = result, let sum = result.sumQuantity() else {
-                    completion(0.0)
-                    return
-                }
-                
-                print(sum)
-                completion(sum.doubleValue(for: HKUnit.count()))
-            }
-        healthStore.execute(query)
-        
-            
-            
-        }
     }
 
 
@@ -130,8 +133,7 @@ extension RunActivityVC {
         lockButton.setBackgroundImage(UIImage(named: "iconUnlock"), for: .normal)
         lockButton.setTitle(nil, for: .normal)
         
-        //backBoxImage.image = UIImage(named: <#T##String#>)
-        //opponentImage.image = UIImage(named: <#T##String#>)
+        backBoxImage.image = UIImage(named: "runactivityWhitebox")
         runningInfoView.backgroundColor = UIColor.salmon
         runningInfoView.layer.cornerRadius = 12
         
@@ -156,6 +158,20 @@ extension RunActivityVC {
         runningStopButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
         runningStopButton.layer.cornerRadius = 8
     }
+    
+    func setOpponentProfile() {
+        let inputLevel = UserDefaults.standard.object(forKey: "opponentLevel") ?? 0
+        let inputNick = UserDefaults.standard.object(forKey: "opponentNick") ?? " "
+        let inputWin = UserDefaults.standard.object(forKey: "opponentWin") ?? 0
+        let inputLose = UserDefaults.standard.object(forKey: "opponentLose") ?? 0
+        let inputImage = UserDefaults.standard.object(forKey: "opponentImg") ?? 0
+        
+        opponentImage.image = UIImage(named: profileImageStruct[inputImage as? Int ?? 0])
+        opponentNickLabel.text = inputNick as? String ?? " "
+        opponentScoreLabel.text = "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
+        opponentLevelLabel.text = levelStruct[inputLevel as? Int ?? 0]
+        
+    }
     @objc func runProgressbar() {
         moveTime = moveTime + 1.0
         runProgressBar.progress = moveTime/maxTime
@@ -166,4 +182,30 @@ extension RunActivityVC {
             moveTime = 0.0
         }
     }
+    @objc func getdistanceRunning() {
+        self.getWalkingRunning(completion: { (step) in
+            print("step",step)
+        })
+    }
+    
+    func getWalkingRunning(completion: @escaping (Double) -> Void) {
+        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
+        let now = Date()
+        let startOfDay = Calendar.current.startOfDay(for: now)
+       // Calendar.current.startOfDay(for: )
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
+        
+        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, _ in
+                guard let result = result, let sum = result.sumQuantity() else {
+                    completion(0.0)
+                    return
+                }
+                
+                print("sum:",sum)
+            }
+        healthStore.execute(query)
+        
+            
+            
+        }
 }
