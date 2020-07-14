@@ -11,12 +11,17 @@ import HealthKit
 
 class RunActivityVC: UIViewController {
     
-    
     let healthStore = HKHealthStore()
     var moveTime: Float = 0.0
-    var maxTime: Float = 0.0
+    var maxTime: Float = UserDefaults.standard.object(forKey: "myGoalTime") as? Float ?? 0
+    var nowKmeter: Double = 0.0
+    var myMeter: Double = 0.0
     var levelStruct = ["초급","중급","고급"]
-    var profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
+    var profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunnowMeterhair"]
+    
+    var firstTimeLeft = 1
+    var secondTimeLeft = 30
+    var thirdTimeLeft = 30
     
     @IBOutlet weak var lockButton: UIButton!
     @IBOutlet weak var backBoxImage: UIImageView!
@@ -52,45 +57,19 @@ class RunActivityVC: UIViewController {
     @IBOutlet weak var runningStopButton: UIButton!
     
     override func viewDidLoad() {
+        perform(#selector(runProgressbar), with: nil, afterDelay: 0.0)
         super.viewDidLoad()
-//        getTodaysSteps { stepCount in
-//            print(stepCount)
-//        }
         setView()
         setLabel()
         setOpponentProfile()
-//        perform(#selector(getTodaysSteps(step), with: nil, afterDelay: 1.0)
-        perform(#selector(getdistanceRunning), with: nil, afterDelay: 1.0)
-        
-//        let healthKitTypes: Set = [ // access step count
-//            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)! ]
-//       // HKQuantityTypeIdentifier.activeEnergyBurned
-//        healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (_, _) in print("authorized???") }
-//        healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (bool, error) in
-//            if let e = error {
-//                print("oops something went wrong during authorisation \(e.localizedDescription)")
-//
-//            } else {
-//                print("User has completed the authorization flow")
-//                self.getTodaysSteps(completion: { (step) in
-//                    print("step",step)
-//
-//                })
-//
-//            }
-//
-//        }
-
-        
     }
-     
-    }
+}
 
 
 
 extension RunActivityVC {
     func setLabel() {
-
+        
         levelLabel.text = "Lv."
         levelLabel.font = UIFont(name: "NanumSquare", size: 12)
         
@@ -103,8 +82,17 @@ extension RunActivityVC {
         
         startTimeLabel.text = "00:00"
         startTimeLabel.font = UIFont(name: "NanumSquareB", size: 14)
-        
-        //finishTimeLabel.text
+
+        if maxTime == 1800.0 {
+            finishTimeLabel.text = "0:30"
+        } else if maxTime == 2700.0 {
+            finishTimeLabel.text = "0:40"
+        } else if maxTime == 3600.0 {
+            finishTimeLabel.text = "1:00"
+        } else {
+            finishTimeLabel.text = "1:30"
+        }
+       // finishTimeLabel.text = maxTime
         finishTimeLabel.font = UIFont(name: "NanumSquareB", size: 14)
         
         kmLabel.text = "킬로미터"
@@ -116,19 +104,18 @@ extension RunActivityVC {
         paceLabel.text = "페이스"
         paceLabel.font = UIFont(name: "NanumSquareB", size: 16)
         
-        //opponentKmLabel.text
-        opponentKmLabel.font = UIFont(name: "NanumSquareB", size: 70)
+        opponentKmLabel.text = "0.00"
+        opponentKmLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 70)
         
-        //opponentLeftTimeLabel.text
-        opponentLeftTimeLabel.font = UIFont(name: "NanumSquareB", size: 70)
+//        opponentLeftTimeLabel.text = finishTimeLabel.text
+        opponentLeftTimeLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 70)
         
         //opponentPaceLabel.text
-        opponentPaceLabel.font = UIFont(name: "NanumSquareB", size: 36)
+        opponentPaceLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 36)
+        
     }
     
     func setView() {
-        
-        perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
         
         lockButton.setBackgroundImage(UIImage(named: "iconUnlock"), for: .normal)
         lockButton.setTitle(nil, for: .normal)
@@ -172,20 +159,16 @@ extension RunActivityVC {
         opponentLevelLabel.text = levelStruct[inputLevel as? Int ?? 0]
         
     }
+    
     @objc func runProgressbar() {
-        moveTime = moveTime + 1.0
-        runProgressBar.progress = moveTime/maxTime
         if moveTime < maxTime {
+            moveTime = moveTime + 1.0
+            runProgressBar.progress = moveTime/maxTime
             perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
         } else {
             print("끝")
             moveTime = 0.0
         }
-    }
-    @objc func getdistanceRunning() {
-        self.getWalkingRunning(completion: { (step) in
-            print("step",step)
-        })
     }
     
     func getWalkingRunning(completion: @escaping (Double) -> Void) {
@@ -196,16 +179,22 @@ extension RunActivityVC {
         let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
         
         let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, _ in
-                guard let result = result, let sum = result.sumQuantity() else {
+            guard let result = result, let sum = result.sumQuantity()?.doubleValue(for: .meter()) else {
+                    // sum은 오늘 걸기+뛰기 한 총 거리
                     completion(0.0)
                     return
                 }
-                
                 print("sum:",sum)
+                self.nowKmeter = Double(String(format: "%.2f", sum/1000)) ?? 0.00
             }
         healthStore.execute(query)
-        
-            
-            
-        }
+    }
+
+       @objc func secToTime(sec: Int){
+           let hour = sec / 3600
+           let minute = (sec % 3600) / 60
+           let second = (sec % 3600) % 60
+           
+           print("여기",String(hour) + ":" + String(minute) + ":" + String(second))
+       }
 }

@@ -11,7 +11,6 @@ import UIKit
 class MatchingGenderVC: UIViewController {
     private var genderInformation: [Gender] = []
     
-    var takeGoal = 0 //앞에서 받아온 목표 시간(부 integer) and 서버에게 넘겨줄 목표시간
     var giveGenderText = 0 // 서버에게 넘겨줄 원하는 상대 러너의 성별
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var genderCollectionView: UICollectionView!
@@ -20,8 +19,7 @@ class MatchingGenderVC: UIViewController {
     @IBAction func startButtonDidTap(_ sender: UIButton) {
         guard let StartButtonPush = self.storyboard?.instantiateViewController(identifier:"FindRunnerVC") as? FindRunnerVC else {return}
          self.navigationController?.pushViewController(StartButtonPush, animated: true)
-        StartButtonPush.lastGender = giveGenderText
-        StartButtonPush.lastGoal = takeGoal
+        UserDefaults.standard.set(giveGenderText, forKey: "myWantGender")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,7 +93,6 @@ extension MatchingGenderVC: UICollectionViewDelegateFlowLayout {
         startButton.isEnabled = true
         startButton.backgroundColor = UIColor.lightishBlue
         startButton.setTitleColor(.white, for: .normal)
-        let cells = collectionView.cellForItem(at: indexPath) as? BattleGenderSelectCell
         if indexPath == [0, 0] {
             giveGenderText = 1
         } else if indexPath == [0, 1] {

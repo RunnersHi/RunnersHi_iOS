@@ -15,8 +15,6 @@ class FindRunnerVC: UIViewController {
     let maxTime: Float = 300.0
     
     var moveTime: Float = 0.0
-    var lastGoal: Int = 0
-    var lastGender: Int = 0
     var leftTime: Int = 300
     var room: String = ""
     static let shared = SocketIOManager()
@@ -60,13 +58,20 @@ class FindRunnerVC: UIViewController {
     }
     
     private func startSocket() {
+        
+        
         // 소켓 연결
         let socket = manager.socket(forNamespace: "/matching")
         socket.connect()
+        
+        // UserDefaults에서 매칭 정보를 가져옴
         let myToken : String = (UserDefaults.standard.object(forKey: "token") as? String) ?? ""
+        let myGoal : Int = (UserDefaults.standard.object(forKey: "myGoalTime") as? Int) ?? (-1)
+        let myWantGender : Int = (UserDefaults.standard.object(forKey: "myWantGender") as? Int) ?? (-1)
+        
         // 서버 : 시작해도 좋다는 응답 -> 클라 : 내 정보와 내가 원하는 상대의 조건을 보내줌
         socket.on("start", callback: { (data, ack) in
-            socket.emit("joinRoom",myToken,self.lastGoal,self.lastGender,self.leftTime)
+            socket.emit("joinRoom",myToken,myGoal,myWantGender,self.leftTime)
         })
         
         // 내가 원하는 조건의 상대를 찾지 못해서
