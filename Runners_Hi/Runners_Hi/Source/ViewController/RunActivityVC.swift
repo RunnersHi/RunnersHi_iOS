@@ -256,7 +256,7 @@ extension RunActivityVC {
         let inputLose = UserDefaults.standard.object(forKey: "opponentLose") ?? 0
         let inputImage = UserDefaults.standard.object(forKey: "opponentImg") ?? 0
         
-        opponentImage.image = UIImage(named: profileImageStruct[inputImage as? Int ?? 0])
+        opponentImage.image = UIImage(named: profileImageStruct[(inputImage as? Int ?? 0) - 1])
         opponentNickLabel.text = inputNick as? String ?? " "
         opponentScoreLabel.text = "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
         opponentLevelLabel.text = levelStruct[(inputLevel as? Int ?? 0) - 1]

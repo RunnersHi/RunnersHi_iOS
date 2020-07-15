@@ -65,7 +65,7 @@ extension OpponentProfileVC {
         
         battleRunnerScoreLabel.text = "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
         
-        battleRunnerImage.image = UIImage(named: profileImageStruct[inputImage as? Int ?? 0])
+        battleRunnerImage.image = UIImage(named: profileImageStruct[(inputImage as? Int ?? 0) - 1])
     }
     
     func setView() {
