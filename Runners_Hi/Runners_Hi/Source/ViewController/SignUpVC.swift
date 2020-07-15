@@ -443,13 +443,7 @@ extension SignUpVC: UICollectionViewDataSource {
 extension SignUpVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
         UICollectionViewLayout, sizeForItemAt IndexPath: IndexPath) -> CGSize{
-        /*
-         //        let screenRect = UIScreen.main.bounds
-         //        let frameWidth = screenRect.size.width
-         //        let frameHeight = screenRect.size.height
-         
-         //        return CGSize(width: 152, height: 48)
-         */
+     
         if collectionView == genderbuttonCollectionView {
             return CGSize(width: 152, height: 48)
         }
