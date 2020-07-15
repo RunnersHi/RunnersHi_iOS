@@ -28,6 +28,8 @@
 		06F40AE624BD75BA001E04FB /* ScoreRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AE524BD75BA001E04FB /* ScoreRecordCell.swift */; };
 		06F40AE824BDB521001E04FB /* RecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AE724BDB521001E04FB /* RecordService.swift */; };
 		06F40AEA24BDD56E001E04FB /* RecordAllData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AE924BDD56E001E04FB /* RecordAllData.swift */; };
+		06F40AEC24BF78F0001E04FB /* RecordBadgeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AEB24BF78EF001E04FB /* RecordBadgeData.swift */; };
+		06F40AEE24BF7A33001E04FB /* BadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AED24BF7A33001E04FB /* BadgeCell.swift */; };
 		3BD8ECE5AC41CD44ED87794D /* Pods_Runners_Hi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */; };
 		3D76A15524BC9B6800A58465 /* run.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D76A15324BC9B6700A58465 /* run.json */; };
 		3D76A15624BC9B6800A58465 /* count.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D76A15424BC9B6800A58465 /* count.json */; };
@@ -92,6 +94,8 @@
 		06F40AE524BD75BA001E04FB /* ScoreRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRecordCell.swift; sourceTree = "<group>"; };
 		06F40AE724BDB521001E04FB /* RecordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordService.swift; sourceTree = "<group>"; };
 		06F40AE924BDD56E001E04FB /* RecordAllData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAllData.swift; sourceTree = "<group>"; };
+		06F40AEB24BF78EF001E04FB /* RecordBadgeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBadgeData.swift; sourceTree = "<group>"; };
+		06F40AED24BF7A33001E04FB /* BadgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCell.swift; sourceTree = "<group>"; };
 		2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runners_Hi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D76A15324BC9B6700A58465 /* run.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = run.json; sourceTree = "<group>"; };
 		3D76A15424BC9B6800A58465 /* count.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = count.json; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				3DCDF01A24B60A0B003F47CE /* BattleGoalSelectCell.swift */,
 				3DCAF89E24B7065D009B3AE5 /* BattleGenderSelectCell.swift */,
 				06F40AE524BD75BA001E04FB /* ScoreRecordCell.swift */,
+				06F40AED24BF7A33001E04FB /* BadgeCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 				06F40AC824B85093001E04FB /* DuplicateData.swift */,
 				06F40AD024B96BA1001E04FB /* LoginData.swift */,
 				06F40AE924BDD56E001E04FB /* RecordAllData.swift */,
+				06F40AEB24BF78EF001E04FB /* RecordBadgeData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -480,6 +486,7 @@
 				3DCAF8A124B79A33009B3AE5 /* FindRunnerVC.swift in Sources */,
 				3DCDF01B24B60A0B003F47CE /* BattleGoalSelectCell.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
+				06F40AEC24BF78F0001E04FB /* RecordBadgeData.swift in Sources */,
 				3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */,
 				3DC2841424B83AF10063439D /* OpponentProfileVC.swift in Sources */,
 				06F40ACF24B88C73001E04FB /* SignInVC.swift in Sources */,
@@ -499,6 +506,7 @@
 				3DCDF01724B5FE13003F47CE /* MatchingGoalVC.swift in Sources */,
 				06F40AE824BDB521001E04FB /* RecordService.swift in Sources */,
 				3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */,
+				06F40AEE24BF7A33001E04FB /* BadgeCell.swift in Sources */,
 				06F40AE624BD75BA001E04FB /* ScoreRecordCell.swift in Sources */,
 				3DCAF89D24B6F0BD009B3AE5 /* MatchingGenderVC.swift in Sources */,
 				06F40ABB24B4FF89001E04FB /* GenderSelectCell.swift in Sources */,

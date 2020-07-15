@@ -11,7 +11,8 @@ import XLPagerTabStrip
 
 
 class RecordTabChildVC2: UIViewController, IndicatorInfoProvider {
-
+    @IBOutlet weak var badgeCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
