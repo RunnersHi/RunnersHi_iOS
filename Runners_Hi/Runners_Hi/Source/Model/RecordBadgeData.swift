@@ -6,15 +6,15 @@
 //  Copyright © 2020 김민희. All rights reserved.
 //
 
-import Foundation
-
-struct RecordBadgeData: Codable {
-    let status: Int
-    let success: Bool
-    let message: String
-    let result: Result
-}
-
-struct Result: Codable {
-    let badge: [Bool]
-}
+//import Foundation
+//
+//struct RecordBadgeData: Codable {
+//    let status: Int
+//    let success: Bool
+//    let message: String
+//    let result: Result
+//}
+//
+//struct Result: Codable {
+//    let badge: [Bool]
+//}
