@@ -1,5 +1,22 @@
 PODS:
   - Alamofire (4.8.2)
+  - CHIPageControl (0.1.8):
+    - CHIPageControl/Aji (= 0.1.8)
+    - CHIPageControl/Aleppo (= 0.1.8)
+    - CHIPageControl/Chimayo (= 0.1.8)
+    - CHIPageControl/Fresno (= 0.1.8)
+    - CHIPageControl/Jalapeno (= 0.1.8)
+    - CHIPageControl/Jaloro (= 0.1.8)
+    - CHIPageControl/Paprika (= 0.1.8)
+    - CHIPageControl/Puya (= 0.1.8)
+  - CHIPageControl/Aji (0.1.8)
+  - CHIPageControl/Aleppo (0.1.8)
+  - CHIPageControl/Chimayo (0.1.8)
+  - CHIPageControl/Fresno (0.1.8)
+  - CHIPageControl/Jalapeno (0.1.8)
+  - CHIPageControl/Jaloro (0.1.8)
+  - CHIPageControl/Paprika (0.1.8)
+  - CHIPageControl/Puya (0.1.8)
   - lottie-ios (3.1.8)
   - Socket.IO-Client-Swift (15.2.0):
     - Starscream (~> 3.1)
@@ -8,6 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
+  - CHIPageControl (~> 0.1.3)
   - lottie-ios
   - Socket.IO-Client-Swift (~> 15.2.0)
   - XLPagerTabStrip (~> 9.0)
@@ -15,6 +33,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CHIPageControl
     - lottie-ios
     - Socket.IO-Client-Swift
     - Starscream
@@ -22,11 +41,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  CHIPageControl: 76b35c8309d8dd155e869c109cc6ffc0aaa465ff
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: dbb1de44786baec066dd2d9517c53fe759ba4a7b
+PODFILE CHECKSUM: 40f8c91f0a9c699775fe17108c879595a97079da
 
 COCOAPODS: 1.9.3
