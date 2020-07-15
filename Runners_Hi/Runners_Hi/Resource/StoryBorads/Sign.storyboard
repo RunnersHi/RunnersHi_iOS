@@ -45,10 +45,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOT-EN-9fY">
-                                                <rect key="frame" x="30" y="144" width="48.5" height="20.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="WOT-EN-9fY" secondAttribute="height" multiplier="38:16" id="VdU-RL-8cb"/>
-                                                </constraints>
+                                                <rect key="frame" x="30" y="144" width="42" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -750,7 +747,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZX-Hh-FuB">
-                                <rect key="frame" x="50" y="416" width="275" height="48"/>
+                                <rect key="frame" x="50" y="423.5" width="275" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8ZX-Hh-FuB" secondAttribute="height" multiplier="275:48" id="Lab-wg-ecm"/>
                                 </constraints>
@@ -760,16 +757,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlW-rg-Ckd">
-                                <rect key="frame" x="81.5" y="364" width="212" height="13"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="dlW-rg-Ckd" secondAttribute="height" multiplier="212:13" id="hYe-dj-yHF"/>
-                                </constraints>
+                                <rect key="frame" x="81.5" y="364" width="212" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e6M-Pq-yy8">
-                                <rect key="frame" x="100.5" y="488" width="174" height="13"/>
+                                <rect key="frame" x="100.5" y="495.5" width="174" height="13"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKD-Td-iwN">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="13"/>
@@ -783,9 +777,6 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cag-Mf-FBL">
                                         <rect key="frame" x="68" y="0.0" width="106" height="13"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Cag-Mf-FBL" secondAttribute="height" multiplier="106:13" id="hpw-U8-eN7"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
