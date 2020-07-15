@@ -189,6 +189,7 @@ extension RunActivityVC {
                     completion(0.0)
                     return
                 }
+            print("sum입니다.",sum)
             self.nowKmeter = Double(String(format: "%.2f", sum/1000)) ?? 0.00
             print("바보",self.nowKmeter)
             }
@@ -209,7 +210,9 @@ extension RunActivityVC {
                     return
                 }
             self.get5secKm = Double(String(format: "%.2f", sum/1000)) ?? 0.00
-            print("요깅",self.get5secKm - self.nowKmeter)
+            print("5초마다 계산하기",self.get5secKm)
+            print("뺀거계산하기",self.get5secKm - self.nowKmeter)
+            //self.opponentKmLabel.text = String(format: "%.2f", self.get5secKm - self.nowKmeter)
             }
         if self.moveTime < self.maxTime {
             perform(#selector(getLabel), with: nil, afterDelay: 5.0)
@@ -219,12 +222,14 @@ extension RunActivityVC {
     }
     
     @objc func get5secKmeter() {
+        print("get5secKm 초기화")
         get5secKm = 0.0
         self.getWalkingRunning(completion: { (step) in
             
         })
     }
     @objc func getLabel() {
+        print("여기는라벨적기")
         self.opponentKmLabel.text = String(format: "%.2f", self.get5secKm - self.nowKmeter)
     }
 
