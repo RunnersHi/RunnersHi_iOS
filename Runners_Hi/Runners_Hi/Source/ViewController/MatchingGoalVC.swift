@@ -20,7 +20,7 @@ class MatchingGoalVC: UIViewController {
     @IBAction func nextButtonDidTap(_ sender: UIButton) {
         guard let NextButtonPush = self.storyboard?.instantiateViewController(identifier:"MatchingGenderVC") as? MatchingGenderVC else {return}
         self.navigationController?.pushViewController(NextButtonPush, animated: true)
-        NextButtonPush.takeGoal = self.giveGoalText
+        UserDefaults.standard.set(giveGoalText, forKey: "myGoalTime")
         
         
     }
