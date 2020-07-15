@@ -59,8 +59,8 @@ extension OpponentProfileVC {
         let inputLose = UserDefaults.standard.object(forKey: "opponentLose") ?? 0
         let inputImage = UserDefaults.standard.object(forKey: "inputopponentImg") ?? 0
 
-        battleRunnerLevelLabel.text = levelStruct[inputLevel as? Int ?? 0]
-        
+        battleRunnerLevelLabel.text = levelStruct[(inputLevel as? Int ?? 0)-1]
+        print(inputLevel,"야~~")
         battleRunnerIDLabel.text = inputNick as? String
         
         battleRunnerScoreLabel.text = "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"

@@ -13,9 +13,8 @@ import SocketIO
 class FindRunnerVC: UIViewController {
 
     let maxTime: Float = 300.0
+    
     var moveTime: Float = 0.0
-    var lastGoal: Int = 0
-    var lastGender: Int = 0
     var leftTime: Int = 300
     var room: String = ""
     static let shared = SocketIOManager()
@@ -59,13 +58,20 @@ class FindRunnerVC: UIViewController {
     }
     
     private func startSocket() {
+        
+        
         // 소켓 연결
         let socket = manager.socket(forNamespace: "/matching")
         socket.connect()
+        
+        // UserDefaults에서 매칭 정보를 가져옴
         let myToken : String = (UserDefaults.standard.object(forKey: "token") as? String) ?? ""
+        let myGoal : Int = (UserDefaults.standard.object(forKey: "myGoalTime") as? Int) ?? (-1)
+        let myWantGender : Int = (UserDefaults.standard.object(forKey: "myWantGender") as? Int) ?? (-1)
+        
         // 서버 : 시작해도 좋다는 응답 -> 클라 : 내 정보와 내가 원하는 상대의 조건을 보내줌
         socket.on("start", callback: { (data, ack) in
-            socket.emit("joinRoom",myToken,self.lastGoal,self.lastGender,self.leftTime)
+            socket.emit("joinRoom",myToken,myGoal,myWantGender,self.leftTime)
         })
         
         // 내가 원하는 조건의 상대를 찾지 못해서
@@ -98,7 +104,9 @@ class FindRunnerVC: UIViewController {
             socket.emit("opponentInfo",data[0] as! SocketData)
         })
         socket.on("opponentInfo", callback: { (data, ack) in
-            UserDefaults.standard.set(data[1] , forKey: "opponentNick")
+            //UserDefaults.standard.set(data[1] , forKey: "opponentNick")
+            let yourNick: String = data[1] as? String ?? " "
+            UserDefaults.standard.set(yourNick.fromBase64URL() , forKey: "opponentNick")
             UserDefaults.standard.set(data[2], forKey: "opponentLevel")
             UserDefaults.standard.set(data[3], forKey: "opponentWin")
             UserDefaults.standard.set(data[4], forKey: "opponentLose")
@@ -119,7 +127,9 @@ class FindRunnerVC: UIViewController {
             print("저는 바보입니다...ㅠㅠ")
         })
     }
-    
+    struct NickName : Codable {
+        var nick : String
+    }
     @objc func updateProgressbar() {
         moveTime = moveTime + 1.0
         timeProgressBar.progress = moveTime/maxTime
@@ -130,5 +140,31 @@ class FindRunnerVC: UIViewController {
             moveTime = 0.0
         }
     }
+    
+
+
 
 }
+extension String {
+    func fromBase64URL() -> String? {
+        var base64 = self
+        base64 = base64.replacingOccurrences(of: "-", with: "+")
+        base64 = base64.replacingOccurrences(of: "_", with: "/")
+        while base64.count % 4 != 0 {
+            base64 = base64.appending("=")
+        }
+        guard let data = Data(base64Encoded: base64) else {
+            return nil
+        }
+        return String(data: data, encoding: .utf8)
+    }
+    
+    func toBase64URL() -> String {
+        var result = Data(self.utf8).base64EncodedString()
+        result = result.replacingOccurrences(of: "+", with: "-")
+        result = result.replacingOccurrences(of: "/", with: "_")
+        result = result.replacingOccurrences(of: "=", with: "")
+        return result
+    }
+}
+

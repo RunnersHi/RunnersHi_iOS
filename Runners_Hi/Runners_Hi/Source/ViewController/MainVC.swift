@@ -21,7 +21,14 @@ class MainVC: UIViewController {
     @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var runButton: UIButton!
     
-   // private var isToggle: Bool = false
+    @IBOutlet weak var homeImg: UIImageView!
+    
+    
+    @IBOutlet weak var constraint_logo_ment: NSLayoutConstraint!
+    
+    @IBOutlet weak var constraint_ment_homeImg: NSLayoutConstraint!
+    @IBOutlet weak var constarint_homeImg_button: NSLayoutConstraint!
+    // private var isToggle: Bool = false
     
     @IBAction func runButtonDidTap(_ sender: Any) {
         blackView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
@@ -70,6 +77,8 @@ class MainVC: UIViewController {
     }
     
     private func basicAutoLayout() {
+        
+        homeImg.image = UIImage(named: "imgHomeactivityMain")
         logoImg.image = UIImage(named: "homeLogo")
         self.view.backgroundColor = UIColor.backgroundgray
         secondView.backgroundColor = UIColor.white
@@ -93,6 +102,13 @@ class MainVC: UIViewController {
         //popUpTableView.separatorStyle = .none
         popUpTableView.delegate = self
         popUpTableView.dataSource = self
+        
+        if self.view.frame.height > 700 {
+            constraint_logo_ment.constant = 34
+            constraint_ment_homeImg.constant = 59
+            constarint_homeImg_button.constant = 51
+            
+        }
     }
     private func authorizeHealthKit() {
       
