@@ -25,6 +25,7 @@
 		3BD8ECE5AC41CD44ED87794D /* Pods_Runners_Hi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */; };
 		3D76A15524BC9B6800A58465 /* run.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D76A15324BC9B6700A58465 /* run.json */; };
 		3D76A15624BC9B6800A58465 /* count.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D76A15424BC9B6800A58465 /* count.json */; };
+		3D76A15824BF337000A58465 /* RunFinishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D76A15724BF336F00A58465 /* RunFinishVC.swift */; };
 		3D8AD89524B32695006B5648 /* RankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89424B32695006B5648 /* RankVC.swift */; };
 		3D8AD89724B326A6006B5648 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89624B326A6006B5648 /* RecordVC.swift */; };
 		3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AD89824B326BD006B5648 /* MyPageVC.swift */; };
@@ -84,6 +85,7 @@
 		2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runners_Hi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D76A15324BC9B6700A58465 /* run.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = run.json; sourceTree = "<group>"; };
 		3D76A15424BC9B6800A58465 /* count.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = count.json; sourceTree = "<group>"; };
+		3D76A15724BF336F00A58465 /* RunFinishVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunFinishVC.swift; sourceTree = "<group>"; };
 		3D8AD89424B32695006B5648 /* RankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankVC.swift; sourceTree = "<group>"; };
 		3D8AD89624B326A6006B5648 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		3D8AD89824B326BD006B5648 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				3DC11A9A24B9CD5500127718 /* RunActivityVC.swift */,
 				06F40ADA24BB038F001E04FB /* RunningLevelPopUpVC.swift */,
 				3D8AF1FC24BB740800754BAB /* CountdownVC.swift */,
+				3D76A15724BF336F00A58465 /* RunFinishVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */,
 				06F40AD524BAB445001E04FB /* ProfilePopUpVC.swift in Sources */,
 				0683DBC524B3BC190038E317 /* Gender.swift in Sources */,
+				3D76A15824BF337000A58465 /* RunFinishVC.swift in Sources */,
 				06F40AC924B85093001E04FB /* DuplicateData.swift in Sources */,
 				3DCDF01924B607BF003F47CE /* GoalInformation.swift in Sources */,
 				3DCAF8A124B79A33009B3AE5 /* FindRunnerVC.swift in Sources */,

@@ -811,10 +811,10 @@
             </objects>
             <point key="canvasLocation" x="7278" y="806"/>
         </scene>
-        <!--View Controller-->
+        <!--Run FinishVC-->
         <scene sceneID="zhp-GA-jL2">
             <objects>
-                <viewController id="AMS-2G-EXN" sceneMemberID="viewController">
+                <viewController id="AMS-2G-EXN" customClass="RunFinishVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X2j-m0-Rv1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -871,6 +871,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="74N-RB-DPX"/>
                     </view>
+                    <connections>
+                        <outlet property="finishLabel" destination="RHL-w8-rRS" id="gdy-AZ-8WP"/>
+                        <outlet property="firstMentLabel" destination="cYL-AJ-ajZ" id="I2d-1I-9Wi"/>
+                        <outlet property="goButton" destination="nKF-51-9Mo" id="0eA-EF-w67"/>
+                        <outlet property="mainimage" destination="Lvg-Go-RI7" id="ftC-G1-fgB"/>
+                        <outlet property="secondMentLabel" destination="sad-Xu-4eG" id="SGa-ct-J5o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTw-hq-rCa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

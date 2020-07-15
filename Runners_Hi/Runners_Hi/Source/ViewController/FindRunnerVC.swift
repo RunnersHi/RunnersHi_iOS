@@ -18,7 +18,7 @@ class FindRunnerVC: UIViewController {
     var leftTime: Int = 300
     var room: String = ""
     static let shared = SocketIOManager()
-    var manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3001")!, config: [.log(true), .compress])
+    var manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
     
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var timeProgressBar: UIProgressView!

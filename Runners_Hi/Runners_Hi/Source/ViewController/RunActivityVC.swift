@@ -7,11 +7,31 @@
 //
 
 import UIKit
-import HealthKit
+//import HealthKit
+import CoreMotion
 
 class RunActivityVC: UIViewController {
+    //
+    let stopColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+    let startColor = UIColor(red: 0.0, green: 0.75, blue: 0.0, alpha: 1.0)
+    // values for the pedometer data
+    var numberOfSteps:Int! = nil
+
+    var distance:Double! = nil
+    var averagePace:Double! = nil
+    var pace:Double! = nil
+    var kmDistance:Double! = nil
+     
+    //the pedometer
+    var pedometer = CMPedometer()
+     
+    // timers
+    var timer = Timer()
+    var timerInterval = 1.0
+    var timeElapsed:TimeInterval = 1.0
+    //
     
-    let healthStore = HKHealthStore()
+    //let healthStore = HKHealthStore()
     var moveTime: Float = 0.0
     var maxTime: Float = UserDefaults.standard.object(forKey: "myGoalTime") as? Float ?? 0
     var limitTime: Int = UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0
@@ -20,11 +40,7 @@ class RunActivityVC: UIViewController {
     var myMeter: Double = 0.0
     var levelStruct = ["초급","중급","고급"]
     var profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunnowMeterhair"]
-    
-    var firstTimeLeft = 1
-    var secondTimeLeft = 30
-    var thirdTimeLeft = 30
-    
+
     @IBOutlet weak var lockButton: UIButton!
     @IBOutlet weak var backBoxImage: UIImageView!
     
@@ -59,22 +75,105 @@ class RunActivityVC: UIViewController {
     @IBOutlet weak var runningStopButton: UIButton!
     
     override func viewDidLoad() {
-        perform(#selector(runProgressbar), with: nil, afterDelay: 0.0)
-        self.getWalkingRunningFirtst(completion: { (step) in
+        secToTime(sec: limitTime)
+        pedometer = CMPedometer()
+        startTimer()
+        pedometer.startUpdates(from: Date(), withHandler: { (pedometerData, error) in
+            if let pedData = pedometerData{
+                self.numberOfSteps = Int(pedData.numberOfSteps)
+                //self.stepsLabel.text = "Steps:\(pedData.numberOfSteps)"
+                if let distance = pedData.distance{
+                    self.distance = Double(distance)
+                }
+                if let averageActivePace = pedData.averageActivePace {
+                    self.averagePace = Double(averageActivePace)
+                }
+                if let currentPace = pedData.currentPace {
+                    self.pace = Double(currentPace)
+                }
+            } else {
+                self.numberOfSteps = nil
+            }
         })
+        
+        
+        perform(#selector(runProgressbar), with: nil, afterDelay: 0.0)
+//        self.getWalkingRunningFirtst(completion: { (step) in
+//        })
         super.viewDidLoad()
         setView()
         setLabel()
         setOpponentProfile()
-        perform(#selector(get5secKmeter), with: nil, afterDelay: 5.0)
+        //perform(#selector(get5secKmeter), with: nil, afterDelay: 5.0)
     }
 }
 
 
 
 extension RunActivityVC {
+    func startTimer(){
+        if timer.isValid { timer.invalidate() }
+        timer = Timer.scheduledTimer(timeInterval: timerInterval,target: self,selector: #selector(timerAction(timer:)) ,userInfo: nil,repeats: true)
+    }
+    @objc func timerAction(timer:Timer){
+        displayPedometerData()
+    }
+    func displayPedometerData(){
+        timeElapsed += 1.0
+        print("붸",timeElapsed)
+        //statusTitle.text = "On: " + timeIntervalFormat(interval: timeElapsed)
+        //Number of steps
+//        if let numberOfSteps = self.numberOfSteps{
+//            stepsLabel.text = String(format:"Steps: %i",numberOfSteps)
+//        }
+         
+        //distance
+        if let distance = self.distance {
+            print(distance,"용")
+            kmDistance = distance/1000
+        opponentKmLabel.text = String(format:"%02.02f",distance/1000)
+            var pace1 = Int(moveTime/Float(kmDistance))
+            var pace2 = Int(pace1/60)
+            var pace3 = Int(pace1%60)
+            print(pace1,pace2,pace3,"하잉용")
+            if pace2>60 {
+                opponentPaceLabel.text = "__'__''"
+            } else {
+            opponentPaceLabel.text = String(pace2) + "'" + String(pace3) + "''"
+            }
+        }
+         
+
+//        if let pace = self.pace {
+//            var pace1 = Int(timeElapsed/kmDistance)
+//            var pace2 = Int(pace1/60)
+//            var pace3 = Int(pace1%60)
+//            opponentPaceLabel.text = String(format:"%02",pace2) + "'" + String(format:"%02",pace3) + "''"
+//
+//        }
+
+    }
+    func paceString(title:String,pace:Double) -> String{
+        var minPerMile = 0.0
+        let factor = 26.8224 //conversion factor
+        if pace != 0 {
+            minPerMile = factor / pace
+        }
+        let minutes = Int(minPerMile)
+        let seconds = Int(minPerMile * 60) % 60
+       // let fivePace = Float((5/60)/(distance/1000))
+        return String(format: "%02.2f m/s",pace)
+       // return (5/60)/
+    }
+    
+    func miles(meters:Double)-> Double{
+        let mile = 0.000621371192
+        return meters * mile
+    }
+    
     func setLabel() {
-        perform(#selector(getSetTime), with: nil, afterDelay: 0.0)
+
+       // perform(#selector(getSetTime), with: nil, afterDelay: 0.0)
         levelLabel.text = "Lv."
         levelLabel.font = UIFont(name: "NanumSquare", size: 12)
         
@@ -112,10 +211,9 @@ extension RunActivityVC {
         opponentKmLabel.text = "0.00"
         opponentKmLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 70)
         
-//        opponentLeftTimeLabel.text = finishTimeLabel.text
         opponentLeftTimeLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 70)
         
-        //opponentPaceLabel.text
+        opponentPaceLabel.text = "__'__''"
         opponentPaceLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 36)
         
     }
@@ -175,74 +273,23 @@ extension RunActivityVC {
             moveTime = 0.0
         }
     }
-    
-    func getWalkingRunningFirtst(completion: @escaping (Double) -> Void) {
-        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
-        let now = Date()
-        let startOfDay = Calendar.current.startOfDay(for: now)
-       // Calendar.current.startOfDay(for: )
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
-        
-        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, _ in
-            guard let result = result, let sum = result.sumQuantity()?.doubleValue(for: .meter()) else {
-                    // sum은 오늘 걸기+뛰기 한 총 거리
-                    completion(0.0)
-                    return
-                }
-            print("sum입니다.",sum)
-            self.nowKmeter = Double(String(format: "%.2f", sum/1000)) ?? 0.00
-            print("바보",self.nowKmeter)
-            }
-        healthStore.execute(query)
-    }
-    
-    func getWalkingRunning(completion: @escaping (Double) -> Void) {
-        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
-        let now = Date()
-        let startOfDay = Calendar.current.startOfDay(for: now)
-       // Calendar.current.startOfDay(for: )
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
-        
-        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, _ in
-            guard let result = result, let sum = result.sumQuantity()?.doubleValue(for: .meter()) else {
-                    // sum은 오늘 걸기+뛰기 한 총 거리
-                    completion(0.0)
-                    return
-                }
-            self.get5secKm = Double(String(format: "%.2f", sum/1000)) ?? 0.00
-            print("5초마다 계산하기",self.get5secKm)
-            print("뺀거계산하기",self.get5secKm - self.nowKmeter)
-            //self.opponentKmLabel.text = String(format: "%.2f", self.get5secKm - self.nowKmeter)
-            }
-        if self.moveTime < self.maxTime {
-            perform(#selector(getLabel), with: nil, afterDelay: 5.0)
-            perform(#selector(get5secKmeter), with: nil, afterDelay: 5.0)
-        }
-        healthStore.execute(query)
-    }
-    
-    @objc func get5secKmeter() {
-        print("get5secKm 초기화")
-        get5secKm = 0.0
-        self.getWalkingRunning(completion: { (step) in
-            
-        })
-    }
-    @objc func getLabel() {
-        print("여기는라벨적기")
-        self.opponentKmLabel.text = String(format: "%.2f", self.get5secKm - self.nowKmeter)
-    }
-
         func secToTime(sec: Int){
            let hour = sec / 3600
            let minute = (sec % 3600) / 60
            let second = (sec % 3600) % 60
-           opponentLeftTimeLabel.text = String(hour) + ":" + String(minute) + ":" + String(second)
+            if hour == 0 {
+                opponentLeftTimeLabel.text = String(minute) + ":" + String(second)
+            } else if minute == 0 {
+                opponentLeftTimeLabel.text = String(second)
+            } else {
+                opponentLeftTimeLabel.text = String(hour) + ":" + String(minute) + ":" + String(second)
+            }
+           
            print("여기",String(hour) + ":" + String(minute) + ":" + String(second))
             if moveTime < maxTime {
                 perform(#selector(getSetTime), with: nil, afterDelay: 1.0)
             }
-            
+
        }
     @objc func getSetTime() {
         if moveTime < maxTime {
@@ -251,16 +298,6 @@ extension RunActivityVC {
         } else {
             opponentLeftTimeLabel.text = "00:00:00"
         }
-        
     }
-//    @objc func runProgressbar() {
-//        if moveTime < maxTime {
-//            moveTime = moveTime + 1.0
-//            runProgressBar.progress = moveTime/maxTime
-//            perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
-//        } else {
-//            print("끝")
-//            moveTime = 0.0
-//        }
-//    }
+
 }
