@@ -14,6 +14,7 @@ class RunActivityVC: UIViewController {
     let healthStore = HKHealthStore()
     var moveTime: Float = 0.0
     var maxTime: Float = UserDefaults.standard.object(forKey: "myGoalTime") as? Float ?? 0
+    var limitTime: Int = UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0
     var nowKmeter: Double = 0.0
     var get5secKm: Double = 0.0
     var myMeter: Double = 0.0
@@ -73,7 +74,7 @@ class RunActivityVC: UIViewController {
 
 extension RunActivityVC {
     func setLabel() {
-        
+        perform(#selector(getSetTime), with: nil, afterDelay: 0.0)
         levelLabel.text = "Lv."
         levelLabel.font = UIFont(name: "NanumSquare", size: 12)
         
@@ -227,11 +228,34 @@ extension RunActivityVC {
         self.opponentKmLabel.text = String(format: "%.2f", self.get5secKm - self.nowKmeter)
     }
 
-       @objc func secToTime(sec: Int){
+        func secToTime(sec: Int){
            let hour = sec / 3600
            let minute = (sec % 3600) / 60
            let second = (sec % 3600) % 60
-           
+           opponentLeftTimeLabel.text = String(hour) + ":" + String(minute) + ":" + String(second)
            print("여기",String(hour) + ":" + String(minute) + ":" + String(second))
+            if moveTime < maxTime {
+                perform(#selector(getSetTime), with: nil, afterDelay: 1.0)
+            }
+            
        }
+    @objc func getSetTime() {
+        if moveTime < maxTime {
+            secToTime(sec: limitTime)
+            limitTime = limitTime - 1
+        } else {
+            opponentLeftTimeLabel.text = "00:00:00"
+        }
+        
+    }
+//    @objc func runProgressbar() {
+//        if moveTime < maxTime {
+//            moveTime = moveTime + 1.0
+//            runProgressBar.progress = moveTime/maxTime
+//            perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
+//        } else {
+//            print("끝")
+//            moveTime = 0.0
+//        }
+//    }
 }
