@@ -40,7 +40,7 @@ class MatchingGenderVC: UIViewController {
         genderCollectionView.backgroundColor = UIColor.backgroundgray
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationController?.navigationBar.topItem?.title = ""
-        startButton.backgroundColor = UIColor.unselectedbuttongray
+        startButton.backgroundColor = UIColor.veryLightPink
         startButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
         startButton.setTitleColor(.black, for: .normal)
         startButton.setTitle("START", for: .normal)
