@@ -104,14 +104,9 @@ class FindRunnerVC: UIViewController {
             socket.emit("opponentInfo",data[0] as! SocketData)
         })
         socket.on("opponentInfo", callback: { (data, ack) in
-            UserDefaults.standard.set(data[1] , forKey: "opponentNick")
-            print("또르륵1",data[1],type(of: data[1]))
-            let encoder = JSONEncoder()
-            let yourNick = NickName(nick: data[1] as! String)
-            let jsonData = try? encoder.encode(yourNick)
-            if let jsonData = jsonData, let jsonString = String(data: jsonData, encoding: .utf8){
-                print("또르륵2",jsonString,type(of: jsonString))
-            }
+            //UserDefaults.standard.set(data[1] , forKey: "opponentNick")
+            let yourNick: String = data[1] as? String ?? " "
+            UserDefaults.standard.set(yourNick.fromBase64URL() , forKey: "opponentNick")
             UserDefaults.standard.set(data[2], forKey: "opponentLevel")
             UserDefaults.standard.set(data[3], forKey: "opponentWin")
             UserDefaults.standard.set(data[4], forKey: "opponentLose")
@@ -145,5 +140,31 @@ class FindRunnerVC: UIViewController {
             moveTime = 0.0
         }
     }
+    
+
+
 
 }
+extension String {
+    func fromBase64URL() -> String? {
+        var base64 = self
+        base64 = base64.replacingOccurrences(of: "-", with: "+")
+        base64 = base64.replacingOccurrences(of: "_", with: "/")
+        while base64.count % 4 != 0 {
+            base64 = base64.appending("=")
+        }
+        guard let data = Data(base64Encoded: base64) else {
+            return nil
+        }
+        return String(data: data, encoding: .utf8)
+    }
+    
+    func toBase64URL() -> String {
+        var result = Data(self.utf8).base64EncodedString()
+        result = result.replacingOccurrences(of: "+", with: "-")
+        result = result.replacingOccurrences(of: "/", with: "_")
+        result = result.replacingOccurrences(of: "=", with: "")
+        return result
+    }
+}
+

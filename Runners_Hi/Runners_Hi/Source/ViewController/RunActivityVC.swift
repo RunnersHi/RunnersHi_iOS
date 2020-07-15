@@ -15,6 +15,7 @@ class RunActivityVC: UIViewController {
     var moveTime: Float = 0.0
     var maxTime: Float = UserDefaults.standard.object(forKey: "myGoalTime") as? Float ?? 0
     var nowKmeter: Double = 0.0
+    var get5secKm: Double = 0.0
     var myMeter: Double = 0.0
     var levelStruct = ["초급","중급","고급"]
     var profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunnowMeterhair"]
@@ -58,10 +59,13 @@ class RunActivityVC: UIViewController {
     
     override func viewDidLoad() {
         perform(#selector(runProgressbar), with: nil, afterDelay: 0.0)
+        self.getWalkingRunningFirtst(completion: { (step) in
+        })
         super.viewDidLoad()
         setView()
         setLabel()
         setOpponentProfile()
+        perform(#selector(get5secKmeter), with: nil, afterDelay: 5.0)
     }
 }
 
@@ -84,13 +88,13 @@ extension RunActivityVC {
         startTimeLabel.font = UIFont(name: "NanumSquareB", size: 14)
 
         if maxTime == 1800.0 {
-            finishTimeLabel.text = "0:30"
+            finishTimeLabel.text = "30:00"
         } else if maxTime == 2700.0 {
-            finishTimeLabel.text = "0:40"
+            finishTimeLabel.text = "40:00"
         } else if maxTime == 3600.0 {
-            finishTimeLabel.text = "1:00"
+            finishTimeLabel.text = "1:00:00"
         } else {
-            finishTimeLabel.text = "1:30"
+            finishTimeLabel.text = "1:30:00"
         }
        // finishTimeLabel.text = maxTime
         finishTimeLabel.font = UIFont(name: "NanumSquareB", size: 14)
@@ -156,7 +160,7 @@ extension RunActivityVC {
         opponentImage.image = UIImage(named: profileImageStruct[inputImage as? Int ?? 0])
         opponentNickLabel.text = inputNick as? String ?? " "
         opponentScoreLabel.text = "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
-        opponentLevelLabel.text = levelStruct[inputLevel as? Int ?? 0]
+        opponentLevelLabel.text = levelStruct[(inputLevel as? Int ?? 0) - 1]
         
     }
     
@@ -169,6 +173,25 @@ extension RunActivityVC {
             print("끝")
             moveTime = 0.0
         }
+    }
+    
+    func getWalkingRunningFirtst(completion: @escaping (Double) -> Void) {
+        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
+        let now = Date()
+        let startOfDay = Calendar.current.startOfDay(for: now)
+       // Calendar.current.startOfDay(for: )
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
+        
+        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, _ in
+            guard let result = result, let sum = result.sumQuantity()?.doubleValue(for: .meter()) else {
+                    // sum은 오늘 걸기+뛰기 한 총 거리
+                    completion(0.0)
+                    return
+                }
+            self.nowKmeter = Double(String(format: "%.2f", sum/1000)) ?? 0.00
+            print("바보",self.nowKmeter)
+            }
+        healthStore.execute(query)
     }
     
     func getWalkingRunning(completion: @escaping (Double) -> Void) {
@@ -184,10 +207,24 @@ extension RunActivityVC {
                     completion(0.0)
                     return
                 }
-                print("sum:",sum)
-                self.nowKmeter = Double(String(format: "%.2f", sum/1000)) ?? 0.00
+            self.get5secKm = Double(String(format: "%.2f", sum/1000)) ?? 0.00
+            print("요깅",self.get5secKm - self.nowKmeter)
             }
+        if self.moveTime < self.maxTime {
+            perform(#selector(getLabel), with: nil, afterDelay: 5.0)
+            perform(#selector(get5secKmeter), with: nil, afterDelay: 5.0)
+        }
         healthStore.execute(query)
+    }
+    
+    @objc func get5secKmeter() {
+        get5secKm = 0.0
+        self.getWalkingRunning(completion: { (step) in
+            
+        })
+    }
+    @objc func getLabel() {
+        self.opponentKmLabel.text = String(format: "%.2f", self.get5secKm - self.nowKmeter)
     }
 
        @objc func secToTime(sec: Int){
