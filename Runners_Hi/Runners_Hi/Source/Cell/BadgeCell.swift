@@ -9,6 +9,18 @@
 import UIKit
 
 class BadgeCell: UICollectionViewCell {
-        static let identifier: String = "BadgeCell"
+    static let identifier: String = "BadgeCell"
     
+    
+    @IBOutlet weak var getBadge: UIImageView!
+    @IBOutlet weak var getBadgeLabel: UILabel!
+    
+    override func awakeFromNib() {
+        badgeset()
+    }
+    
+    func badgeset(){
+        getBadgeLabel.font = UIFont(name: "NanumSquareB", size:12.0)
+        
+    }
 }

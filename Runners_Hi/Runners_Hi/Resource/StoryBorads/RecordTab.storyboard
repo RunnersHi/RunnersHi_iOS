@@ -174,24 +174,24 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wc3-Fj-zdt">
-                                    <size key="itemSize" width="193" height="184"/>
+                                    <size key="itemSize" width="307" height="487"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BadgeCell" id="nEK-By-xRd">
-                                        <rect key="frame" x="0.0" y="0.0" width="193" height="184"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BadgeCell" id="nEK-By-xRd" customClass="BadgeCell" customModule="Runners_Hi" customModuleProvider="target">
+                                        <rect key="frame" x="53.5" y="0.0" width="307" height="487"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nTU-4F-lkA">
-                                            <rect key="frame" x="0.0" y="0.0" width="193" height="184"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="307" height="487"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oUp-y9-I2P">
-                                                    <rect key="frame" x="0.0" y="0.0" width="193" height="163.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="307" height="455.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7VK-ES-QIU">
-                                                    <rect key="frame" x="47" y="163" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7VK-ES-QIU">
+                                                    <rect key="frame" x="132.5" y="466.5" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -199,13 +199,18 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="oUp-y9-I2P" secondAttribute="trailing" id="32V-Tq-kEK"/>
-                                                <constraint firstItem="oUp-y9-I2P" firstAttribute="height" secondItem="nTU-4F-lkA" secondAttribute="height" multiplier="113/127" id="5Ji-vj-HRO"/>
                                                 <constraint firstAttribute="bottom" secondItem="7VK-ES-QIU" secondAttribute="bottom" id="DLx-UD-ZK0"/>
                                                 <constraint firstItem="oUp-y9-I2P" firstAttribute="leading" secondItem="nTU-4F-lkA" secondAttribute="leading" id="a6V-MY-SXe"/>
+                                                <constraint firstItem="7VK-ES-QIU" firstAttribute="centerX" secondItem="nTU-4F-lkA" secondAttribute="centerX" id="eB2-UE-tVs"/>
+                                                <constraint firstItem="7VK-ES-QIU" firstAttribute="top" secondItem="oUp-y9-I2P" secondAttribute="bottom" constant="11" id="pfz-ox-9Qj"/>
                                                 <constraint firstItem="oUp-y9-I2P" firstAttribute="top" secondItem="nTU-4F-lkA" secondAttribute="top" id="sR3-DP-hFm"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="193" height="184"/>
+                                        <size key="customSize" width="307" height="487"/>
+                                        <connections>
+                                            <outlet property="getBadge" destination="oUp-y9-I2P" id="s6r-iA-Wre"/>
+                                            <outlet property="getBadgeLabel" destination="7VK-ES-QIU" id="upn-7h-hCt"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

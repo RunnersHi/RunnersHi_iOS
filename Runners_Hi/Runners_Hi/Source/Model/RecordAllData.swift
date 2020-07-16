@@ -7,11 +7,11 @@
 //
 import Foundation
 
-struct RecordAllData: Codable {
+struct RecordAllData<T: Codable> : Codable {
     let status: Int
     let success: Bool
     let message: String
-    let result: [Result]
+    let result: [T]
 }
 
 struct Result: Codable {
@@ -27,3 +27,14 @@ struct Result: Codable {
         case gameIdx = "game_idx"
     }
 }
+
+struct RecordAllData2 : Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+    let result: BadgeResult
+}
+struct BadgeResult: Codable {
+    let badge: [Bool]
+}
+

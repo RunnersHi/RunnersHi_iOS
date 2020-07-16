@@ -11,6 +11,9 @@ import UIKit
 class RankVC: UIViewController {
     static let identifier: String = "RankVC"
 
+    @IBOutlet weak var monthlyCollectionView: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

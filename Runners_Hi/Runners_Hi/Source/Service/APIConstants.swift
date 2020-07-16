@@ -14,5 +14,7 @@ struct APIConstants {
     static let loginURL = APIConstants.baseURL + "/user/login"
     //나의 모든 기록 조회
     static let myrecordURL = APIConstants.baseURL + "/record/all"
+    //뱃지 모아보기
+    static let badgeURL = APIConstants.baseURL + "/record/badge"
     
 }

@@ -1,24 +1,22 @@
 //
-//  RecordService.swift
+//  BadgeService.swift
 //  Runners_Hi
 //
-//  Created by 최영재 on 2020/07/14.
+//  Created by 최영재 on 2020/07/16.
 //  Copyright © 2020 김민희. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-struct RecordService {
+struct RankingService {
     private init() {}
-    static let shared = RecordService()
+    static let shared = RankingService()
     
-    func recordloading(completion: @escaping (NetworkResult<Any>)->Void) {
-        let URL = APIConstants.myrecordURL
-        let headers: HTTPHeaders = ["Content-Type" : "application/json", "token" : UserDefaults.standard.object(forKey: "token") as? String ?? " "]
+    func monthlyRankloading(completion: @escaping (NetworkResult<Any>)->Void) {
+        let URL = APIConstants.badgeURL
         
-        
-        Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
+        Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default).responseData { response in
             switch response.result {
 
             case .success:
@@ -28,7 +26,7 @@ struct RecordService {
                         case 200:
                             do {
                                 let decoder = JSONDecoder()
-                                let result = try decoder.decode(RecordAllData<Result>.self, from: value)
+                                let result = try decoder.decode(RankingData.self, from: value)
                                 completion(.success(result))
                             } catch {
                                 completion(.pathErr)
@@ -42,8 +40,6 @@ struct RecordService {
         }
         
     }
-    
-    
     
 }
 

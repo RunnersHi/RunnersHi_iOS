@@ -11,7 +11,7 @@ import XLPagerTabStrip
 
 class RecordTabChildVC1: UIViewController, IndicatorInfoProvider {
     
-        var RecordModel: RecordAllData?
+        var RecordModel: RecordAllData<Result>?
     @IBOutlet weak var scoreRecordCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -20,7 +20,7 @@ class RecordTabChildVC1: UIViewController, IndicatorInfoProvider {
         scoreRecordCollectionView.delegate = self
         super.viewDidLoad()
         getRecord()
-        self.scoreRecordCollectionView.reloadData()
+       // self.scoreRecordCollectionView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -95,7 +95,7 @@ extension RecordTabChildVC1 {
             switch data {
                 
             case .success(let res):
-                let response = res as! RecordAllData
+                let response = res as! RecordAllData<Result>
                 self.RecordModel = response
                 self.scoreRecordCollectionView.reloadData()
                 
