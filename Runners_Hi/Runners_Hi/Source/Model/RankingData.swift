@@ -25,6 +25,7 @@ struct Monthly: Codable {
         case distanceSum = "distance_sum"
     }
 }
+
 struct Winner: Codable {
     let nickname: String
     let image, userIdx, win, lose: Int
@@ -35,6 +36,7 @@ struct Winner: Codable {
         case win, lose
     }
 }
+
 struct Loser: Codable {
     let nickname: String
     let image, userIdx, win, lose: Int
