@@ -62,6 +62,7 @@ extension ResultRunningVC {
                 let response = res as! RecentMyData
                 self.RecentModel = response
                 self.view.reloadInputViews()
+                self.myProfileImage.image = UIImage(named: self.profileImageStruct[(self.RecentModel?.result.image as? Int ?? 0) - 1])
 //                DispatchQueue.global().async {
 //                    self.myTimeLabel.text = "gkdlfn"
 //                    self.myProfileImage.image = UIImage(named: self.profileImageStruct[(self.RecentModel?.result.image as? Int ?? 0) - 1])
