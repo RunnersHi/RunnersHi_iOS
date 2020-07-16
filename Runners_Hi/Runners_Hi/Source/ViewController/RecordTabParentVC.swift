@@ -15,7 +15,7 @@ class RecordTabParentVC: ButtonBarPagerTabStripViewController {
     
     override func viewDidLoad() {
   
-
+        self.view.backgroundColor = .backgroundgray
         settings.style.buttonBarBackgroundColor = .white
         settings.style.buttonBarItemBackgroundColor = .white
         settings.style.selectedBarBackgroundColor = purpleInspireColor

@@ -363,8 +363,14 @@
                     <size key="freeformSize" width="375" height="750"/>
                     <connections>
                         <outlet property="loserCollectionView" destination="RQp-4l-fRg" id="QRb-oU-Xm3"/>
+                        <outlet property="loserDetail" destination="XR7-TN-aJu" id="XOa-Z4-1lZ"/>
+                        <outlet property="loserMain" destination="PMs-WA-NDm" id="9Jj-P6-UMb"/>
                         <outlet property="monthlyCollectionView" destination="3hh-mz-a5D" id="C6j-4r-ie8"/>
+                        <outlet property="monthlyDetail" destination="7Pq-fr-6Eq" id="sdP-vU-LV0"/>
+                        <outlet property="monthlyMain" destination="f2k-z8-2Cf" id="NP7-S8-Lsl"/>
                         <outlet property="winnerCollectionView" destination="mMd-0U-TsW" id="Z9B-z5-blK"/>
+                        <outlet property="winnerDetail" destination="py0-pg-jkH" id="gUf-sm-CWE"/>
+                        <outlet property="winnerMain" destination="Arw-B1-IfX" id="ksu-Ei-kyf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x95-ON-p7z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

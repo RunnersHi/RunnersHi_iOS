@@ -138,7 +138,8 @@ extension SignInVC {
     
     private func loginLayoutset(){
         loginLogo.image=UIImage(named: "loginLogo")
-        
+        self.view.backgroundColor = .white
+
         loginButton.setTitle("로그인", for: .normal)
         self.loginButton.layer.cornerRadius = 8
         self.loginButton.backgroundColor = UIColor.lightishBlue

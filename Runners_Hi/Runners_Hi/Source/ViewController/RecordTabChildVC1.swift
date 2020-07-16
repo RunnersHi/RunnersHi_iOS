@@ -15,7 +15,7 @@ class RecordTabChildVC1: UIViewController, IndicatorInfoProvider {
     @IBOutlet weak var scoreRecordCollectionView: UICollectionView!
     
     override func viewDidLoad() {
-        
+        self.view.backgroundColor = .backgroundgray
         scoreRecordCollectionView.dataSource = self
         scoreRecordCollectionView.delegate = self
         super.viewDidLoad()

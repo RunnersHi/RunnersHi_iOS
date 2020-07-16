@@ -18,6 +18,13 @@ class RankVC: UIViewController {
     @IBOutlet weak var winnerCollectionView: UICollectionView!
     @IBOutlet weak var loserCollectionView: UICollectionView!
     
+    @IBOutlet weak var monthlyMain: UILabel!
+    @IBOutlet weak var monthlyDetail: UILabel!
+    @IBOutlet weak var winnerMain: UILabel!
+    @IBOutlet weak var winnerDetail: UILabel!
+    @IBOutlet weak var loserMain: UILabel!
+    @IBOutlet weak var loserDetail: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +43,7 @@ class RankVC: UIViewController {
         getLoser()
         
         hidescroll()
-        
+        labelSetting()
     }
     
 }
@@ -58,6 +65,11 @@ extension RankVC: UICollectionViewDataSource {
         
         if collectionView == monthlyCollectionView{
             guard let MonthlyCell = collectionView.dequeueReusableCell(withReuseIdentifier: MonthlyCell.identifier, for: indexPath) as? MonthlyCell else {return UICollectionViewCell() }
+          
+            
+            let num = indexPath.row
+            MonthlyCell.monthlyRankNum.text = "\(num+1)"
+            
             let  profileImage = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
                     
             let profileFlag = monthlyRankingModel?.result[indexPath.row].image as? Int ?? 0
@@ -68,15 +80,16 @@ extension RankVC: UICollectionViewDataSource {
             
             
             let m: Float = Float(monthlyRankingModel?.result[indexPath.row].distanceSum ?? 0)
-            let km : Float = round(m*10)/1000
+            let km : Float = floor(m*10)/1000
             MonthlyCell.monthlyRankDistance.text = "\(km)" + "km"
 
-            
-            
             return MonthlyCell
         }
         else if collectionView == winnerCollectionView{
             guard let WinnerCell = collectionView.dequeueReusableCell(withReuseIdentifier: WinnerCell.identifier, for: indexPath) as? WinnerCell else {return UICollectionViewCell() }
+            
+            let num2 = indexPath.row
+                      WinnerCell.winnerRankNum.text = "\(num2+1)"
             
                 let profileFlag2 =          winnerRankingModel?.result[indexPath.row].image as? Int ?? 0
                        
@@ -96,16 +109,19 @@ extension RankVC: UICollectionViewDataSource {
         else{
             guard let LoserCell = collectionView.dequeueReusableCell(withReuseIdentifier: LoserCell.identifier, for: indexPath) as? LoserCell else {return UICollectionViewCell() }
             
+            let num3 = indexPath.row
+                      LoserCell.loserRankNum.text = "\(num3+1)"
+            
             let profileFlag3 =          loserRankingModel?.result[indexPath.row].image as? Int ?? 0
                                  
                              let  profileImage = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
                       
                              LoserCell.loserRankProfile.image = UIImage(named: profileImage[profileFlag3-1])
                              
-                             LoserCell.loserRankName.text = winnerRankingModel?.result[indexPath.row].nickname as? String ?? " "
+                             LoserCell.loserRankName.text = loserRankingModel?.result[indexPath.row].nickname as? String ?? " "
                        
-                      let win: Int = winnerRankingModel?.result[indexPath.row].win as? Int ?? 0
-                      let lose: Int = winnerRankingModel?.result[indexPath.row].lose as? Int ?? 0
+                      let win: Int = loserRankingModel?.result[indexPath.row].win as? Int ?? 0
+                      let lose: Int = loserRankingModel?.result[indexPath.row].lose as? Int ?? 0
                              LoserCell.loserRankScore.text = "\(win)" + "승" + "\(lose)" + "패"
             
             return LoserCell
@@ -139,13 +155,13 @@ extension RankVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         if collectionView == monthlyCollectionView  {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            return UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)
         }
         else if collectionView == winnerCollectionView {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            return UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)
         }
         else {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            return UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)
         }
     }
     
@@ -274,6 +290,24 @@ extension RankVC {
         loserCollectionView.showsHorizontalScrollIndicator = false
         loserCollectionView.showsVerticalScrollIndicator = false
         
+    }
+    
+    func labelSetting(){
+        monthlyMain.text = "이달의 러너"
+        monthlyDetail.text = "5월 한 달 가장 많이 달린 러너"
+        winnerMain.text = "명예의 전당"
+        winnerDetail.text = "5월 한 달 가장 많은 승리를 거둔 러너"
+        loserMain.text = "졌.잘.싸"
+        loserDetail.text = "5월 한 달 아쉽게 졌지만 열심히 러닝한 러너"
+        
+        monthlyMain.font = UIFont(name: "NanumSquareB", size:20.0)
+        monthlyDetail.font = UIFont(name: "NanumSquareR", size:14.0)
+        winnerMain.font = UIFont(name: "NanumSquareB", size:20.0)
+        winnerDetail.font = UIFont(name: "NanumSquareR", size:14.0)
+        loserMain.font = UIFont(name: "NanumSquareB", size:20.0)
+        loserDetail.font = UIFont(name: "NanumSquareR", size:14.0)
+        
+        self.view.backgroundColor = .backgroundgray
     }
 }
 

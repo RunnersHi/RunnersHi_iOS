@@ -557,6 +557,9 @@ extension SignUpVC: UICollectionViewDelegateFlowLayout {
 
 extension SignUpVC {
     private func setLabel() {
+        self.view.backgroundColor = .white
+
+        
         self.idLabel.text = "아이디"
         idLabel.font = UIFont(name:"NanumSquareR", size:14.0)
         
@@ -643,17 +646,6 @@ extension SignUpVC {
         let attributedString = NSMutableAttributedString(string: "러닝레벨이 무엇인가요?", attributes: attributes)
         levelDetailButton.setAttributedTitle(NSAttributedString(attributedString: attributedString), for: .normal)
         
-//        let titleString = NSMutableAttributedString(string: "러닝레벨이 무엇인가요?")
-//        titleString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: "러닝레벨이 무엇인가요?" )
-//        levelDetailButton.setAttributedTitle(titleString, for: .normal)
-        
-        
-        //        let levelDetailLabelStyle = NSMutableAttributedString(string: levelDetailLabel.text!)
-        //
-        //        levelDetailLabelStyle.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: (levelDetailLabel.text! as NSString).range(of:"러닝레벨이 무엇인가요?"))
-        //
-        //        levelDetailLabel.attributedText = levelDetailLabelStyle
-        
     }
     
     private func setTextField() {
@@ -694,20 +686,6 @@ extension SignUpVC {
         pwTextField.addTarget(self, action: #selector(pwTextChecked(_:)), for: .editingChanged)
         pwReTextField.addTarget(self, action: #selector(pwReTextChecked(_:)), for: .editingChanged)
     }
-    
-    //    private func signUpCondition() {
-    //        if (giveGenderCheck && giveLevelCheck && giveOpenCheck) {
-    //                   self.signUpButton.backgroundColor = UIColor.lightishBlue
-    //                    signUpButton.setTitleColor(.white, for: .normal)
-    //                   signUpButton.isEnabled = true
-    //
-    //               }
-    //               else {
-    //                   self.signUpButton.backgroundColor = UIColor.brownishGrey
-    //                   signUpButton.setTitleColor(.white, for: .normal)
-    //                   signUpButton.isEnabled = false
-    //               }
-    //    }
     
     
     private func signUpCondition() {

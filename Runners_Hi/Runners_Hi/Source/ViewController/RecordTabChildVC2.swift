@@ -19,6 +19,7 @@ class RecordTabChildVC2: UIViewController, IndicatorInfoProvider {
         badgeCollectionView.dataSource = self
         badgeCollectionView.delegate = self
         getBadge()
+        self.view.backgroundColor = .backgroundgray
         super.viewDidLoad()
 
     }

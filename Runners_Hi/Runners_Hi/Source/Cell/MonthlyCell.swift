@@ -26,6 +26,7 @@ class MonthlyCell: UICollectionViewCell {
         monthlyRankBack.image = UIImage(named: "whiteboxRankfragment")
         monthlyRankRibbon.image = UIImage(named: "lankingbadge")
         monthlyRankNum.font = UIFont(name: "NotoSans-Medium", size:12.0)
+        monthlyRankNum.textColor = .white
         monthlyRankName.font = UIFont(name: "NanumSquareB", size:15.0)
         monthlyRankDistance.font = UIFont(name: "NanumSquareR", size:12.0)
     }
