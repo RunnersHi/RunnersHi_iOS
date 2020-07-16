@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RecentData: Codable {
+struct RecentMyData: Codable {
     let status: Int
     let success: Bool
     let message: String
@@ -16,14 +16,16 @@ struct RecentData: Codable {
 }
 
 struct myRecent: Codable {
-    let nickname: String
     let distance: Int
     let time: String
-    let paceMinute, paceSecond: Int
+    let paceMinute, paceSecond, image, result: Int
+    let createdTime: String
 
     enum CodingKeys: String, CodingKey {
-        case nickname, distance, time
+        case distance, time
         case paceMinute = "pace_minute"
         case paceSecond = "pace_second"
+        case image, result
+        case createdTime = "created_time"
     }
 }

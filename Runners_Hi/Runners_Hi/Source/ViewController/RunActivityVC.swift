@@ -35,7 +35,7 @@ class RunActivityVC: UIViewController {
     //let healthStore = HKHealthStore()
     var moveTime: Float = 0.0
     //var maxTime: Float = UserDefaults.standard.object(forKey: "myGoalTime") as? Float ?? 0
-    var maxTime: Float = 30.0
+    var maxTime: Float = 60.0
     var limitTime: Int = UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0
     var nowKmeter: Double = 0.0
     var get5secKm: Double = 0.0
@@ -146,7 +146,8 @@ extension RunActivityVC {
         if let distance = self.distance {
         opponentKmLabel.text = String(format:"%02.02f",distance/1000)
             
-            let pace1 = Int(moveTime/Float(kmDistance))
+            print(distance,moveTime,"요기요~~")
+            let pace1 = Int(moveTime/Float(distance/1000))
             let pace2 = Int(pace1/60)
             let pace3 = Int(pace1%60)
             print(pace1,pace2,pace3,"하잉용")

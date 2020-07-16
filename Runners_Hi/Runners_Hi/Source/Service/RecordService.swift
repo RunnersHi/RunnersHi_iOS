@@ -57,7 +57,7 @@ struct RecordService {
                         case 200:
                             do {
                                 let decoder = JSONDecoder()
-                                let result = try decoder.decode(RecentData.self, from: value)
+                                let result = try decoder.decode(RecentMyData.self, from: value)
                                 completion(.success(result))
                             } catch {
                                 completion(.pathErr)
