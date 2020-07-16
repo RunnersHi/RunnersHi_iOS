@@ -854,6 +854,9 @@
                                     <constraint firstAttribute="height" constant="48" id="kJM-fK-9IL"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="goButtonDidTab:" destination="AMS-2G-EXN" eventType="touchUpInside" id="PZf-32-KLA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -885,7 +888,7 @@
         <!--Result RunningVC-->
         <scene sceneID="LMH-TZ-BEK">
             <objects>
-                <viewController id="8Th-qK-cmk" customClass="ResultRunningVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultRunningVC" id="8Th-qK-cmk" customClass="ResultRunningVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjQ-Wp-Pqc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -10,6 +10,8 @@ import UIKit
 
 class ResultRunningVC: UIViewController {
 
+    var RecentModel: RecentData?
+    
     @IBOutlet weak var shareButton: UIButton!
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -45,6 +47,31 @@ class ResultRunningVC: UIViewController {
 
 }
 extension ResultRunningVC {
+    func getRecentData() {
+        RecordService.shared.myrecordloading() {
+            [weak self]
+            data in
+            guard let `self` = self else {return}
+            switch data {
+                
+            case .success(let res):
+                let response = res as! RecentData
+                self.RecentModel = response
+               // self.view.reloadInputViews()
+               // self.StoreTableView.reloadData()
+                
+            case .requestErr:
+                print(".requestErr")
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print(".serverErr")
+            case .networkFail:
+                print(".networkFail")
+            }
+            
+        }
+    }
     func setLabel() {
         
         resultLabel.text = "WINNER"
