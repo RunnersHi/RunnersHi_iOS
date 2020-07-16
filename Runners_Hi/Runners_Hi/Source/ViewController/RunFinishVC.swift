@@ -19,14 +19,21 @@ class RunFinishVC: UIViewController {
     
     @IBOutlet weak var goButton: UIButton!
     
+    @IBAction func goButtonDidTab(_ sender: Any) {
+        guard let GoResult = self.storyboard?.instantiateViewController(identifier:"ResultRunningVC") as? ResultRunningVC else {return}
+        self.navigationController?.pushViewController(GoResult, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
         
         FindRunnerVC.socket.on("compareResult", callback: { (data, ack) in
+            UserDefaults.standard.set(data[1], forKey: "runIdx")
             FindRunnerVC.socket.disconnect()
-            guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
-            self.navigationController?.pushViewController(LetsRun, animated: true)
+            self.goButton.backgroundColor = UIColor.lightishBlue
+            self.goButton.isSelected = true
+
         })
     }
     //{roomName: “2", distance: 2, time: 3600,coordinates: [[1,2,3],[1,2,3]], createdTime: “2020-07-16 18:29:24”, endTime: “2020-07-16 18:29:54"}
@@ -35,9 +42,11 @@ class RunFinishVC: UIViewController {
 }
 extension RunFinishVC {
     func setView() {
-        let lowdic : [String : Int] = ["1":1,"2":2,"3":3]
-        let highdic : [String : Int] = ["1":1,"2":2,"3":3]
-        let array2 = [lowdic,highdic]
+        let onedic : [String : Double] = ["latitude":37.49974666666667,"longitude":127.030015]
+        let twodic : [String : Double] = ["latitude":37.499723333333336,"longitude":127.02958833333332]
+        let threedic : [String : Double] = ["latitude":37.49929833333333,"longitude":127.02822666666667]
+        let fourdic : [String : Double] = ["latitude":37.499696666666665,"longitude":127.02766333333332]
+        let array2 = [onedic, twodic,threedic,fourdic]
         FindRunnerVC.socket.emit("compareResult",UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2,UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0,array2,UserDefaults.standard.object(forKey: "createdTime") as? String ?? " ",UserDefaults.standard.object(forKey: "endTime") as? String ?? " ")
         finishLabel.text = "FINISH!"
         finishLabel.textAlignment = .center
@@ -54,6 +63,7 @@ extension RunFinishVC {
         
        // mainimage.image = UIImage(named: <#T##String#>)
         
+        goButton.isSelected = false
         goButton.setTitle("결과 보러가기", for: .normal)
         goButton.titleLabel?.font = UIFont(name: "NanumSquareB", size:16)
         goButton.setTitleColor(.white, for: .normal)
