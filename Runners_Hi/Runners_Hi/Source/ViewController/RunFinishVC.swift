@@ -22,12 +22,23 @@ class RunFinishVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        // Do any additional setup after loading the view.
+        
+        FindRunnerVC.socket.on("compareResult", callback: { (data, ack) in
+            FindRunnerVC.socket.disconnect()
+            guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
+            self.navigationController?.pushViewController(LetsRun, animated: true)
+        })
     }
+    //{roomName: “2", distance: 2, time: 3600,coordinates: [[1,2,3],[1,2,3]], createdTime: “2020-07-16 18:29:24”, endTime: “2020-07-16 18:29:54"}
+    
     
 }
 extension RunFinishVC {
     func setView() {
+        let lowdic : [String : Int] = ["1":1,"2":2,"3":3]
+        let highdic : [String : Int] = ["1":1,"2":2,"3":3]
+        let array2 = [lowdic,highdic]
+        FindRunnerVC.socket.emit("compareResult",UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2,UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0,array2,UserDefaults.standard.object(forKey: "createdTime") as? String ?? " ",UserDefaults.standard.object(forKey: "endTime") as? String ?? " ")
         finishLabel.text = "FINISH!"
         finishLabel.textAlignment = .center
         finishLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 52)
@@ -51,3 +62,12 @@ extension RunFinishVC {
         
     }
 }
+struct sendMessage {
+    var roomName : String?
+    var distance : Int?
+    var time: Int?
+    var coordinates : Array<Any>?
+    var createdTime : String?
+    var endTime : String?
+}
+

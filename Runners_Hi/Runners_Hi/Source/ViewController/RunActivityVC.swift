@@ -9,14 +9,15 @@
 import UIKit
 //import HealthKit
 import CoreMotion
+import SocketIO
 
 class RunActivityVC: UIViewController {
-    //
+    
     let stopColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
     let startColor = UIColor(red: 0.0, green: 0.75, blue: 0.0, alpha: 1.0)
     // values for the pedometer data
     var numberOfSteps:Int! = nil
-
+    var finalKm:Int = 0
     var distance:Double! = nil
     var averagePace:Double! = nil
     var pace:Double! = nil
@@ -33,14 +34,16 @@ class RunActivityVC: UIViewController {
     
     //let healthStore = HKHealthStore()
     var moveTime: Float = 0.0
-    var maxTime: Float = UserDefaults.standard.object(forKey: "myGoalTime") as? Float ?? 0
+    //var maxTime: Float = UserDefaults.standard.object(forKey: "myGoalTime") as? Float ?? 0
+    var maxTime: Float = 30.0
     var limitTime: Int = UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0
     var nowKmeter: Double = 0.0
     var get5secKm: Double = 0.0
     var myMeter: Double = 0.0
     var levelStruct = ["초급","중급","고급"]
     var profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunnowMeterhair"]
-
+    var formatter = DateFormatter()
+    
     @IBOutlet weak var lockButton: UIButton!
     @IBOutlet weak var backBoxImage: UIImageView!
     
@@ -75,6 +78,8 @@ class RunActivityVC: UIViewController {
     @IBOutlet weak var runningStopButton: UIButton!
     
     override func viewDidLoad() {
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
         secToTime(sec: limitTime)
         pedometer = CMPedometer()
         startTimer()
@@ -95,16 +100,26 @@ class RunActivityVC: UIViewController {
                 self.numberOfSteps = nil
             }
         })
+        FindRunnerVC.socket.on("endRunning", callback: { (data, ack) in
+            UserDefaults.standard.set(self.formatter.string(from: Date()), forKey: "endTime")
+            guard let FinishRun = self.storyboard?.instantiateViewController(identifier:"RunFinishVC") as? RunFinishVC else {return}
+            self.navigationController?.pushViewController(FinishRun, animated: true)
+        })
+            
         
         
         perform(#selector(runProgressbar), with: nil, afterDelay: 0.0)
-//        self.getWalkingRunningFirtst(completion: { (step) in
-//        })
+
         super.viewDidLoad()
         setView()
         setLabel()
         setOpponentProfile()
+        
+
+       // FindRunnerVC.shared.startSocket()
         //perform(#selector(get5secKmeter), with: nil, afterDelay: 5.0)
+        
+        
     }
 }
 
@@ -129,42 +144,22 @@ extension RunActivityVC {
          
         //distance
         if let distance = self.distance {
-            print(distance,"용")
-            kmDistance = distance/1000
         opponentKmLabel.text = String(format:"%02.02f",distance/1000)
-            var pace1 = Int(moveTime/Float(kmDistance))
-            var pace2 = Int(pace1/60)
-            var pace3 = Int(pace1%60)
+            
+            let pace1 = Int(moveTime/Float(kmDistance))
+            let pace2 = Int(pace1/60)
+            let pace3 = Int(pace1%60)
             print(pace1,pace2,pace3,"하잉용")
-            if pace2>60 {
-                opponentPaceLabel.text = "__'__''"
+            if pace2 >= 60 {
+                opponentPaceLabel.text = "_'__''"
             } else {
             opponentPaceLabel.text = String(pace2) + "'" + String(pace3) + "''"
             }
+            
         }
-         
 
-//        if let pace = self.pace {
-//            var pace1 = Int(timeElapsed/kmDistance)
-//            var pace2 = Int(pace1/60)
-//            var pace3 = Int(pace1%60)
-//            opponentPaceLabel.text = String(format:"%02",pace2) + "'" + String(format:"%02",pace3) + "''"
-//
-//        }
-
-    }
-    func paceString(title:String,pace:Double) -> String{
-        var minPerMile = 0.0
-        let factor = 26.8224 //conversion factor
-        if pace != 0 {
-            minPerMile = factor / pace
-        }
-        let minutes = Int(minPerMile)
-        let seconds = Int(minPerMile * 60) % 60
-       // let fivePace = Float((5/60)/(distance/1000))
-        return String(format: "%02.2f m/s",pace)
-       // return (5/60)/
-    }
+   }
+    
     
     func miles(meters:Double)-> Double{
         let mile = 0.000621371192
@@ -213,7 +208,7 @@ extension RunActivityVC {
         
         opponentLeftTimeLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 70)
         
-        opponentPaceLabel.text = "__'__''"
+        opponentPaceLabel.text = "_'__''"
         opponentPaceLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 36)
         
     }
@@ -256,7 +251,7 @@ extension RunActivityVC {
         let inputLose = UserDefaults.standard.object(forKey: "opponentLose") ?? 0
         let inputImage = UserDefaults.standard.object(forKey: "opponentImg") ?? 0
         
-        opponentImage.image = UIImage(named: profileImageStruct[inputImage as? Int ?? 0])
+        opponentImage.image = UIImage(named: profileImageStruct[(inputImage as? Int ?? 0) - 1])
         opponentNickLabel.text = inputNick as? String ?? " "
         opponentScoreLabel.text = "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
         opponentLevelLabel.text = levelStruct[(inputLevel as? Int ?? 0) - 1]
@@ -271,6 +266,8 @@ extension RunActivityVC {
         } else {
             print("끝")
             moveTime = 0.0
+            UserDefaults.standard.set(distance, forKey: "opponetDistance")
+            FindRunnerVC.socket.emit("endRunning", UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2 )
         }
     }
         func secToTime(sec: Int){
@@ -291,13 +288,21 @@ extension RunActivityVC {
             }
 
        }
-    @objc func getSetTime() {
+        @objc func getSetTime() {
         if moveTime < maxTime {
             secToTime(sec: limitTime)
             limitTime = limitTime - 1
-        } else {
-            opponentLeftTimeLabel.text = "00:00:00"
-        }
+            } else {
+                opponentLeftTimeLabel.text = "00:00:00"
+            }
+//        else if moveTime == maxTime {
+//            print("뇸")
+//            finalKm = Int(distance)
+//            print(finalKm,"똥",type(of: finalKm))
+//                guard let FindRunnerVC = self.storyboard?.instantiateViewController(identifier:"FindRunnerVC") as? FindRunnerVC else {return}
+//                FindRunnerVC.finishRun(distance: finalKm)
+//            }
+
     }
 
 }
