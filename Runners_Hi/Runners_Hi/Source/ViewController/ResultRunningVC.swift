@@ -10,7 +10,9 @@ import UIKit
 
 class ResultRunningVC: UIViewController {
 
-    var RecentModel: RecentData?
+    var RecentModel: RecentMyData?
+    
+    var profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunnowMeterhair"]
     
     @IBOutlet weak var shareButton: UIButton!
     
@@ -40,11 +42,13 @@ class ResultRunningVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getRecentData()
+        setLabel()
+        setView()
+       // print(myProfile,"ㅇㅇ")
         // Do any additional setup after loading the view.
+        
     }
-
-
 }
 extension ResultRunningVC {
     func getRecentData() {
@@ -53,13 +57,22 @@ extension ResultRunningVC {
             data in
             guard let `self` = self else {return}
             switch data {
-                
+
             case .success(let res):
-                let response = res as! RecentData
+                let response = res as! RecentMyData
                 self.RecentModel = response
-               // self.view.reloadInputViews()
+                self.view.reloadInputViews()
+//                DispatchQueue.global().async {
+//                    self.myTimeLabel.text = "gkdlfn"
+//                    self.myProfileImage.image = UIImage(named: self.profileImageStruct[(self.RecentModel?.result.image as? Int ?? 0) - 1])
+//
+//                    print("ㅇlrjd",self.RecentModel?.result.image)
+//
+//                }
+
+
                // self.StoreTableView.reloadData()
-                
+
             case .requestErr:
                 print(".requestErr")
             case .pathErr:
@@ -69,7 +82,7 @@ extension ResultRunningVC {
             case .networkFail:
                 print(".networkFail")
             }
-            
+
         }
     }
     func setLabel() {
@@ -124,10 +137,10 @@ extension ResultRunningVC {
         shareButton.setBackgroundImage(UIImage(named: "iconShare"), for: .normal)
         shareButton.setTitle(nil, for: .normal)
         
-        myProfileBox.image = UIImage(named: "whiteboxResultactivityMyrecord")
-       // myProfileImage.image = UIImage(named: <#T##String#>)
-        
-        yourProfileBox.image = UIImage(named: "whiteboxResultactivityAnoterrunnerrecord")
+        myProfileBox.image = UIImage(named: "whiteboxRecdetailactivityMyrecord")
+       // myProfileImage.image = UIImage(named: profileImageStruct[(RecentModel?.result.image as? Int ?? 0) - 1])
+        print("ddd",RecentModel?.result.image as? Int ?? 0)
+        yourProfileBox.image = UIImage(named: "whiteboxRecdetailactivityAnoterrunnerrecord")
         
         
         
