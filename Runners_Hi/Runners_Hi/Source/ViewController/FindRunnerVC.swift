@@ -86,7 +86,6 @@ class FindRunnerVC: UIViewController {
         let myWantGender : Int = (UserDefaults.standard.object(forKey: "myWantGender") as? Int) ?? (-1)
 
         // 서버 : 시작해도 좋다는 응답 -> 클라 : 내 정보와 내가 원하는 상대의 조건을 보내줌
-
         FindRunnerVC.socket.on("start", callback: { (data, ack) in
             FindRunnerVC.self.socket.emit("joinRoom",myToken,myGoal,myWantGender,self.leftTime)
         })

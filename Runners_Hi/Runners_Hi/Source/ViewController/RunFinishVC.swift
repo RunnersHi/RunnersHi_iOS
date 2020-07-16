@@ -35,9 +35,10 @@ class RunFinishVC: UIViewController {
 }
 extension RunFinishVC {
     func setView() {
-//        var send : sendMessage? = sendMessage(roomName: UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ", distance: UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2,time: UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0,coordinates: [[1,2,3],[1,2,3]], createdTime: UserDefaults.standard.object(forKey: "createdTime") as? String ?? " ", endTime: UserDefaults.standard.object(forKey: "endTime") as? String ?? " ")
-//        print("도랑",send, type(of: send))
-       // FindRunnerVC.socket.emit("compareResult",send)
+        let lowdic : [String : Int] = ["1":1,"2":2,"3":3]
+        let highdic : [String : Int] = ["1":1,"2":2,"3":3]
+        let array2 = [lowdic,highdic]
+        FindRunnerVC.socket.emit("compareResult",UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2,UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0,array2,UserDefaults.standard.object(forKey: "createdTime") as? String ?? " ",UserDefaults.standard.object(forKey: "endTime") as? String ?? " ")
         finishLabel.text = "FINISH!"
         finishLabel.textAlignment = .center
         finishLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 52)
