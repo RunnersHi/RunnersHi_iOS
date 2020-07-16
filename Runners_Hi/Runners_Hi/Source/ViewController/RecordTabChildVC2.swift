@@ -42,7 +42,7 @@ func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection s
 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let BadgeCell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCell.identifier, for: indexPath) as? BadgeCell else { return UICollectionViewCell()}
     
-    let beforeBadgeImage = ["imgBadgeEggEmpty","imgBadgeChickEmpty","imgBadgeChickenEmpty","imgBadgeBatEmpty","imgBadgeBirdEmpty", "imgBadgeTurtleEmpty","imgBadge50Empty","imgBadge100Empty","imgBadge150Empty","imgBadgeStraightEmpty","imgBadgeSpeedEmpty","imgBadgeFlame"]
+    let beforeBadgeImage = ["imgBadgeEggEmpty","imgBadgeChickEmpty","imgBadgeChickenEmpty","imgBadgeBatEmpty","imgBadgeBirdEmpty", "imgBadgeTurtleEmpty","imgBadge50Empty","imgBadge100Empty","imgBadge150Empty","imgBadgeStraightEmpty","imgBadgeSpeedEmpty","imgBadgeFlameEmpty"]
     
     let badgeImage = ["imgBadgeEgg","imgBadgeChick","imgBadgeChicken","imgBadgeBat","imgBadgeBird", "imgBadgeTurtle","imgBadge50","imgBadge100","imgBadge150","imgBadgeStraight","imgBadgeSpeed","imgBadgeFlame"]
     
@@ -51,8 +51,6 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
     let badgeList = BadgeRecordModel?.result.badge
     if badgeList?[indexPath.row] == false {
         BadgeCell.getBadge.image = UIImage(named: beforeBadgeImage[indexPath.row])
-//        UIImage(named: beforeBadgeImage[indexPath.row])
-//        UIImage(contentsOfFile: beforeBadgeImage[indexPath.row])
     }
     else {
         BadgeCell.getBadge.image = UIImage(named: badgeImage[indexPath.row])

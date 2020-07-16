@@ -432,6 +432,7 @@
                         <outlet property="pwReTextField" destination="cqM-QP-fJK" id="Qy8-gU-1yt"/>
                         <outlet property="pwTextField" destination="P40-J4-G7H" id="pxl-r0-Ibd"/>
                         <outlet property="signUpButton" destination="Rg3-jw-x3J" id="ahi-dU-cSw"/>
+                        <outlet property="signUpScroolView" destination="Wlf-kT-DEa" id="GGR-4X-KMf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2oF-vv-xnP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

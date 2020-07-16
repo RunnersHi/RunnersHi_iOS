@@ -24,7 +24,7 @@ class MonthlyCell: UICollectionViewCell {
     
     func monthlyset(){
         monthlyRankBack.image = UIImage(named: "whiteboxRankfragment")
-        monthlyRankRibbon.image = UIImage(named: "bluetagRanfragment")
+        monthlyRankRibbon.image = UIImage(named: "lankingbadge")
         monthlyRankNum.font = UIFont(name: "NotoSans-Medium", size:12.0)
         monthlyRankName.font = UIFont(name: "NanumSquareB", size:15.0)
         monthlyRankDistance.font = UIFont(name: "NanumSquareR", size:12.0)

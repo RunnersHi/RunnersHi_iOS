@@ -11,6 +11,7 @@ import UIKit
 class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate {
     static let identifier: String = "SignUpVC"
     
+    
     var giveProfileFlag: Int = 0
     var giveGenderValue = 0
     var giveLevelValue = 0
@@ -26,6 +27,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
     @IBOutlet weak var genderbuttonCollectionView: UICollectionView!
     @IBOutlet weak var levelbuttonCollectionView: UICollectionView!
     @IBOutlet weak var openbuttonCollectionView: UICollectionView!
+    @IBOutlet weak var signUpScroolView: UIScrollView!
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileChangeButtonImage: UIImageView!
@@ -228,21 +230,32 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
         loginCheck()
         
         setProfile()
+        
+        
+        //스크롤뷰 키보드 내리기
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.isEnabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+        signUpScroolView.addGestureRecognizer(singleTapGestureRecognizer)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-             self.view.endEditing(true)
-       }
+    
+    
+   @objc func MyTapMethod(sender: UITapGestureRecognizer) {
+              self.view.endEditing(true)
+          }
        
     override func  viewWillAppear(_ animated: Bool) {
         //guard let giveProfileFlag = self.giveProfileFlag else { return }
         print(self.giveProfileFlag)
         
     }
-    
-    
-    
-    
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     private var genderList : [Gender] = []
     private var levelList : [Level] = []
     private var openList : [Open] = []

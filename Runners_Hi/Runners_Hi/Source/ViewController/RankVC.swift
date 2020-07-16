@@ -20,6 +20,7 @@ class RankVC: UIViewController {
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         monthlyCollectionView.delegate = self
         monthlyCollectionView.dataSource = self
         
@@ -33,7 +34,8 @@ class RankVC: UIViewController {
         getMonthly()
         getWinner()
         getLoser()
-        super.viewDidLoad()
+        
+        hidescroll()
         
     }
     
@@ -56,34 +58,81 @@ extension RankVC: UICollectionViewDataSource {
         
         if collectionView == monthlyCollectionView{
             guard let MonthlyCell = collectionView.dequeueReusableCell(withReuseIdentifier: MonthlyCell.identifier, for: indexPath) as? MonthlyCell else {return UICollectionViewCell() }
+            let  profileImage = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
+                    
+            let profileFlag = monthlyRankingModel?.result[indexPath.row].image as? Int ?? 0
+            
+            MonthlyCell.monthlyRankProfile.image = UIImage(named: profileImage[profileFlag-1])
+            
+            MonthlyCell.monthlyRankName.text = monthlyRankingModel?.result[indexPath.row].nickname as? String ?? " "
+            
+            
+            let m: Float = Float(monthlyRankingModel?.result[indexPath.row].distanceSum ?? 0)
+            let km : Float = round(m*10)/1000
+            MonthlyCell.monthlyRankDistance.text = "\(km)" + "km"
+
+            
+            
             return MonthlyCell
         }
         else if collectionView == winnerCollectionView{
             guard let WinnerCell = collectionView.dequeueReusableCell(withReuseIdentifier: WinnerCell.identifier, for: indexPath) as? WinnerCell else {return UICollectionViewCell() }
+            
+                let profileFlag2 =          winnerRankingModel?.result[indexPath.row].image as? Int ?? 0
+                       
+                   let  profileImage = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
+            
+                   WinnerCell.winnerRankProfile.image = UIImage(named: profileImage[profileFlag2-1])
+                   
+                   WinnerCell.winnerRankName.text = winnerRankingModel?.result[indexPath.row].nickname as? String ?? " "
+             
+            let win: Int = winnerRankingModel?.result[indexPath.row].win as? Int ?? 0
+            let lose: Int = winnerRankingModel?.result[indexPath.row].lose as? Int ?? 0
+                   WinnerCell.winnerRankScore.text = "\(win)" + "승" + "\(lose)" + "패"
+
+            
             return WinnerCell
         }
         else{
             guard let LoserCell = collectionView.dequeueReusableCell(withReuseIdentifier: LoserCell.identifier, for: indexPath) as? LoserCell else {return UICollectionViewCell() }
+            
+            let profileFlag3 =          loserRankingModel?.result[indexPath.row].image as? Int ?? 0
+                                 
+                             let  profileImage = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
+                      
+                             LoserCell.loserRankProfile.image = UIImage(named: profileImage[profileFlag3-1])
+                             
+                             LoserCell.loserRankName.text = winnerRankingModel?.result[indexPath.row].nickname as? String ?? " "
+                       
+                      let win: Int = winnerRankingModel?.result[indexPath.row].win as? Int ?? 0
+                      let lose: Int = winnerRankingModel?.result[indexPath.row].lose as? Int ?? 0
+                             LoserCell.loserRankScore.text = "\(win)" + "승" + "\(lose)" + "패"
+            
             return LoserCell
-            //              guard let OpenSelectCell = collectionView.dequeueReusableCell(withReuseIdentifier: OpenSelectCell.identifier, for: indexPath) as? OpenSelectCell else {return UICollectionViewCell()}
-            //              OpenSelectCell.set(openList[indexPath.row])
-            //              return OpenSelectCell
+            
         }
     }
+   
+
+         
+            
+    
+    
 }
 
 extension RankVC: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
         UICollectionViewLayout, sizeForItemAt IndexPath: IndexPath) -> CGSize{
         
         if collectionView == monthlyCollectionView {
-            return CGSize(width: 152, height: 48)
+            return CGSize(width: 126, height: 126)
         }
         else if collectionView == winnerCollectionView {
-            return CGSize(width : 97, height:48)
+            return CGSize(width : 126, height: 126)
         }
         else {
-            return CGSize(width: 152, height: 48)
+            return CGSize(width: 126, height: 126)
         }
     }
     
@@ -93,23 +142,23 @@ extension RankVC: UICollectionViewDelegateFlowLayout {
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
         else if collectionView == winnerCollectionView {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
         else {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat{
         
         if collectionView == monthlyCollectionView {
-            return 11
+            return 0
         }
         else if collectionView == winnerCollectionView {
-            return 12
+            return 0
         }
         else {
-            return 12
+            return 0
         }
     }
     
@@ -152,6 +201,9 @@ extension RankVC {
             }
             
         }
+        
+        let layout1 = monthlyCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout1.scrollDirection = .horizontal // 가로스크롤
     }
     
     func getWinner(){
@@ -177,6 +229,10 @@ extension RankVC {
             }
             
         }
+        
+        let layout2 = winnerCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+          layout2.scrollDirection = .horizontal // 가로스크롤
+        
     }
     
     func getLoser(){
@@ -202,6 +258,22 @@ extension RankVC {
             }
             
         }
+        
+        let layout3 = loserCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+             layout3.scrollDirection = .horizontal // 가로스크롤
+    }
+    func hidescroll(){
+        monthlyCollectionView.showsHorizontalScrollIndicator = false
+        monthlyCollectionView.showsVerticalScrollIndicator = false
+        
+        
+        winnerCollectionView.showsHorizontalScrollIndicator = false
+        winnerCollectionView.showsVerticalScrollIndicator = false
+        
+        
+        loserCollectionView.showsHorizontalScrollIndicator = false
+        loserCollectionView.showsVerticalScrollIndicator = false
+        
     }
 }
 

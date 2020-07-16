@@ -19,15 +19,17 @@ class WinnerCell: UICollectionViewCell {
     @IBOutlet weak var winnerRankScore: UILabel!
     
     override func awakeFromNib() {
+        super.awakeFromNib()
            winnerset()
        }
        
     func winnerset(){
-        winnerRankBack.image = UIImage(named: "whiteboxRankfragment")
-        winnerRankRibbon.image = UIImage(named: "bluetagRanfragment")
-        winnerRankNum.font = UIFont(name: "NotoSans-Medium", size:12.0)
-        winnerRankName.font = UIFont(name: "NanumSquareB", size:15.0)
-        winnerRankScore.font = UIFont(name: "NanumSquareR", size:12.0)
+
+        winnerRankBack?.image = UIImage(named: "whiteboxRankfragment")
+        winnerRankRibbon?.image = UIImage(named: "lankingbadge")
+        winnerRankNum?.font = UIFont(name: "NotoSans-Medium", size:12.0)
+        winnerRankName?.font = UIFont(name: "NanumSquareB", size:15.0)
+        winnerRankScore?.font = UIFont(name: "NanumSquareR", size:12.0)
     }
     
 }

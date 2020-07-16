@@ -24,7 +24,7 @@ class LoserCell: UICollectionViewCell {
     
     func loserset(){
         loserRankBack.image = UIImage(named: "whiteboxRankfragment")
-        loserRankRibbon.image = UIImage(named: "bluetagRanfragment")
+        loserRankRibbon.image = UIImage(named: "lankingbadge")
         loserRankNum.font = UIFont(name: "NotoSans-Medium", size:12.0)
         loserRankName.font = UIFont(name: "NanumSquareB", size:15.0)
         loserRankScore.font = UIFont(name: "NanumSquareR", size:12.0)
