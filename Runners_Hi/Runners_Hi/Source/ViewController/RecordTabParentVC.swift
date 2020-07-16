@@ -16,8 +16,8 @@ class RecordTabParentVC: ButtonBarPagerTabStripViewController {
     override func viewDidLoad() {
   
         self.view.backgroundColor = .backgroundgray
-        settings.style.buttonBarBackgroundColor = .white
-        settings.style.buttonBarItemBackgroundColor = .white
+        settings.style.buttonBarBackgroundColor = .backgroundgray
+        settings.style.buttonBarItemBackgroundColor = .backgroundgray
         settings.style.selectedBarBackgroundColor = purpleInspireColor
         settings.style.buttonBarItemFont = UIFont(name:"NanumSquareB", size:16.0)!
         settings.style.selectedBarHeight = 4.0

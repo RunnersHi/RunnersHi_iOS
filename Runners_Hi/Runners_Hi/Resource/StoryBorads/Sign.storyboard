@@ -304,7 +304,8 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rg3-jw-x3J">
                                                 <rect key="frame" x="50" y="953" width="275" height="48"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Rg3-jw-x3J" secondAttribute="height" multiplier="275:48" id="ouk-Pj-ygg"/>
+                                                    <constraint firstAttribute="height" constant="48" id="eoq-3s-RkE"/>
+                                                    <constraint firstAttribute="width" constant="275" id="iDq-bl-9EK"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -318,6 +319,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstItem="Rg3-jw-x3J" firstAttribute="centerX" secondItem="QX3-Qr-iRy" secondAttribute="centerX" id="01C-E4-230"/>
                                             <constraint firstItem="cqM-QP-fJK" firstAttribute="centerX" secondItem="QX3-Qr-iRy" secondAttribute="centerX" id="020-wG-EFJ"/>
                                             <constraint firstItem="ON3-fw-zFc" firstAttribute="leading" secondItem="LSO-0N-CG5" secondAttribute="leading" id="037-Qd-OBa"/>
                                             <constraint firstItem="ZLx-Sy-9pF" firstAttribute="bottom" secondItem="pDF-Z5-m6p" secondAttribute="bottom" id="06m-E8-hex"/>
@@ -372,7 +374,6 @@
                                             <constraint firstItem="ZLx-Sy-9pF" firstAttribute="trailing" secondItem="pDF-Z5-m6p" secondAttribute="trailing" id="toP-6i-veb"/>
                                             <constraint firstItem="P6V-Z8-d2t" firstAttribute="leading" secondItem="kjR-fF-RJx" secondAttribute="leading" id="uDW-Bj-g7F"/>
                                             <constraint firstItem="kjR-fF-RJx" firstAttribute="top" secondItem="P40-J4-G7H" secondAttribute="bottom" constant="5" id="uv4-mN-5GR"/>
-                                            <constraint firstItem="Rg3-jw-x3J" firstAttribute="centerX" secondItem="QX3-Qr-iRy" secondAttribute="centerX" id="y8o-5C-3L6"/>
                                             <constraint firstItem="l7j-Yd-sBV" firstAttribute="leading" secondItem="aKc-2g-2ZC" secondAttribute="leading" id="zKu-gD-lIV"/>
                                         </constraints>
                                     </view>
@@ -397,7 +398,6 @@
                             <constraint firstItem="QX3-Qr-iRy" firstAttribute="width" secondItem="3Ob-Io-ktd" secondAttribute="width" id="UUb-wm-Vpw"/>
                             <constraint firstItem="xAE-Mh-6he" firstAttribute="width" secondItem="3Ob-Io-ktd" secondAttribute="width" multiplier="80/375" id="gW2-Kb-0fi"/>
                             <constraint firstItem="mqQ-fx-oF0" firstAttribute="width" secondItem="VqR-zR-UwK" secondAttribute="width" multiplier="235/375" id="oQO-zg-omr"/>
-                            <constraint firstItem="Rg3-jw-x3J" firstAttribute="width" secondItem="VqR-zR-UwK" secondAttribute="width" multiplier="275/375" id="ruP-fR-ymR"/>
                             <constraint firstItem="tDk-QT-7k3" firstAttribute="width" secondItem="VqR-zR-UwK" secondAttribute="width" multiplier="235/375" id="sKE-yl-56e"/>
                             <constraint firstItem="cqM-QP-fJK" firstAttribute="width" secondItem="VqR-zR-UwK" secondAttribute="width" multiplier="315/375" id="sgw-lI-bYZ"/>
                             <constraint firstItem="P40-J4-G7H" firstAttribute="width" secondItem="VqR-zR-UwK" secondAttribute="width" multiplier="315/375" id="syQ-hC-gH2"/>
@@ -750,7 +750,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZX-Hh-FuB">
                                 <rect key="frame" x="50" y="423.5" width="275" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="8ZX-Hh-FuB" secondAttribute="height" multiplier="275:48" id="Lab-wg-ecm"/>
+                                    <constraint firstAttribute="height" constant="48" id="Hrb-tW-bJj"/>
+                                    <constraint firstAttribute="width" constant="275" id="vdi-z7-pJl"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -801,7 +802,6 @@
                             <constraint firstItem="rKD-Td-iwN" firstAttribute="width" secondItem="s3x-yn-kd0" secondAttribute="width" multiplier="44/375" id="ipW-dx-bvb"/>
                             <constraint firstItem="dlW-rg-Ckd" firstAttribute="centerX" secondItem="s3x-yn-kd0" secondAttribute="centerX" id="kJ0-4Q-QcH"/>
                             <constraint firstItem="eok-rm-n3a" firstAttribute="centerX" secondItem="s3x-yn-kd0" secondAttribute="centerX" id="m6J-jG-i0O"/>
-                            <constraint firstItem="8ZX-Hh-FuB" firstAttribute="width" secondItem="s3x-yn-kd0" secondAttribute="width" multiplier="275/375" id="n7a-Fz-sR7"/>
                             <constraint firstItem="PbQ-bh-KF8" firstAttribute="width" secondItem="s3x-yn-kd0" secondAttribute="width" multiplier="275/375" id="oS8-hh-lhT"/>
                             <constraint firstItem="8ZX-Hh-FuB" firstAttribute="centerX" secondItem="s3x-yn-kd0" secondAttribute="centerX" id="opA-Ac-jH8"/>
                             <constraint firstItem="9ka-Rd-l6V" firstAttribute="width" secondItem="s3x-yn-kd0" secondAttribute="width" multiplier="100/375" id="pkl-9P-soi"/>

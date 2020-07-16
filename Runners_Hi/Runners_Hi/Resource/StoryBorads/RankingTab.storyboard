@@ -362,6 +362,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="750"/>
                     <connections>
+                        <outlet property="RankVC_View" destination="Bmk-in-cD3" id="BUG-qa-Ydy"/>
                         <outlet property="loserCollectionView" destination="RQp-4l-fRg" id="QRb-oU-Xm3"/>
                         <outlet property="loserDetail" destination="XR7-TN-aJu" id="XOa-Z4-1lZ"/>
                         <outlet property="loserMain" destination="PMs-WA-NDm" id="9Jj-P6-UMb"/>

@@ -17,6 +17,7 @@ class RankVC: UIViewController {
     @IBOutlet weak var monthlyCollectionView: UICollectionView!
     @IBOutlet weak var winnerCollectionView: UICollectionView!
     @IBOutlet weak var loserCollectionView: UICollectionView!
+    @IBOutlet weak var RankVC_View: UIView!
     
     @IBOutlet weak var monthlyMain: UILabel!
     @IBOutlet weak var monthlyDetail: UILabel!
@@ -28,15 +29,20 @@ class RankVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        RankVC_View.backgroundColor = .backgroundgray
+        
         monthlyCollectionView.delegate = self
         monthlyCollectionView.dataSource = self
+        monthlyCollectionView.backgroundColor = .backgroundgray
         
         winnerCollectionView.delegate = self
         winnerCollectionView.dataSource = self
-        
-        
+        winnerCollectionView.backgroundColor = .backgroundgray
+
         loserCollectionView.delegate = self
         loserCollectionView.dataSource = self
+        loserCollectionView.backgroundColor = .backgroundgray
+
         
         getMonthly()
         getWinner()

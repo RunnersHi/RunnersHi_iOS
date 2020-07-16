@@ -15,7 +15,7 @@ class RecordTabChildVC2: UIViewController, IndicatorInfoProvider {
     var BadgeRecordModel: RecordAllData2?
     
     override func viewDidLoad() {
-        
+        badgeCollectionView.backgroundColor = .backgroundgray
         badgeCollectionView.dataSource = self
         badgeCollectionView.delegate = self
         getBadge()
