@@ -814,7 +814,7 @@
         <!--Run FinishVC-->
         <scene sceneID="zhp-GA-jL2">
             <objects>
-                <viewController id="AMS-2G-EXN" customClass="RunFinishVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RunFinishVC" id="AMS-2G-EXN" customClass="RunFinishVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X2j-m0-Rv1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -825,8 +825,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="dgA-YG-5fc">
-                                <rect key="frame" x="166.5" y="82.5" width="42" height="66"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="dgA-YG-5fc">
+                                <rect key="frame" x="166.5" y="82.5" width="42" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYL-AJ-ajZ">
                                         <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
@@ -835,7 +835,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sad-Xu-4eG">
-                                        <rect key="frame" x="0.0" y="45.5" width="42" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -843,13 +843,13 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lvg-Go-RI7">
-                                <rect key="frame" x="46.5" y="181.5" width="282" height="284.5"/>
+                                <rect key="frame" x="46.5" y="163.5" width="282" height="284.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Lvg-Go-RI7" secondAttribute="height" multiplier="282:284.5" id="PTw-XC-0L4"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKF-51-9Mo">
-                                <rect key="frame" x="50" y="507.5" width="275" height="48"/>
+                                <rect key="frame" x="50" y="489.5" width="275" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="I7R-ap-P0J"/>
                                     <constraint firstAttribute="height" constant="48" id="kJM-fK-9IL"/>

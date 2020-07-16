@@ -23,7 +23,12 @@ class RunFinishVC: UIViewController {
         super.viewDidLoad()
         setView()
         // Do any additional setup after loading the view.
+        guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"FindRunnerVC") as? FindRunnerVC else {return}
+//       // LetsRun.compareResult(distance: 3, time: 3, coordinates: [[12,2,3],[1,1,1,1]], createdTime: "ada", endTime: "ada") {
+//            print("또르릉")
+//        }
     }
+    
     
 }
 extension RunFinishVC {
