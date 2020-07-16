@@ -21,6 +21,8 @@ class FindRunnerVC: UIViewController {
     static var manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
     
     static var socket: SocketIOClient!
+
+    
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var timeProgressBar: UIProgressView!
 

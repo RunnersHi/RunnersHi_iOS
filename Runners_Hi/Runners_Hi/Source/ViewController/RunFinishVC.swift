@@ -22,17 +22,22 @@ class RunFinishVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        // Do any additional setup after loading the view.
-        guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"FindRunnerVC") as? FindRunnerVC else {return}
-//       // LetsRun.compareResult(distance: 3, time: 3, coordinates: [[12,2,3],[1,1,1,1]], createdTime: "ada", endTime: "ada") {
-//            print("또르릉")
-//        }
+        
+        FindRunnerVC.socket.on("compareResult", callback: { (data, ack) in
+            FindRunnerVC.socket.disconnect()
+            guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
+            self.navigationController?.pushViewController(LetsRun, animated: true)
+        })
     }
+    //{roomName: “2", distance: 2, time: 3600,coordinates: [[1,2,3],[1,2,3]], createdTime: “2020-07-16 18:29:24”, endTime: “2020-07-16 18:29:54"}
     
     
 }
 extension RunFinishVC {
     func setView() {
+//        var send : sendMessage? = sendMessage(roomName: UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ", distance: UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2,time: UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0,coordinates: [[1,2,3],[1,2,3]], createdTime: UserDefaults.standard.object(forKey: "createdTime") as? String ?? " ", endTime: UserDefaults.standard.object(forKey: "endTime") as? String ?? " ")
+//        print("도랑",send, type(of: send))
+       // FindRunnerVC.socket.emit("compareResult",send)
         finishLabel.text = "FINISH!"
         finishLabel.textAlignment = .center
         finishLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 52)
@@ -56,3 +61,12 @@ extension RunFinishVC {
         
     }
 }
+struct sendMessage {
+    var roomName : String?
+    var distance : Int?
+    var time: Int?
+    var coordinates : Array<Any>?
+    var createdTime : String?
+    var endTime : String?
+}
+

@@ -42,7 +42,8 @@ class RunActivityVC: UIViewController {
     var myMeter: Double = 0.0
     var levelStruct = ["초급","중급","고급"]
     var profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunnowMeterhair"]
-
+    var formatter = DateFormatter()
+    
     @IBOutlet weak var lockButton: UIButton!
     @IBOutlet weak var backBoxImage: UIImageView!
     
@@ -77,6 +78,8 @@ class RunActivityVC: UIViewController {
     @IBOutlet weak var runningStopButton: UIButton!
     
     override func viewDidLoad() {
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
         secToTime(sec: limitTime)
         pedometer = CMPedometer()
         startTimer()
@@ -98,6 +101,7 @@ class RunActivityVC: UIViewController {
             }
         })
         FindRunnerVC.socket.on("endRunning", callback: { (data, ack) in
+            UserDefaults.standard.set(self.formatter.string(from: Date()), forKey: "endTime")
             guard let FinishRun = self.storyboard?.instantiateViewController(identifier:"RunFinishVC") as? RunFinishVC else {return}
             self.navigationController?.pushViewController(FinishRun, animated: true)
         })
@@ -262,7 +266,8 @@ extension RunActivityVC {
         } else {
             print("끝")
             moveTime = 0.0
-            FindRunnerVC.socket.emit("endRunning", UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",Int(distance ?? 2 ) )
+            UserDefaults.standard.set(distance, forKey: "opponetDistance")
+            FindRunnerVC.socket.emit("endRunning", UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2 )
         }
     }
         func secToTime(sec: Int){
