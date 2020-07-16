@@ -63,16 +63,13 @@ extension ResultRunningVC {
                 self.RecentModel = response
                 self.view.reloadInputViews()
                 self.myProfileImage.image = UIImage(named: self.profileImageStruct[(self.RecentModel?.result.image as? Int ?? 0) - 1])
-//                DispatchQueue.global().async {
-//                    self.myTimeLabel.text = "gkdlfn"
-//                    self.myProfileImage.image = UIImage(named: self.profileImageStruct[(self.RecentModel?.result.image as? Int ?? 0) - 1])
-//
-//                    print("ㅇlrjd",self.RecentModel?.result.image)
-//
-//                }
-
-
-               // self.StoreTableView.reloadData()
+                if self.RecentModel?.result.result == 2 {
+                    self.resultLabel.text = "TRY AGAIN"
+                }
+                let meterDistance = self.RecentModel?.result.distance as? Int ?? 0
+                let KmDistance: Double = Double(meterDistance) / 1000
+                self.myDistanceLabel.text = String(format: "%.2f", KmDistance)
+                self.
 
             case .requestErr:
                 print(".requestErr")

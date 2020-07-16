@@ -145,12 +145,12 @@ extension RunActivityVC {
         //distance
         if let distance = self.distance {
         opponentKmLabel.text = String(format:"%02.02f",distance/1000)
-            
             print(distance,moveTime,"요기요~~")
             let pace1 = Int(moveTime/Float(distance/1000))
             let pace2 = Int(pace1/60)
             let pace3 = Int(pace1%60)
             print(pace1,pace2,pace3,"하잉용")
+            
             if pace2 >= 60 {
                 opponentPaceLabel.text = "_'__''"
             } else {
@@ -267,7 +267,9 @@ extension RunActivityVC {
         } else {
             print("끝")
             moveTime = 0.0
-            UserDefaults.standard.set(distance, forKey: "opponetDistance")
+            var move: Int = Int(distance)
+            print(move, "뭘바요..")
+            UserDefaults.standard.set(move, forKey: "opponetDistance")
             FindRunnerVC.socket.emit("endRunning", UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2 )
         }
     }
