@@ -317,14 +317,14 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
             idTextField.layer.masksToBounds = true
             idTextField.layer.cornerRadius = 8.0
             self.idCheckButton.isEnabled = false
-            if  giveProfileFlag==1{
-                print("1")}
-            else if giveProfileFlag==2{
-                print("2")
-            }
-            else {
-                print("왜 안넘어와")
-            }
+//            if  giveProfileFlag==1{
+//                print("1")}
+//            else if giveProfileFlag==2{
+//                print("2")
+//            }
+//            else {
+//                print("왜 안넘어와")
+//            }
         }
     }
     

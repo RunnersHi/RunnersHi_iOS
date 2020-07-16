@@ -8,20 +8,43 @@
 
 import Foundation
 
-struct RankingData: Codable {
+struct RankingData<T: Codable>: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let result: [Monthly]
+    let result: [T]
 }
 
 struct Monthly: Codable {
     let nickname: String
     let image, userIdx, distanceSum: Int
-
+    
     enum CodingKeys: String, CodingKey {
         case nickname, image
         case userIdx = "user_idx"
         case distanceSum = "distance_sum"
     }
 }
+struct Winner: Codable {
+    let nickname: String
+    let image, userIdx, win, lose: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case nickname, image
+        case userIdx = "user_idx"
+        case win, lose
+    }
+}
+struct Loser: Codable {
+    let nickname: String
+    let image, userIdx, win, lose: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case nickname, image
+        case userIdx = "user_idx"
+        case win, lose
+    }
+}
+
+
+

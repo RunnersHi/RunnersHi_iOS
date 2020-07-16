@@ -16,5 +16,13 @@ struct APIConstants {
     static let myrecordURL = APIConstants.baseURL + "/record/all"
     //뱃지 모아보기
     static let badgeURL = APIConstants.baseURL + "/record/badge"
+    //이 달의 러너
+    static let monthlyURL = APIConstants.baseURL + "/ranking/runner"
+    //명예의 전당
+    static let winnerURL = APIConstants.baseURL + "/ranking/winner"
+    //졌잘싸
+    static let loserURL = APIConstants.baseURL + "/ranking/loser"
+     static let opponentURL = APIConstants.baseURL + "/record/opponent/"
+    static let recentURL = APIConstants.baseURL + "/record/recent"
     
 }

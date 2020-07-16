@@ -9,14 +9,16 @@
 import Foundation
 import Alamofire
 
-struct RankingService {
+struct BadgeService {
     private init() {}
-    static let shared = RankingService()
+    static let shared = BadgeService()
     
-    func monthlyRankloading(completion: @escaping (NetworkResult<Any>)->Void) {
+    func badgeloading(completion: @escaping (NetworkResult<Any>)->Void) {
         let URL = APIConstants.badgeURL
+        let headers: HTTPHeaders = ["Content-Type" : "application/json", "token" : UserDefaults.standard.object(forKey: "token") as? String ?? " "]
         
-        Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default).responseData { response in
+        
+        Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
             switch response.result {
 
             case .success:
@@ -26,7 +28,7 @@ struct RankingService {
                         case 200:
                             do {
                                 let decoder = JSONDecoder()
-                                let result = try decoder.decode(RankingData.self, from: value)
+                                let result = try decoder.decode(RecordAllData2.self, from: value)
                                 completion(.success(result))
                             } catch {
                                 completion(.pathErr)
