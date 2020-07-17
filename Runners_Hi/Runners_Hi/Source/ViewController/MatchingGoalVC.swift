@@ -53,7 +53,8 @@ class MatchingGoalVC: UIViewController {
         let goal2 = GoalInformation(goal: "45min")
         let goal3 = GoalInformation(goal: "1hour")
         let goal4 = GoalInformation(goal: "1h 30min")
-        goalInformation = [goal1,goal2,goal3,goal4]
+        let goal5 = GoalInformation(goal: "30sec")
+        goalInformation = [goal1,goal2,goal3,goal4,goal5]
         
     }
 
@@ -97,8 +98,10 @@ extension MatchingGoalVC: UICollectionViewDelegateFlowLayout {
             giveGoalText = 2700
         } else if indexPath == [0, 2] {
             giveGoalText = 3600
-        } else {
+        } else if indexPath == [0, 3]{
             giveGoalText = 5400
+        } else {
+            giveGoalText = 30
         }
     }
 

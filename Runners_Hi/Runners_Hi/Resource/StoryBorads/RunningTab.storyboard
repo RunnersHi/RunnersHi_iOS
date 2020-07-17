@@ -171,10 +171,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zPA-Wa-x6H">
-                                <rect key="frame" x="0.0" y="149" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="149" width="375" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="250" constant="216" id="1YF-Qz-zpD"/>
+                                    <constraint firstAttribute="height" priority="250" constant="300" id="1YF-Qz-zpD"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZFE-FQ-X2T">
                                     <size key="itemSize" width="366" height="108"/>
@@ -213,7 +213,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yE0-Vp-Zrm">
-                                <rect key="frame" x="50" y="440" width="275" height="48"/>
+                                <rect key="frame" x="50" y="524" width="275" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="XlI-We-KY2"/>
                                     <constraint firstAttribute="height" constant="48" id="yGl-56-W2R"/>

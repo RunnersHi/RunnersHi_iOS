@@ -114,7 +114,7 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
         })
             
 
-        perform(#selector(runProgressbar), with: nil, afterDelay: 0.0)
+        perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
 
         super.viewDidLoad()
         setMap()
@@ -179,8 +179,10 @@ extension RunActivityVC {
             finishTimeLabel.text = "40:00"
         } else if maxTime == 3600.0 {
             finishTimeLabel.text = "1:00:00"
-        } else {
+        } else if maxTime == 5400.0 {
             finishTimeLabel.text = "1:30:00"
+        } else {
+            finishTimeLabel.text = "00:30"
         }
         
         finishTimeLabel.font = UIFont(name: "NanumSquareB", size: 14)
@@ -289,7 +291,7 @@ extension RunActivityVC {
             secToTime(sec: limitTime)
             limitTime = limitTime - 1
             } else {
-                opponentLeftTimeLabel.text = "00:00:00"
+                opponentLeftTimeLabel.text = "00:00"
             }
 
     }
