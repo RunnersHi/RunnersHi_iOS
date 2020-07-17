@@ -39,6 +39,7 @@
 		06F40AF624C0582D001E04FB /* MonthlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AF524C0582D001E04FB /* MonthlyCell.swift */; };
 		06F40AF824C083B0001E04FB /* WinnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AF724C083B0001E04FB /* WinnerCell.swift */; };
 		06F40AFA24C083BD001E04FB /* LoserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AF924C083BD001E04FB /* LoserCell.swift */; };
+		06FD033F24C238AB005EB6A9 /* BadgeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD033E24C238AB005EB6A9 /* BadgeDetailVC.swift */; };
 		3BD8ECE5AC41CD44ED87794D /* Pods_Runners_Hi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */; };
 		3D76A15524BC9B6800A58465 /* run.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D76A15324BC9B6700A58465 /* run.json */; };
 		3D76A15624BC9B6800A58465 /* count.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D76A15424BC9B6800A58465 /* count.json */; };
@@ -122,6 +123,7 @@
 		06F40AF524C0582D001E04FB /* MonthlyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyCell.swift; sourceTree = "<group>"; };
 		06F40AF724C083B0001E04FB /* WinnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerCell.swift; sourceTree = "<group>"; };
 		06F40AF924C083BD001E04FB /* LoserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoserCell.swift; sourceTree = "<group>"; };
+		06FD033E24C238AB005EB6A9 /* BadgeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDetailVC.swift; sourceTree = "<group>"; };
 		2381C452A09AA5CEFDB75EE4 /* Pods_Runners_Hi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runners_Hi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D76A15324BC9B6700A58465 /* run.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = run.json; sourceTree = "<group>"; };
 		3D76A15424BC9B6800A58465 /* count.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = count.json; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				3DB705A324C06334005BFA1C /* ResultRunningVC.swift */,
 				3DB705A924C166C4005BFA1C /* NaverMapVC.swift */,
 				3DD5E62824C1BA7100598165 /* SplashVC.swift */,
+				06FD033E24C238AB005EB6A9 /* BadgeDetailVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				06F40AE824BDB521001E04FB /* RecordService.swift in Sources */,
 				3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */,
 				06F40AEE24BF7A33001E04FB /* BadgeCell.swift in Sources */,
+				06FD033F24C238AB005EB6A9 /* BadgeDetailVC.swift in Sources */,
 				06F40AE624BD75BA001E04FB /* ScoreRecordCell.swift in Sources */,
 				3DCAF89D24B6F0BD009B3AE5 /* MatchingGenderVC.swift in Sources */,
 				06F40ABB24B4FF89001E04FB /* GenderSelectCell.swift in Sources */,

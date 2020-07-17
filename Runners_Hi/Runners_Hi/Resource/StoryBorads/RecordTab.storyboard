@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ydH-dS-7QA">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,14 +13,14 @@
             <objects>
                 <viewController storyboardIdentifier="RecordTabParentVC" id="ydH-dS-7QA" customClass="RecordTabParentVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HL2-Cl-jZF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAP-hn-JVE">
-                                <rect key="frame" x="0.0" y="108" width="414" height="754"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </scrollView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8El-0R-Jvg" customClass="ButtonBarView" customModule="XLPagerTabStrip">
-                                <rect key="frame" x="0.0" y="44" width="414" height="64"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="xhv-ye-8ah"/>
@@ -60,11 +60,11 @@
             <objects>
                 <viewController storyboardIdentifier="RecordTabChildVC1" id="Zqb-kw-4dt" customClass="RecordTabChildVC1" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IFu-9z-klZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="scoreRecordCollectionView" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="be0-Zg-bv4">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YGX-2N-URx">
                                     <size key="itemSize" width="191" height="191"/>
@@ -74,7 +74,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ScoreRecordCell" reuseIdentifier="ScoreRecordCell" id="Lkh-7z-L5E" customClass="ScoreRecordCell" customModule="Runners_Hi" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="191" height="191"/>
+                                        <rect key="frame" x="92" y="0.0" width="191" height="191"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="N3l-e9-8Vc">
                                             <rect key="frame" x="0.0" y="0.0" width="191" height="191"/>
@@ -167,11 +167,11 @@
             <objects>
                 <viewController storyboardIdentifier="RecordTabChildVC2" id="ebd-Se-k96" customClass="RecordTabChildVC2" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="brz-rX-OTk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4YJ-KU-bLK">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wc3-Fj-zdt">
                                     <size key="itemSize" width="307" height="487"/>
@@ -181,7 +181,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BadgeCell" id="nEK-By-xRd" customClass="BadgeCell" customModule="Runners_Hi" customModuleProvider="target">
-                                        <rect key="frame" x="53.5" y="0.0" width="307" height="487"/>
+                                        <rect key="frame" x="34" y="0.0" width="307" height="487"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nTU-4F-lkA">
                                             <rect key="frame" x="0.0" y="0.0" width="307" height="487"/>
@@ -231,6 +231,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ru2-Lr-Vw0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1140.5797101449277" y="-861.16071428571422"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="RTb-8P-fDN">
+            <objects>
+                <viewController id="nQ2-jc-Swz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cE4-Rj-PSU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V94-LC-iwa">
+                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="V94-LC-iwa" secondAttribute="height" multiplier="48:48" id="DRH-UJ-LWP"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qS-d4-CFT">
+                                <rect key="frame" x="166.5" y="93" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOd-C1-wZD">
+                                <rect key="frame" x="166.5" y="395" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylm-PF-EHW">
+                                <rect key="frame" x="166.5" y="427" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wgV-4w-Ths">
+                                <rect key="frame" x="102.5" y="138" width="170" height="233"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wgV-4w-Ths" secondAttribute="height" multiplier="170:233" id="weM-Ex-o9C"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ylm-PF-EHW" firstAttribute="centerX" secondItem="cE4-Rj-PSU" secondAttribute="centerX" id="1Xn-Q0-dwt"/>
+                            <constraint firstItem="dOd-C1-wZD" firstAttribute="centerX" secondItem="cE4-Rj-PSU" secondAttribute="centerX" id="IaI-9h-wa1"/>
+                            <constraint firstItem="dOd-C1-wZD" firstAttribute="top" secondItem="wgV-4w-Ths" secondAttribute="bottom" constant="24" id="LS7-Vt-yQM"/>
+                            <constraint firstItem="wgV-4w-Ths" firstAttribute="top" secondItem="9qS-d4-CFT" secondAttribute="bottom" constant="24" id="PrD-Ry-Nuc"/>
+                            <constraint firstItem="wgV-4w-Ths" firstAttribute="centerX" secondItem="cE4-Rj-PSU" secondAttribute="centerX" id="PyR-Ff-vUz"/>
+                            <constraint firstItem="9qS-d4-CFT" firstAttribute="centerX" secondItem="cE4-Rj-PSU" secondAttribute="centerX" id="R4o-K6-bbg"/>
+                            <constraint firstItem="V94-LC-iwa" firstAttribute="width" secondItem="cE4-Rj-PSU" secondAttribute="width" multiplier="48/375" id="RN1-Wp-RWB"/>
+                            <constraint firstItem="V94-LC-iwa" firstAttribute="leading" secondItem="DYv-2r-8VZ" secondAttribute="leading" id="UwI-rN-tSZ"/>
+                            <constraint firstItem="ylm-PF-EHW" firstAttribute="top" secondItem="dOd-C1-wZD" secondAttribute="bottom" constant="11" id="W7q-1K-mrg"/>
+                            <constraint firstItem="V94-LC-iwa" firstAttribute="top" secondItem="DYv-2r-8VZ" secondAttribute="top" id="qL1-Hc-Tpf"/>
+                            <constraint firstItem="9qS-d4-CFT" firstAttribute="top" secondItem="DYv-2r-8VZ" secondAttribute="top" constant="93" id="wro-qz-vM1"/>
+                            <constraint firstItem="wgV-4w-Ths" firstAttribute="width" secondItem="cE4-Rj-PSU" secondAttribute="width" multiplier="170/375" id="yqf-5u-jO8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DYv-2r-8VZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wnF-og-km1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2096" y="-861"/>
         </scene>
     </scenes>
 </document>
