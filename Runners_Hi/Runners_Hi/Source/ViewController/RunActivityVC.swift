@@ -25,7 +25,7 @@ class RunActivityVC: UIViewController {
      
     //the pedometer
     var pedometer = CMPedometer()
-     
+     var move: Int = 0
     // timers
     var timer = Timer()
     var timerInterval = 1.0
@@ -134,23 +134,19 @@ extension RunActivityVC {
         displayPedometerData()
     }
     func displayPedometerData(){
-        timeElapsed += 1.0
-        print("붸",timeElapsed)
-        //statusTitle.text = "On: " + timeIntervalFormat(interval: timeElapsed)
-        //Number of steps
-//        if let numberOfSteps = self.numberOfSteps{
-//            stepsLabel.text = String(format:"Steps: %i",numberOfSteps)
-//        }
-         
+//        timeElapsed += 1.0
+//        print("붸",timeElapsed)
+//
+//
         //distance
         if let distance = self.distance {
         opponentKmLabel.text = String(format:"%02.02f",distance/1000)
-            
-            print(distance,moveTime,"요기요~~")
+//            print(distance,moveTime,"요기요~~")
             let pace1 = Int(moveTime/Float(distance/1000))
             let pace2 = Int(pace1/60)
             let pace3 = Int(pace1%60)
-            print(pace1,pace2,pace3,"하잉용")
+//            print(pace1,pace2,pace3,"하잉용")
+            
             if pace2 >= 60 {
                 opponentPaceLabel.text = "_'__''"
             } else {
@@ -265,9 +261,16 @@ extension RunActivityVC {
             runProgressBar.progress = moveTime/maxTime
             perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
         } else {
-            print("끝")
+//            print("끝")
             moveTime = 0.0
-            UserDefaults.standard.set(distance, forKey: "opponetDistance")
+//            print(distance,"뽀잉")
+            if distance == nil {
+                move = 1
+            } else {
+                 move = Int(distance)
+            }
+//            print(move, "뭘바요..")
+            UserDefaults.standard.set(move, forKey: "opponetDistance")
             FindRunnerVC.socket.emit("endRunning", UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2 )
         }
     }
@@ -282,8 +285,8 @@ extension RunActivityVC {
             } else {
                 opponentLeftTimeLabel.text = String(hour) + ":" + String(minute) + ":" + String(second)
             }
-           
-           print("여기",String(hour) + ":" + String(minute) + ":" + String(second))
+//
+//           print("여기",String(hour) + ":" + String(minute) + ":" + String(second))
             if moveTime < maxTime {
                 perform(#selector(getSetTime), with: nil, afterDelay: 1.0)
             }
