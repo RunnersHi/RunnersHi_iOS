@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct RecentMyData: Codable {
+struct RecentMyData<T: Codable>: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let result: myRecent
+    let result: T
 }
 
 struct myRecent: Codable {
@@ -27,5 +27,17 @@ struct myRecent: Codable {
         case paceSecond = "pace_second"
         case image, result
         case createdTime = "created_time"
+    }
+}
+struct opponentRecent: Codable {
+    let nickname: String
+    let distance: Int
+    let time: String
+    let paceMinute, paceSecond: Int
+
+    enum CodingKeys: String, CodingKey {
+        case nickname, distance, time
+        case paceMinute = "pace_minute"
+        case paceSecond = "pace_second"
     }
 }

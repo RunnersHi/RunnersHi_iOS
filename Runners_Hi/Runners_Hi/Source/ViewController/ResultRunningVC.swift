@@ -10,7 +10,8 @@ import UIKit
 
 class ResultRunningVC: UIViewController {
 
-    var RecentModel: RecentMyData?
+    var RecentModel: RecentMyData<myRecent>?
+    var OpponentRecentModel: RecentMyData<opponentRecent>?
     
     var profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunnowMeterhair"]
     
@@ -43,9 +44,9 @@ class ResultRunningVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getRecentData()
+        getRecentOpponentData()
         setLabel()
         setView()
-       // print(myProfile,"ㅇㅇ")
         // Do any additional setup after loading the view.
         
     }
@@ -59,7 +60,7 @@ extension ResultRunningVC {
             switch data {
 
             case .success(let res):
-                let response = res as! RecentMyData
+                let response = res as! RecentMyData<myRecent>
                 self.RecentModel = response
                 self.view.reloadInputViews()
                 self.myProfileImage.image = UIImage(named: self.profileImageStruct[(self.RecentModel?.result.image as? Int ?? 0) - 1])
@@ -75,8 +76,49 @@ extension ResultRunningVC {
                 } else {
                     self.myPaceLabel.text = "\(self.RecentModel?.result.paceMinute as? Int ?? 0)'\(self.RecentModel?.result.paceSecond as? Int ?? 0)''"
                 }
-                self.myTimeLabel.text = self.RecentModel?.result.time as? String ?? "00:00:00"
-// "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
+                let timeString = self.RecentModel?.result.time as? String ?? "00:00:00"
+                let firstIndex = timeString.index(timeString.startIndex, offsetBy: 3)
+                let secondIndex = timeString.index(timeString.endIndex, offsetBy: 0)
+                self.myTimeLabel.text = "\(timeString[firstIndex..<secondIndex])"
+
+            case .requestErr:
+                print(".requestErr")
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print(".serverErr")
+            case .networkFail:
+                print(".networkFail")
+            }
+
+        }
+    }
+    //yourrecordloading
+    func getRecentOpponentData() {
+        RecordService.shared.yourrecordloading() {
+            [weak self]
+            data in
+            guard let `self` = self else {return}
+            switch data {
+
+            case .success(let res):
+                let response = res as! RecentMyData<opponentRecent>
+                self.OpponentRecentModel = response
+                self.view.reloadInputViews()
+                self.yourNickLabel.text = "\(self.OpponentRecentModel?.result.nickname as? String ?? " ")의 기록"
+                let meterDistance = self.OpponentRecentModel?.result.distance as? Int ?? 0
+                let KmDistance: Double = Double(meterDistance) / 1000
+                self.yourDistanceLabel.text = String(format: "%.2f", KmDistance)
+                if (self.OpponentRecentModel?.result.paceMinute as? Int ?? 0) >= 60 {
+                    self.yourPaceLabel.text = "_'__''"
+                } else {
+                    self.yourPaceLabel.text = "\(self.OpponentRecentModel?.result.paceMinute as? Int ?? 0)'\(self.OpponentRecentModel?.result.paceSecond as? Int ?? 0)''"
+                }
+                let timeString = self.OpponentRecentModel?.result.time as? String ?? "00:00:00"
+                let firstIndex = timeString.index(timeString.startIndex, offsetBy: 3)
+                let secondIndex = timeString.index(timeString.endIndex, offsetBy: 0)
+                self.yourTimeLabel.text = "\(timeString[firstIndex..<secondIndex])"
+
             case .requestErr:
                 print(".requestErr")
             case .pathErr:
