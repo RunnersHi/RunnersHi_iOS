@@ -10,8 +10,10 @@ import UIKit
 //import HealthKit
 import CoreMotion
 import SocketIO
+import NMapsMap
+import CoreLocation
 
-class RunActivityVC: UIViewController {
+class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     
     let stopColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
     let startColor = UIColor(red: 0.0, green: 0.75, blue: 0.0, alpha: 1.0)
@@ -22,7 +24,10 @@ class RunActivityVC: UIViewController {
     var averagePace:Double! = nil
     var pace:Double! = nil
     var kmDistance:Double! = nil
-     
+    
+    var locationManager:CLLocationManager!
+    
+    @IBOutlet weak var scrolleView: UIScrollView!
     //the pedometer
     var pedometer = CMPedometer()
      var move: Int = 0
@@ -77,7 +82,12 @@ class RunActivityVC: UIViewController {
     
     @IBOutlet weak var runningStopButton: UIButton!
     
+    @IBOutlet var view1: UIView!
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var naverView: UIView!
+    
     override func viewDidLoad() {
+        
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
         secToTime(sec: limitTime)
@@ -111,6 +121,7 @@ class RunActivityVC: UIViewController {
         perform(#selector(runProgressbar), with: nil, afterDelay: 0.0)
 
         super.viewDidLoad()
+        setMap()
         setView()
         setLabel()
         setOpponentProfile()
@@ -211,6 +222,33 @@ extension RunActivityVC {
     }
     
     func setView() {
+//        locationManager = CLLocationManager()
+//        locationManager.delegate = self
+//        locationManager.requestWhenInUseAuthorization()
+//
+//        let coor = locationManager.location?.coordinate
+//        let latiutd = (coor?.latitude) ?? 0.00
+//        let longitud = (coor?.longitude) ?? 0.00
+//        print("잉",latiutd,longitud)
+//
+//        let mapView = NMFMapView(frame: view.bounds)
+//
+//        mapView.frame.size = naverView.frame.size
+//        //mapView.bounds.size = naverView.bounds.size
+////        mapView.frame.width = naverView.frame.width
+//        //scrolleView.addSubview(naverView)
+//        naverView.addSubview(mapView)
+//        mapView.positionMode = .direction
+//
+//
+//        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latiutd, lng: longitud))
+//        cameraUpdate.animation = .easeIn
+//        cameraUpdate.animationDuration = 1
+//        mapView.moveCamera(cameraUpdate)
+//
+//        let path = NMFPath()
+        
+        
         
         lockButton.setBackgroundImage(UIImage(named: "iconUnlock"), for: .normal)
         lockButton.setTitle(nil, for: .normal)
@@ -292,6 +330,9 @@ extension RunActivityVC {
             }
 
        }
+//    @objc fun getNaver() {
+//        let coord = NMGLatLng(lat: 37.5670135, lng: 126.9783740)
+//    }
         @objc func getSetTime() {
         if moveTime < maxTime {
             secToTime(sec: limitTime)
@@ -307,6 +348,42 @@ extension RunActivityVC {
 //                FindRunnerVC.finishRun(distance: finalKm)
 //            }
 
+    }
+    func setMap() {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.requestWhenInUseAuthorization()
+                
+            let coor = locationManager.location?.coordinate
+            var latiutd = (coor?.latitude) ?? 0.00
+            var longitud = (coor?.longitude) ?? 0.00
+            print("잉",latiutd,longitud)
+                
+            let mapView = NMFMapView(frame: naverView.bounds)
+            naverView.addSubview(mapView)
+            mapView.positionMode = .direction
+
+            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latiutd, lng: longitud))
+            cameraUpdate.animation = .easeIn
+            cameraUpdate.animationDuration = 1
+            mapView.moveCamera(cameraUpdate)
+
+               // let path = NMFPolylineOverlay([NMGLatLng(lat: latiutd, lng: longitude)])
+//
+//       let path111 = NMFPath()
+//        path111.p
+//        path111.poin
+//        path111.points = [NMGLatLng(lat: 37.57152, lng: 126.97714),
+//                       NMGLatLng(lat: 37.56607, lng: 126.98268),
+//                       NMGLatLng(lat: 37.56445, lng: 126.97707),
+//                       NMGLatLng(lat: 37.55855, lng: 126.97822)]
+//        path111.mapView = mapView
+//
+        
+
+    }
+    @objc func drawMap() {
+        
     }
 
 }
