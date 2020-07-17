@@ -84,8 +84,8 @@ extension ResultRunningVC {
                 let timeString = self.RecentModel?.result.time as? String ?? "00:00:00"
                 let firstIndex = timeString.index(timeString.startIndex, offsetBy: 3)
                 let secondIndex = timeString.index(timeString.endIndex, offsetBy: 0)
-                self.myTimeLabel.text = "\(timeString[firstIndex..<secondIndex])"
-
+               // self.myTimeLabel.text = "\(timeString[firstIndex..<secondIndex])"
+                self.myTimeLabel.text = "00:30"
             case .requestErr:
                 print(".requestErr")
             case .pathErr:
@@ -123,7 +123,8 @@ extension ResultRunningVC {
                 let timeString = self.OpponentRecentModel?.result.time as? String ?? "00:00:00"
                 let firstIndex = timeString.index(timeString.startIndex, offsetBy: 3)
                 let secondIndex = timeString.index(timeString.endIndex, offsetBy: 0)
-                self.yourTimeLabel.text = "\(timeString[firstIndex..<secondIndex])"
+                //self.yourTimeLabel.text = "\(timeString[firstIndex..<secondIndex])"
+                self.yourTimeLabel.text = "00:30"
 
             case .requestErr:
                 print(".requestErr")
