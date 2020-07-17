@@ -11,6 +11,7 @@ import UIKit
 class MyPageVC: UIViewController {
     static let identifier: String = "MyPageVC"
 
+    @IBOutlet weak var myPageCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 

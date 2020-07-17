@@ -300,11 +300,11 @@ extension RankVC {
     
     func labelSetting(){
         monthlyMain.text = "이달의 러너"
-        monthlyDetail.text = "5월 한 달 가장 많이 달린 러너"
+        monthlyDetail.text = "7월 한 달 가장 많이 달린 러너"
         winnerMain.text = "명예의 전당"
-        winnerDetail.text = "5월 한 달 가장 많은 승리를 거둔 러너"
+        winnerDetail.text = "7월 한 달 가장 많은 승리를 거둔 러너"
         loserMain.text = "졌.잘.싸"
-        loserDetail.text = "5월 한 달 아쉽게 졌지만 열심히 러닝한 러너"
+        loserDetail.text = "7월 한 달 아쉽게 졌지만 열심히 러닝한 러너"
         
         monthlyMain.font = UIFont(name: "NanumSquareB", size:20.0)
         monthlyDetail.font = UIFont(name: "NanumSquareR", size:14.0)

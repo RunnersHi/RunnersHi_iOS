@@ -22,7 +22,10 @@ struct APIConstants {
     static let winnerURL = APIConstants.baseURL + "/ranking/winner"
     //졌잘싸
     static let loserURL = APIConstants.baseURL + "/ranking/loser"
-     static let opponentURL = APIConstants.baseURL + "/record/opponent/"
+    static let opponentURL = APIConstants.baseURL + "/record/opponent/"
     static let recentURL = APIConstants.baseURL + "/record/recent"
+    //마이페이지
+    static let myprofileURL = APIConstants.baseURL + "/user/myProfile"
+
     
 }
