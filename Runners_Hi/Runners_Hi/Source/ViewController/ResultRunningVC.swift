@@ -42,6 +42,11 @@ class ResultRunningVC: UIViewController {
     }
     
     override func viewDidLoad() {
+        detailButton.titleLabel?.text = "기록 자세히 보기"
+        detailButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
+        detailButton.titleLabel?.textColor = .white
+        detailButton.tintColor = UIColor.lightishBlue
+        detailButton.layer.cornerRadius = 8
         super.viewDidLoad()
         getRecentData()
         getRecentOpponentData()
@@ -172,10 +177,7 @@ extension ResultRunningVC {
         yourPaceLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 26)
         yourTimeLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 26)
         
-        detailButton.titleLabel?.text = "기록 자세히 보기"
-        detailButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
-        detailButton.titleLabel?.textColor = .white
-        detailButton.tintColor = UIColor.lightishBlue
+        
     }
     func setView() {
         

@@ -7,6 +7,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareRegular.ttf">
+            <string>NanumSquareR</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--MainVC-->
         <scene sceneID="CZX-4j-TPq">
@@ -28,7 +33,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="CMY-hH-gFg">
                                         <rect key="frame" x="88" y="26" width="165" height="84"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상쾌한 오전," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTP-4d-059">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나른한 오후," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTP-4d-059">
                                                 <rect key="frame" x="34.5" y="0.0" width="96.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
@@ -894,14 +899,14 @@
             <objects>
                 <viewController storyboardIdentifier="ResultRunningVC" id="8Th-qK-cmk" customClass="ResultRunningVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjQ-Wp-Pqc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O3g-IG-bsN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRz-T6-EyG">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hu-SZ-oFd">
                                                 <rect key="frame" x="325" y="0.0" width="46" height="46"/>
@@ -996,11 +1001,15 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Im6-Vm-s36">
                                                 <rect key="frame" x="50" y="570.5" width="275" height="48"/>
+                                                <color key="backgroundColor" red="0.2196078431372549" green="0.40784313725490196" blue="1" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="4cA-D4-mtv"/>
                                                     <constraint firstAttribute="height" constant="48" id="Wxd-cf-VzL"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="17"/>
+                                                <state key="normal" title="기록 자세히 보기">
+                                                    <color key="titleColor" red="0.95283776519999996" green="0.95300072430000005" blue="0.95282751320000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="detailButtonDidTap:" destination="8Th-qK-cmk" eventType="touchUpInside" id="rFW-9A-IPm"/>
                                                 </connections>
@@ -1018,7 +1027,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Eq-5T-eRy">
-                                                <rect key="frame" x="265" y="295.5" width="42" height="20.5"/>
+                                                <rect key="frame" x="265" y="296" width="42" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1037,6 +1046,7 @@
                                             <constraint firstItem="BMc-5I-tQ0" firstAttribute="centerX" secondItem="SS2-nl-rw7" secondAttribute="centerX" id="9YF-cE-ANc"/>
                                             <constraint firstItem="abi-BR-sC1" firstAttribute="top" secondItem="vjA-UK-ybx" secondAttribute="bottom" constant="8" id="9jZ-hp-cXr"/>
                                             <constraint firstItem="8Q8-Xy-8fZ" firstAttribute="top" secondItem="Dfx-qB-d42" secondAttribute="bottom" id="Bul-oS-Frm"/>
+                                            <constraint firstAttribute="bottom" secondItem="Im6-Vm-s36" secondAttribute="bottom" constant="81.5" id="E4n-nx-Cyw"/>
                                             <constraint firstItem="6Eg-ql-Ctw" firstAttribute="top" secondItem="dH6-VR-mgw" secondAttribute="bottom" constant="9" id="E7U-oR-ZcT"/>
                                             <constraint firstItem="0hu-SZ-oFd" firstAttribute="top" secondItem="FRz-T6-EyG" secondAttribute="top" id="FMZ-4b-GPa"/>
                                             <constraint firstItem="vjA-UK-ybx" firstAttribute="top" secondItem="NMI-of-GvL" secondAttribute="bottom" id="Hrl-72-9ss"/>
@@ -1046,12 +1056,11 @@
                                             <constraint firstItem="vjA-UK-ybx" firstAttribute="centerX" secondItem="NMI-of-GvL" secondAttribute="centerX" id="MMd-h2-DDT"/>
                                             <constraint firstItem="EBL-wD-8KB" firstAttribute="top" secondItem="Dfx-qB-d42" secondAttribute="bottom" constant="23" id="Mfb-dq-UW6"/>
                                             <constraint firstItem="EBL-wD-8KB" firstAttribute="centerX" secondItem="FRz-T6-EyG" secondAttribute="centerX" id="NpQ-pL-Wyy"/>
-                                            <constraint firstItem="6Eq-5T-eRy" firstAttribute="top" secondItem="abi-BR-sC1" secondAttribute="bottom" constant="4" id="OaH-Gl-9ry"/>
                                             <constraint firstItem="dH6-VR-mgw" firstAttribute="leading" secondItem="SS2-nl-rw7" secondAttribute="trailing" constant="32" id="SFs-F8-Z0s"/>
                                             <constraint firstItem="8Q8-Xy-8fZ" firstAttribute="width" secondItem="Dfx-qB-d42" secondAttribute="width" id="TLl-Sb-YmC"/>
                                             <constraint firstItem="tfN-iK-TBW" firstAttribute="top" secondItem="gt2-jd-gnW" secondAttribute="bottom" constant="20" id="Vef-TB-gQs"/>
+                                            <constraint firstItem="6Eq-5T-eRy" firstAttribute="centerY" secondItem="HRu-Yu-1TF" secondAttribute="centerY" id="W9k-ib-iKV"/>
                                             <constraint firstItem="SS2-nl-rw7" firstAttribute="leading" secondItem="UKq-5n-vko" secondAttribute="trailing" constant="37" id="XVW-Ue-V0P"/>
-                                            <constraint firstAttribute="bottom" secondItem="Im6-Vm-s36" secondAttribute="bottom" constant="381.5" id="afW-3a-oo6"/>
                                             <constraint firstItem="Dfx-qB-d42" firstAttribute="centerX" secondItem="tfN-iK-TBW" secondAttribute="centerX" id="cc8-dw-hXv"/>
                                             <constraint firstItem="Im6-Vm-s36" firstAttribute="top" secondItem="8Q8-Xy-8fZ" secondAttribute="bottom" constant="19" id="cej-Uo-2mW"/>
                                             <constraint firstItem="bj1-Ow-F1y" firstAttribute="top" secondItem="UKq-5n-vko" secondAttribute="bottom" constant="9" id="dvE-e1-skf"/>
@@ -1090,7 +1099,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oEO-2h-fPK"/>
                     </view>
-                    <size key="freeformSize" width="375" height="1000"/>
+                    <size key="freeformSize" width="375" height="700"/>
                     <connections>
                         <outlet property="detailButton" destination="Im6-Vm-s36" id="Tjm-k8-qJY"/>
                         <outlet property="kmLabel" destination="vjA-UK-ybx" id="0H5-JA-JJs"/>
