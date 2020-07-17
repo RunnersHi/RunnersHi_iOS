@@ -62,7 +62,7 @@ extension RunFinishVC {
         secondMentLabel.font = UIFont(name: "NanumSquareB", size: 16)
         secondMentLabel.textAlignment = .center
         
-       // mainimage.image = UIImage(named: <#T##String#>)
+        mainimage.image = UIImage(named: "resultImage")
         
         goButton.isSelected = false
         goButton.setTitle("결과 보러가기", for: .normal)

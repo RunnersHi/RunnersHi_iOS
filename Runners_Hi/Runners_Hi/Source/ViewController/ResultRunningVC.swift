@@ -65,12 +65,18 @@ extension ResultRunningVC {
                 self.myProfileImage.image = UIImage(named: self.profileImageStruct[(self.RecentModel?.result.image as? Int ?? 0) - 1])
                 if self.RecentModel?.result.result == 2 {
                     self.resultLabel.text = "TRY AGAIN"
+                    self.resultLabel.textColor = UIColor.brownGrey
                 }
                 let meterDistance = self.RecentModel?.result.distance as? Int ?? 0
                 let KmDistance: Double = Double(meterDistance) / 1000
                 self.myDistanceLabel.text = String(format: "%.2f", KmDistance)
-                self.
-
+                if (self.RecentModel?.result.paceMinute as? Int ?? 0) >= 60 {
+                    self.myPaceLabel.text = "_'__''"
+                } else {
+                    self.myPaceLabel.text = "\(self.RecentModel?.result.paceMinute as? Int ?? 0)'\(self.RecentModel?.result.paceSecond as? Int ?? 0)''"
+                }
+                self.myTimeLabel.text = self.RecentModel?.result.time as? String ?? "00:00:00"
+// "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
             case .requestErr:
                 print(".requestErr")
             case .pathErr:
@@ -136,8 +142,6 @@ extension ResultRunningVC {
         shareButton.setTitle(nil, for: .normal)
         
         myProfileBox.image = UIImage(named: "whiteboxRecdetailactivityMyrecord")
-       // myProfileImage.image = UIImage(named: profileImageStruct[(RecentModel?.result.image as? Int ?? 0) - 1])
-        print("ddd",RecentModel?.result.image as? Int ?? 0)
         yourProfileBox.image = UIImage(named: "whiteboxRecdetailactivityAnoterrunnerrecord")
         
         
