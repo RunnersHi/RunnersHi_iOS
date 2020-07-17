@@ -122,6 +122,13 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
           present(popupVC, animated: true, completion: nil)
     }
     
+    @IBAction func whatIsLevelPupUp(_ sender: Any) {
+        let storyBoard = UIStoryboard.init(name: "Sign", bundle: nil)
+        let levPopUpVC = storyBoard.instantiateViewController(withIdentifier: "RunningLevelPopUpVC")
+        levPopUpVC.modalPresentationStyle = .overCurrentContext
+        present(levPopUpVC, animated: true, completion: nil)
+        
+    }
     
     @IBAction func signUpActionButton(_ sender: Any) {
         let tabStoryBoard = UIStoryboard.init(name: "Tab", bundle: nil)
