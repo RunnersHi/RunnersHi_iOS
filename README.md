@@ -62,15 +62,8 @@
 ### C-1. 개발 설명
 
 #### Tab Bar
-> 개발 - 김민희 <br>
 
 : Tab Bar을 이용해 각 스토리보드를 이어주며 이동 가능
-
-|  기능|  구현 | 비고 |
-|:--------|:--------:|--------:|
-|Custom Tabbar 생성 | 🔵 | |
-|각 스토리보드 잇기| 🔵 | |
-|Tabbar| 🔵 | |
 
 
 #### 회원가입, 로그인 화면
@@ -111,8 +104,8 @@
 
 ------------
 
-### B-4. HealthKit(🌟새로 알게 된 기능🌟)
-> 💪🏻운동 어플의 기본! '건강' 어플리케이션 연동해서 값 가져오기 ! 도전 !💪🏻
+### C-2. HealthKit(🌟새로 알게 된 기능🌟)
+> 💪🏻운동 어플의 기본! '건강' 어플리케이션 연동해서 값 가져오기 ! 도전 !💪🏻 
 
 1. 먼저 건강 어플리케이션을 연동하려면 Apple Developer Program Membership 이 필요합니다 (유료)
 2. Capability에서 Healthkit를 추가해 활성화 시켜줍니다.
@@ -171,8 +164,49 @@
       completion(success, error)
     }
    ```
-   
+
+ > 실시간 통신 인생 첫 소켓 통신 도전 !💪🏻
+ 
+ ```swift
+ import SocketIO
+    static let shared = SocketIOManager()
+    var manager = SocketManager(socketURL: URL(string: "소켓주소")!, config: [.log(true), .compress])
+    var socket: SocketIOClient!
+    
+    FindRunnerVC.socket = FindRunnerVC.self.manager.socket(forNamespace: "/matching")
+ ```
+ 
+  : 어플에서 소켓 통신을 쓰는 범위는 매칭 러너는 찾을 때부터 게임이 끝나고 결과 비교 전까지 소켓 통신을 사용했습니다. <br>
+ 한 뷰에서만 소켓 통신이 쓰이는 것이 아니라 소켓이 연결돼서 여러 뷰를 통과하기 때문에 싱글톤(static)을 사용해서 통신을 이어갔습니다. <br>
+ 
+```swift
+   FindRunnerVC.socket.on("start", callback: { (data, ack) in
+     FindRunnerVC.self.socket.emit("joinRoom",myToken,myGoal,myWantGender,self.leftTime)
+        })
+```
+
+: 서버는 시작해도 좋다는 응답 -> 클라는 내 정보와 내가 원하는 상대의 조건을 보내준다.
+<br>
+```swift
+        FindRunnerVC.socket.on("roomCreated", callback: { (data, ack) in
+            FindRunnerVC.self.socket.emit("startCount",data[0] as! SocketData)
+        })
+```
+: 내가 원하는 조건의 상대를 찾지 못한다면 서버는 새로운 받을 만들어서 나를 넣어주고 -> 클라는 시간 카운트를 하라고 알려준다. roomCreated 때 받는 정보인 data[0]은 내가 속해있는 방의 번호가 된다.
+<br>
+```swift
+        FindRunnerVC.socket.on("matched", callback: { (data, ack) in
+            FindRunnerVC.self.socket.emit("endCount",data[0] as! SocketData)
+        })
+ ```
+ : 대기중에 상대를 찾았을때는 서버는 matched와 data[0]으로 내가 속한 방 이름을 보내주고, 클라에서는 사용자가 속한 방의 이름과 endCount를 보내준다.
+  <br>
+ ```swift
+         FindRunnerVC.socket.emit("compareResult",UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2,UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0,array2,UserDefaults.standard.object(forKey: "createdTime") as? String ?? " ",UserDefaults.standard.object(forKey: "endTime") as? String ?? " ")
+ ```
+ : 러닝 게임이 끝나면 나의 방 번호, 달린 거리, 달린 시간, 방 번호, 지도 위치, 시작한 시간, 끝난 시간을 함께 보내준다.
+ 
 ------------
-### C. 팀원 역할 및 소개
+### D. 팀원 역할 및 소개
 - 김민희 [ Repo ](https://www.notion.so/Kim-Min-Hee-b8c50856e43943ce9611baea5c14dd8b) : 러너스하이 iOS 리드개발자, MainTab 구현 및 소켓 통신 담당 <br>
 - 최영재 [ Repo ](https://github.com/realwhyjay) : 러너스하이 iOS 서브개발자, RankTab / RecordTab / MyPabeTab / SignTab 담당 및 http 통신 담당
