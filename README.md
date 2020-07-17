@@ -81,7 +81,8 @@
 
 : 매칭이 되면 상대방 프로필을 확인한 후, 러닝이 시작된다. 실시간으로 자신의 속도(km), 페이스(pace), 남은 시간이 표시되고 현재 자신이 뛰고있는 위치가 지도(네이버)를 통해 표시된다.
 
-<img width="200" alt="매칭된러너프로필" src="https://user-images.githubusercontent.com/51286963/87796841-e0254a80-c884-11ea-93cd-25f0d258638a.PNG"> <img width="200" alt="매칭_러닝중" src="https://user-images.githubusercontent.com/51286963/87796853-e4e9fe80-c884-11ea-98c2-9d7cb5e6a146.PNG">
+<img width="200" alt="매칭된러너프로필" src="https://user-images.githubusercontent.com/51286963/87796841-e0254a80-c884-11ea-93cd-25f0d258638a.PNG"> <img width="200" alt="매칭_러닝중" src="https://user-images.githubusercontent.com/51286963/87796853-e4e9fe80-c884-11ea-98c2-9d7cb5e6a146.PNG"><img width="200" alt="졌다" src="https://user-images.githubusercontent.com/51286963/87799758-90e11900-c888-11ea-8427-e297a727eb00.png"><img width="200" alt="이겼다" src="https://user-images.githubusercontent.com/51286963/87799763-92aadc80-c888-11ea-98fd-eb77e28c1044.png">
+
 
 #### Record Tab
 
@@ -247,6 +248,7 @@ editingChanged를 활용한 함수를 선언해주어 실시간으로 조건에 
 
 회원가입시에 사용자의 추가 정보를 입력해야하는 부분을 처음에는 단순하게 버튼으로 구현하려고 하였다. 그러나 사용자가 하나의 선택지만을 선택해야하고, 그 값만을 서버에 전달해야하는 조건 탓에 일반 버튼으로는 기획을 구현할 수가 없었다. 그렇기에 컬렉션 뷰에서 IsSelected를 활용하여 사용자가 하나만의 선택지를 고를 수 있게 구현하였다. 안드로이드에서는 기본적으로 제공되는 기능이지만, iOS에서는 일일이 구현해주어야하는 기능이었다. 전혀 알지 못하던 기능이었기에 많은 사람들의 도움을 받았고, 구글링과 작업을 하는데에 많은 시간이 들었다.
 
+#### 4) CoreMotion
 
 ------------
 ### D. 팀원 역할 및 소개
