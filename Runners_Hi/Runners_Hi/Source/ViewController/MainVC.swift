@@ -110,26 +110,26 @@ class MainVC: UIViewController {
             
         }
     }
-    private func authorizeHealthKit() {
-      
-      HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
-        
-        guard authorized else {
-          
-          let baseMessage = "HealthKit Authorization Failed"
-          
-          if let error = error {
-            print("\(baseMessage). Reason: \(error.localizedDescription)")
-          } else {
-            print(baseMessage)
-          }
-          
-          return
-        }
-        print("HealthKit Successfully Authorized.")
-        
-      }
-    }
+//    private func authorizeHealthKit() {
+//      
+//      HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
+//        
+//        guard authorized else {
+//          
+//          let baseMessage = "HealthKit Authorization Failed"
+//          
+//          if let error = error {
+//            print("\(baseMessage). Reason: \(error.localizedDescription)")
+//          } else {
+//            print(baseMessage)
+//          }
+//          
+//          return
+//        }
+//        print("HealthKit Successfully Authorized.")
+//        
+//      }
+//    }
     @objc func handleDismiss() {
         popUpTableView.isHidden = true
     }
@@ -158,12 +158,12 @@ extension MainVC: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath == [0,0] {
-            authorizeHealthKit()
+            //authorizeHealthKit()
             guard let PopUpPush = self.storyboard?.instantiateViewController(identifier:"MatchingGoalVC") as? MatchingGoalVC else {return}
             PopUpPush.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(PopUpPush, animated: true)
         } else {
-            authorizeHealthKit()
+           // authorizeHealthKit()
         }
     }
     

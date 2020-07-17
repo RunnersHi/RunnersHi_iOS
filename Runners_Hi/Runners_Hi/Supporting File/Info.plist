@@ -27,16 +27,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
-	<string>건강앱에 접근할 수 있습니다3</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>이를 허용하면 운동 기록을 동기화할 수 있습니다.</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>이를 허용하면 운동 기록을 동기화할 수 있습니다.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>사용자의 위치를 받습니다.</string>
+	<string>이를 허용하면 사용자의 위치를 받습니다.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>사용자의 위치를 받습니다.</string>
+	<string>이를 허용하면 사용자의 위치를 받습니다.</string>
 	<key>NSMotionUsageDescription</key>
 	<string>이를 허용하면 운동 기록을 동기화할 수 있습니다.</string>
 	<key>UIAppFonts</key>
@@ -60,7 +54,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Sign</string>
+					<string>CustomLaunchScreen</string>
 				</dict>
 			</array>
 		</dict>
@@ -68,7 +62,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Sign</string>
+	<string>CustomLaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
