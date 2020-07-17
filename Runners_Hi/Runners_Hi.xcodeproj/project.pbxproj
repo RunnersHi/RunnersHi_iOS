@@ -70,6 +70,7 @@
 		3DCE6FFC24B4E61C00D29DBC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */; };
 		3DD5E62924C1BA7100598165 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD5E62824C1BA7100598165 /* SplashVC.swift */; };
 		3DD5E62B24C1BB5A00598165 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DD5E62A24C1BB5A00598165 /* splash.json */; };
+		3DD5E63324C1D10100598165 /* CustomLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DD5E63224C1D10100598165 /* CustomLaunchScreen.storyboard */; };
 		3DEED91024B57D82002D31A9 /* PopUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEED90F24B57D82002D31A9 /* PopUpCell.swift */; };
 		3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEED91124B57E00002D31A9 /* BattleInformation.swift */; };
 		3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA224ACB36B003B3187 /* AppDelegate.swift */; };
@@ -149,6 +150,7 @@
 		3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		3DD5E62824C1BA7100598165 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		3DD5E62A24C1BB5A00598165 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		3DD5E63224C1D10100598165 /* CustomLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomLaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DEED90F24B57D82002D31A9 /* PopUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCell.swift; sourceTree = "<group>"; };
 		3DEED91124B57E00002D31A9 /* BattleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleInformation.swift; sourceTree = "<group>"; };
 		3DF24F9F24ACB36B003B3187 /* Runners_Hi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runners_Hi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +284,7 @@
 				3DF24FC624ACFC13003B3187 /* RecordTab.storyboard */,
 				3DF24FC824ACFC21003B3187 /* MyPageTab.storyboard */,
 				3DA2EA1D24B24D0D0091F12F /* Tab.storyboard */,
+				3DD5E63224C1D10100598165 /* CustomLaunchScreen.storyboard */,
 			);
 			path = StoryBorads;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				3DF24FCD24AD0437003B3187 /* RunningTab.storyboard in Resources */,
 				3DF24FCB24AD0238003B3187 /* Sign.storyboard in Resources */,
 				3DA2EA1624B09E8C0091F12F /* NanumSquareExtraBold.ttf in Resources */,
+				3DD5E63324C1D10100598165 /* CustomLaunchScreen.storyboard in Resources */,
 				3D76A15524BC9B6800A58465 /* run.json in Resources */,
 				3DF24FC724ACFC13003B3187 /* RecordTab.storyboard in Resources */,
 				3DA2EA1824B09E900091F12F /* NanumSquareRegular.ttf in Resources */,
