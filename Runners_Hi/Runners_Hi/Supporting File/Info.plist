@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NMFClientId</key>
+	<string>ck4tzxiidt</string>
 	<key>NSMotionUsageDescription</key>
 	<string>이를 허용하면 운동 기록을 동기화할 수 있습니다.</string>
 	<key>NSAppTransportSecurity</key>

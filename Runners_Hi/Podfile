@@ -9,6 +9,8 @@ target 'Runners_Hi' do
   pod 'lottie-ios'
   pod 'XLPagerTabStrip', '~> 9.0'
   pod 'CHIPageControl', '~> 0.1.3'
+  pod 'NMapsMap'
+
   # Pods for Runners_Hi
 
 end
