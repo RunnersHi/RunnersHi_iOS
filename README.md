@@ -68,20 +68,22 @@
 
 #### 회원가입, 로그인 화면
 
-: 로그인, 회원가입 화면. 정규표현식 검사와 중복검사 자동로그인 기능을 포함한다.
+🥳 로그인, 회원가입 화면. 정규표현식 검사와 아이디, 닉네임 중복 검사 자동로그인 기능을 포함한다.<br>
 
 <img width="200" alt="로그인" src="https://user-images.githubusercontent.com/51286963/87795324-da2e6a00-c882-11ea-9283-50c586dcb760.png"> <img width="200" alt="회원가입_기본" src="https://user-images.githubusercontent.com/51286963/87795339-de5a8780-c882-11ea-96cc-ba0bc009fd57.png"> <img width="200" alt="회원가입_중간" src="https://user-images.githubusercontent.com/51286963/87795345-e0bce180-c882-11ea-809d-c124fb2e68ff.png"> <img width="200" alt="회원가입_완료" src="https://user-images.githubusercontent.com/51286963/87795354-e286a500-c882-11ea-90e2-3548a591766b.png">
 
-#### Running Tab - 홈화면
+#### Running Tab(홈 화면)
 
-: Main 화면. 일러스트롤 포함하며, Run now 버튼 클릭시 주요 기능은 매칭 서비스가 시작된다. 원하는 매칭 러너의 조건을 설정하고 매칭이 되면 상대방 프로필을 확인한 후, 러닝이 시작된다.
+🥳 Main 화면. 일러스트롤 포함하며, RUN NOW 버튼 클릭시 주요 기능은 매칭 서비스가 시작된다. 원하는 매칭 러너의 조건을 설정하고 매칭이 되면 상대방 프로필을 확인한 후, 러닝이 시작된다. <br>
+🤓 추후 develop으로 혼자 달리기를 통해 매칭이 안되는 사람들 혹은 혼자 러닝을 측정해보고 싶은 사람들을 위한 서비스를 제공하고자 한다.
+<br>
+<img width="200" alt="RunningTab" src="https://user-images.githubusercontent.com/51286963/87796596-891f7580-c884-11ea-8cf8-99b4282ce165.png"> <img width="200" alt="RunningTab-매칭" src="https://user-images.githubusercontent.com/51286963/87796611-8de42980-c884-11ea-9ef5-bf6b83d8c537.png"> <img width="200" alt="스크린샷 2020-07-17 오후 11 06 42" src="https://user-images.githubusercontent.com/51286963/87796615-8e7cc000-c884-11ea-9142-45a08d8d01f7.png"> <br><img width="200" alt="스크린샷 2020-07-17 오후 11 06 46" src="https://user-images.githubusercontent.com/51286963/87796620-8faded00-c884-11ea-8515-7d4529d50817.png"> <img width="200" alt="스크린샷 2020-07-17 오후 11 06 49" src="https://user-images.githubusercontent.com/51286963/87796623-90468380-c884-11ea-8def-714195e5e0c1.png">
 
+🥳 매칭이 되면 상대방 프로필을 확인한 후, 러닝이 시작된다. 실시간으로 자신의 속도(km), 페이스(pace), 남은 시간이 표시되고 현재 자신이 뛰고있는 위치가 지도(네이버)를 통해 표시된다.<br>
+🤓 현재는 자신이 있는 위치만 표시되지만, 추후 자신이 러닝한 경로가 뜨게 할 생각이다. (현재 네이버측에서 points 속성을 막아둔것으로 보여 구현하지 못한 아쉬움이 있다.)[네이버 지도 iOS SDK](https://navermaps.github.io/ios-map-sdk/guide-ko/5-7.html)
 
-<img width="200" alt="RunningTab" src="https://user-images.githubusercontent.com/51286963/87796596-891f7580-c884-11ea-8cf8-99b4282ce165.png"> <img width="200" alt="RunningTab-매칭" src="https://user-images.githubusercontent.com/51286963/87796611-8de42980-c884-11ea-9ef5-bf6b83d8c537.png"> <img width="200" alt="스크린샷 2020-07-17 오후 11 06 42" src="https://user-images.githubusercontent.com/51286963/87796615-8e7cc000-c884-11ea-9142-45a08d8d01f7.png"> <img width="200" alt="스크린샷 2020-07-17 오후 11 06 46" src="https://user-images.githubusercontent.com/51286963/87796620-8faded00-c884-11ea-8515-7d4529d50817.png"> <img width="200" alt="스크린샷 2020-07-17 오후 11 06 49" src="https://user-images.githubusercontent.com/51286963/87796623-90468380-c884-11ea-8def-714195e5e0c1.png">
-
-: 매칭이 되면 상대방 프로필을 확인한 후, 러닝이 시작된다. 실시간으로 자신의 속도(km), 페이스(pace), 남은 시간이 표시되고 현재 자신이 뛰고있는 위치가 지도(네이버)를 통해 표시된다.
-
-<img width="200" alt="매칭된러너프로필" src="https://user-images.githubusercontent.com/51286963/87796841-e0254a80-c884-11ea-93cd-25f0d258638a.PNG"> <img width="200" alt="매칭_러닝중" src="https://user-images.githubusercontent.com/51286963/87796853-e4e9fe80-c884-11ea-98c2-9d7cb5e6a146.PNG"><img width="200" alt="졌다" src="https://user-images.githubusercontent.com/51286963/87799758-90e11900-c888-11ea-8427-e297a727eb00.png"><img width="200" alt="이겼다" src="https://user-images.githubusercontent.com/51286963/87799763-92aadc80-c888-11ea-98fd-eb77e28c1044.png">
+<img width="180" alt="매칭된러너프로필" src="https://user-images.githubusercontent.com/51286963/87796841-e0254a80-c884-11ea-93cd-25f0d258638a.PNG"> <img width="180" alt="매칭_러닝중" src="https://user-images.githubusercontent.com/51286963/87796853-e4e9fe80-c884-11ea-98c2-9d7cb5e6a146.PNG"> <img width="180" alt="실시간러닝중" src="https://user-images.githubusercontent.com/51286963/87827334-ade01100-c8b5-11ea-8f5b-d069c660ac6e.gif">
+<br><img width="180" alt="졌다" src="https://user-images.githubusercontent.com/51286963/87799758-90e11900-c888-11ea-8427-e297a727eb00.png"><img width="180" alt="이겼다" src="https://user-images.githubusercontent.com/51286963/87799763-92aadc80-c888-11ea-98fd-eb77e28c1044.png">
 
 
 #### Record Tab
@@ -257,3 +259,7 @@ editingChanged를 활용한 함수를 선언해주어 실시간으로 조건에 
 ### D. 팀원 역할 및 소개
 - 김민희 [ Repo ](https://www.notion.so/Kim-Min-Hee-b8c50856e43943ce9611baea5c14dd8b) : 러너스하이 iOS 리드개발자, MainTab 구현 및 소켓 통신 담당 <br>
 - 최영재 [ Repo ](https://github.com/realwhyjay) : 러너스하이 iOS 서브개발자, RankTab / RecordTab / MyPabeTab / SignTab 담당 및 http 통신 담당
+
+### 팀원들의 한마디
+- 민희 : 
+- 영재 : 
