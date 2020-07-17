@@ -104,7 +104,8 @@
 
 ------------
 
-### C-2. HealthKit(🌟새로 알게 된 기능🌟)
+### C-2. 🌟새로 알게 된 기능🌟
+#### 1) Healthkit
 > 💪🏻운동 어플의 기본! '건강' 어플리케이션 연동해서 값 가져오기 ! 도전 !💪🏻 
 
 1. 먼저 건강 어플리케이션을 연동하려면 Apple Developer Program Membership 이 필요합니다 (유료)
@@ -165,7 +166,7 @@
     }
    ```
 
- > 실시간 통신 인생 첫 소켓 통신 도전 !💪🏻
+#### 2) 실시간 통신 인생 첫 소켓 통신 도전 !💪🏻
  
  ```swift
  import SocketIO
@@ -206,6 +207,47 @@
  ```
  : 러닝 게임이 끝나면 나의 방 번호, 달린 거리, 달린 시간, 방 번호, 지도 위치, 시작한 시간, 끝난 시간을 함께 보내준다.
  
+#### 3) 회원가입 기능
+
+- 정규표현식과 실시간 입력 체크
+
+``` swift
+   private func loginCheck() {
+        idTextField.addTarget(self, action: #selector(idTextChecked(_:)), for: .editingChanged)
+        nickTextField.addTarget(self, action: #selector(nickTextChecked(_:)), for: .editingChanged)
+        pwTextField.addTarget(self, action: #selector(pwTextChecked(_:)), for: .editingChanged)
+        pwReTextField.addTarget(self, action: #selector(pwReTextChecked(_:)), for: .editingChanged)
+    }
+```
+
+editingChanged를 활용한 함수를 선언해주어 실시간으로 조건에 맞는 입력이 들어오는지 체크하고, 그에 따른 텍스트를 띄우거나, 조건에 맞아야 다른 동작들을 실행할 수 있도록 했다. 
+
+``` swift
+    func isValidNick(nick: String?) -> Bool {
+        guard nick != nil else { return false }
+        let regEx = "[ㄱ-ㅎㅏ-ㅣ가-힣A-Za-z0-9]{2,6}"
+        let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
+        return pred.evaluate(with: nick)
+    }
+```
+
+닉네임 정규표현 조건
+
+텍스트 필드가 조건에 맞지 않는다면, 오류 메세지와 함게 텍스트 필드의 디자인을 변경해주고 다음으로 넘어갈 수 있는  버튼을 비활성화 시키는 등의 구현을 했다. 정규표현식 자체보다는 실시간으로 사용자의 입력을 확인하여 조건을 검사해주는 부분이 어려웠는데, 우리 팀의 경우에는 회원가입시에 체크해야하는 조건이 다양했기 때문에 뷰를 짜는 과정이 까다롭고 시간이 오래걸렸다.  
+
+- 컬렉션 뷰와 IsSelected를 활용한 선택지 구현
+
+  ``` swift
+    override var isSelected: Bool {
+        willSet {
+            self.genderActionLabel.backgroundColor = newValue ? UIColor.lightishBlue : UIColor.brownishGrey
+            print(genderActionLabel.text ?? nil!)           
+
+  ```
+
+회원가입시에 사용자의 추가 정보를 입력해야하는 부분을 처음에는 단순하게 버튼으로 구현하려고 하였다. 그러나 사용자가 하나의 선택지만을 선택해야하고, 그 값만을 서버에 전달해야하는 조건 탓에 일반 버튼으로는 기획을 구현할 수가 없었다. 그렇기에 컬렉션 뷰에서 IsSelected를 활용하여 사용자가 하나만의 선택지를 고를 수 있게 구현하였다. 안드로이드에서는 기본적으로 제공되는 기능이지만, iOS에서는 일일이 구현해주어야하는 기능이었다. 전혀 알지 못하던 기능이었기에 많은 사람들의 도움을 받았고, 구글링과 작업을 하는데에 많은 시간이 들었다.
+
+
 ------------
 ### D. 팀원 역할 및 소개
 - 김민희 [ Repo ](https://www.notion.so/Kim-Min-Hee-b8c50856e43943ce9611baea5c14dd8b) : 러너스하이 iOS 리드개발자, MainTab 구현 및 소켓 통신 담당 <br>
