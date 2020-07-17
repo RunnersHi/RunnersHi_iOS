@@ -73,6 +73,18 @@ SOFTWARE.</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Copyright © 2018 NAVER Corp.
+All rights reserved.
+</string>
+			<key>License</key>
+			<string>APACHE</string>
+			<key>Title</key>
+			<string>NMapsMap</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2014-2015 Erik Little
