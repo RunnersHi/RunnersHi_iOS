@@ -106,6 +106,7 @@ extension ResultRunningVC {
                 self.OpponentRecentModel = response
                 self.view.reloadInputViews()
                 self.yourNickLabel.text = "\(self.OpponentRecentModel?.result.nickname as? String ?? " ")의 기록"
+                print(self.OpponentRecentModel?.result.nickname as? String ?? " ","바보똥개")
                 let meterDistance = self.OpponentRecentModel?.result.distance as? Int ?? 0
                 let KmDistance: Double = Double(meterDistance) / 1000
                 self.yourDistanceLabel.text = String(format: "%.2f", KmDistance)

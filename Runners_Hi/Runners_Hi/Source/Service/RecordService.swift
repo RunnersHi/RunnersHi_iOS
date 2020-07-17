@@ -73,7 +73,8 @@ struct RecordService {
     }
 
     func yourrecordloading(completion: @escaping (NetworkResult<Any>)->Void) {
-        let URL = APIConstants.opponentURL + "\(UserDefaults.standard.object(forKey: "runIdx") as? Int ?? 0)"
+        let URL = APIConstants.opponentURL + "\(UserDefaults.standard.object(forKey: "gameIdx") as? Int ?? 0)"
+        print(URL,"이걸보라구!")
         let headers: HTTPHeaders = ["Content-Type" : "application/json", "token" : UserDefaults.standard.object(forKey: "token") as? String ?? " "]
         
         

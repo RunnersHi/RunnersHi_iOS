@@ -68,6 +68,8 @@
 		3DCE6FF724B476FF00D29DBC /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE6FF624B476FF00D29DBC /* MainNavigationController.swift */; };
 		3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE6FF824B4E59500D29DBC /* HealthKitSetupAssistant.swift */; };
 		3DCE6FFC24B4E61C00D29DBC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */; };
+		3DD5E62924C1BA7100598165 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD5E62824C1BA7100598165 /* SplashVC.swift */; };
+		3DD5E62B24C1BB5A00598165 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DD5E62A24C1BB5A00598165 /* splash.json */; };
 		3DEED91024B57D82002D31A9 /* PopUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEED90F24B57D82002D31A9 /* PopUpCell.swift */; };
 		3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEED91124B57E00002D31A9 /* BattleInformation.swift */; };
 		3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA224ACB36B003B3187 /* AppDelegate.swift */; };
@@ -145,6 +147,8 @@
 		3DCE6FF824B4E59500D29DBC /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
 		3DCE6FFA24B4E61C00D29DBC /* Runners_Hi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runners_Hi.entitlements; sourceTree = "<group>"; };
 		3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		3DD5E62824C1BA7100598165 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		3DD5E62A24C1BB5A00598165 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		3DEED90F24B57D82002D31A9 /* PopUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCell.swift; sourceTree = "<group>"; };
 		3DEED91124B57E00002D31A9 /* BattleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleInformation.swift; sourceTree = "<group>"; };
 		3DF24F9F24ACB36B003B3187 /* Runners_Hi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runners_Hi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,6 +291,7 @@
 			children = (
 				3D76A15424BC9B6800A58465 /* count.json */,
 				3D76A15324BC9B6700A58465 /* run.json */,
+				3DD5E62A24C1BB5A00598165 /* splash.json */,
 				3DA2EA1924B1E7FF0091F12F /* MainVC.swift */,
 				3D8AD89424B32695006B5648 /* RankVC.swift */,
 				3D8AD89824B326BD006B5648 /* MyPageVC.swift */,
@@ -306,6 +311,7 @@
 				06F40AE324BCE780001E04FB /* RecordTabChildVC2.swift */,
 				3DB705A324C06334005BFA1C /* ResultRunningVC.swift */,
 				3DB705A924C166C4005BFA1C /* NaverMapVC.swift */,
+				3DD5E62824C1BA7100598165 /* SplashVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 				3DA2EA1E24B24D0D0091F12F /* Tab.storyboard in Resources */,
 				3DF24FC924ACFC21003B3187 /* MyPageTab.storyboard in Resources */,
 				3DF24FC324ACFB29003B3187 /* OnBoarding.storyboard in Resources */,
+				3DD5E62B24C1BB5A00598165 /* splash.json in Resources */,
 				3DF24FC524ACFB9C003B3187 /* RankingTab.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +540,7 @@
 				06F40AF624C0582D001E04FB /* MonthlyCell.swift in Sources */,
 				06F40AFA24C083BD001E04FB /* LoserCell.swift in Sources */,
 				3DB705AA24C166C4005BFA1C /* NaverMapVC.swift in Sources */,
+				3DD5E62924C1BA7100598165 /* SplashVC.swift in Sources */,
 				06F40ADD24BCD024001E04FB /* RecordTabParentVC.swift in Sources */,
 				06F40ABF24B5F785001E04FB /* LevelSelectCell.swift in Sources */,
 				3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */,

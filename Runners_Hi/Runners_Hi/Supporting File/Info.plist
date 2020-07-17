@@ -2,32 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>사용자의 위치를 받습니다.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>사용자의 위치를 받습니다.</string>
-	<key>NMFClientId</key>
-	<string>ck4tzxiidt</string>
-	<key>NSMotionUsageDescription</key>
-	<string>이를 허용하면 운동 기록을 동기화할 수 있습니다.</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
-	<string>건강앱에 접근할 수 있습니다3</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>이를 허용하면 운동 기록을 동기화할 수 있습니다.</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>이를 허용하면 운동 기록을 동기화할 수 있습니다.</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>NanumSquareRegular.ttf</string>
-		<string>NanumSquareLight.ttf</string>
-		<string>NanumSquareExtraBold.ttf</string>
-		<string>NanumSquareBold.ttf</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -37,7 +11,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>RUNNER&apos;S HI</string>
+	<string>RUNNER'S HI</string>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
@@ -46,6 +20,32 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NMFClientId</key>
+	<string>ck4tzxiidt</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>건강앱에 접근할 수 있습니다3</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>이를 허용하면 운동 기록을 동기화할 수 있습니다.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>이를 허용하면 운동 기록을 동기화할 수 있습니다.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>사용자의 위치를 받습니다.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>사용자의 위치를 받습니다.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>이를 허용하면 운동 기록을 동기화할 수 있습니다.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NanumSquareRegular.ttf</string>
+		<string>NanumSquareLight.ttf</string>
+		<string>NanumSquareExtraBold.ttf</string>
+		<string>NanumSquareBold.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -68,7 +68,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Sign</string>
+	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
