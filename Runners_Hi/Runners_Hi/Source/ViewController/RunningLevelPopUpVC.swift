@@ -9,7 +9,14 @@
 import UIKit
 
 class RunningLevelPopUpVC: UIViewController {
-    @IBOutlet weak var label: UILabel!
+  
+    @IBOutlet weak var runningLevName: UILabel!
+    @IBOutlet weak var heojup: UILabel!
+    @IBOutlet weak var lev1_1: UILabel!
+    @IBOutlet weak var lev1_2: UILabel!
+    @IBOutlet weak var lev1_3: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +33,7 @@ extension RunningLevelPopUpVC {
 
         
         label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        
         label.textColor = .white
         label.text = "러닝을 가끔만 하는 /n 5분만 뛰어도 숨이 차는 러닝 경쟁 쉬엄쉬엄 하고 싶은"
         
