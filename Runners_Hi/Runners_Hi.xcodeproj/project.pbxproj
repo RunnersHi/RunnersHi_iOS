@@ -56,6 +56,8 @@
 		3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2EA2124B24DD20091F12F /* TabBarController.swift */; };
 		3DB705A424C06335005BFA1C /* ResultRunningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB705A324C06334005BFA1C /* ResultRunningVC.swift */; };
 		3DB705A624C09153005BFA1C /* RecentMyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB705A524C09153005BFA1C /* RecentMyData.swift */; };
+		3DB705AA24C166C4005BFA1C /* NaverMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB705A924C166C4005BFA1C /* NaverMapVC.swift */; };
+		3DB705AC24C16740005BFA1C /* NaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB705AB24C16740005BFA1C /* NaverView.swift */; };
 		3DC11A9B24B9CD5500127718 /* RunActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC11A9A24B9CD5500127718 /* RunActivityVC.swift */; };
 		3DC2840E24B8047B0063439D /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2840D24B8047B0063439D /* SocketIOManager.swift */; };
 		3DC2841024B828330063439D /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2840F24B828330063439D /* APIConstants.swift */; };
@@ -70,6 +72,9 @@
 		3DCE6FF724B476FF00D29DBC /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE6FF624B476FF00D29DBC /* MainNavigationController.swift */; };
 		3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE6FF824B4E59500D29DBC /* HealthKitSetupAssistant.swift */; };
 		3DCE6FFC24B4E61C00D29DBC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */; };
+		3DD5E62924C1BA7100598165 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD5E62824C1BA7100598165 /* SplashVC.swift */; };
+		3DD5E62B24C1BB5A00598165 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DD5E62A24C1BB5A00598165 /* splash.json */; };
+		3DD5E63324C1D10100598165 /* CustomLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DD5E63224C1D10100598165 /* CustomLaunchScreen.storyboard */; };
 		3DEED91024B57D82002D31A9 /* PopUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEED90F24B57D82002D31A9 /* PopUpCell.swift */; };
 		3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEED91124B57E00002D31A9 /* BattleInformation.swift */; };
 		3DF24FA324ACB36B003B3187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF24FA224ACB36B003B3187 /* AppDelegate.swift */; };
@@ -134,6 +139,8 @@
 		3DA2EA2124B24DD20091F12F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3DB705A324C06334005BFA1C /* ResultRunningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRunningVC.swift; sourceTree = "<group>"; };
 		3DB705A524C09153005BFA1C /* RecentMyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentMyData.swift; sourceTree = "<group>"; };
+		3DB705A924C166C4005BFA1C /* NaverMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMapVC.swift; sourceTree = "<group>"; };
+		3DB705AB24C16740005BFA1C /* NaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverView.swift; sourceTree = "<group>"; };
 		3DC11A9A24B9CD5500127718 /* RunActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunActivityVC.swift; sourceTree = "<group>"; };
 		3DC2840D24B8047B0063439D /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		3DC2840F24B828330063439D /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -149,6 +156,9 @@
 		3DCE6FF824B4E59500D29DBC /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
 		3DCE6FFA24B4E61C00D29DBC /* Runners_Hi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runners_Hi.entitlements; sourceTree = "<group>"; };
 		3DCE6FFB24B4E61C00D29DBC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		3DD5E62824C1BA7100598165 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		3DD5E62A24C1BB5A00598165 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		3DD5E63224C1D10100598165 /* CustomLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomLaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DEED90F24B57D82002D31A9 /* PopUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCell.swift; sourceTree = "<group>"; };
 		3DEED91124B57E00002D31A9 /* BattleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleInformation.swift; sourceTree = "<group>"; };
 		3DF24F9F24ACB36B003B3187 /* Runners_Hi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runners_Hi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,6 +294,7 @@
 				3DF24FC624ACFC13003B3187 /* RecordTab.storyboard */,
 				3DF24FC824ACFC21003B3187 /* MyPageTab.storyboard */,
 				3DA2EA1D24B24D0D0091F12F /* Tab.storyboard */,
+				3DD5E63224C1D10100598165 /* CustomLaunchScreen.storyboard */,
 			);
 			path = StoryBorads;
 			sourceTree = "<group>";
@@ -293,6 +304,7 @@
 			children = (
 				3D76A15424BC9B6800A58465 /* count.json */,
 				3D76A15324BC9B6700A58465 /* run.json */,
+				3DD5E62A24C1BB5A00598165 /* splash.json */,
 				3DA2EA1924B1E7FF0091F12F /* MainVC.swift */,
 				3D8AD89424B32695006B5648 /* RankVC.swift */,
 				3D8AD89824B326BD006B5648 /* MyPageVC.swift */,
@@ -311,6 +323,8 @@
 				06F40ADF24BCE38A001E04FB /* RecordTabChildVC1.swift */,
 				06F40AE324BCE780001E04FB /* RecordTabChildVC2.swift */,
 				3DB705A324C06334005BFA1C /* ResultRunningVC.swift */,
+				3DB705A924C166C4005BFA1C /* NaverMapVC.swift */,
+				3DD5E62824C1BA7100598165 /* SplashVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -364,6 +378,7 @@
 			children = (
 				3DCE6FF624B476FF00D29DBC /* MainNavigationController.swift */,
 				3DA2EA2124B24DD20091F12F /* TabBarController.swift */,
+				3DB705AB24C16740005BFA1C /* NaverView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -454,12 +469,14 @@
 				3DF24FCD24AD0437003B3187 /* RunningTab.storyboard in Resources */,
 				3DF24FCB24AD0238003B3187 /* Sign.storyboard in Resources */,
 				3DA2EA1624B09E8C0091F12F /* NanumSquareExtraBold.ttf in Resources */,
+				3DD5E63324C1D10100598165 /* CustomLaunchScreen.storyboard in Resources */,
 				3D76A15524BC9B6800A58465 /* run.json in Resources */,
 				3DF24FC724ACFC13003B3187 /* RecordTab.storyboard in Resources */,
 				3DA2EA1824B09E900091F12F /* NanumSquareRegular.ttf in Resources */,
 				3DA2EA1E24B24D0D0091F12F /* Tab.storyboard in Resources */,
 				3DF24FC924ACFC21003B3187 /* MyPageTab.storyboard in Resources */,
 				3DF24FC324ACFB29003B3187 /* OnBoarding.storyboard in Resources */,
+				3DD5E62B24C1BB5A00598165 /* splash.json in Resources */,
 				3DF24FC524ACFB9C003B3187 /* RankingTab.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,6 +557,8 @@
 				3DB705A624C09153005BFA1C /* RecentMyData.swift in Sources */,
 				06F40AF624C0582D001E04FB /* MonthlyCell.swift in Sources */,
 				06F40AFA24C083BD001E04FB /* LoserCell.swift in Sources */,
+				3DB705AA24C166C4005BFA1C /* NaverMapVC.swift in Sources */,
+				3DD5E62924C1BA7100598165 /* SplashVC.swift in Sources */,
 				06F40ADD24BCD024001E04FB /* RecordTabParentVC.swift in Sources */,
 				06F40ABF24B5F785001E04FB /* LevelSelectCell.swift in Sources */,
 				3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */,
@@ -547,6 +566,7 @@
 				06F40AE024BCE38A001E04FB /* RecordTabChildVC1.swift in Sources */,
 				06F40AD124B96BA1001E04FB /* LoginData.swift in Sources */,
 				3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */,
+				3DB705AC24C16740005BFA1C /* NaverView.swift in Sources */,
 				06F40AC324B6353E001E04FB /* OpenSelectCell.swift in Sources */,
 				066DED1A24C1873F00A2C440 /* MyProfileService.swift in Sources */,
 				3DCDF01724B5FE13003F47CE /* MatchingGoalVC.swift in Sources */,

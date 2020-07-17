@@ -42,6 +42,11 @@ class ResultRunningVC: UIViewController {
     }
     
     override func viewDidLoad() {
+        detailButton.titleLabel?.text = "기록 자세히 보기"
+        detailButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
+        detailButton.titleLabel?.textColor = .white
+        detailButton.tintColor = UIColor.lightishBlue
+        detailButton.layer.cornerRadius = 8
         super.viewDidLoad()
         getRecentData()
         getRecentOpponentData()
@@ -106,6 +111,7 @@ extension ResultRunningVC {
                 self.OpponentRecentModel = response
                 self.view.reloadInputViews()
                 self.yourNickLabel.text = "\(self.OpponentRecentModel?.result.nickname as? String ?? " ")의 기록"
+                print(self.OpponentRecentModel?.result.nickname as? String ?? " ","바보똥개")
                 let meterDistance = self.OpponentRecentModel?.result.distance as? Int ?? 0
                 let KmDistance: Double = Double(meterDistance) / 1000
                 self.yourDistanceLabel.text = String(format: "%.2f", KmDistance)
@@ -171,10 +177,7 @@ extension ResultRunningVC {
         yourPaceLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 26)
         yourTimeLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 26)
         
-        detailButton.titleLabel?.text = "기록 자세히 보기"
-        detailButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
-        detailButton.titleLabel?.textColor = .white
-        detailButton.tintColor = UIColor.lightishBlue
+        
     }
     func setView() {
         

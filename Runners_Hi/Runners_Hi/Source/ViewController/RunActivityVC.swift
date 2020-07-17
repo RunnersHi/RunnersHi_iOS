@@ -7,11 +7,13 @@
 //
 
 import UIKit
-//import HealthKit
+
 import CoreMotion
 import SocketIO
+import NMapsMap
+import CoreLocation
 
-class RunActivityVC: UIViewController {
+class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     
     let stopColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
     let startColor = UIColor(red: 0.0, green: 0.75, blue: 0.0, alpha: 1.0)
@@ -22,20 +24,20 @@ class RunActivityVC: UIViewController {
     var averagePace:Double! = nil
     var pace:Double! = nil
     var kmDistance:Double! = nil
-     
-    //the pedometer
+    
+    var locationManager:CLLocationManager!
+    
+    @IBOutlet weak var scrolleView: UIScrollView!
+
     var pedometer = CMPedometer()
-     var move: Int = 0
-    // timers
+    var move: Int = 0
     var timer = Timer()
     var timerInterval = 1.0
     var timeElapsed:TimeInterval = 1.0
-    //
     
-    //let healthStore = HKHealthStore()
     var moveTime: Float = 0.0
-    //var maxTime: Float = UserDefaults.standard.object(forKey: "myGoalTime") as? Float ?? 0
-    var maxTime: Float = 60.0
+    var maxTime: Float = UserDefaults.standard.object(forKey: "myGoalTime") as? Float ?? 0
+    //var maxTime: Float = 60.0
     var limitTime: Int = UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0
     var nowKmeter: Double = 0.0
     var get5secKm: Double = 0.0
@@ -77,9 +79,12 @@ class RunActivityVC: UIViewController {
     
     @IBOutlet weak var runningStopButton: UIButton!
     
+    @IBOutlet var view1: UIView!
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var naverView: UIView!
+    
     override func viewDidLoad() {
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
+        
         secToTime(sec: limitTime)
         pedometer = CMPedometer()
         startTimer()
@@ -100,26 +105,23 @@ class RunActivityVC: UIViewController {
                 self.numberOfSteps = nil
             }
         })
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
         FindRunnerVC.socket.on("endRunning", callback: { (data, ack) in
             UserDefaults.standard.set(self.formatter.string(from: Date()), forKey: "endTime")
             guard let FinishRun = self.storyboard?.instantiateViewController(identifier:"RunFinishVC") as? RunFinishVC else {return}
             self.navigationController?.pushViewController(FinishRun, animated: true)
         })
             
-        
-        
+
         perform(#selector(runProgressbar), with: nil, afterDelay: 0.0)
 
         super.viewDidLoad()
+        setMap()
         setView()
         setLabel()
         setOpponentProfile()
-        
-
-       // FindRunnerVC.shared.startSocket()
-        //perform(#selector(get5secKmeter), with: nil, afterDelay: 5.0)
-        
-        
+            
     }
 }
 
@@ -127,6 +129,8 @@ class RunActivityVC: UIViewController {
 
 extension RunActivityVC {
     func startTimer(){
+//        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
         if timer.isValid { timer.invalidate() }
         timer = Timer.scheduledTimer(timeInterval: timerInterval,target: self,selector: #selector(timerAction(timer:)) ,userInfo: nil,repeats: true)
     }
@@ -134,27 +138,19 @@ extension RunActivityVC {
         displayPedometerData()
     }
     func displayPedometerData(){
-//        timeElapsed += 1.0
-//        print("붸",timeElapsed)
-//
-//
-        //distance
+
         if let distance = self.distance {
         opponentKmLabel.text = String(format:"%02.02f",distance/1000)
-//            print(distance,moveTime,"요기요~~")
             let pace1 = Int(moveTime/Float(distance/1000))
             let pace2 = Int(pace1/60)
             let pace3 = Int(pace1%60)
-//            print(pace1,pace2,pace3,"하잉용")
             
             if pace2 >= 60 {
                 opponentPaceLabel.text = "_'__''"
             } else {
             opponentPaceLabel.text = String(pace2) + "'" + String(pace3) + "''"
             }
-            
         }
-
    }
     
     
@@ -164,8 +160,6 @@ extension RunActivityVC {
     }
     
     func setLabel() {
-
-       // perform(#selector(getSetTime), with: nil, afterDelay: 0.0)
         levelLabel.text = "Lv."
         levelLabel.font = UIFont(name: "NanumSquare", size: 12)
         
@@ -188,7 +182,7 @@ extension RunActivityVC {
         } else {
             finishTimeLabel.text = "1:30:00"
         }
-       // finishTimeLabel.text = maxTime
+        
         finishTimeLabel.font = UIFont(name: "NanumSquareB", size: 14)
         
         kmLabel.text = "킬로미터"
@@ -211,7 +205,7 @@ extension RunActivityVC {
     }
     
     func setView() {
-        
+
         lockButton.setBackgroundImage(UIImage(named: "iconUnlock"), for: .normal)
         lockButton.setTitle(nil, for: .normal)
         
@@ -261,9 +255,7 @@ extension RunActivityVC {
             runProgressBar.progress = moveTime/maxTime
             perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
         } else {
-//            print("끝")
             moveTime = 0.0
-//            print(distance,"뽀잉")
             if distance == nil {
                 move = 1
             } else {
@@ -285,13 +277,13 @@ extension RunActivityVC {
             } else {
                 opponentLeftTimeLabel.text = String(hour) + ":" + String(minute) + ":" + String(second)
             }
-//
-//           print("여기",String(hour) + ":" + String(minute) + ":" + String(second))
+
             if moveTime < maxTime {
                 perform(#selector(getSetTime), with: nil, afterDelay: 1.0)
             }
 
        }
+
         @objc func getSetTime() {
         if moveTime < maxTime {
             secToTime(sec: limitTime)
@@ -299,14 +291,30 @@ extension RunActivityVC {
             } else {
                 opponentLeftTimeLabel.text = "00:00:00"
             }
-//        else if moveTime == maxTime {
-//            print("뇸")
-//            finalKm = Int(distance)
-//            print(finalKm,"똥",type(of: finalKm))
-//                guard let FindRunnerVC = self.storyboard?.instantiateViewController(identifier:"FindRunnerVC") as? FindRunnerVC else {return}
-//                FindRunnerVC.finishRun(distance: finalKm)
-//            }
+
+    }
+    @objc func setMap() {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.requestWhenInUseAuthorization()
+                
+            let coor = locationManager.location?.coordinate
+            let latiutd = (coor?.latitude) ?? 0.00
+            let longitud = (coor?.longitude) ?? 0.00
+                
+            let mapView = NMFMapView(frame: naverView.bounds)
+            naverView.addSubview(mapView)
+            mapView.positionMode = .direction
+
+            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latiutd, lng: longitud))
+            cameraUpdate.animation = .easeIn
+            cameraUpdate.animationDuration = 1
+            mapView.moveCamera(cameraUpdate)
+            
 
     }
 
+
 }
+
+

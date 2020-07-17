@@ -29,7 +29,7 @@ class RunFinishVC: UIViewController {
         setView()
         
         FindRunnerVC.socket.on("compareResult", callback: { (data, ack) in
-            UserDefaults.standard.set(data[1], forKey: "runIdx")
+            UserDefaults.standard.set(data[0], forKey: "gameIdx")
             FindRunnerVC.socket.disconnect()
             self.goButton.backgroundColor = UIColor.lightishBlue
             self.goButton.isSelected = true
@@ -47,8 +47,8 @@ extension RunFinishVC {
         let threedic : [String : Double] = ["latitude":37.49929833333333,"longitude":127.02822666666667]
         let fourdic : [String : Double] = ["latitude":37.499696666666665,"longitude":127.02766333333332]
         let array2 = [onedic, twodic,threedic,fourdic]
-//        FindRunnerVC.socket.emit("compareResult",UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2,UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0,array2,UserDefaults.standard.object(forKey: "createdTime") as? String ?? " ",UserDefaults.standard.object(forKey: "endTime") as? String ?? " ")
-        FindRunnerVC.socket.emit("compareResult",UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2,60,array2,UserDefaults.standard.object(forKey: "createdTime") as? String ?? " ",UserDefaults.standard.object(forKey: "endTime") as? String ?? " ")
+        FindRunnerVC.socket.emit("compareResult",UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2,UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0,array2,UserDefaults.standard.object(forKey: "createdTime") as? String ?? " ",UserDefaults.standard.object(forKey: "endTime") as? String ?? " ")
+//        FindRunnerVC.socket.emit("compareResult",UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2,60,array2,UserDefaults.standard.object(forKey: "createdTime") as? String ?? " ",UserDefaults.standard.object(forKey: "endTime") as? String ?? " ")
         finishLabel.text = "FINISH!"
         finishLabel.textAlignment = .center
         finishLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 52)
