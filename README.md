@@ -1,7 +1,7 @@
 # RUNNERS HI - iOS
 🏃🏻‍♂️🏃🏻‍♀️ 러너스하이 iOS "진심" 레포 🏃🏻‍♂️🏃🏻‍♀️
 
-![logo_runnershi](https://user-images.githubusercontent.com/51286963/86894016-6af79e00-c13d-11ea-8f03-012e98962257.jpg)
+<img width="400" src="https://user-images.githubusercontent.com/51286963/87784132-ad715700-c870-11ea-9ba6-d67ffe063c0a.png">
 
 ## 러닝을 게임처럼, 러너스하이
 > 우리는 '함께' 뛸 때 더 많은 시너지를 만들어냅니다. 요즘 세대들은 러닝 크루에 소속되어 러닝을 즐기곤 하지만, Offline 러닝크루는 고정된 시간과 장소라는 한계점을 가지고 있습니다.  우리는 같이 달리고 싶지만, 달릴 수 없는 순간들이 존재한다는 점에 집중하고자 합니다.  우리의 서비스를 통해 시공간의 제약없이 다양한 사람들과 함께 달림으로써 건강한 라이프 스타일을 만들어나가길 바랍니다. 
@@ -25,15 +25,43 @@
 ![Xcode](https://img.shields.io/badge/Xcode-11.5-blue)
 ![swift](https://img.shields.io/badge/swift-5.0-green)
 ![Alamofire](https://img.shields.io/badge/Alamofire-4.8.2-orange)
+![Socket.IO-Client-Swift](https://img.shields.io/badge/Socket.IO--Client--Swift-15.2.0-blue)
+![XLPagerTabStrip](https://img.shields.io/badge/XLPagerTabStrip-9.0-yellow)
+![NMapsMape](https://img.shields.io/badge/NMapsMape-3.x-red)
   
 ------------
+### B-2. WORKFLOW
 
-### B-2. 기능 명세서
-<img width="827" alt="스크린샷 2020-07-08 오후 8 13 05" src="https://user-images.githubusercontent.com/51286963/86912193-866fa280-c157-11ea-9abb-3ec1230a6946.png">
-: 서버 연동, 특히 소켓 통신 중심이라 아직 공부 중 입니다.
+![최종과제  RUNNER'S HI WORKFLOW_page-0001](https://user-images.githubusercontent.com/51286963/87786064-4c4b8280-c874-11ea-8b41-86404fccc6df.jpg)
 
 ------------
-### B-3. 현재 개발 상황
+
+### B-3. 기능 명세서
+
+|  우선순위 |  화면 이름 | 기능 이름 | 구현 |담당자|
+|:--------|:--------:|--------:| --------:|--------:|
+|P1 | 회원 가입 |기본 데이터(닉네임/아이디/비밀번호/성별/레벨) 받기 |🔵|최영재|
+|P2 | 튜토리얼 |스플래쉬|🔵|김민희|
+|P1 | 매칭화면 |매칭 데이터(목표시간/상대 성별)받기|🔵|김민희|
+|P1 | 매칭화면 |매칭 기준(목표시간/성별/레벨)에 따라 매칭러너 찾기|🔵|김민희|
+|P1 | 매칭성공화면 |상대러너 프로필, 레벨, 전적 보여주기|🔵|김민희|
+|P1 | 로그인 |로그인 기능|🔵|최영재|
+|P1 | 러닝중화면 |실시간으로 러닝거리, 페이스, 남은 시간 보여주기 |🔵|김민희|
+|P1 | 러닝중화면 |카운트다운 |🔵|김민희|
+|P1 | 러닝중화면 |휴대폰 사용자 동작 및 피트니스 활동 접근|🔵|김민희|
+|P2 | 러닝중화면 |현재 위치 표시|🔵|김민희|
+|P2 | 러닝랭킹화면 |1) 이동거리 높은순 2)승이 많은 순 3)패가 많은 순 사용자 랭킹|🔵|최영재|
+|P2 | 러닝기록화면 |나의 러닝데이터 모아서 보여주기 기능|🔵|최영재|
+|P2 | 러닝기록화면 |러닝 뱃지 모아서 보여주기 기능|🔵|최영재|
+|P2 | 러닝결과화면 |두 러너의 이동거리 비교 기능|🔵|김민희|
+|P1 | 러닝결과화면 |나의 기록/상대러너 기록 모아서 보여주기 기능 |🔵|김민희|
+|P2 | 마이페이지 |나의 프로필 이미지/닉네임/승패/레벨/뱃지 표시|🔵|최영재|
+
+<img width="361" alt="영재" src="https://user-images.githubusercontent.com/51286963/86928997-479a1680-c170-11ea-8c8f-28fb271ca8af.png">
+
+
+------------
+### C-1. 현재 개발 상황
 #### Tab Bar
 > 담당 김민희 <br>
 
