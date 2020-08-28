@@ -232,10 +232,10 @@
             </objects>
             <point key="canvasLocation" x="1140.5797101449277" y="-861.16071428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--Badge DetailVC-->
         <scene sceneID="RTb-8P-fDN">
             <objects>
-                <viewController id="nQ2-jc-Swz" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BadgeDetailVC" id="nQ2-jc-Swz" customClass="BadgeDetailVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cE4-Rj-PSU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

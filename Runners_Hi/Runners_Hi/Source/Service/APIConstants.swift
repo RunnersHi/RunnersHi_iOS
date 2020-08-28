@@ -26,6 +26,9 @@ struct APIConstants {
     static let recentURL = APIConstants.baseURL + "/record/recent"
     //마이페이지
     static let myprofileURL = APIConstants.baseURL + "/user/myProfile"
+    static let badgedatilURL = APIConstants.baseURL + "/badge/detail/"
+    
+    
 
     
 }

@@ -854,13 +854,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlW-rg-Ckd">
-                                <rect key="frame" x="81.5" y="364" width="212" height="20.5"/>
+                                <rect key="frame" x="166.5" y="364" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e6M-Pq-yy8">
-                                <rect key="frame" x="100.5" y="495.5" width="174" height="13"/>
+                                <rect key="frame" x="132.5" y="495.5" width="110" height="13"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKD-Td-iwN">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="13"/>
@@ -873,7 +873,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cag-Mf-FBL">
-                                        <rect key="frame" x="68" y="0.0" width="106" height="13"/>
+                                        <rect key="frame" x="68" y="0.0" width="42" height="13"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -889,8 +889,6 @@
                             <constraint firstItem="PbQ-bh-KF8" firstAttribute="top" secondItem="9ka-Rd-l6V" secondAttribute="bottom" constant="46" id="OGk-gT-ZsZ"/>
                             <constraint firstItem="dlW-rg-Ckd" firstAttribute="top" secondItem="eok-rm-n3a" secondAttribute="bottom" constant="12" id="TIH-lJ-Uon"/>
                             <constraint firstItem="9ka-Rd-l6V" firstAttribute="top" secondItem="4V1-U6-OH3" secondAttribute="top" constant="98" id="TjE-Ka-ylR"/>
-                            <constraint firstItem="Cag-Mf-FBL" firstAttribute="width" secondItem="s3x-yn-kd0" secondAttribute="width" multiplier="106/375" id="U7o-D2-dIT"/>
-                            <constraint firstItem="dlW-rg-Ckd" firstAttribute="width" secondItem="s3x-yn-kd0" secondAttribute="width" multiplier="212/375" id="aUo-Xq-O28"/>
                             <constraint firstItem="e6M-Pq-yy8" firstAttribute="centerX" secondItem="s3x-yn-kd0" secondAttribute="centerX" id="dVY-UP-Us4"/>
                             <constraint firstItem="eok-rm-n3a" firstAttribute="width" secondItem="s3x-yn-kd0" secondAttribute="width" multiplier="275/375" id="fEx-9H-duk"/>
                             <constraint firstItem="e6M-Pq-yy8" firstAttribute="top" secondItem="8ZX-Hh-FuB" secondAttribute="bottom" constant="24" id="fjP-xV-Fq4"/>
