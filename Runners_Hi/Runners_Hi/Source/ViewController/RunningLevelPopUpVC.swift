@@ -53,7 +53,6 @@ extension RunningLevelPopUpVC {
         }
     
     private func whatLevSet() {
-        self.view.backgroundColor = .white
         
         runningLevName.font = UIFont(name: "NanumSquareB", size: 18.0 )
         heojup.font = UIFont(name: "NanumSquareB", size: 18.0 )

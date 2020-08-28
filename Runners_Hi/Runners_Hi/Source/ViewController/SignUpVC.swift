@@ -152,15 +152,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
 
                 receiveViewController.modalPresentationStyle = .fullScreen
                 self.present(receiveViewController, animated: true, completion: nil)
-//                self.dismiss(animated: true, completion: nil)
-//                self.show(receiveViewController, sender: self)
-                //이동
-                
-//                guard let tabbarController = tabStoryBoard.instantiateViewController(identifier:
-//                    "TabBarController") as? UITabBarController else { return }
-//                tabbarController.modalPresentationStyle = .fullScreen
-//                self.present(tabbarController, animated: true, completion: nil)
-                
+
             }
             
         case .requestErr: print("requestErr")

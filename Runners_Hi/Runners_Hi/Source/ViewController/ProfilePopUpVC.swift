@@ -93,7 +93,6 @@ extension ProfilePopUpVC {
     }
     
     private func profileLayoutSet() {
-        self.view.backgroundColor = .white
 
         profilePopUpLabel.text = "프로필을 선택해 주세요"
         profilePopUpLabel.font = UIFont(name:"NanumSquareB", size:18.0)
