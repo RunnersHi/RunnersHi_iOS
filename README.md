@@ -1,5 +1,6 @@
 # RUNNERS HI - iOS
 🏃🏻‍♂️🏃🏻‍♀️ 러너스하이 iOS "진심" 레포 🏃🏻‍♂️🏃🏻‍♀️
+- 진행기간 : 2020년 6월 27일 ~ 7월 18일 26th ‘SOPT’ APPJAM
 
 <img width="400" src="https://user-images.githubusercontent.com/51286963/87784132-ad715700-c870-11ea-9ba6-d67ffe063c0a.png">
 
@@ -14,6 +15,8 @@
 
 ####  ⭐️ 트렌디한 디자인적 요소를 통해 시각적인 즐거움을 얻을 수 있습니다.    
 : 특정 목표를 달성하면 개성있는 여러 가지 뱃지를 획득할 수 있음과 동시에 다양한 러너 랭킹을 통해 사용자의 즐거움을 도모하고자 합니다. 또, 누구나 사용하기 쉬운 UX 요소는 즐거움을 배로 향상시켜 줄거에요.
+
+=> [발표영상 보기](https://youtu.be/BWE3SevkljM)
 
 ------------
 ### A. Setting
@@ -70,27 +73,27 @@
 
 🥳 로그인, 회원가입 화면. 정규표현식 검사와 아이디, 닉네임 중복 검사 자동로그인 기능을 포함한다.<br>
 
-<img width="200" alt="로그인" src="https://user-images.githubusercontent.com/51286963/87795324-da2e6a00-c882-11ea-9283-50c586dcb760.png"> <img width="200" alt="회원가입_기본" src="https://user-images.githubusercontent.com/51286963/87795339-de5a8780-c882-11ea-96cc-ba0bc009fd57.png"> <img width="200" alt="회원가입_중간" src="https://user-images.githubusercontent.com/51286963/87795345-e0bce180-c882-11ea-809d-c124fb2e68ff.png"> <img width="200" alt="회원가입_완료" src="https://user-images.githubusercontent.com/51286963/87795354-e286a500-c882-11ea-90e2-3548a591766b.png">
+<img width="200" alt="로그인" src="https://user-images.githubusercontent.com/51286963/87795324-da2e6a00-c882-11ea-9283-50c586dcb760.png"> <img width="200" alt="회원가입_기본" src="https://user-images.githubusercontent.com/51286963/87795339-de5a8780-c882-11ea-96cc-ba0bc009fd57.png"> <img width="200" alt="회원가입_중간" src="https://user-images.githubusercontent.com/51286963/87795345-e0bce180-c882-11ea-809d-c124fb2e68ff.png"> <img width="200" alt="회원가입_완료" src="https://user-images.githubusercontent.com/51286963/87795354-e286a500-c882-11ea-90e2-3548a591766b.png">
 
 #### Running Tab(홈 화면)
 
 🥳 Main 화면. 일러스트롤 포함하며, RUN NOW 버튼 클릭시 주요 기능은 매칭 서비스가 시작된다. 원하는 매칭 러너의 조건을 설정하고 매칭이 되면 상대방 프로필을 확인한 후, 러닝이 시작된다. <br>
 🤓 추후 develop으로 혼자 달리기를 통해 매칭이 안되는 사람들 혹은 혼자 러닝을 측정해보고 싶은 사람들을 위한 서비스를 제공하고자 한다.
 <br>
-<img width="200" alt="RunningTab" src="https://user-images.githubusercontent.com/51286963/87796596-891f7580-c884-11ea-8cf8-99b4282ce165.png"> <img width="200" alt="RunningTab-매칭" src="https://user-images.githubusercontent.com/51286963/87796611-8de42980-c884-11ea-9ef5-bf6b83d8c537.png"> <img width="200" alt="스크린샷 2020-07-17 오후 11 06 42" src="https://user-images.githubusercontent.com/51286963/87796615-8e7cc000-c884-11ea-9142-45a08d8d01f7.png"> <br><img width="200" alt="스크린샷 2020-07-17 오후 11 06 46" src="https://user-images.githubusercontent.com/51286963/87796620-8faded00-c884-11ea-8515-7d4529d50817.png"> <img width="200" alt="스크린샷 2020-07-17 오후 11 06 49" src="https://user-images.githubusercontent.com/51286963/87796623-90468380-c884-11ea-8def-714195e5e0c1.png">
+<img width="200" alt="RunningTab" src="https://user-images.githubusercontent.com/51286963/87796596-891f7580-c884-11ea-8cf8-99b4282ce165.png"> <img width="200" alt="RunningTab-매칭" src="https://user-images.githubusercontent.com/51286963/87796611-8de42980-c884-11ea-9ef5-bf6b83d8c537.png"> <img width="200" alt="스크린샷 2020-07-17 오후 11 06 42" src="https://user-images.githubusercontent.com/51286963/87796615-8e7cc000-c884-11ea-9142-45a08d8d01f7.png"> <br><img width="200" alt="스크린샷 2020-07-17 오후 11 06 46" src="https://user-images.githubusercontent.com/51286963/87796620-8faded00-c884-11ea-8515-7d4529d50817.png"> <img width="200" alt="스크린샷 2020-07-17 오후 11 06 49" src="https://user-images.githubusercontent.com/51286963/87796623-90468380-c884-11ea-8def-714195e5e0c1.png">
 
 🥳 매칭이 되면 상대방 프로필을 확인한 후, 러닝이 시작된다. 실시간으로 자신의 속도(km), 페이스(pace), 남은 시간이 표시되고 현재 자신이 뛰고있는 위치가 지도(네이버)를 통해 표시된다.<br>
 🤓 현재는 자신이 있는 위치만 표시되지만, 추후 자신이 러닝한 경로가 뜨게 할 생각이다. (현재 네이버측에서 points 속성을 막아둔것으로 보여 구현하지 못한 아쉬움이 있다.)[네이버 지도 iOS SDK](https://navermaps.github.io/ios-map-sdk/guide-ko/5-7.html)
 
-<img width="180" alt="매칭된러너프로필" src="https://user-images.githubusercontent.com/51286963/87796841-e0254a80-c884-11ea-93cd-25f0d258638a.PNG"> <img width="180" alt="매칭_러닝중" src="https://user-images.githubusercontent.com/51286963/87796853-e4e9fe80-c884-11ea-98c2-9d7cb5e6a146.PNG"> <img width="180" alt="실시간러닝중" src="https://user-images.githubusercontent.com/51286963/87827334-ade01100-c8b5-11ea-8f5b-d069c660ac6e.gif">
-<br><img width="180" alt="졌다" src="https://user-images.githubusercontent.com/51286963/87799758-90e11900-c888-11ea-8427-e297a727eb00.png"><img width="180" alt="이겼다" src="https://user-images.githubusercontent.com/51286963/87799763-92aadc80-c888-11ea-98fd-eb77e28c1044.png">
+<img width="180" alt="매칭된러너프로필" src="https://user-images.githubusercontent.com/51286963/87796841-e0254a80-c884-11ea-93cd-25f0d258638a.PNG"> <img width="180" alt="매칭_러닝중" src="https://user-images.githubusercontent.com/51286963/87796853-e4e9fe80-c884-11ea-98c2-9d7cb5e6a146.PNG"> <img width="180" alt="실시간러닝중" src="https://user-images.githubusercontent.com/51286963/87827334-ade01100-c8b5-11ea-8f5b-d069c660ac6e.gif">
+<br><img width="180" alt="졌다" src="https://user-images.githubusercontent.com/51286963/87799758-90e11900-c888-11ea-8427-e297a727eb00.png"><img width="180" alt="이겼다" src="https://user-images.githubusercontent.com/51286963/87799763-92aadc80-c888-11ea-98fd-eb77e28c1044.png">
 
 
 #### Record Tab
 
 : 자신이 지금까지 쌓아온 러닝 기록과 모아온 러닝뱃지를 확인할 수 있다.
 
-<img width="200" alt="RecordTab" src="https://user-images.githubusercontent.com/51286963/87797247-6346a080-c885-11ea-9542-31260ed38d7f.png"> <img width="200" alt="RecordTab-뱃지" src="https://user-images.githubusercontent.com/51286963/87797267-680b5480-c885-11ea-8edb-450fc514f81c.png">
+<img width="200" alt="RecordTab" src="https://user-images.githubusercontent.com/51286963/87797247-6346a080-c885-11ea-9542-31260ed38d7f.png"> <img width="200" alt="RecordTab-뱃지" src="https://user-images.githubusercontent.com/51286963/87797267-680b5480-c885-11ea-8edb-450fc514f81c.png">
 
 
 #### Ranking Tab
@@ -113,10 +116,10 @@
 
 1. 먼저 건강 어플리케이션을 연동하려면 Apple Developer Program Membership 이 필요합니다 (유료)
 2. Capability에서 Healthkit를 추가해 활성화 시켜줍니다.
-<img width="746" alt="Healthkit 연동" src="https://user-images.githubusercontent.com/51286963/86914216-e0be3280-c15a-11ea-8e32-03b764257f91.png">
+<img width="746" alt="Healthkit 연동" src="https://user-images.githubusercontent.com/51286963/86914216-e0be3280-c15a-11ea-8e32-03b764257f91.png">
 
 3. info.plist 파일에서 Information Property List Key Reference를 추가해줍니다.
-<img width="731" alt="스크린샷 2020-07-08 오후 8 40 09" src="https://user-images.githubusercontent.com/51286963/86914381-38f53480-c15b-11ea-8230-7348e6570176.png">
+<img width="731" alt="스크린샷 2020-07-08 오후 8 40 09" src="https://user-images.githubusercontent.com/51286963/86914381-38f53480-c15b-11ea-8230-7348e6570176.png">
 
  4. HealthKit 액세스를 허용하는 코드를 짜야합니다.
   - 이 기기에서 HealthKit를 사용할 수 있는지 확인하기.
@@ -170,7 +173,7 @@
    ```
 
 #### 2) 실시간 통신 인생 첫 소켓 통신 도전 !💪🏻
- 
+ -> [서버 자료 확인하기](https://github.com/RunnersHi/RunnersHi_Server/wiki/매칭-상대-찾기)
  ```swift
  import SocketIO
     static let shared = SocketIOManager()
@@ -181,7 +184,7 @@
  ```
  
   : 어플에서 소켓 통신을 쓰는 범위는 매칭 러너는 찾을 때부터 게임이 끝나고 결과 비교 전까지 소켓 통신을 사용했습니다. <br>
- 한 뷰에서만 소켓 통신이 쓰이는 것이 아니라 소켓이 연결돼서 여러 뷰를 통과하기 때문에 싱글톤(static)을 사용해서 통신을 이어갔습니다. <br>
+ 한 뷰에서만 소켓 통신이 쓰이는 것이 아니라 소켓이 연결돼서 여러 뷰를 통과하기 때문에 싱글톤을 사용해서 통신을 이어갔습니다. <br>
  
 ```swift
    FindRunnerVC.socket.on("start", callback: { (data, ack) in
@@ -189,26 +192,26 @@
         })
 ```
 
-: 서버는 시작해도 좋다는 응답 -> 클라는 내 정보와 내가 원하는 상대의 조건을 보내준다.
+: 서버는 시작해도 좋다는 응답 -> 클라는 내 정보와 내가 원하는 상대의 조건을 보내줍니다.
 <br>
 ```swift
         FindRunnerVC.socket.on("roomCreated", callback: { (data, ack) in
             FindRunnerVC.self.socket.emit("startCount",data[0] as! SocketData)
         })
 ```
-: 내가 원하는 조건의 상대를 찾지 못한다면 서버는 새로운 받을 만들어서 나를 넣어주고 -> 클라는 시간 카운트를 하라고 알려준다. roomCreated 때 받는 정보인 data[0]은 내가 속해있는 방의 번호가 된다.
+: 내가 원하는 조건의 상대를 찾지 못한다면 서버는 새로운 받을 만들어서 나를 넣어주고 -> 클라는 시간 카운트를 하라고 알려줍니다. roomCreated 때 받는 정보인 data[0]은 내가 속해있는 방의 번호가 됩니다.
 <br>
 ```swift
         FindRunnerVC.socket.on("matched", callback: { (data, ack) in
             FindRunnerVC.self.socket.emit("endCount",data[0] as! SocketData)
         })
  ```
- : 대기중에 상대를 찾았을때는 서버는 matched와 data[0]으로 내가 속한 방 이름을 보내주고, 클라에서는 사용자가 속한 방의 이름과 endCount를 보내준다.
+ : 대기중에 상대를 찾았을때는 서버는 matched와 data[0]으로 내가 속한 방 이름을 보내주고, 클라에서는 사용자가 속한 방의 이름과 endCount를 보내줍니다.
   <br>
  ```swift
          FindRunnerVC.socket.emit("compareResult",UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2,UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0,array2,UserDefaults.standard.object(forKey: "createdTime") as? String ?? " ",UserDefaults.standard.object(forKey: "endTime") as? String ?? " ")
  ```
- : 러닝 게임이 끝나면 나의 방 번호, 달린 거리, 달린 시간, 방 번호, 지도 위치, 시작한 시간, 끝난 시간을 함께 보내준다.
+ : 러닝 게임이 끝나면 나의 방 번호, 달린 거리, 달린 시간, 방 번호, 지도 위치, 시작한 시간, 끝난 시간을 함께 보내줍니다.
  
 #### 3) 회원가입 기능
 
@@ -251,15 +254,41 @@ editingChanged를 활용한 함수를 선언해주어 실시간으로 조건에 
 회원가입시에 사용자의 추가 정보를 입력해야하는 부분을 처음에는 단순하게 버튼으로 구현하려고 하였다. 그러나 사용자가 하나의 선택지만을 선택해야하고, 그 값만을 서버에 전달해야하는 조건 탓에 일반 버튼으로는 기획을 구현할 수가 없었다. 그렇기에 컬렉션 뷰에서 IsSelected를 활용하여 사용자가 하나만의 선택지를 고를 수 있게 구현하였다. 안드로이드에서는 기본적으로 제공되는 기능이지만, iOS에서는 일일이 구현해주어야하는 기능이었다. 전혀 알지 못하던 기능이었기에 많은 사람들의 도움을 받았고, 구글링과 작업을 하는데에 많은 시간이 들었다.
 
 #### 4) CoreMotion
-- CoreMotion은 휴대폰의 센서를 사용하는 방법이다. 원래 Healthkit를 사용했지만, Healthkit는 많은 정보를 제공해주지만 업데이트가 실시간(몇 초 단위)로 되지않는 문제가 발생해서 CoreMotion으로 수정하였다.coremotion을 이용해서 실시간 거리를 받아왔다. 물론 여기서도 페이스를 계산해주지만 우리가 원하는 단위와는 달랐기때문에 페이스는 직접 계산하는 방법을 사용했다.
+- CoreMotion은 휴대폰의 센서를 사용하는 방법이다. 원래 Healthkit를 사용했지만, Healthkit는 많은 정보를 제공해주지만 업데이트가 실시간(몇 초 단위)로 되지않는 문제가 발생해서 CoreMotion으로 수정하였다.coremotion을 이용해서 실시간 거리를 받아왔다. 물론 여기서도 페이스를 계산해주지만 우리가 원하는 단위와는 달랐기때문에 페이스는 직접 계산하는 방법을 사용했다.<br>
 [ CoreMotion ](https://developer.apple.com/documentation/coremotion)
-<br>
+
+```swift
+pedometer = CMPedometer()
+```
+: CMPedometer는 실시간 걷기를 가져오기 위한 개체이다. 즉 만보기의 역할을 한다. 만보기를 통해 걸음 수 및 이동 한 거리와 상승 또는 하강 한 층 수에 대한 기타 정보를 검색할 수 있다. 
+
+```swift
+        pedometer.startUpdates(from: Date(), withHandler: { 
+          (pedometerData, error) in
+            if let pedData = pedometerData{
+                self.numberOfSteps = Int(pedData.numberOfSteps)
+                if let distance = pedData.distance{
+                    self.distance = Double(distance)
+                }
+                if let averageActivePace = pedData.averageActivePace {
+                    self.averagePace = Double(averageActivePace)
+                }
+                if let currentPace = pedData.currentPace {
+                    self.pace = Double(currentPace)
+                }
+            } else {
+                self.numberOfSteps = nil
+            }
+        })
+```
+: startUpdates 함수를 통해 보행자 관련 데이터를 앱에 끌고온다. distance는 사용자가 걷거나 뛰는 동안 이동한 거리를 가져와준다. averageActivePace는 미터당 초 단위로 환산한 평균 페이스이다. currentPace는 미터당 초 단위로 측정한 현재 속도이다. 이렇게 CoreData에서는 달리기에서 필요한 많은 정보들을 제공한다. 
 
 ------------
 ### D. 팀원 역할 및 소개
 - 김민희 [ Repo ](https://www.notion.so/Kim-Min-Hee-b8c50856e43943ce9611baea5c14dd8b) : 러너스하이 iOS 리드개발자, MainTab 구현 및 소켓 통신 담당 <br>
 - 최영재 [ Repo ](https://github.com/realwhyjay) : 러너스하이 iOS 서브개발자, RankTab / RecordTab / MyPabeTab / SignTab 담당 및 http 통신 담당
-
-### 팀원들의 한마디
-- 민희 : 
-- 영재 : 
+------------
+### F. 결과 / 성과 
+: IT 창업 동아리 26th ‘SOPT’ APPJAM 대상 수상, 현재 앱스토어 출시 준비 중.
+<br><br>
+#### [현재 Releases 중인 레포로 이동하기 ](https://github.com/RunnersHi-Release/RunnersHi_Develop_iOS)
