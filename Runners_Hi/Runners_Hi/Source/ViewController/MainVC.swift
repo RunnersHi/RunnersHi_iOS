@@ -19,14 +19,12 @@ class MainVC: UIViewController {
     // MARK: IBOutlet
     
     @IBOutlet weak var popUpTableView: UITableView!
-    @IBOutlet weak var mentLabel1: UILabel!
-    @IBOutlet weak var mentLabel2: UILabel!
-    @IBOutlet weak var mentLabel3: UILabel!
-    @IBOutlet weak var logoImg: UIImageView!
-    @IBOutlet weak var secondView: UIView!
+    @IBOutlet weak var introLabel: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var insideView: UIView!
     @IBOutlet weak var runButton: UIButton!
     
-    @IBOutlet weak var homeImg: UIImageView!
+    @IBOutlet weak var homeImageView: UIImageView!
     
     @IBOutlet weak var constraint_logo_ment: NSLayoutConstraint!
     
@@ -88,18 +86,18 @@ extension MainVC {
     
     private func basicAutoLayout() {
         
-        homeImg.image = UIImage(named: "imgHomeactivityMain")
-        logoImg.image = UIImage(named: "homeLogo")
+        homeImageView.image = UIImage(named: "imgHomeactivityMain")
+        logoImageView.image = UIImage(named: "homeLogo")
         self.view.backgroundColor = UIColor.backgroundgray
-        secondView.backgroundColor = UIColor.white
-        secondView.layer.cornerRadius = 20
+        insideView.backgroundColor = UIColor.white
+        insideView.layer.cornerRadius = 20
         runButton.backgroundColor = UIColor.lightishBlue
         runButton.setTitle("RUN NOW", for: .normal)
         runButton.setTitleColor(.white, for: .normal)
         runButton.layer.cornerRadius = 12
-        mentLabel1.font = UIFont(name: "NanumSquareB", size: 20)
-        mentLabel2.font = UIFont(name: "NanumSquareB", size: 20)
-        mentLabel3.font = UIFont(name: "NanumSquareB", size: 20)
+//        mentLabel1.font = UIFont(name: "NanumSquareB", size: 20)
+//        mentLabel2.font = UIFont(name: "NanumSquareB", size: 20)
+//        mentLabel3.font = UIFont(name: "NanumSquareB", size: 20)
         runButton.titleLabel?.font = UIFont(name: "AvenirNext-BoldItalic", size: 30)
         popUpTableView.layer.cornerRadius = 20
         //self.tabBarController?.tabBar.isHidden = false
