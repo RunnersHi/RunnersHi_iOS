@@ -10,26 +10,27 @@ import UIKit
 
 class MyPageVC: UIViewController {
     static let identifier: String = "MyPageVC"
+    
+    // Mark: Variable Part
     var MyProfileModel: MyProfile?
     
-    
+    // Mark: IBOutlet
     @IBOutlet weak var myPageCollectionView: UICollectionView!
+    
+    // Mark: Life Cycle Part
     override func viewDidLoad() {
         super.viewDidLoad()
+        myPageStyle()
         getProfileBadge()
-
     }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//
-//    }
-    
 }
 
-
+// Mark: Extension
 extension MyPageVC: UICollectionViewDataSource {
+    // Mark: Function
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MyProfileModel?.result.badge.count ?? 0    }
+        // 서버와 연결되지 않았을 때도 빈 카드가 뜨도록 상수 설정
+        return 9    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -44,11 +45,14 @@ extension MyPageVC: UICollectionViewDataSource {
      let profileBadgeList = MyProfileModel?.result.badge
      if profileBadgeList?[indexPath.row] == false {
          ProfileBadgeCell.myProfileBadge.image = UIImage(named: myProfileBeforeBadgeImage[indexPath.row])
+        
+        // false일 때는 item select 안되도록 설정
+        ProfileBadgeCell.isUserInteractionEnabled = false
      }
      else {
          ProfileBadgeCell.myProfileBadge.image = UIImage(named: myProfileBadgeImage[indexPath.row])
+        ProfileBadgeCell.isUserInteractionEnabled = true
      }
-     
      
      ProfileBadgeCell.myProfileName.text = myProfileBadgeLabel[indexPath.row]
      
@@ -60,8 +64,6 @@ extension MyPageVC: UICollectionViewDataSource {
 
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MyProfileHeader", for: indexPath)
-            
             let level = self.MyProfileModel?.result.level ?? 0
             let win = self.MyProfileModel?.result.win ?? 0
             let lose = self.MyProfileModel?.result.lose ?? 0
@@ -73,7 +75,6 @@ extension MyPageVC: UICollectionViewDataSource {
             guard let MyProfileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MyProfileHeader.identifier, for: indexPath) as? MyProfileHeader else { return UICollectionViewCell()}
             
             let myprofileImageFlag:Int = self.MyProfileModel?.result.image as? Int ?? 0
-            
             
             
             MyProfileHeader.myProfileImage.image = UIImage(named: myprofileImageList[myprofileImageFlag - 1])
@@ -120,6 +121,13 @@ extension MyPageVC: UICollectionViewDelegateFlowLayout{
 }
 
 extension MyPageVC {
+    // Mark: Function
+    func myPageStyle(){
+        self.view.backgroundColor = .backgroundgray
+        self.myPageCollectionView.backgroundColor = .backgroundgray
+    }
+    
+    // Mark: Function Network
     func getProfileBadge(){
         MyProfileService.shared.profilebadgeloading() {
             [weak self]
@@ -134,9 +142,6 @@ extension MyPageVC {
                 self.myPageCollectionView.dataSource = self
                 self.myPageCollectionView.delegate = self
 
-                 
-                
-                
                 
             case .requestErr:
                 print(".requestErr")
