@@ -9,9 +9,14 @@
 import UIKit
 
 class MainVC: UIViewController {
+    
+    // MARK: Variable Part
+    
     static let identifier: String = "MainVC"
     var blackView = UIView()
+    private var battleInformation: [BattleInformation] = []
     
+    // MARK: IBOutlet
     
     @IBOutlet weak var popUpTableView: UITableView!
     @IBOutlet weak var mentLabel1: UILabel!
@@ -23,18 +28,18 @@ class MainVC: UIViewController {
     
     @IBOutlet weak var homeImg: UIImageView!
     
-    
     @IBOutlet weak var constraint_logo_ment: NSLayoutConstraint!
     
     @IBOutlet weak var constraint_ment_homeImg: NSLayoutConstraint!
     @IBOutlet weak var constarint_homeImg_button: NSLayoutConstraint!
-    // private var isToggle: Bool = false
+   
+    
+    // MARK: IBAction
     
     @IBAction func runButtonDidTap(_ sender: Any) {
         blackView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         blackView.frame = self.view.frame
         self.view.addSubview(blackView)
-        //self.view.bringSubviewToFront(blackView)
         UIView.animate(withDuration: 0.3) {
             self.popUpTableView.transform = .identity
             self.onClickBlackView()
@@ -43,6 +48,22 @@ class MainVC: UIViewController {
        self.view.bringSubviewToFront(popUpTableView)
     
     }
+
+    // MARK: Life Cycle Part
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        basicAutoLayout()
+        setbattleInformation()
+        
+        popUpTableView.transform = CGAffineTransform(translationX: 0, y: popUpTableView.frame.height)
+    }
+
+}
+
+// MARK: Extension
+
+extension MainVC {
     
     func onClickBlackView() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onGesture))
@@ -57,18 +78,7 @@ class MainVC: UIViewController {
             self.blackView.removeFromSuperview()
         }
     }
-        
     
-    
-    private var battleInformation: [BattleInformation] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        basicAutoLayout()
-        setbattleInformation()
-        
-        popUpTableView.transform = CGAffineTransform(translationX: 0, y: popUpTableView.frame.height)
-    }
     private func setbattleInformation() {
         let date1 = BattleInformation(ment: "다른 러너와 경쟁하기")
         let date2 = BattleInformation(ment: "나의 기록과 경쟁하기")
@@ -110,34 +120,15 @@ class MainVC: UIViewController {
             
         }
     }
-//    private func authorizeHealthKit() {
-//      
-//      HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
-//        
-//        guard authorized else {
-//          
-//          let baseMessage = "HealthKit Authorization Failed"
-//          
-//          if let error = error {
-//            print("\(baseMessage). Reason: \(error.localizedDescription)")
-//          } else {
-//            print(baseMessage)
-//          }
-//          
-//          return
-//        }
-//        print("HealthKit Successfully Authorized.")
-//        
-//      }
-//    }
+    
     @objc func handleDismiss() {
         popUpTableView.isHidden = true
     }
     
-
 }
 
 extension MainVC: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return battleInformation.count
     }
@@ -148,10 +139,9 @@ extension MainVC: UITableViewDataSource {
         
         return popUpCell
     }
-    
-    
-    
+
 }
+
 extension MainVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
