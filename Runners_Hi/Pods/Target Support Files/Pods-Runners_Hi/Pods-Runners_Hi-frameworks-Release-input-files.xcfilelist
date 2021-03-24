@@ -1,8 +1,0 @@
-${PODS_ROOT}/Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework
-${PODS_ROOT}/NMapsMap/framework/NMapsMap.framework
-${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework
-${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework
-${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework
-${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework

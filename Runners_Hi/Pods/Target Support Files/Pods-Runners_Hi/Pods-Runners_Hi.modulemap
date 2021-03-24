@@ -1,6 +1,0 @@
-framework module Pods_Runners_Hi {
-  umbrella header "Pods-Runners_Hi-umbrella.h"
-
-  export *
-  module * { export * }
-}
