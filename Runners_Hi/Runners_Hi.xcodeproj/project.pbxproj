@@ -91,6 +91,7 @@
 		3DF24FCB24AD0238003B3187 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCA24AD0238003B3187 /* Sign.storyboard */; };
 		3DF24FCD24AD0437003B3187 /* RunningTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */; };
 		9B12736C260CE5B700360022 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12736B260CE5B700360022 /* UIFont+Extension.swift */; };
+		9B12736F260CE90200360022 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12736E260CE90200360022 /* UILabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,6 +183,7 @@
 		3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunningTab.storyboard; sourceTree = "<group>"; };
 		7CB21B683D0B3C00355D85BA /* Pods-Runners_Hi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.debug.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.debug.xcconfig"; sourceTree = "<group>"; };
 		9B12736B260CE5B700360022 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		9B12736E260CE90200360022 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		A10E15E2F556AA99591BED3B /* Pods-Runners_Hi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.release.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -381,6 +383,7 @@
 			children = (
 				3DA2EA1B24B205210091F12F /* UIColor+Extension.swift */,
 				9B12736B260CE5B700360022 /* UIFont+Extension.swift */,
+				9B12736E260CE90200360022 /* UILabel+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				3DCDF01724B5FE13003F47CE /* MatchingGoalVC.swift in Sources */,
 				06F40AE824BDB521001E04FB /* RecordService.swift in Sources */,
 				06FD034324C2444D005EB6A9 /* BadgeDetailService.swift in Sources */,
+				9B12736F260CE90200360022 /* UILabel+Extension.swift in Sources */,
 				3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */,
 				06F40AEE24BF7A33001E04FB /* BadgeCell.swift in Sources */,
 				06FD033F24C238AB005EB6A9 /* BadgeDetailVC.swift in Sources */,
