@@ -131,37 +131,37 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
     }
     
     @IBAction func signUpActionButton(_ sender: Any) {
-        let tabStoryBoard = UIStoryboard.init(name: "Tab", bundle: nil)
-        
-        guard let inputId = idTextField.text else { return }
-        guard let inputPw = pwTextField.text else { return }
-        guard let inputNick = nickTextField.text else { return }
-        guard let inputGender: Int = giveGenderValue else { return }
-        guard let inputLevel: Int = giveLevelValue else { return }
-        guard let inputOpen: Bool = giveOpenValue else { return }
-        guard let inputImgFlag: Int = giveProfileFlag else { return }
-        
-        SignUpService.shared.signup(id: inputId, password: inputPw, nickname: inputNick, gender: inputGender, level: inputLevel, log_visibility: inputOpen, image: inputImgFlag) { networkResult in switch networkResult {
-        case .success(let success):
-            guard let success = success as? Bool else {return}
-            if success {
-                guard let receiveViewController = self.storyboard?.instantiateViewController(identifier: "SignInVC") as? SignInVC else { return }
-                receiveViewController.afterRegisterId = inputId
-                receiveViewController.afterRegisterPw = inputPw
-                
-
-                receiveViewController.modalPresentationStyle = .fullScreen
-                self.present(receiveViewController, animated: true, completion: nil)
-
-            }
-            
-        case .requestErr: print("requestErr")
-        case .pathErr: print("path")
-        case .serverErr: print("serverErr")
-        case .networkFail: print("networkFail")
-            
-            }
-        }
+//        let tabStoryBoard = UIStoryboard.init(name: "Tab", bundle: nil)
+//
+//        guard let inputId = idTextField.text else { return }
+//        guard let inputPw = pwTextField.text else { return }
+//        guard let inputNick = nickTextField.text else { return }
+//        guard let inputGender: Int = giveGenderValue else { return }
+//        guard let inputLevel: Int = giveLevelValue else { return }
+//        guard let inputOpen: Bool = giveOpenValue else { return }
+//        guard let inputImgFlag: Int = giveProfileFlag else { return }
+//
+//        SignUpService.shared.signup(id: inputId, password: inputPw, nickname: inputNick, gender: inputGender, level: inputLevel, log_visibility: inputOpen, image: inputImgFlag) { networkResult in switch networkResult {
+//        case .success(let success):
+//            guard let success = success as? Bool else {return}
+//            if success {
+//                guard let receiveViewController = self.storyboard?.instantiateViewController(identifier: "SignInVC") as? SignInVC else { return }
+//                receiveViewController.afterRegisterId = inputId
+//                receiveViewController.afterRegisterPw = inputPw
+//
+//
+//                receiveViewController.modalPresentationStyle = .fullScreen
+//                self.present(receiveViewController, animated: true, completion: nil)
+//
+//            }
+//
+//        case .requestErr: print("requestErr")
+//        case .pathErr: print("path")
+//        case .serverErr: print("serverErr")
+//        case .networkFail: print("networkFail")
+//
+//            }
+//        }
         
 
         
