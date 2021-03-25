@@ -131,6 +131,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
     }
     
     @IBAction func signUpActionButton(_ sender: Any) {
+
 //        let tabStoryBoard = UIStoryboard.init(name: "Tab", bundle: nil)
 //
 //        guard let inputId = idTextField.text else { return }

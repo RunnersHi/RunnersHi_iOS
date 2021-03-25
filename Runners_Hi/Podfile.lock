@@ -17,8 +17,8 @@ PODS:
   - CHIPageControl/Jaloro (0.1.8)
   - CHIPageControl/Paprika (0.1.8)
   - CHIPageControl/Puya (0.1.8)
-  - lottie-ios (3.1.8)
-  - NMapsMap (3.8.0)
+  - lottie-ios (3.2.1)
+  - NMapsMap (3.11.0)
   - Socket.IO-Client-Swift (15.2.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
@@ -45,12 +45,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   CHIPageControl: 76b35c8309d8dd155e869c109cc6ffc0aaa465ff
-  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
-  NMapsMap: b3633ad688483a318be9293aeddd323a714fb08b
+  lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
+  NMapsMap: e6dbea85c2c195c7532deb637a5e90fd70f94fed
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
 PODFILE CHECKSUM: 5aae6b2fa3ac75590f4bc9abfcd3875fbc36007e
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
