@@ -136,11 +136,12 @@ extension MainVC {
         runButton.setTitle("RUN NOW", for: .normal)
         runButton.setTitleColor(.white, for: .normal)
         runButton.layer.cornerRadius = 12
-        runButton.titleLabel?.font = UIFont(name: "AvenirNext-BoldItalic", size: 30)
+        runButton.titleLabel?.font = .italicFont(size: 30)
         
-        introLabel.font = UIFont(name: "NanumSquareB", size: 20)
         introLabel.numberOfLines = 0
-        introLabel.text = "상쾌한 오전,\n당신의 러닝상대를\n찾아 함께 뛰어보세요"
+        introLabel.setLabel(text: "상쾌한 오전,\n당신의 러닝상대를\n찾아 함께 뛰어보세요", color: .black, font: .nanumBold(size: 20))
+        
+        introLabel.lineSetting(lineSpacing: 7)
         
     }
 }

@@ -25,7 +25,7 @@ extension UIFont {
     
     // MARK: AvenirNext BoldItalic Font (숫자용)
     
-    class func numberFont(size: CGFloat) -> UIFont {
+    class func italicFont(size: CGFloat) -> UIFont {
         return UIFont(name: "AvenirNext-BoldItalic", size: size)!
     }
     

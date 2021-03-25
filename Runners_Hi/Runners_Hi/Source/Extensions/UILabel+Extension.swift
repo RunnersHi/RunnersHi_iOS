@@ -23,7 +23,7 @@ extension UILabel {
     // MARK: 자간/행간 Custom Style Function
     // 사용법: MyLabel.lineSetting(kernValue: -0.8, lineSpacing: 10),  MyLabel.lineSetting(ineSpacing: 10), MyLabel.lineSetting(kernValue: -0.5)
 
-    func lineSetting(kernValue: Double = 1.15, lineSpacing: CGFloat = 0.0) {
+    func lineSetting(kernValue: Double = 0.0, lineSpacing: CGFloat = 0.0) {
     // kernValue: 자간, lineSpacing : 행간
     // 사용에 따라 kernValue만, 또는 lineSpacing만 넣을 수도 있다
         
@@ -34,6 +34,9 @@ extension UILabel {
         
         paragraphStyle.lineSpacing = lineSpacing
         // 행간 설정
+        
+        paragraphStyle.alignment = .center
+        // 글자 가운데 정렬
         
         var attributedString = NSMutableAttributedString(string: labelText)
         // Strings and Text의 Class로 데이터가 존재하는 String에 속성을 적용해주는 역할

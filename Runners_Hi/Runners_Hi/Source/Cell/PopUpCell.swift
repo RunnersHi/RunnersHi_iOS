@@ -16,7 +16,6 @@ class PopUpCell: UITableViewCell {
     
     @IBOutlet weak var enterImage: UIImageView!
     override func awakeFromNib() {
-        battleLabel.font = UIFont(name: "NanumSquareB", size: 20)
         enterImage.image = UIImage(named: "iconEnter")
         super.awakeFromNib()
         // Initialization code
@@ -28,7 +27,7 @@ class PopUpCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setbattleInformation(ment: String) {
-        battleLabel.text = ment
+        battleLabel.setLabel(text: ment, color: .black, font: .nanumBold(size: 20))
     }
 
 }
