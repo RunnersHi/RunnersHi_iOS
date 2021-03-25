@@ -22,6 +22,8 @@ class MyPageVC: UIViewController {
         super.viewDidLoad()
         myPageStyle()
         getProfileBadge()
+        self.myPageCollectionView.dataSource = self
+        self.myPageCollectionView.delegate = self
     }
 }
 
@@ -69,9 +71,9 @@ extension MyPageVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
         switch kind {
         case UICollectionView.elementKindSectionHeader:
+            print("@@@@@@@@@@@@@@반갑다")
             let level = self.MyProfileModel?.result.level ?? 0
             let win = self.MyProfileModel?.result.win ?? 0
             let lose = self.MyProfileModel?.result.lose ?? 0
@@ -83,15 +85,19 @@ extension MyPageVC: UICollectionViewDataSource {
             
             guard let MyProfileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MyProfileHeader.identifier, for: indexPath) as? MyProfileHeader else { return UICollectionViewCell()}
             
-            let myprofileImageFlag:Int = self.MyProfileModel?.result.image as? Int ?? 0
+            // 민희야 이 함수는 무시해. 내가 제대로 넘어가는지 확인하려고 만든거야.
+            // 물론 내가 이런 설명을 하지 않아도, 누가봐도 테스트하려고 만든 함수처럼 보인다는거 알아.
+            // 하지만 처신 잘하라고.
+            MyProfileHeader.sayhello(hello:"haha")
+            
+            let myprofileImageFlag:Int = self.MyProfileModel?.result.image ?? 0
             
             
-            MyProfileHeader.myProfileImage.image = UIImage(named: myprofileImageList[myprofileImageFlag - 1])
+//           MyProfileHeader.myProfileImage.image = UIImage(named: myprofileImageList[myprofileImageFlag - 1])
             MyProfileHeader.myProfileBack.image = UIImage(named: "whiteboxRecdetailactivityMyrecord")
-            
-            MyProfileHeader.LvLabel?.text = "\(levelList[level-1])"
-            MyProfileHeader.ScoreLabel?.text = "\(win)" + "승 " + "\(lose)" + "패"
-            MyProfileHeader.myProfileName?.text = name
+//            MyProfileHeader.LvLabel?.text = "\(levelList[level-1])"
+//            MyProfileHeader.ScoreLabel?.text = "\(win)" + "승 " + "\(lose)" + "패"
+//            MyProfileHeader.myProfileName?.text = name
             
             
             return MyProfileHeader
@@ -148,6 +154,10 @@ extension MyPageVC {
                 let response = res as! MyProfile
                 self.MyProfileModel = response
                 self.myPageCollectionView.reloadData()
+                
+                // 오늘 하루종일 아무것도 못했는데, 그 이유를 여기서 찾았다.
+                // 바보같은 과거의 최영재. 과영재는 서버 통신에 성공했을 때에만 datasource,delegate를 self를 해주는 바보같은 과오를 저지르고 말았다.
+                // 하지만 난 이제 더 나아질 수 있다. 왜냐하면 이 문제를 발견했기 때문이다.
                 self.myPageCollectionView.dataSource = self
                 self.myPageCollectionView.delegate = self
                 
