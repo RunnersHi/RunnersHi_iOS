@@ -38,4 +38,8 @@ class MyProfileHeader: UICollectionReusableView {
             ScoreName.text = "전적"
 //
         }
+    
+    func sayhello(hello:String){
+        print(hello)
+    }
 }
