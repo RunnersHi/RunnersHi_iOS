@@ -90,6 +90,8 @@
 		3DF24FC924ACFC21003B3187 /* MyPageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FC824ACFC21003B3187 /* MyPageTab.storyboard */; };
 		3DF24FCB24AD0238003B3187 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCA24AD0238003B3187 /* Sign.storyboard */; };
 		3DF24FCD24AD0437003B3187 /* RunningTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */; };
+		9B12736C260CE5B700360022 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12736B260CE5B700360022 /* UIFont+Extension.swift */; };
+		9B12736F260CE90200360022 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12736E260CE90200360022 /* UILabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +182,8 @@
 		3DF24FCA24AD0238003B3187 /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunningTab.storyboard; sourceTree = "<group>"; };
 		7CB21B683D0B3C00355D85BA /* Pods-Runners_Hi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.debug.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.debug.xcconfig"; sourceTree = "<group>"; };
+		9B12736B260CE5B700360022 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		9B12736E260CE90200360022 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		A10E15E2F556AA99591BED3B /* Pods-Runners_Hi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.release.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -378,6 +382,8 @@
 			isa = PBXGroup;
 			children = (
 				3DA2EA1B24B205210091F12F /* UIColor+Extension.swift */,
+				9B12736B260CE5B700360022 /* UIFont+Extension.swift */,
+				9B12736E260CE90200360022 /* UILabel+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -562,6 +568,7 @@
 				06F40AC524B636A8001E04FB /* Open.swift in Sources */,
 				06F40AF224C04448001E04FB /* RankingData.swift in Sources */,
 				3DCAF89F24B7065D009B3AE5 /* BattleGenderSelectCell.swift in Sources */,
+				9B12736C260CE5B700360022 /* UIFont+Extension.swift in Sources */,
 				3D8AD89524B32695006B5648 /* RankVC.swift in Sources */,
 				06F40ACB24B8565D001E04FB /* DuplicateService.swift in Sources */,
 				3DB705A624C09153005BFA1C /* RecentMyData.swift in Sources */,
@@ -582,6 +589,7 @@
 				3DCDF01724B5FE13003F47CE /* MatchingGoalVC.swift in Sources */,
 				06F40AE824BDB521001E04FB /* RecordService.swift in Sources */,
 				06FD034324C2444D005EB6A9 /* BadgeDetailService.swift in Sources */,
+				9B12736F260CE90200360022 /* UILabel+Extension.swift in Sources */,
 				3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */,
 				06F40AEE24BF7A33001E04FB /* BadgeCell.swift in Sources */,
 				06FD033F24C238AB005EB6A9 /* BadgeDetailVC.swift in Sources */,
