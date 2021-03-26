@@ -10,27 +10,45 @@ import UIKit
 
 
 class MatchingGoalVC: UIViewController {
+    
+    // MARK: Variable Part
+    
     private var goalInformation: [GoalInformation] = []
+    
+    var giveGoalText = 0
+    
+    // MARK: IBOutlet
 
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var goalCollectionView: UICollectionView!
-        
     @IBOutlet weak var nextButton: UIButton!
-    var giveGoalText = 0
+    
+    // MARK: IBAction
+    
     @IBAction func nextButtonDidTap(_ sender: UIButton) {
         guard let NextButtonPush = self.storyboard?.instantiateViewController(identifier:"MatchingGenderVC") as? MatchingGenderVC else {return}
         self.navigationController?.pushViewController(NextButtonPush, animated: true)
         UserDefaults.standard.set(giveGoalText, forKey: "myGoalTime")
         
-        
     }
+    
+    // MARK: Life Cycle Part
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         basicAutoLayout()
         setGoalList()
     }
-    
 
+
+}
+
+// MARK: Extension
+
+extension MatchingGoalVC {
+    
+    // MARK: Function View Style
+    
     private func basicAutoLayout() {
         goalCollectionView.delegate = self
         goalCollectionView.dataSource = self
@@ -48,6 +66,9 @@ class MatchingGoalVC: UIViewController {
         nextButton.layer.cornerRadius = 8
    
     }
+    
+    // MARK: Function Table List Setting
+    
     private func setGoalList() {
         let goal1 = GoalInformation(goal: "30min")
         let goal2 = GoalInformation(goal: "45min")
@@ -57,8 +78,10 @@ class MatchingGoalVC: UIViewController {
         goalInformation = [goal1,goal2,goal3,goal4,goal5]
         
     }
-
 }
+
+// MARK: UICollectionViewDataSource
+
 extension MatchingGoalVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return goalInformation.count
@@ -73,6 +96,10 @@ extension MatchingGoalVC: UICollectionViewDataSource {
     
 
 }
+
+// MARK: UICollectionViewDelegateFlowLayout
+
+
 extension MatchingGoalVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //return CGSize(width: collectionView.frame.width * 275/375, height: view.frame.height * 48/667)
