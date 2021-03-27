@@ -8,9 +8,11 @@
 
 struct GoalInformation {
     var goal: String
+    var time: Int
     
-    init(goal: String) {
+    init(goal: String, time: Int) {
         self.goal = goal
+        self.time = time
     }
     
 }
