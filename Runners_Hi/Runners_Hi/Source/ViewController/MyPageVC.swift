@@ -73,36 +73,16 @@ extension MyPageVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            print("@@@@@@@@@@@@@@반갑다")
-            let level = self.MyProfileModel?.result.level ?? 0
-            let win = self.MyProfileModel?.result.win ?? 0
-            let lose = self.MyProfileModel?.result.lose ?? 0
-            let name:String = self.MyProfileModel?.result.nickname ?? ""
             
-            let  myprofileImageList = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
             
-            let levelList = ["초급","중급","고급"]
             
             guard let MyProfileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MyProfileHeader.identifier, for: indexPath) as? MyProfileHeader else { return UICollectionViewCell()}
             
-            // 민희야 이 함수는 무시해. 내가 제대로 넘어가는지 확인하려고 만든거야.
-            // 물론 내가 이런 설명을 하지 않아도, 누가봐도 테스트하려고 만든 함수처럼 보인다는거 알아.
-            // 하지만 처신 잘하라고.
-            MyProfileHeader.sayhello(hello:"haha")
-            
-            let myprofileImageFlag:Int = self.MyProfileModel?.result.image ?? 0
-            
-            
-//           MyProfileHeader.myProfileImage.image = UIImage(named: myprofileImageList[myprofileImageFlag - 1])
-            MyProfileHeader.myProfileBack.image = UIImage(named: "whiteboxRecdetailactivityMyrecord")
-//            MyProfileHeader.LvLabel?.text = "\(levelList[level-1])"
-//            MyProfileHeader.ScoreLabel?.text = "\(win)" + "승 " + "\(lose)" + "패"
-//            MyProfileHeader.myProfileName?.text = name
-            
+            // MyProfileHeader에 데이터를 넘겨주고, 해당 데이터를 바탕으로 헤더의 내용을 채워주는 함수이다.
+            MyProfileHeader.myPageHeaderData(data: MyProfileModel)
             
             return MyProfileHeader
             default: assert(false, "응 아니야") }
-        
         
     }
     
