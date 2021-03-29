@@ -49,8 +49,6 @@ class MyProfileHeader: UICollectionReusableView {
         let name:String = data?.result.nickname ?? "익명"
         let myprofileImageFlag:Int = data?.result.image ?? 1
         
-        print("함수 호출 되었냐?",level, win, lose, name, myprofileImageFlag)
-        
         dataSetting(level: level, win: win, lose: lose, name: name, imageFlag: myprofileImageFlag)
     }
     
