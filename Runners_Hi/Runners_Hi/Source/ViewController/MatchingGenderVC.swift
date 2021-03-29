@@ -12,9 +12,9 @@ class MatchingGenderVC: UIViewController {
     
     // MARK: Variable Part
     
-    private var genderInformation: [Gender] = []
-    
-    var giveGenderText = 0 // 서버에게 넘겨줄 원하는 상대 러너의 성별
+    var genderInformation: [Gender] = []
+    var opponentGender = 0
+    // 서버에게 넘겨줄 원하는 상대 러너의 성별
     
     // MARK: IBOutlet
     
@@ -25,9 +25,13 @@ class MatchingGenderVC: UIViewController {
     // MARK: IBAction
     
     @IBAction func startButtonDidTap(_ sender: UIButton) {
-        guard let StartButtonPush = self.storyboard?.instantiateViewController(identifier:"FindRunnerVC") as? FindRunnerVC else {return}
-         self.navigationController?.pushViewController(StartButtonPush, animated: true)
-        UserDefaults.standard.set(giveGenderText, forKey: "myWantGender")
+        // "START" 버튼 클릭 시 Action -> 러너 찾기 뷰 나와야 함
+        
+        guard let startButtonPush = self.storyboard?.instantiateViewController(identifier:"FindRunnerVC") as? FindRunnerVC else { return }
+         self.navigationController?.pushViewController(startButtonPush, animated: true)
+        
+        UserDefaults.standard.set(opponentGender, forKey: "myWantGender")
+        // 유저가 원하는 상대방의 성별 저장해 둠
     }
     
     // MARK: Life Cycle Part
@@ -39,7 +43,6 @@ class MatchingGenderVC: UIViewController {
         setGenderList()
         // Do any additional setup after loading the vi0;ew.
     }
-    
 
 }
 
@@ -83,9 +86,9 @@ extension MatchingGenderVC {
     
     private func setGenderList() {
         
-        let gender1 = Gender(genderActionLabelName: "남")
-        let gender2 = Gender(genderActionLabelName: "여")
-        let gender3 = Gender(genderActionLabelName: "상관없어요")
+        let gender1 = Gender(genderActionLabelName: "남", genderNumber: 1)
+        let gender2 = Gender(genderActionLabelName: "여", genderNumber: 2)
+        let gender3 = Gender(genderActionLabelName: "상관없어요", genderNumber: 3)
         
         genderInformation.append(contentsOf: [gender1,gender2,gender3])
     }
@@ -97,10 +100,14 @@ extension MatchingGenderVC {
 extension MatchingGenderVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return genderInformation.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let GenderSelectCell = collectionView.dequeueReusableCell(withReuseIdentifier: BattleGenderSelectCell.identifier, for: indexPath) as? BattleGenderSelectCell else {return UICollectionViewCell() }
+        
         GenderSelectCell.setGenderInformation(genderInformation[indexPath.row])
         
         return GenderSelectCell
@@ -130,17 +137,14 @@ extension MatchingGenderVC: UICollectionViewDelegateFlowLayout {
         
         return 50
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         startButton.isEnabled = true
         startButton.backgroundColor = UIColor.lightishBlue
         startButton.setTitleColor(.white, for: .normal)
-        if indexPath == [0, 0] {
-            giveGenderText = 1
-        } else if indexPath == [0, 1] {
-            giveGenderText = 2
-        } else {
-            giveGenderText = 3
-        }
+        
+        opponentGender = genderInformation[indexPath.row].genderNumber
         
     }
  

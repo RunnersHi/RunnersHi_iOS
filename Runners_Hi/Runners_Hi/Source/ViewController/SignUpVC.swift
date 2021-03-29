@@ -261,8 +261,8 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UICollectionViewDelegate 
     private var openList : [Open] = []
     
     func setButtonList() {
-        let Gender1 = Gender(genderActionLabelName: "남성")
-        let Gender2 = Gender(genderActionLabelName: "여성")
+        let Gender1 = Gender(genderActionLabelName: "남성", genderNumber: 1)
+        let Gender2 = Gender(genderActionLabelName: "여성", genderNumber: 2)
         
         let Level1 = Level(levelActionLabelName: "초급")
         let Level2 = Level(levelActionLabelName : "중급")
