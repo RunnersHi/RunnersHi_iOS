@@ -16,16 +16,16 @@ class MatchingGoalVC: UIViewController {
     private var goalInformation: [GoalInformation] = []
     var userGoalTime = 0
     // 유저가 러닝하기 원하는 시간
+    var nextButton = UIButton()
     
     // MARK: IBOutlet
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var goalCollectionView: UICollectionView!
-    @IBOutlet weak var nextButton: UIButton!
     
     // MARK: IBAction
     
-    @IBAction func nextButtonDidTap(_ sender: UIButton) {
+    @objc func nextButtonDidTap(_ sender: UIButton) {
         // "NEXT" 버튼 클릭 시 Action -> 성별 선택하는 뷰가 나와야함
         
         guard let NextButtonPush = self.storyboard?.instantiateViewController(identifier:"MatchingGenderVC") as? MatchingGenderVC else { return }
@@ -44,6 +44,7 @@ class MatchingGoalVC: UIViewController {
         setView()
         setText()
         setGoalList()
+        makeNextButton()
     }
     
     
@@ -96,6 +97,47 @@ extension MatchingGoalVC {
         
         goalInformation.append(contentsOf: [goal1,goal2,goal3,goal4])
 
+    }
+    
+    func makeNextButton() {
+        // code로 Next Button 구현하기
+        
+        self.view.addSubview(nextButton)
+        // 뷰에 button을 추가함
+        
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        // 레이아웃을 수동으로 주고싶을 때 호출하는 인스턴스
+        // true 일 때는 자동으로 레이아웃을 주는데 false로 지정하면서 내가 원하는대로 레이아웃을 줄 수 있게 함
+        
+        nextButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        // nextButton의 Horizontally in Container과 같은 효과를 준다 (가운데 정렬)
+        
+        nextButton.widthAnchor.constraint(equalToConstant: 275).isActive = true
+        // width 조절 ( 여기서는 고정값을 줌 )
+        /*
+         만약 길이를 고정값이 아닌 비율로 주고싶다면?
+         nextButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 275/375).isActive = true
+         버튼의 길이 = 뷰의 길이 * 275/375 를 이렇게 코드로 나타낼 수 있다
+         */
+    
+        nextButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        // height 조절
+        /*
+         만약 높이를 길이에 대한 비율로 주고싶다면?
+         nextButton.heightAnchor.constraint(equalTo: nextButton.widthAnchor, multiplier: 48/275).isActive = true
+         버튼의 높이 = 버튼의 길이 * 48/275 를 이렇게 코드로 나타낼 수 있다
+         */
+        
+        nextButton.topAnchor.constraint(equalTo: self.goalCollectionView.bottomAnchor, constant: 97).isActive = true
+        // CollectionView로 부터 97만큼 밑에 존재하게 값을 줌
+        /*
+         만약 바닥에서부터 떨어져있는 값을 주고싶다면?
+         nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -86).isActive = true
+         로 뷰의 바닥에서부터 86만큼 위에 존재한다는 것을 이렇게 코드로 나타낼 수 있다
+         */
+        
+        nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
+        // nextButton을 클릭했을 때 원하는 Action을 연결시켜줌
         
     }
 }

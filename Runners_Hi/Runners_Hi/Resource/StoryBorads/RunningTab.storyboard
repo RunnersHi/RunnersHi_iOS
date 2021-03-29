@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IVq-Fp-6iv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WvY-mT-yZs">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -196,33 +196,19 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yE0-Vp-Zrm">
-                                <rect key="frame" x="50" y="524" width="275" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="275" id="XlI-We-KY2"/>
-                                    <constraint firstAttribute="height" constant="48" id="yGl-56-W2R"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="nextButtonDidTap:" destination="WvY-mT-yZs" eventType="touchUpInside" id="Ilf-eJ-GVa"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="thk-8P-ZAM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="yE0-Vp-Zrm" firstAttribute="centerX" secondItem="Xyi-P3-mwt" secondAttribute="centerX" id="0RL-iX-qYe"/>
                             <constraint firstItem="zWI-Bp-TN2" firstAttribute="centerX" secondItem="Xyi-P3-mwt" secondAttribute="centerX" id="6va-rj-Vom"/>
                             <constraint firstItem="zPA-Wa-x6H" firstAttribute="leading" secondItem="thk-8P-ZAM" secondAttribute="leading" id="8mp-Ed-gYq"/>
                             <constraint firstItem="zPA-Wa-x6H" firstAttribute="top" secondItem="zWI-Bp-TN2" secondAttribute="bottom" constant="70" id="APc-Gw-gjz"/>
                             <constraint firstItem="zWI-Bp-TN2" firstAttribute="top" secondItem="thk-8P-ZAM" secondAttribute="top" constant="58" id="Okj-gZ-ni1"/>
-                            <constraint firstItem="yE0-Vp-Zrm" firstAttribute="top" secondItem="zPA-Wa-x6H" secondAttribute="bottom" constant="75" id="dgR-pt-FKx"/>
                             <constraint firstItem="thk-8P-ZAM" firstAttribute="trailing" secondItem="zPA-Wa-x6H" secondAttribute="trailing" id="fTQ-ED-EuP"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="goalCollectionView" destination="zPA-Wa-x6H" id="WWz-Gz-x8a"/>
-                        <outlet property="nextButton" destination="yE0-Vp-Zrm" id="8o0-WU-Yn5"/>
                         <outlet property="questionLabel" destination="zWI-Bp-TN2" id="U2f-Lw-NOC"/>
                     </connections>
                 </viewController>
