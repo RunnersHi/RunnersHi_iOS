@@ -51,26 +51,31 @@ extension MatchingGenderVC {
     
     func setView() {
 
-        genderCollectionView.delegate = self
-        genderCollectionView.dataSource = self
-        startButton.isEnabled = false
-        questionLabel.text = "원하는 상대러너의 성별은?"
-        questionLabel.font = UIFont(name: "NanumSquareB", size: 20)
         view.backgroundColor = UIColor.backgroundgray
         genderCollectionView.backgroundColor = UIColor.backgroundgray
+        
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationController?.navigationBar.topItem?.title = ""
+        
+        startButton.isEnabled = false
         startButton.backgroundColor = UIColor.veryLightPink
-        startButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
-        startButton.setTitleColor(.black, for: .normal)
-        startButton.setTitle("START", for: .normal)
         startButton.layer.cornerRadius = 8
+        
+        genderCollectionView.delegate = self
+        genderCollectionView.dataSource = self
+        
     }
     
     // MARK: Function Text Style
     
     func setText() {
         
+        questionLabel.setLabel(text: "원하는 상대러너의 성별은?", color: .black, font: .nanumBold(size: 20))
+        
+        startButton.titleLabel?.font = .nanumBold(size: 16)
+        startButton.setTitleColor(.black, for: .normal)
+        startButton.setTitle("START", for: .normal)
+    
     }
     
     
