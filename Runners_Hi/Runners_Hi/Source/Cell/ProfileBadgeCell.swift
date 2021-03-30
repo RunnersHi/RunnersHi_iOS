@@ -16,7 +16,7 @@ class ProfileBadgeCell: UICollectionViewCell {
     
     
     override func awakeFromNib() {
-        profilebadgeset()
+        //profilebadgeset()
     }
     
     func profilebadgeset(){
@@ -39,8 +39,8 @@ class ProfileBadgeCell: UICollectionViewCell {
         print("나오냐?", profileBadgeList, index)
         
         // 모든 배지의 이름을 맞춰서 넣어준다.
-        myProfileName.text = myProfileBadgeLabel[index]
-        
+        //myProfileName.text = myProfileBadgeLabel[index]
+        myProfileName?.setLabel(text: myProfileBadgeLabel[index], color: .black, font: .nanumBold(size: 12.0))
         // 사용자로부터 받아온 배지 정보가 false 라면 달성하지 못한 배지로 여기고
         // 달성하지 못한 배지의 이미지를 삽입한다
         if profileBadgeList[index] == false {
