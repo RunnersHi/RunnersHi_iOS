@@ -11,7 +11,7 @@ import UIKit
 extension UILabel {
     
     // MARK: Label Style Function
-    // 사용법 : infoLabel.setLabel(text: "민희", color: .white, font: ..nanumBold(size: 22))
+    // 사용법 : infoLabel.setLabel(text: "민희", color: .white, font: .nanumBold(size: 22))
     
     func setLabel(text: String, color: UIColor, font: UIFont) {
         

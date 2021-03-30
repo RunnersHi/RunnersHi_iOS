@@ -12,6 +12,8 @@ import SocketIO
 
 class FindRunnerVC: UIViewController {
 
+    // MARK: Variable Part
+    
     let maxTime: Float = 300.0
     var myGoTime: Int = 0
     var moveTime: Float = 0.0
@@ -22,6 +24,7 @@ class FindRunnerVC: UIViewController {
     
     static var socket: SocketIOClient!
 
+    // MARK: IBOutlet
     
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var timeProgressBar: UIProgressView!
@@ -30,6 +33,9 @@ class FindRunnerVC: UIViewController {
     
     @IBOutlet weak var mentTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var mentStopButton: UIButton!
+    
+    // MARK: Life Cycle Part
+    
     override func viewDidLoad() {
         // 소켓 통신 연결 시작
         FindRunnerVC.socket = FindRunnerVC.self.manager.socket(forNamespace: "/matching")
@@ -170,26 +176,3 @@ class FindRunnerVC: UIViewController {
 
 
 }
-extension String {
-    func fromBase64URL() -> String? {
-        var base64 = self
-        base64 = base64.replacingOccurrences(of: "-", with: "+")
-        base64 = base64.replacingOccurrences(of: "_", with: "/")
-        while base64.count % 4 != 0 {
-            base64 = base64.appending("=")
-        }
-        guard let data = Data(base64Encoded: base64) else {
-            return nil
-        }
-        return String(data: data, encoding: .utf8)
-    }
-    
-    func toBase64URL() -> String {
-        var result = Data(self.utf8).base64EncodedString()
-        result = result.replacingOccurrences(of: "+", with: "-")
-        result = result.replacingOccurrences(of: "/", with: "_")
-        result = result.replacingOccurrences(of: "=", with: "")
-        return result
-    }
-}
-

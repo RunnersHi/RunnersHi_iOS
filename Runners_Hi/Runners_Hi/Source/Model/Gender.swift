@@ -9,9 +9,13 @@
 import Foundation
 
 struct Gender {
-    var genderActionLabelName: String
     
-    init(genderActionLabelName: String){
+    var genderActionLabelName: String
+    var genderNumber: Int
+    
+    init(genderActionLabelName: String, genderNumber: Int) {
+        
         self.genderActionLabelName = genderActionLabelName
+        self.genderNumber = genderNumber
     }
 }
