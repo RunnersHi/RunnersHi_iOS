@@ -43,29 +43,8 @@ class FindRunnerVC: UIViewController {
         connetSocket()
         pingpong()
         startSocket()
-        basicAutoLayout()
-    }
-    private func basicAutoLayout() {
-       // mentStopButton.
-        self.navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = UIColor.backgroundgray
-        logoImage.image = UIImage(named: "matchLogo")
-        timeProgressBar.setProgress(moveTime, animated: true)
-        perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
-        timeProgressBar.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
-        timeProgressBar.layer.cornerRadius = 3
-        timeProgressBar.clipsToBounds = true
-        mentTextView.font = UIFont(name: "NanumSquare", size: 18)
-        mentTextView.textAlignment = .center
-        mentTextView.backgroundColor = UIColor.backgroundgray
-        //textView 수정 불가하게 하기
-        mentTextView.isEditable = false
-       // mentTextViewHeight.constant = mentTextView.contentSize.height
-        mentStopButton.setTitle("매칭 중단하기", for: .normal)
-        mentStopButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
-        mentStopButton.setTitleColor(.white, for: .normal)
-        mentStopButton.backgroundColor = UIColor.lightishBlue
-        mentStopButton.layer.cornerRadius = 8
+        setView()
+        setText()
     }
 
     func connetSocket() {
@@ -175,4 +154,47 @@ class FindRunnerVC: UIViewController {
 
 
 
+}
+
+// MARK: Extension
+
+extension FindRunnerVC {
+    
+    // MARK: Function View Style
+    
+    func setView() {
+        
+        self.navigationController?.isNavigationBarHidden = true
+        view.backgroundColor = UIColor.backgroundgray
+        logoImage.image = UIImage(named: "matchLogo")
+        
+        timeProgressBar.setProgress(moveTime, animated: true)
+        perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
+        
+        timeProgressBar.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
+        timeProgressBar.layer.cornerRadius = 3
+        timeProgressBar.clipsToBounds = true
+        
+        mentTextView.backgroundColor = UIColor.backgroundgray
+        
+        //textView 수정 불가하게 하기
+        mentTextView.isEditable = false
+    
+        mentStopButton.layer.cornerRadius = 8
+        
+    }
+    
+    // MARK: Function Text Style
+    
+    func setText() {
+        
+        mentTextView.font = .nanumRegular(size: 18)
+        mentTextView.textAlignment = .center
+        
+        mentStopButton.setTitle("매칭 중단하기", for: .normal)
+        mentStopButton.titleLabel?.font = .nanumBold(size: 16)
+        mentStopButton.setTitleColor(.white, for: .normal)
+        mentStopButton.backgroundColor = UIColor.lightishBlue
+        
+    }
 }
