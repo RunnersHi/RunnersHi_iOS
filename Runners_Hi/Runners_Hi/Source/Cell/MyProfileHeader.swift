@@ -26,18 +26,11 @@ class MyProfileHeader: UICollectionReusableView {
     }
     
     func headerset(){
-        //
-        
         myProfileBack.image = UIImage(named: "whiteboxRecdetailactivityMyrecord")
-        myProfileName.font = UIFont(name: "NanumSquareB", size:18.0)
-        LvName.font = UIFont(name: "NanumSquareR", size:14.0)
-        LvLabel.font = UIFont(name: "NanumSquareB", size:16.0)
-        ScoreName.font = UIFont(name: "NanumSquareR", size:14.0)
-        ScoreLabel.font = UIFont(name: "NanumSquareB", size:16.0)
         
-        LvName.text = "Lv."
-        ScoreName.text = "전적"
-        //
+        // font extension 적용
+        LvName.setLabel(text: "Lv.", color: .white, font: .nanumBold(size: 14.0))
+        ScoreName.setLabel(text: "전적", color: .white, font: .nanumRegular(size: 14.0))
     }
     
 
@@ -59,9 +52,12 @@ class MyProfileHeader: UICollectionReusableView {
         let levelList = ["초급","중급","고급"]
 
         
+        // font extension 적용
+        LvLabel?.setLabel(text: "\(levelList[level-1])", color: .black, font: .nanumBold(size: 16.0))
+        ScoreLabel?.setLabel(text: "\(win) 승 \(lose) 패", color: .black, font: .nanumBold(size: 16.0))
+        myProfileName?.setLabel(text: name, color: .black, font: .nanumBold(size: 18.0))
+
         myProfileImage.image = UIImage(named: myprofileImageList[imageFlag - 1])
-        LvLabel?.text = "\(levelList[level-1])"
-        ScoreLabel?.text = "\(win)" + "승 " + "\(lose)" + "패"
-        myProfileName?.text = name
+
     }
 }
