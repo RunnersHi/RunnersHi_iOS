@@ -10,6 +10,7 @@ import UIKit
 
 class MyProfileHeader: UICollectionReusableView {
     static let identifier: String = "MyProfileHeader"
+    
     //
     @IBOutlet weak var myProfileImage: UIImageView!
     @IBOutlet weak var myProfileBack: UIImageView!
@@ -43,12 +44,14 @@ class MyProfileHeader: UICollectionReusableView {
 
     
     func myPageHeaderData(data: MyProfile?){
+        // 전달받은 정보를 처리해주고
         let level = data?.result.level ?? 1
         let win = data?.result.win ?? 1
         let lose = data?.result.lose ?? 1
         let name:String = data?.result.nickname ?? "성북천치타"
         let myprofileImageFlag:Int = data?.result.image ?? 1
         
+        // 데이터를 알맞게 넣어준다.
         dataSetting(level: level, win: win, lose: lose, name: name, imageFlag: myprofileImageFlag)
     }
     
