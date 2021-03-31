@@ -14,12 +14,13 @@ class FindRunnerVC: UIViewController {
 
     // MARK: Variable Part
     
-    let maxTime: Float = 300.0
-    var myGoTime: Int = 0
-    var moveTime: Float = 0.0
+    let waitMaxTime: Float = 300.0
+    // 대기 최대 시간
+    var nowWaitTime: Float = 0.0
+    // 현재 내 대기 시간
     var leftTime: Int = 300
     var room: String = ""
-    static let shared = SocketIOManager()
+    
     static var manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
     
     static var socket: SocketIOClient!
@@ -38,34 +39,15 @@ class FindRunnerVC: UIViewController {
     
     override func viewDidLoad() {
         // 소켓 통신 연결 시작
+//        SocketIOManager.socket = SocketIOManager.manager.socket(forNamespace: "/matching")
         FindRunnerVC.socket = FindRunnerVC.self.manager.socket(forNamespace: "/matching")
+//        SocketIOManager.socket.connect()
         super.viewDidLoad()
         connetSocket()
         pingpong()
         startSocket()
-        basicAutoLayout()
-    }
-    private func basicAutoLayout() {
-       // mentStopButton.
-        self.navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = UIColor.backgroundgray
-        logoImage.image = UIImage(named: "matchLogo")
-        timeProgressBar.setProgress(moveTime, animated: true)
-        perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
-        timeProgressBar.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
-        timeProgressBar.layer.cornerRadius = 3
-        timeProgressBar.clipsToBounds = true
-        mentTextView.font = UIFont(name: "NanumSquare", size: 18)
-        mentTextView.textAlignment = .center
-        mentTextView.backgroundColor = UIColor.backgroundgray
-        //textView 수정 불가하게 하기
-        mentTextView.isEditable = false
-       // mentTextViewHeight.constant = mentTextView.contentSize.height
-        mentStopButton.setTitle("매칭 중단하기", for: .normal)
-        mentStopButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
-        mentStopButton.setTitleColor(.white, for: .normal)
-        mentStopButton.backgroundColor = UIColor.lightishBlue
-        mentStopButton.layer.cornerRadius = 8
+        setView()
+        setText()
     }
 
     func connetSocket() {
@@ -161,18 +143,73 @@ class FindRunnerVC: UIViewController {
     struct NickName : Codable {
         var nick : String
     }
-    @objc func updateProgressbar() {
-        moveTime = moveTime + 1.0
-        timeProgressBar.progress = moveTime/maxTime
-        if moveTime < maxTime {
-            perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
-        } else {
-            print("끝")
-            moveTime = 0.0
-        }
-    }
+
     
 
 
 
+}
+
+// MARK: Extension
+
+extension FindRunnerVC {
+    
+    // MARK: Function View Style
+    
+    func setView() {
+        
+        self.navigationController?.isNavigationBarHidden = true
+        view.backgroundColor = UIColor.backgroundgray
+        logoImage.image = UIImage(named: "matchLogo")
+        
+        timeProgressBar.setProgress(nowWaitTime, animated: true)
+        // progressBar 시작 시간 셋팅
+        perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
+        // 1초마다 progressbar 가 증가하도록 실행
+        
+        timeProgressBar.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
+        timeProgressBar.layer.cornerRadius = 3
+        timeProgressBar.clipsToBounds = true
+        
+        mentTextView.backgroundColor = UIColor.backgroundgray
+        
+        //textView 수정 불가하게 하기
+        mentTextView.isEditable = false
+    
+        mentStopButton.layer.cornerRadius = 8
+        
+    }
+    
+    // MARK: Function Text Style
+    
+    func setText() {
+        
+        mentTextView.font = .nanumRegular(size: 18)
+        mentTextView.textAlignment = .center
+        
+        mentStopButton.setTitle("매칭 중단하기", for: .normal)
+        mentStopButton.titleLabel?.font = .nanumBold(size: 16)
+        mentStopButton.setTitleColor(.white, for: .normal)
+        mentStopButton.backgroundColor = UIColor.lightishBlue
+        
+    }
+    
+    @objc func updateProgressbar() {
+        
+        nowWaitTime = nowWaitTime + 1.0
+        // 계속 1초씩 더해줌
+        
+        timeProgressBar.progress = nowWaitTime/waitMaxTime
+        
+        if nowWaitTime < waitMaxTime {
+            // 아직 maxTime이 되지 않았다면
+            perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
+            // 1초후에 다시 실행
+            
+        } else {
+            // 시간이 다 됐다면
+            nowWaitTime = 0.0
+            // 시간 변수 초기화
+        }
+    }
 }

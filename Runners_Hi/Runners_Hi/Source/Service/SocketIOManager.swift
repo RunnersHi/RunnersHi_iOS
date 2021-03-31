@@ -8,8 +8,11 @@
 
 import UIKit
 import SocketIO
-//var manager = SocketManager(socketURL: URL(string: "13.125.20.117:3000")!, config: [.log(true), .compress])
+
 class SocketIOManager: NSObject {
+    
+    static let manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
+    
     var leftTime: Int = 300
     var room: String = ""
     
@@ -17,14 +20,12 @@ class SocketIOManager: NSObject {
     let myGoal : Int = (UserDefaults.standard.object(forKey: "myGoalTime") as? Int) ?? (-1)
     let myWantGender : Int = (UserDefaults.standard.object(forKey: "myWantGender") as? Int) ?? (-1)
     
-    static let shared = SocketIOManager()
-    
-    var manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
-    var socket: SocketIOClient!
-        override init() {
-        super.init()
-        socket = self.manager.socket(forNamespace: "/matching")
-    }
+    static var socket: SocketIOClient!
+//
+//        override init() {
+//        super.init()
+//        socket = SocketIOManager.manager.socket(forNamespace: "/matching")
+//    }
     
     func establishConnection() {
         socket.connect()
