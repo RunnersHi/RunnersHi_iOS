@@ -44,7 +44,7 @@ class MyProfileHeader: UICollectionReusableView {
 
     
     func myPageHeaderData(data: MyProfile?){
-        // 전달받은 정보를 처리해주고
+        // 전달받은 정보를 처리해주고, 값이 없는 경우에는 정해진 값을 넣어준다.
         let level = data?.result.level ?? 1
         let win = data?.result.win ?? 1
         let lose = data?.result.lose ?? 1
