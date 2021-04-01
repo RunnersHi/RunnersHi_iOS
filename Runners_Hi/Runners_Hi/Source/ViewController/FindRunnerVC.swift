@@ -22,6 +22,7 @@ class FindRunnerVC: UIViewController {
     var room: String = ""
     
     static var manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
+    // 소켓통신에 필요한 주소 입력
     
     static var socket: SocketIOClient!
 
@@ -38,36 +39,40 @@ class FindRunnerVC: UIViewController {
     // MARK: Life Cycle Part
     
     override func viewDidLoad() {
-        // 소켓 통신 연결 시작
-//        SocketIOManager.socket = SocketIOManager.manager.socket(forNamespace: "/matching")
-        FindRunnerVC.socket = FindRunnerVC.self.manager.socket(forNamespace: "/matching")
-//        SocketIOManager.socket.connect()
+        
         super.viewDidLoad()
         connetSocket()
-        pingpong()
         startSocket()
         setView()
         setText()
     }
 
     func connetSocket() {
+        
+        FindRunnerVC.socket = FindRunnerVC.self.manager.socket(forNamespace: "/matching")
+        // Socket 통신에서 matching이라는 Room을 만들어서 사용
         FindRunnerVC.socket.connect()
+        // 설정한 주소와 포트로 소켓 연결시도
+        pingpong()
     }
+    
     func pingpong() {
+        // 이벤트가 없을 때 ping timeout으로 소켓 통신이 끊기는 것을 방지하고자 9초 간격으로 클라이언트와 서버가 ping pong을 주고받음
+        
         FindRunnerVC.socket.on("ping", callback: { (data, ack) in
+            // "ping" 이라는 이벤트를 서버에서 받음
             FindRunnerVC.self.socket.emit("pong",1)
+            // 받았다면 "pong"이라는 이벤트 이름의 1 값을 서버에 보내줌
+            
         })
     }
+    
     func compareResult(distance: Int, time: Int, coordinates: Array<Int>, createdTime: String, endTime: String) {
         FindRunnerVC.socket.emit("compareResult", self.room, distance, time, coordinates, createdTime, endTime)
     }
+    
     func startSocket() {
-
-
-        // 소켓 연결
-//        let socket = manager.socket(forNamespace: "/matching")
-//        socket.connect()
-        //SocketIOManager.shared.establishConnection()
+        
         // UserDefaults에서 매칭 정보를 가져옴
         let myToken : String = (UserDefaults.standard.object(forKey: "token") as? String) ?? ""
         let myGoal : Int = (UserDefaults.standard.object(forKey: "myGoalTime") as? Int) ?? (-1)
@@ -75,38 +80,51 @@ class FindRunnerVC: UIViewController {
 
         // 서버 : 시작해도 좋다는 응답 -> 클라 : 내 정보와 내가 원하는 상대의 조건을 보내줌
         FindRunnerVC.socket.on("start", callback: { (data, ack) in
+            // "start"라는 이름의 event를 서버에서 받는다면 소켓 통신이 연결 되었다는 뜻!
             FindRunnerVC.self.socket.emit("joinRoom",myToken,myGoal,myWantGender,self.leftTime)
+            // "joinRoom"이라는 이벤트로 토큰, 원하는 목표 시간, 원하는 상대방 성별, 현재 남은 시간을 송신
         })
 
-        // 내가 원하는 조건의 상대를 찾지 못해서
         // 서버 : 새로운 방을 만들어서 나를 넣어줌 -> 클라 : 시간 카운트를 하라는걸 알려줌
         FindRunnerVC.socket.on("roomCreated", callback: { (data, ack) in
-            // 여기서 data[0]은 생성된 방 이름 (String)
+            // "roomCreated"라는 이름의 event를 서버에서 받는다면 내가 원하는 조건의 상대가 현재 대기방에 존재하지 않아 내가 방을 만들어야 한다는 뜻
+            // 서버가 data로 내가 생성할 방 넘버를 보내줌
             FindRunnerVC.self.socket.emit("startCount",data[0] as! SocketData)
+            // "startCount"라는 이벤트로 대기 방 생성 ( 매칭 대기 시간 시작 )
         })
+        
         // 클라 : 남은 시간을 나에게 보내줌
         FindRunnerVC.socket.on("timeLeft", callback: {(data, ack) in
-            // 남은 시간은 Int 타입으로 넘겨줌
+            // "timeLeft"라는 이름의 event를 서버에서 받는다면 매칭 대기중 이라는 뜻
+            // 서버가 3초마다 data로 매칭에 남은 시간을 보내줌
             self.leftTime = data[0] as! Int
+            // 매칭 남은 시간을 저장해둔다
         })
-        // 매칭 시간이 다 지났지만, 매칭 상대를 찾지 못했을때
+        
         // 서버 : 시간이 다 됐다고 알려줌 -> 클라 : 소켓 통신 끊기
         FindRunnerVC.socket.on("timeOver", callback: { (data, ack) in
-            print("끊어")
+            // "timeOver"라는 이름의 event를 서버에서 받는다면 매칭 시간이 다 지났고, 매칭 상대를 찾지 못했다는 뜻
             FindRunnerVC.self.socket.disconnect()
+            // 소켓통신 중지
         })
 
         // 대기 중 상대를 찾았을때
         FindRunnerVC.socket.on("matched", callback: { (data, ack) in
-            // 여기서 data[0]은 내가 속한 방 이름 (String)
+            // "matched"라는 이름의 event를 서버에서 받는다면 매칭에 성공했다는 뜻
+            // 서버가 data로 내가 들어간 방의 이름을 보내줌
             FindRunnerVC.self.socket.emit("endCount",data[0] as! SocketData)
-            // matched에서 받은 속한 방 이름과 함게 보내줌
+            // "endCount"라는 이벤트로 내가 들어간 방 이름과 함께 송신
         })
-        // 방이 다 찼을때
+        
         FindRunnerVC.socket.on("roomFull", callback: { (data, ack) in
+            // "roomFull"이라는 이름의 evnet를 서버에서 받는다면 방이 다 찼다는 뜻
+            // 이 뜻은 내가 누군가에 방에 들어갔거나, 내 방에 누군가가 들어왔다는 뜻임
             self.room = ((data[0] as! NSString) as String)
+            // 서버가 data로 방 이름을 보내줌
             FindRunnerVC.self.socket.emit("opponentInfo",data[0] as! SocketData)
+            // "opponentinfo"라는 이벤트로 방 이름과 함께 송신
         })
+        
         FindRunnerVC.socket.on("opponentInfo", callback: { (data, ack) in
             UserDefaults.standard.set(data[0] , forKey: "opponentRoom")
             let yourNick: String = data[1] as? String ?? " "
@@ -118,28 +136,26 @@ class FindRunnerVC: UIViewController {
             FindRunnerVC.self.socket.emit("readyToRun",self.room)
 
         })
+        
         FindRunnerVC.socket.on("letsRun", callback: { (data, ack) in
             print("letsRun:")
             guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
             self.navigationController?.pushViewController(LetsRun, animated: true)
         })
+        
         FindRunnerVC.socket.on("opponentNotReady", callback: { (data, ack) in
             print("wait plz:")
         })
 
         FindRunnerVC.socket.on("error", callback: { (data, ack) in
-            print("저는 바보입니다...ㅠㅠ")
+            print("error 발생")
         })
 
     }
     func kmPassed(km: Int) {
         FindRunnerVC.socket.emit("kmPassed", self.room, km)
     }
-//    func finishRun() {
-//        print("finish ~~")
-//        self.socket.emit("endRunning")
-//    }
-    
+
     struct NickName : Codable {
         var nick : String
     }
