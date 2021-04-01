@@ -10,8 +10,7 @@ import UIKit
 
 class MyProfileHeader: UICollectionReusableView {
     static let identifier: String = "MyProfileHeader"
-    
-    //
+
     @IBOutlet weak var myProfileImage: UIImageView!
     @IBOutlet weak var myProfileBack: UIImageView!
     @IBOutlet weak var myProfileName: UILabel!
@@ -25,6 +24,7 @@ class MyProfileHeader: UICollectionReusableView {
     
     
     override func awakeFromNib() {
+        // 헤더에 사용되는 데이터 값들과, 뷰를 세팅해주는 headerset()을 호출해준다.
         headerset()
     }
     
@@ -50,25 +50,26 @@ class MyProfileHeader: UICollectionReusableView {
         let lose = data?.result.lose ?? 1
         let name:String = data?.result.nickname ?? "성북천치타"
         let myprofileImageFlag:Int = data?.result.image ?? 1
-        
-        // 데이터를 알맞게 넣어준다.
+
+        // 처리된 데이터를 바탕으로 데이터를 세팅하는 datasetting() 함수를 호출해준다.
         dataSetting(level: level, win: win, lose: lose, name: name, imageFlag: myprofileImageFlag)
     }
     
     func dataSetting(level: Int, win: Int, lose: Int, name: String, imageFlag:Int ){
-        
+        // 프로필 이미지와 레벨 리스트를 선언한다.
+        // 해당 리스트의 원소들은 사용자의 프로필에 맞는 값을 표시하는데 사용된다.
         let  myprofileImageList = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
-        
         let levelList = ["초급","중급","고급"]
 
-        
-        myProfileImage.image = UIImage(named: myprofileImageList[imageFlag - 1])
-        
+
+        // 라벨의 값들을 입력해주고, 색, 폰트, 크기 세팅을 해준다.
         // font extension 적용
         LvLabel?.setLabel(text: "\(levelList[level-1])", color: .black, font: .nanumBold(size: 16.0))
         ScoreLabel?.setLabel(text: "\(win) 승 \(lose) 패", color: .black, font: .nanumBold(size: 16.0))
         myProfileName?.setLabel(text: name, color: .black, font: .nanumBold(size: 18.0))
-        
+
+        // 프로필 이미지 값에 맞게 프로필 이미지를 설정해준다.
+        myProfileImage.image = UIImage(named: myprofileImageList[imageFlag - 1])
 
     }
 }
