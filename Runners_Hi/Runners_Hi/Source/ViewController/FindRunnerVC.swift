@@ -20,6 +20,7 @@ class FindRunnerVC: UIViewController {
     // 현재 내 대기 시간
     var leftTime: Int = 300
     var room: String = ""
+    // 방 이름 저장할 변수
     
     static var manager = SocketManager(socketURL: URL(string: "http://13.125.20.117:3000")!, config: [.log(true), .compress])
     // 소켓통신에 필요한 주소 입력
