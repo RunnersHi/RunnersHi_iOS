@@ -10,7 +10,7 @@ import UIKit
 
 class MyProfileHeader: UICollectionReusableView {
     static let identifier: String = "MyProfileHeader"
-    //
+    
     @IBOutlet weak var myProfileImage: UIImageView!
     @IBOutlet weak var myProfileBack: UIImageView!
     @IBOutlet weak var myProfileName: UILabel!
@@ -36,27 +36,30 @@ class MyProfileHeader: UICollectionReusableView {
 
     
     func myPageHeaderData(data: MyProfile?){
+        // myPage Header
         let level = data?.result.level ?? 1
         let win = data?.result.win ?? 1
         let lose = data?.result.lose ?? 1
         let name:String = data?.result.nickname ?? "익명"
         let myprofileImageFlag:Int = data?.result.image ?? 1
         
+        //
         dataSetting(level: level, win: win, lose: lose, name: name, imageFlag: myprofileImageFlag)
     }
     
     func dataSetting(level: Int, win: Int, lose: Int, name: String, imageFlag:Int ){
-        
+        // 프로필 이미지와 레벨 리스트를 선언한다.
+        // 해당 리스트의 원소들은 사용자의 프로필에 맞는 값을 표시하는데 사용된다.
         let  myprofileImageList = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
-        
         let levelList = ["초급","중급","고급"]
 
         
+        // 라벨의 값들을 입력해주고, 색, 폰트, 크기 세팅을 해준다.
         // font extension 적용
         LvLabel?.setLabel(text: "\(levelList[level-1])", color: .black, font: .nanumBold(size: 16.0))
         ScoreLabel?.setLabel(text: "\(win) 승 \(lose) 패", color: .black, font: .nanumBold(size: 16.0))
         myProfileName?.setLabel(text: name, color: .black, font: .nanumBold(size: 18.0))
-
+        // 프로필 이미지 값에 맞게 프로필 이미지를 설정해준다.
         myProfileImage.image = UIImage(named: myprofileImageList[imageFlag - 1])
 
     }
