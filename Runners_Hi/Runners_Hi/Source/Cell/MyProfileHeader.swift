@@ -10,7 +10,6 @@ import UIKit
 
 class MyProfileHeader: UICollectionReusableView {
     static let identifier: String = "MyProfileHeader"
-    
 
     @IBOutlet weak var myProfileImage: UIImageView!
     @IBOutlet weak var myProfileBack: UIImageView!
@@ -25,6 +24,7 @@ class MyProfileHeader: UICollectionReusableView {
     
     
     override func awakeFromNib() {
+        // 헤더에 사용되는 데이터 값들과, 뷰를 세팅해주는 headerset()을 호출해준다.
         headerset()
     }
     
@@ -44,7 +44,6 @@ class MyProfileHeader: UICollectionReusableView {
 
     
     func myPageHeaderData(data: MyProfile?){
-
         // 전달받은 정보를 처리해주고, 값이 없는 경우에는 정해진 값을 넣어준다.
         let level = data?.result.level ?? 1
         let win = data?.result.win ?? 1
@@ -52,7 +51,7 @@ class MyProfileHeader: UICollectionReusableView {
         let name:String = data?.result.nickname ?? "성북천치타"
         let myprofileImageFlag:Int = data?.result.image ?? 1
 
-        // 데이터를 알맞게 넣어준다.
+        // 처리된 데이터를 바탕으로 데이터를 세팅하는 datasetting() 함수를 호출해준다.
         dataSetting(level: level, win: win, lose: lose, name: name, imageFlag: myprofileImageFlag)
     }
     
@@ -62,10 +61,8 @@ class MyProfileHeader: UICollectionReusableView {
         let  myprofileImageList = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
         let levelList = ["초급","중급","고급"]
 
-        
 
         // 라벨의 값들을 입력해주고, 색, 폰트, 크기 세팅을 해준다.
-        myProfileImage.image = UIImage(named: myprofileImageList[imageFlag - 1])
         // font extension 적용
         LvLabel?.setLabel(text: "\(levelList[level-1])", color: .black, font: .nanumBold(size: 16.0))
         ScoreLabel?.setLabel(text: "\(win) 승 \(lose) 패", color: .black, font: .nanumBold(size: 16.0))
