@@ -1,6 +1,7 @@
 # RUNNERS HI - iOS
 🏃🏻‍♂️🏃🏻‍♀️ 러너스하이 iOS "진심" 레포 🏃🏻‍♂️🏃🏻‍♀️
 - 진행기간 : 2020년 6월 27일 ~ 7월 18일 26th ‘SOPT’ APPJAM
+- 코드 리팩토링 기간 : 2021년 3월 25일 ~
 
 <img width="400" src="https://user-images.githubusercontent.com/51286963/87784132-ad715700-c870-11ea-9ba6-d67ffe063c0a.png">
 
