@@ -7,44 +7,36 @@
 //
 
 import UIKit
-
-import CoreMotion
-import SocketIO
-import NMapsMap
 import CoreLocation
+import CoreMotion
+import NMapsMap
+import SocketIO
 
 class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     
-    let stopColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-    let startColor = UIColor(red: 0.0, green: 0.75, blue: 0.0, alpha: 1.0)
-    // values for the pedometer data
-    var numberOfSteps:Int! = nil
-    var finalKm:Int = 0
-    var distance:Double! = nil
-    var averagePace:Double! = nil
-    var pace:Double! = nil
-    var kmDistance:Double! = nil
+    // MARK: Variable Part
     
-    var locationManager:CLLocationManager!
+    var numberOfSteps: Int?
+    var distance: Double?
+    var averagePace: Double?
+    var pace: Double?
     
-    @IBOutlet weak var scrolleView: UIScrollView!
-
+    var locationManager: CLLocationManager = CLLocationManager()
+    
     var pedometer = CMPedometer()
     var move: Int = 0
     var timer = Timer()
     var timerInterval = 1.0
-    var timeElapsed:TimeInterval = 1.0
     
     var moveTime: Float = 0.0
-    var maxTime: Float = UserDefaults.standard.object(forKey: "myGoalTime") as? Float ?? 0
-    //var maxTime: Float = 60.0
-    var limitTime: Int = UserDefaults.standard.object(forKey: "myGoalTime") as? Int ?? 0
-    var nowKmeter: Double = 0.0
-    var get5secKm: Double = 0.0
-    var myMeter: Double = 0.0
-    var levelStruct = ["초급","중급","고급"]
-    var profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunnowMeterhair"]
+    var maxTime: Float = UserDefaults.standard.float(forKey: "myGoalTime")
+    var limitTime: Int = UserDefaults.standard.integer(forKey: "myGoalTime")
+    
     var formatter = DateFormatter()
+    
+    // MARK: IBOutlet
+    
+    @IBOutlet weak var scrolleView: UIScrollView!
     
     @IBOutlet weak var lockButton: UIButton!
     @IBOutlet weak var backBoxImage: UIImageView!
@@ -83,16 +75,17 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var naverView: UIView!
     
+    // MARK: Life Cycle Part
+    
     override func viewDidLoad() {
         
-        secToTime(sec: limitTime)
-        pedometer = CMPedometer()
+        userElapsedTimeCount(sec: limitTime)
         startTimer()
         pedometer.startUpdates(from: Date(), withHandler: { (pedometerData, error) in
-            if let pedData = pedometerData{
+            if let pedData = pedometerData {
                 self.numberOfSteps = Int(pedData.numberOfSteps)
                 //self.stepsLabel.text = "Steps:\(pedData.numberOfSteps)"
-                if let distance = pedData.distance{
+                if let distance = pedData.distance {
                     self.distance = Double(distance)
                 }
                 if let averageActivePace = pedData.averageActivePace {
@@ -112,25 +105,25 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
             guard let FinishRun = self.storyboard?.instantiateViewController(identifier:"RunFinishVC") as? RunFinishVC else {return}
             self.navigationController?.pushViewController(FinishRun, animated: true)
         })
-            
-
+        
+        
         perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
-
+        
         super.viewDidLoad()
         setMap()
         setView()
         setLabel()
         setOpponentProfile()
-            
+        
     }
 }
 
-
+// MARK: Extension
 
 extension RunActivityVC {
     func startTimer(){
-//        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//        UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
+        //        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        //        UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
         if timer.isValid { timer.invalidate() }
         timer = Timer.scheduledTimer(timeInterval: timerInterval,target: self,selector: #selector(timerAction(timer:)) ,userInfo: nil,repeats: true)
     }
@@ -138,9 +131,9 @@ extension RunActivityVC {
         displayPedometerData()
     }
     func displayPedometerData(){
-
+        
         if let distance = self.distance {
-        opponentKmLabel.text = String(format:"%02.02f",distance/1000)
+            opponentKmLabel.text = String(format:"%02.02f",distance/1000)
             let pace1 = Int(moveTime/Float(distance/1000))
             let pace2 = Int(pace1/60)
             let pace3 = Int(pace1%60)
@@ -148,10 +141,10 @@ extension RunActivityVC {
             if pace2 >= 60 {
                 opponentPaceLabel.text = "_'__''"
             } else {
-            opponentPaceLabel.text = String(pace2) + "'" + String(pace3) + "''"
+                opponentPaceLabel.text = String(pace2) + "'" + String(pace3) + "''"
             }
         }
-   }
+    }
     
     
     func miles(meters:Double)-> Double{
@@ -172,7 +165,7 @@ extension RunActivityVC {
         
         startTimeLabel.text = "00:00"
         startTimeLabel.font = UIFont(name: "NanumSquareB", size: 14)
-
+        
         if maxTime == 1800.0 {
             finishTimeLabel.text = "30:00"
         } else if maxTime == 2700.0 {
@@ -207,7 +200,7 @@ extension RunActivityVC {
     }
     
     func setView() {
-
+        
         lockButton.setBackgroundImage(UIImage(named: "iconUnlock"), for: .normal)
         lockButton.setTitle(nil, for: .normal)
         
@@ -244,9 +237,13 @@ extension RunActivityVC {
         let inputLose = UserDefaults.standard.object(forKey: "opponentLose") ?? 0
         let inputImage = UserDefaults.standard.object(forKey: "opponentImg") ?? 0
         
+        let profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunnowMeterhair"]
+        
         opponentImage.image = UIImage(named: profileImageStruct[(inputImage as? Int ?? 0) - 1])
         opponentNickLabel.text = inputNick as? String ?? " "
         opponentScoreLabel.text = "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
+        
+        let levelStruct = ["초급","중급","고급"]
         opponentLevelLabel.text = levelStruct[(inputLevel as? Int ?? 0) - 1]
         
     }
@@ -261,62 +258,68 @@ extension RunActivityVC {
             if distance == nil {
                 move = 1
             } else {
-                 move = Int(distance)
+                move = Int(distance ?? 0)
             }
-//            print(move, "뭘바요..")
+            //            print(move, "뭘바요..")
             UserDefaults.standard.set(move, forKey: "opponetDistance")
             FindRunnerVC.socket.emit("endRunning", UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2 )
         }
     }
-        func secToTime(sec: Int){
-           let hour = sec / 3600
-           let minute = (sec % 3600) / 60
-           let second = (sec % 3600) % 60
-            if hour == 0 {
-                opponentLeftTimeLabel.text = String(minute) + ":" + String(second)
-            } else if minute == 0 {
-                opponentLeftTimeLabel.text = String(second)
-            } else {
-                opponentLeftTimeLabel.text = String(hour) + ":" + String(minute) + ":" + String(second)
-            }
-
-            if moveTime < maxTime {
-                perform(#selector(getSetTime), with: nil, afterDelay: 1.0)
-            }
-
-       }
-
-        @objc func getSetTime() {
+    
+    func userElapsedTimeCount(sec: Int) {
+        // 러닝 경과 시간 표시를 위한 함수
+        
+        let hour = sec / 3600
+        let minute = (sec % 3600) / 60
+        let second = (sec % 3600) % 60
+        
+        if hour == 0 {
+            opponentLeftTimeLabel.text = String(minute) + ":" + String(second)
+        } else if minute == 0 {
+            opponentLeftTimeLabel.text = String(second)
+        } else {
+            opponentLeftTimeLabel.text = String(hour) + ":" + String(minute) + ":" + String(second)
+        }
+        
         if moveTime < maxTime {
-            secToTime(sec: limitTime)
-            limitTime = limitTime - 1
-            } else {
-                opponentLeftTimeLabel.text = "00:00"
-            }
-
+            // 아직 종료 시간이 남았다면?
+            perform(#selector(userElapsedTime), with: nil, afterDelay: 1.0)
+            // 1초 딜레이 이후 실행
+        }
+        
     }
+    
+    @objc func userElapsedTime() {
+        // 1초마다 시간이 흐르게 해주는 함수
+        
+        userElapsedTimeCount(sec: limitTime)
+        // 러닝 경과 시간 표시 함수 실행
+        limitTime = limitTime - 1
+        // 남은 시간에서 1초 빼주기(1초 경과)
+        
+    }
+    
     @objc func setMap() {
-            locationManager = CLLocationManager()
-            locationManager.delegate = self
-            locationManager.requestWhenInUseAuthorization()
-                
-            let coor = locationManager.location?.coordinate
-            let latiutd = (coor?.latitude) ?? 0.00
-            let longitud = (coor?.longitude) ?? 0.00
-                
-            let mapView = NMFMapView(frame: naverView.bounds)
-            naverView.addSubview(mapView)
-            mapView.positionMode = .direction
-
-            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latiutd, lng: longitud))
-            cameraUpdate.animation = .easeIn
-            cameraUpdate.animationDuration = 1
-            mapView.moveCamera(cameraUpdate)
-            
-
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        
+        let coor = locationManager.location?.coordinate
+        let latiutd = (coor?.latitude) ?? 0.00
+        let longitud = (coor?.longitude) ?? 0.00
+        
+        let mapView = NMFMapView(frame: naverView.bounds)
+        naverView.addSubview(mapView)
+        mapView.positionMode = .direction
+        
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latiutd, lng: longitud))
+        cameraUpdate.animation = .easeIn
+        cameraUpdate.animationDuration = 1
+        mapView.moveCamera(cameraUpdate)
+        
+        
     }
-
-
+    
+    
 }
 
 
