@@ -11,15 +11,14 @@ struct RecordAllData<T: Codable> : Codable {
     let status: Int
     let success: Bool
     let message: String
-    let result: [T]
+    let data: [T]
 }
 
 struct Result: Codable {
     let date: String
-    let distance: Int
-    let time: String
-    let runIdx, result, gameIdx: Int
-
+    let distance, time, runIdx, result: Int
+    let gameIdx: Int
+    
     enum CodingKeys: String, CodingKey {
         case date, distance, time
         case runIdx = "run_idx"
