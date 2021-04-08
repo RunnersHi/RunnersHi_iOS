@@ -81,6 +81,7 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
         
         userElapsedTimeCount(sec: limitTime)
         startTimer()
+        
         pedometer.startUpdates(from: Date(), withHandler: { (pedometerData, error) in
             if let pedData = pedometerData {
                 self.numberOfSteps = Int(pedData.numberOfSteps)
@@ -121,19 +122,22 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
 // MARK: Extension
 
 extension RunActivityVC {
-    func startTimer(){
-        //        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        //        UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
-        if timer.isValid { timer.invalidate() }
+    
+    func startTimer() {
+        
+        if timer.isValid {
+            
+            timer.invalidate()
+        }
+        
         timer = Timer.scheduledTimer(timeInterval: timerInterval,target: self,selector: #selector(timerAction(timer:)) ,userInfo: nil,repeats: true)
     }
-    @objc func timerAction(timer:Timer){
-        displayPedometerData()
-    }
-    func displayPedometerData(){
+    
+    @objc func timerAction(timer:Timer) {
         
         if let distance = self.distance {
-            opponentKmLabel.text = String(format:"%02.02f",distance/1000)
+            
+            opponentKmLabel.text = String(format:"%02.02f", distance/1000)
             let pace1 = Int(moveTime/Float(distance/1000))
             let pace2 = Int(pace1/60)
             let pace3 = Int(pace1%60)
@@ -146,57 +150,38 @@ extension RunActivityVC {
         }
     }
     
-    
     func miles(meters:Double)-> Double{
         let mile = 0.000621371192
         return meters * mile
     }
     
     func setLabel() {
-        levelLabel.text = "Lv."
-        levelLabel.font = UIFont(name: "NanumSquare", size: 12)
         
-        scoreLabel.text = "전적"
-        scoreLabel.font = UIFont(name: "NanumSquare", size: 12)
+        levelLabel.setLabel(text: "Lv.", color: .black, font: .nanumRegular(size: 12))
+        
+        scoreLabel.setLabel(text: "전적", color: .black, font: .nanumRegular(size: 12))
         
         opponentNickLabel.font = UIFont(name: "NanumSquareB", size: 12)
         opponentLevelLabel.font = UIFont(name: "NanumSquareB", size: 14)
         opponentScoreLabel.font = UIFont(name: "NanumSquareB", size: 14)
         
-        startTimeLabel.text = "00:00"
-        startTimeLabel.font = UIFont(name: "NanumSquareB", size: 14)
+        startTimeLabel.setLabel(text: "00:00", color: .black, font: .nanumBold(size: 14))
         
-        if maxTime == 1800.0 {
-            finishTimeLabel.text = "30:00"
-        } else if maxTime == 2700.0 {
-            finishTimeLabel.text = "40:00"
-        } else if maxTime == 3600.0 {
-            finishTimeLabel.text = "1:00:00"
-        } else if maxTime == 5400.0 {
-            finishTimeLabel.text = "1:30:00"
-        } else {
-            finishTimeLabel.text = "00:30"
-        }
+        finishTimeLabel.setLabel(text: String(Int(maxTime/60)) + ":00", color: .black, font: .nanumBold(size: 14))
+
+        kmLabel.setLabel(text: "킬로미터", color: .black, font: .nanumBold(size: 14))
         
-        finishTimeLabel.font = UIFont(name: "NanumSquareB", size: 14)
+        leftTimeLabel.setLabel(text: "남은시간", color: .black, font: .nanumBold(size: 14))
         
-        kmLabel.text = "킬로미터"
-        kmLabel.font = UIFont(name: "NanumSquareB", size: 14)
+        paceLabel.setLabel(text: "페이스", color: .black, font: .nanumBold(size: 16))
         
-        leftTimeLabel.text = "남은시간"
-        leftTimeLabel.font = UIFont(name: "NanumSquareB", size: 14)
-        
-        paceLabel.text = "페이스"
-        paceLabel.font = UIFont(name: "NanumSquareB", size: 16)
-        
-        opponentKmLabel.text = "0.00"
-        opponentKmLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 70)
+        opponentKmLabel.setLabel(text: "0.00", color: .black, font: .italicFont(size: 70))
         
         opponentLeftTimeLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 70)
         
-        opponentPaceLabel.text = "_'__''"
-        opponentPaceLabel.font = UIFont(name: "AvenirNext-BoldItalic", size: 36)
+        opponentPaceLabel.setLabel(text: "_'__''", color: .black, font: .italicFont(size: 36))
         
+        voiceLabel.setLabel(text: "음성 피드백", color: .black, font: .nanumBold(size: 18))
     }
     
     func setView() {
@@ -207,9 +192,6 @@ extension RunActivityVC {
         backBoxImage.image = UIImage(named: "runactivityWhitebox")
         runningInfoView.backgroundColor = UIColor.salmon
         runningInfoView.layer.cornerRadius = 12
-        
-        voiceLabel.text = "음성 피드백"
-        voiceLabel.font = UIFont(name: "NanumSquareB", size: 18)
         
         voiceOnButton.setTitle("ON", for: .normal)
         voiceOnButton.backgroundColor = UIColor.lightishBlue
@@ -231,38 +213,53 @@ extension RunActivityVC {
     }
     
     func setOpponentProfile() {
-        let inputLevel = UserDefaults.standard.object(forKey: "opponentLevel") ?? 0
-        let inputNick = UserDefaults.standard.object(forKey: "opponentNick") ?? " "
-        let inputWin = UserDefaults.standard.object(forKey: "opponentWin") ?? 0
-        let inputLose = UserDefaults.standard.object(forKey: "opponentLose") ?? 0
-        let inputImage = UserDefaults.standard.object(forKey: "opponentImg") ?? 0
+        
+        let inputLevel = UserDefaults.standard.integer(forKey: "opponentLevel")
+        let inputNick = UserDefaults.standard.string(forKey: "opponentNick")
+        let inputWin = UserDefaults.standard.integer(forKey: "opponentWin")
+        let inputLose = UserDefaults.standard.integer(forKey: "opponentLose")
+        let inputImage = UserDefaults.standard.integer(forKey: "opponentImg")
         
         let profileImageStruct = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail","iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunnowMeterhair"]
         
-        opponentImage.image = UIImage(named: profileImageStruct[(inputImage as? Int ?? 0) - 1])
-        opponentNickLabel.text = inputNick as? String ?? " "
-        opponentScoreLabel.text = "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
+        opponentImage.image = UIImage(named: profileImageStruct[(inputImage) - 1])
+        opponentNickLabel.text = inputNick
+        opponentScoreLabel.text = "\(inputWin)승 \(inputLose)패"
         
         let levelStruct = ["초급","중급","고급"]
-        opponentLevelLabel.text = levelStruct[(inputLevel as? Int ?? 0) - 1]
+        
+        opponentLevelLabel.text = levelStruct[(inputLevel) - 1]
         
     }
     
     @objc func runProgressbar() {
+        
         if moveTime < maxTime {
+            // 아직 시간이 남아 있다면?
             moveTime = moveTime + 1.0
+            // 경과 시간 + 1초
             runProgressBar.progress = moveTime/maxTime
+            // 프로그래스바 다시 설정
             perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
+            // 1초 후에 다시 함수 실행
+            
         } else {
+            
             moveTime = 0.0
-            if distance == nil {
-                move = 1
+            // 초기화
+            
+            if let distance = distance {
+                // 뛴 값이 있다면
+                move = Int(distance)
             } else {
-                move = Int(distance ?? 0)
+                // 뛰지 않았다면?
+                move = 1
             }
-            //            print(move, "뭘바요..")
+            
             UserDefaults.standard.set(move, forKey: "opponetDistance")
-            FindRunnerVC.socket.emit("endRunning", UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2 )
+            
+            FindRunnerVC.socket.emit("endRunning", UserDefaults.standard.string(forKey: "opponentRoom") ?? " ",UserDefaults.standard.integer(forKey: "opponetDistance"))
+
         }
     }
     
@@ -300,6 +297,8 @@ extension RunActivityVC {
     }
     
     @objc func setMap() {
+        // 네이버 맵 지도 설정
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         
