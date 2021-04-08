@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ydH-dS-7QA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zqb-kw-4dt">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +23,7 @@
                             </scrollView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8El-0R-Jvg" customClass="ButtonBarView" customModule="XLPagerTabStrip">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="xhv-ye-8ah"/>
                                 </constraints>
@@ -34,7 +36,8 @@
                                 <cells/>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="58a-dZ-H79"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="58a-dZ-H79" firstAttribute="trailing" secondItem="gAP-hn-JVE" secondAttribute="trailing" id="2tY-zn-1F0"/>
                             <constraint firstItem="gAP-hn-JVE" firstAttribute="top" secondItem="58a-dZ-H79" secondAttribute="top" constant="64" id="7CJ-se-xhj"/>
@@ -44,7 +47,6 @@
                             <constraint firstItem="8El-0R-Jvg" firstAttribute="top" secondItem="58a-dZ-H79" secondAttribute="top" id="rEg-JK-rTa"/>
                             <constraint firstItem="58a-dZ-H79" firstAttribute="trailing" secondItem="8El-0R-Jvg" secondAttribute="trailing" id="ve7-tt-Lmz"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="58a-dZ-H79"/>
                     </view>
                     <connections>
                         <outlet property="buttonBarView" destination="8El-0R-Jvg" id="z3a-IN-8Cj"/>
@@ -53,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGt-hA-XbT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-690" y="-861"/>
+            <point key="canvasLocation" x="-671" y="-861"/>
         </scene>
         <!--Record Tab ChildVC1-->
         <scene sceneID="gL9-QX-dZ1">
@@ -65,7 +67,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="scoreRecordCollectionView" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="be0-Zg-bv4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YGX-2N-URx">
                                     <size key="itemSize" width="191" height="191"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -145,14 +147,14 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="sba-zN-Knp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="be0-Zg-bv4" firstAttribute="top" secondItem="sba-zN-Knp" secondAttribute="top" id="Of6-NB-rZg"/>
                             <constraint firstItem="sba-zN-Knp" firstAttribute="bottom" secondItem="be0-Zg-bv4" secondAttribute="bottom" id="Zav-64-W1K"/>
                             <constraint firstItem="be0-Zg-bv4" firstAttribute="leading" secondItem="sba-zN-Knp" secondAttribute="leading" id="bkO-7J-yri"/>
                             <constraint firstItem="sba-zN-Knp" firstAttribute="trailing" secondItem="be0-Zg-bv4" secondAttribute="trailing" id="guS-jh-3SL"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="sba-zN-Knp"/>
                     </view>
                     <connections>
                         <outlet property="scoreRecordCollectionView" destination="be0-Zg-bv4" id="hii-Y1-lwd"/>
@@ -172,7 +174,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4YJ-KU-bLK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wc3-Fj-zdt">
                                     <size key="itemSize" width="307" height="487"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -215,14 +217,14 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gzF-6d-Ouu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4YJ-KU-bLK" firstAttribute="top" secondItem="gzF-6d-Ouu" secondAttribute="top" id="ZdM-yt-FDM"/>
                             <constraint firstItem="gzF-6d-Ouu" firstAttribute="trailing" secondItem="4YJ-KU-bLK" secondAttribute="trailing" id="eIm-5Y-OYs"/>
                             <constraint firstItem="4YJ-KU-bLK" firstAttribute="leading" secondItem="gzF-6d-Ouu" secondAttribute="leading" id="rbi-qJ-dfz"/>
                             <constraint firstItem="gzF-6d-Ouu" firstAttribute="bottom" secondItem="4YJ-KU-bLK" secondAttribute="bottom" id="z3H-HX-gMm"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="gzF-6d-Ouu"/>
                     </view>
                     <connections>
                         <outlet property="badgeCollectionView" destination="4YJ-KU-bLK" id="QKa-EA-kfI"/>
@@ -240,7 +242,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V94-LC-iwa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V94-LC-iwa">
                                 <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="V94-LC-iwa" secondAttribute="height" multiplier="48:48" id="DRH-UJ-LWP"/>
@@ -272,7 +274,8 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="DYv-2r-8VZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ylm-PF-EHW" firstAttribute="centerX" secondItem="cE4-Rj-PSU" secondAttribute="centerX" id="1Xn-Q0-dwt"/>
                             <constraint firstItem="dOd-C1-wZD" firstAttribute="centerX" secondItem="cE4-Rj-PSU" secondAttribute="centerX" id="IaI-9h-wa1"/>
@@ -287,7 +290,6 @@
                             <constraint firstItem="9qS-d4-CFT" firstAttribute="top" secondItem="DYv-2r-8VZ" secondAttribute="top" constant="93" id="wro-qz-vM1"/>
                             <constraint firstItem="wgV-4w-Ths" firstAttribute="width" secondItem="cE4-Rj-PSU" secondAttribute="width" multiplier="170/375" id="yqf-5u-jO8"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="DYv-2r-8VZ"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wnF-og-km1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -295,4 +297,9 @@
             <point key="canvasLocation" x="2096" y="-861"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

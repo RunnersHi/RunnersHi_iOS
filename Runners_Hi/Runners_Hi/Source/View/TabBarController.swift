@@ -33,7 +33,7 @@ class TabBarController: UITabBarController {
         //두번째탭
         let recordTabStoryboard = UIStoryboard.init(name: "RecordTab", bundle: nil)
         
-        guard let secondTab = recordTabStoryboard.instantiateViewController(identifier: "RecordTabParentVC") as? RecordTabParentVC else {
+        guard let secondTab = recordTabStoryboard.instantiateViewController(identifier: "RecordTabChildVC1") as? RecordTabChildVC1 else {
             return
         }
         secondTab.tabBarItem.image = UIImage(named: "icon8RecordUnsel")?.withRenderingMode(.alwaysOriginal)
