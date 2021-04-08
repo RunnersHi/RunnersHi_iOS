@@ -27,7 +27,8 @@ class ScoreRecordCell: UICollectionViewCell {
     scoreDateLabel.textColor = .brownishGrey
     getKmLabel.font = UIFont(name:"AvenirNext-BoldItalic", size:28.0)
     getTimeLabel.font = UIFont(name:"AvenirNext-BoldItalic", size:28.0)
-        
+    
+    // font 익스텐션 적용
     KmNameLabel.setLabel(text: "킬로미터", color: .black, font: .nanumBold(size: 14.0))
     TimeNameLabel.setLabel(text: "러닝시간", color: .black, font: .nanumBold(size: 12.0))
 
