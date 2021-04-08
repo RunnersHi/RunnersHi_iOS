@@ -26,13 +26,12 @@ class ScoreRecordCell: UICollectionViewCell {
     scoreDateLabel.font = UIFont(name:"NanumSquareR", size:12.0)
     scoreDateLabel.textColor = .brownishGrey
     getKmLabel.font = UIFont(name:"AvenirNext-BoldItalic", size:28.0)
-    KmNameLabel.font = UIFont(name:"NanumSquareR", size:14.0)
     getTimeLabel.font = UIFont(name:"AvenirNext-BoldItalic", size:28.0)
-    TimeNameLabel.font = UIFont(name:"NanumSquareR", size:12.0)
         
-    
-    self.KmNameLabel.text = "킬로미터"
-    self.TimeNameLabel.text = "러닝시간"
+    KmNameLabel.setLabel(text: "킬로미터", color: .black, font: .nanumBold(size: 14.0))
+    TimeNameLabel.setLabel(text: "러닝시간", color: .black, font: .nanumBold(size: 12.0))
+
+
     }
     
 }
