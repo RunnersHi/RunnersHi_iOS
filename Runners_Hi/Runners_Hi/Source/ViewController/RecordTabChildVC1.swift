@@ -14,14 +14,13 @@ class RecordTabChildVC1: UIViewController {
     @IBOutlet weak var scoreRecordCollectionView: UICollectionView!
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         self.view.backgroundColor = .backgroundgray
         self.scoreRecordCollectionView.backgroundColor = .backgroundgray
+        getRecord()
         scoreRecordCollectionView.dataSource = self
         scoreRecordCollectionView.delegate = self
-        super.viewDidLoad()
-        getRecord()
-        self.scoreRecordCollectionView.reloadData()
+       // self.scoreRecordCollectionView.reloadData()
     }
     
 }
@@ -29,8 +28,8 @@ class RecordTabChildVC1: UIViewController {
 
 extension RecordTabChildVC1: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 20
-        return RecordModel?.data.count ?? 0
+        return 20
+        //return RecordModel?.data.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -116,12 +115,10 @@ extension RecordTabChildVC1 {
             data in
             guard let `self` = self else {return}
             switch data {
-                
             case .success(let res):
                 let response = res as? RecordAllData<Result>
                 self.RecordModel = response
                 self.scoreRecordCollectionView.reloadData()
-                
             case .requestErr:
                 print(".requestErr")
             case .pathErr:

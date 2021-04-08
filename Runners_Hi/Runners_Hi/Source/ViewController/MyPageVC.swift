@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyPageVC: UIViewController {
+class MyPageVC: UIViewController, UICollectionViewDelegate {
     static let identifier: String = "MyPageVC"
     
     // Mark: Variable Part
@@ -37,7 +37,7 @@ extension MyPageVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let ProfileBadgeCell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileBadgeCell.identifier, for: indexPath) as? ProfileBadgeCell else { return UICollectionViewCell()}
-       
+        
         // 해당 셀에 데이터를 전달하고, 데이터에 맞게 뱃지를 세팅하도록 하는 함수를 호출한다
         ProfileBadgeCell.setMyProfileBadgeData(data: MyProfileModel, index: indexPath.row)
         
@@ -53,19 +53,19 @@ extension MyPageVC: UICollectionViewDataSource {
             MyProfileHeader.myPageHeaderData(data: MyProfileModel)
             
             return MyProfileHeader
-            default: assert(false, "오류") }
+        default: assert(false, "오류")
+            
+        }
+        
+        
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+            let width: CGFloat = collectionView.frame.width
+            let height: CGFloat = 359
+            return CGSize(width: width, height: height) }
         
     }
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let width: CGFloat = collectionView.frame.width
-        let height: CGFloat = 359
-        return CGSize(width: width, height: height) }
-    
 }
-
 extension MyPageVC: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
@@ -112,7 +112,7 @@ extension MyPageVC {
                 self.myPageCollectionView.reloadData()
                 self.myPageCollectionView.dataSource = self
                 self.myPageCollectionView.delegate = self
-            
+                
                 
             case .requestErr:
                 print(".requestErr")
@@ -127,3 +127,4 @@ extension MyPageVC {
         }
     }
 }
+
